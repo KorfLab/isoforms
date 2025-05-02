@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import isoform2
+import math
+import csv
+
+parser = argparse.ArgumentParser(
+	description='Test different distance equations on APC results')
+	
+parser.add_argument('apcgen_gffs', help='APC generated gff files')
+parser.add_argument('smallgenes', 
+	help='Directory with WormBase gff/fasta files')
+
+args = parser.parse_args()
+
+apc = {}
+for file in os.listdir(args.apcgen_gffs):
+	gid = file.split('.')[1]
+	if args.apcgen_gffs.endswith('/'):
+		apc[gid] = f'{args.apcgen_gffs}{file}'
+	else:
+		apc[gid] = f'{args.apcgen_gffs}/{file}'
+
+wb = {}
+for file in os.listdir(args.smallgenes):
+	gid = file.split('.')[1]
+	if file.endswith('.gff3'):
+		if args.smallgenes.endswith('/'):
+			wb[gid] = f'{args.smallgenes}{file}'
+		else:
+			wb[gid] = f'{args.smallgenes}/{file}'
+	
+genes = {}
+for a in apc:
+	i1 = isoform2.get_introns(apc[a])
+	i2 = isoform2.get_introns(wb[a])
+	genes[a] = (i1, i2)
+
+# use wormbase as reference, so you don't miss/make up introns
+def intsort(i1, i2):
+	
+	sdi1 = {}
+	for i in sorted(i1, key=lambda i: float(i1[i]), reverse=True):
+		sdi1[i] = i1[i]
+		
+	sdi2 = {}
+	for i in sorted(i2, key=lambda i: float(i2[i]), reverse=True):
+		sdi2[i] = i2[i]
+	
+	for i in sdi1:
+		if i not in sdi2: sdi2[i] = 0
+	
+	for i in sdi2:
+		if i not in sdi1: sdi1[i] = 0
+	
+	return sdi1, sdi2
+'''
+for g in genes:
+	si1, si2 = intsort(genes[g][0], genes[g][1])
+	for i, j in zip(si1, si2):
+		if i == j: print('same')
+'''
+# 1_100
+# 2_290
+si1, si2 = intsort(genes['1_100'][0], genes['1_100'][0])
+c1 = 0
+c2 = 0
+for i, j in zip(si1, si2):
+	c1 += 1
+	if i == j: 
+		print(i, j, si1[i], si2[j])
+		c2 += 1
+
+print(c1, c2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

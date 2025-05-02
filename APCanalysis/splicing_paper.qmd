@@ -341,8 +341,9 @@ lookat datacore2024/genome_celegans for the code
 do man u whit test on intron distributions
 https://www.r-tutor.com/elementary-statistics/non-parametric-methods/mann-whitney-wilcoxon-test
 ```{r}
-library(tidyvers)
+library(tidyverse)
 library(tidyr)
+library(dplyr)
 
 ifreqs <- read.csv("intron_frequencies.csv")
 
@@ -420,11 +421,50 @@ sum(tg$apc)
 sum(tg$wb)
 ```
 
+```{r}
+library("tidyverse")
+ifreqs <- read.csv("intron_frequencies.csv")
+
+wres <- ifreqs %>% 
+  group_by(gene_id) %>% 
+  summarise(
+    pval = wilcox.test(apc, wb, paired = TRUE)$p.value,
+    stat = wilcox.test(apc, wb, paired = TRUE)$statistic
+  )
+
+# need to drop 0s, or else everything is significantly different
+ifreqs0 <- read.csv("ifreqs0.csv")
+
+wres0 <- ifreqs0 %>% 
+  group_by(gene_id) %>% 
+  summarise(
+    pval = wilcox.test(apc, wb, paired = TRUE)$p.value,
+    stat = wilcox.test(apc, wb, paired = TRUE)$statistic
+  )
+
+
+```
 
 
 
+if you have 100,000 counts in a gene, make 100,000 counts in the other one
+then do stats
+Kind of instead of dropping 0s
+Cutoff of APC output would change depending on how many counts are in the APC
+Prob wouldn't get anything new
+Just drop the 0s
 
+Just chebyshev, manhattan not useful anymore
+What if there are 2 bad introns? cheby would not tell us which those are
+Cheby has a list of difs, so the information is there
 
+ratio is more interesting than absolute dif? instead of cheby
+greatest ratio difference
 
+APC misses some introns that were seen in the actual data, how many times does that happend? cutoff is not high enough
 
+ch.1_159 has 52 introns, 39 don't match apc
 
+trying leaving in the 0s in the apc data
+
+https://github.com/mslilyb/isoforks2/tree/main

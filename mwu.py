@@ -1,6 +1,6 @@
 import argparse
 import glob
-from scipy.stats import mannwhitneyu
+from scipy.stats import mannwhitneyu, wilcoxon
 
 from grimoire.genome import Reader
 import isoform2
@@ -49,9 +49,11 @@ for ff in glob.glob(f'{arg.genesdir}/*.fa'):
 	# create intersection of APC and rna as probabilities
 	rna2 = []
 	apc2 = []
+	d = []
 	for sig in rna.keys() & apc.keys():
 		rna2.append(rna[sig])
 		apc2.append(apc[sig])
+		d.append(apc[sig] - rna[sig])
 	rna2 = list2prob(rna2)
 	apc2 = list2prob(apc2)
 	#print(rna2)
@@ -59,4 +61,6 @@ for ff in glob.glob(f'{arg.genesdir}/*.fa'):
 
 	# do the test
 	U1, p = mannwhitneyu(apc2, rna2)
-	print(chrom.name, p, sep='\t', flush=True)
+	w, wp = wilcoxon(d)
+
+	print(chrom.name, len(apc2), p, wp, sep='\t', flush=True)

@@ -1,17 +1,18 @@
 import argparse
 import glob
-from scipy.stats import mannwhitneyu, wilcoxon
 
 from grimoire.genome import Reader
 import isoform2
 
-def list2prob(vec):
-	s = sum(vec)
-	p = []
-	for v in vec: p.append(v/s)
-	return p
+def convert_dict2prob(d):
+	s = sum(d.values())
+	for k, v in d.items():	d[k] /= s
 
-
+def compare(d1, d2):
+	goodness = 0
+	for sig in d1:
+		if sig in d2: goodness += min(d1[sig], d2[sig])
+	return goodness
 
 parser = argparse.ArgumentParser()
 parser.add_argument('genesdir', help='directory of genes (e.g. smallgenes)')
@@ -27,16 +28,27 @@ for ff in glob.glob(f'{arg.genesdir}/*.fa'):
 	gff = ff[:-2] + 'gff3'
 	genome = Reader(fasta=ff, gff=gff)
 	chrom = next(genome)
-	#print(chrom.name, flush=True)
-
+	
 	# RNA counts
 	rna = {}
 	for f in chrom.ftable.features:
 		if f.source != 'RNASeq_splice': continue
+		# remove introns that are in the flanks (there can be some)
+		if f.beg < 100 or f.end > len(chrom.seq) -100: continue
 		sig = (f.beg-1, f.end-1)
 		rna[sig] = f.score
-	#print('rna', rna)
-
+	convert_dict2prob(rna)
+	
+	# create intron counts from annotation data
+	gene = chrom.ftable.build_genes()[0] # there is only ever one
+	ann = {} # all annoated transcripts equally weighted
+	for tx in gene.transcripts():
+		for f in tx.introns:
+			sig = (f.beg-1, f.end-1)
+			if sig not in ann: ann[sig] = 0
+			ann[sig] += 1
+	convert_dict2prob(ann)
+		
 	# APC counts
 	locus = isoform2.Locus(chrom.name, chrom.seq, model, limit=arg.limit)
 	apc = {}
@@ -44,23 +56,9 @@ for ff in glob.glob(f'{arg.genesdir}/*.fa'):
 		for sig in iso.introns:
 			if sig not in apc: apc[sig] = 0
 			apc[sig] += iso.prob
-	#print('apc', apc)
+	convert_dict2prob(apc)
+	
+	print(chrom.name, gene.id, compare(rna, ann), compare(rna, apc), sep='\t', flush=True)
+	
 
-	# create intersection of APC and rna as probabilities
-	rna2 = []
-	apc2 = []
-	d = []
-	for sig in rna.keys() & apc.keys():
-		rna2.append(rna[sig])
-		apc2.append(apc[sig])
-		d.append(apc[sig] - rna[sig])
-	rna2 = list2prob(rna2)
-	apc2 = list2prob(apc2)
-	#print(rna2)
-	#print(apc2)
 
-	# do the test
-	U1, p = mannwhitneyu(apc2, rna2)
-	w, wp = wilcoxon(d)
-
-	print(chrom.name, len(apc2), p, wp, sep='\t', flush=True)

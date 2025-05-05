@@ -135,7 +135,7 @@ def entropy(ps):
 		h -= p * math.log2(p)
 	return h
 
-def kld(p, q):
+def dkl(p, q):
 	assert(math.isclose(sum(p), 1.0))
 	assert(math.isclose(sum(q), 1.0))
 	d = 0
@@ -158,6 +158,14 @@ def intersection(p, q): # aka dtc / 2
 	for pi, qi in zip(p, q):
 		d += min(pi, qi)
 	return 1 - d
+
+def d1(p, q):
+	assert(math.isclose(sum(p), 1.0, abs_tol=1e-6))
+	assert(math.isclose(sum(q), 1.0, abs_tol=1e-6))
+	d = 0
+	for pi, qi in zip(p, q):
+		if abs(pi - qi) > d: d = abs(pi - qi)
+	return d
 
 #########################
 ## SPLICEMODEL SECTION ##

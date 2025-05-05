@@ -16,7 +16,7 @@ def compare(d1, d2):
 		else:         p.append(0)
 		if sig in d2: q.append(d2[sig])
 		else:         q.append(0)
-	return isoform2.intersection(p, q), isoform2.manhattan(p, q)
+	return isoform2.intersection(p, q)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('genesdir', help='directory of genes (e.g. smallgenes)')

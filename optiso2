@@ -24,14 +24,14 @@ def set_fitness(guy, gene, rna):
 	total = sum(apc.values())
 	for intron in apc: apc[intron] /= total
 
-	# compute manhattan distance between isoform and rna introns
+	# compute intersection distance between isoform and rna introns
 	d1 = 0
 	for intron in apc.keys() | rna.keys():
 		if intron in apc and intron in rna: d1 += abs(apc[intron] - rna[intron])
 		elif intron in apc: d1 += apc[intron]
 		else: d1 += rna[intron]
 
-	guy['fitness'] = d1
+	guy['fitness'] = d1 / 2 # aka Manhattan distance / 2
 
 
 def random_guy():

@@ -5,7 +5,7 @@ import multiprocessing as mp
 from multiprocessing import Pool
 import time
 
-parser = argparse.ArgumentParser(description='wrapper for geniso2')
+parser = argparse.ArgumentParser(description='wrapper for geniso3')
 parser.add_argument('apc_dir', type=str, metavar='<directory>', 
     help='directory with APC .gff3 and .fa files')
 parser.add_argument('model', type=str, metavar='<file>',
@@ -16,8 +16,8 @@ parser.add_argument('--limit', required=False, type=int, default=100,
 	metavar='<int>', help='limit number of transcripts [%(default)i]')
 parser.add_argument('--weights', type=str, metavar='<file>',
     help='file with model weights')
-parser.add_argument('--program', required=False, type=str, default='geniso2', 
-    metavar='<executable>', help='path to geniso2')
+parser.add_argument('--program', required=False, type=str, default='geniso3', 
+    metavar='<executable>', help='path to geniso3')
 
 args = parser.parse_args()
 

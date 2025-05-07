@@ -16,6 +16,8 @@ parser.add_argument('--weights', required=False, type=str, metavar='<file>',
 	help='file with model weights, optional')
 parser.add_argument('--outdir', required=False, type=str, default='APCisos/',
 	metavar='<outdir>', help='name of output directory [%(default)s]')
+parser.add_argument('--outname', required=False, type=str, 
+	help='name for output gffs i.e. APC_optiso_nmd')
 parser.add_argument('--limit', required=False, type=int, default=100,
 	metavar='<int>', help='limit number of transcripts [%(default)i]')
 parser.add_argument('--nmd', action='store_true', 
@@ -121,11 +123,14 @@ if not os.path.exists(args.outdir):
     os.makedirs(args.outdir)
 
 for res in result:
-    gID = res.split('\n')[0].split(' ')[2]
-    f = open(f'{args.outdir}{gID}.APC.gff', 'w')
-    for line in res.split('\n'):
-        f.write(line+'\n')         
-    f.close()
+	gID = res.split('\n')[0].split(' ')[2]
+	if args.outname:
+		f = open(f'{args.outdir}{gID}.{args.outname}.gff', 'w')
+	else:
+		f = open(f'{args.outdir}{gID}.APC.gff', 'w')
+	for line in res.split('\n'):
+		f.write(line+'\n')         
+	f.close()
 
 end = time.perf_counter()
 print('time:', end-start)

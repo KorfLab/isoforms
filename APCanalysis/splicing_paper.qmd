@@ -10,6 +10,8 @@ editor: visual
 
 All possible combinations (APC) of exons and introns are generated from a given DNA sequence. Introns are gathered based only on canonical donor and acceptor sites. A modified backtracking algorithm is used to generate only valid combinations of introns (isoforms), for example introns that overlap would not be considered. This reduces the search space. **Need graph showing algorithm performance**
 
+Describe APC as a sort of HMM
+
 ## Smallgenes
 
 Due to the inefficiency of generating almost every possible isoform, our test data set needs to be limited in order to reduce the search space. Here we use a small genes data set, with the following constraints.
@@ -468,3 +470,5 @@ ch.1_159 has 52 introns, 39 don't match apc
 trying leaving in the 0s in the apc data
 
 https://github.com/mslilyb/isoforks2/tree/main
+
+for now: keep 0s that are in APC, drop wormbase

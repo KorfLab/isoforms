@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # Isoforms
 
 ## Programs
@@ -78,6 +72,8 @@ estimate of intron frequency, divide intron counts by 20 billion.
 -   `smallgenes.tar.gz` - contains the smallgenes dataset
 -   `models/worm.splicemodel` - APC models for use with geniso2/3
 -   `results_optiso2.csv` - model weights for each gene
+-   `APCisos1.tar.gz` - APC results with optiso and nmd
+-   `APCisos2.tar.gz` - APC results with optiso
 
 ## Generating APC isoforms
 

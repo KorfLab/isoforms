@@ -3,6 +3,11 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('genome')
 parser.add_argument('gff')
+parser.add_argument('--c', action='store_true', 
+	help='gather only canonical GT/AG splice sites') 
+parser.add_argument('--flank', required=False, type=int, 
+	default=5, help='gather n amount of nucleotides on either side '
+	'of intron boundary [%(default)i]')
 
 args = parser.parse_args()
 
@@ -46,7 +51,6 @@ with open(args.genome, 'r') as fp:
 accs = []
 dons = []
 iseqs = []
-
 for i in introns:
 	beg = i[1]-1
 	end = i[2]
@@ -57,15 +61,29 @@ for i in introns:
 		iseq = chroms[i[0]][beg-5:end+5]
 	aseq = iseq[-6:]
 	dseq = iseq[:5]
-	if aseq.endswith('AG'):
+	if args.c:
+		if aseq.endswith('AG'):
+			accs.append(aseq)
+		if dseq.startswith('GT'):
+			dons.append(dseq)
+	else:
 		accs.append(aseq)
-	if dseq.startswith('GT'):
 		dons.append(dseq)
 	iseqs.append(iseq)
 
 with open('introns.txt', 'w') as ifp:
-	for i in iseqs:
-		ifp.write(f'{i}\n')
+	for iseq in iseqs:
+		ifp.write(f'{iseq}\n')
+
+with open('donors.txt', 'w') as dfp:
+	for dseq in dons:
+		dfp.write(f'{dseq}\n')
+
+with open('acceptors.txt', 'w') as afp:
+	for aseq in accs:
+		afp.write(f'{aseq}\n')
+
+
 
 
 

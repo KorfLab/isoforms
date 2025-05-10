@@ -46,7 +46,6 @@ https://www.simplilearn.com/tutorials/statistics-tutorial/chi-square-test#chisqu
 library(dplyr)
 ```
 
-
 ```{r}
 # this is the same as pwmtest.py in isoforms
 obs <- c(1462, 601, 5244, 1342)
@@ -58,6 +57,7 @@ chisq.test(obs, p=exp)
 use lintr to check for style
 
 Maybe just use the chi square statistic
+
 ```{r}
 d <- read.csv("donor_counts.csv", header = FALSE)
 a <- read.csv("acceptor_counts.csv", header = FALSE)
@@ -85,7 +85,6 @@ dres$chi_stat <- dstat
 ares$chi_stat <- astat
 ```
 
-
 ```{r}
 data <- read.csv("donor_counts.csv", header = FALSE)
 counts <- data %>% slice(-1)
@@ -106,8 +105,8 @@ pval <- lapply(ctests, function(x) x$p.value)
 results$stat <- stat
 ```
 
-instead of chi square, what does manhattan distance look like?
-not good
+instead of chi square, what does manhattan distance look like? not good
+
 ```{r}
 data <- read.csv("donor_counts.csv", header = FALSE)
 counts <- data %>% slice(-1)
@@ -118,7 +117,6 @@ nums <- lapply(split(counts, seq_len(nrow(counts))), function (x) as.numeric(x))
 m <- lapply(nums, function(x) x - exp)
 md <- lapply(m, function(x) sum(abs(x)))
 ```
-
 
 ```{r}
 
@@ -133,7 +131,6 @@ myenvs
 use_condaenv("Renv")
 # can only be run once?
 ```
-
 
 ```{python}
 # need to load conda environment first
@@ -273,17 +270,12 @@ p
 # http://vassarstats.net/textbook/ch14pt2.html
 # https://courses.lumenlearning.com/introstats1/chapter/the-f-distribution-and-the-f-ratio/
 ```
-The more introns we have, the distances get smaller because there are more introns to even out bad ones. Manhattan distance is not good at ranking genes, does not consider if single intron is bad.
-Use CHERBYSEV distance to find the genes with the worst intron.
-Optiso with CHERB (D1) compare DTC and D1, Cartesian, Kulback
-Need fig to show different distances don't really matter, "worst 10% will be the same"
-saw online that you can use a heatmap to represent statistical differences between pairs, so one cube is one comparisson
 
-See this for distances:
-# identical(nums[[12]], c(2450, 1080, 1596, 3523))
+The more introns we have, the distances get smaller because there are more introns to even out bad ones. Manhattan distance is not good at ranking genes, does not consider if single intron is bad. Use CHERBYSEV distance to find the genes with the worst intron. Optiso with CHERB (D1) compare DTC and D1, Cartesian, Kulback Need fig to show different distances don't really matter, "worst 10% will be the same" saw online that you can use a heatmap to represent statistical differences between pairs, so one cube is one comparisson
+
+See this for distances: \# identical(nums\[\[12\]\], c(2450, 1080, 1596, 3523))
 
 Venn diagram for comparing different distance equations? But hen need a hard cutoff
-
 
 ```{r}
 library(multcompView)
@@ -340,8 +332,8 @@ Transcripts on WB have varrying support for each intron. What is that variation?
 
 lookat datacore2024/genome_celegans for the code
 
-do man u whit test on intron distributions
-https://www.r-tutor.com/elementary-statistics/non-parametric-methods/mann-whitney-wilcoxon-test
+do man u whit test on intron distributions https://www.r-tutor.com/elementary-statistics/non-parametric-methods/mann-whitney-wilcoxon-test
+
 ```{r}
 library(tidyverse)
 library(tidyr)
@@ -389,7 +381,9 @@ result <- test %>%
     s = wilcox.test(X2, X3, paired = TRUE)$statistic
   )
 ```
+
 https://www.geeksforgeeks.org/how-to-merge-two-dataframes-in-r/
+
 ```{r}
 t1 <- data.frame(
     cbind(rep('g1', 10), 
@@ -413,10 +407,10 @@ result <- t %>%
     s = wilcox.test(X2, X3, paired = TRUE, exact = FALSE)$statistic
   )
 ```
-make sure all the parameters are the same
-results are the same now
-d <- t[t$X1 == 'g1',]
-wilcox.test(d$X2, d$X3, paired = TRUE, exact = FALSE)
+
+make sure all the parameters are the same results are the same now d \<- t\[t$X1 == 'g1',]
+wilcox.test(d$X2, d\$X3, paired = TRUE, exact = FALSE)
+
 ```{r}
 tg <- ifreqs[ifreqs$gene_id == '2_325',]
 sum(tg$apc)
@@ -447,21 +441,11 @@ wres0 <- ifreqs0 %>%
 
 ```
 
+if you have 100,000 counts in a gene, make 100,000 counts in the other one then do stats Kind of instead of dropping 0s Cutoff of APC output would change depending on how many counts are in the APC Prob wouldn't get anything new Just drop the 0s
 
+Just chebyshev, manhattan not useful anymore What if there are 2 bad introns? cheby would not tell us which those are Cheby has a list of difs, so the information is there
 
-if you have 100,000 counts in a gene, make 100,000 counts in the other one
-then do stats
-Kind of instead of dropping 0s
-Cutoff of APC output would change depending on how many counts are in the APC
-Prob wouldn't get anything new
-Just drop the 0s
-
-Just chebyshev, manhattan not useful anymore
-What if there are 2 bad introns? cheby would not tell us which those are
-Cheby has a list of difs, so the information is there
-
-ratio is more interesting than absolute dif? instead of cheby
-greatest ratio difference
+ratio is more interesting than absolute dif? instead of cheby greatest ratio difference
 
 APC misses some introns that were seen in the actual data, how many times does that happend? cutoff is not high enough
 

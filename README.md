@@ -73,7 +73,9 @@ estimate of intron frequency, divide intron counts by 20 billion.
 -   `models/worm.splicemodel` - APC models for use with geniso2/3
 -   `results_optiso2.csv` - model weights for each gene
 -   `APCisos1.tar.gz` - APC results with optiso and nmd
--   `APCisos2.tar.gz` - APC results with optiso
+-   `APCisos2.tar.gz` - APC results with optiso only
+-   `APCisos3.tar.gz` - APC results with nmd only
+-   `APCisos4.tar.gz` - APC results without optiso and nmd
 
 ## Generating APC isoforms
 

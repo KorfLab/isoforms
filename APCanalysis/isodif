@@ -3,15 +3,20 @@
 import argparse
 import os
 import isoform2
-import math
 import csv
+import copy
 
 parser = argparse.ArgumentParser(
-	description='Test different distance equations on APC results')
+	description=(
+		'Test different distance equations on APC results, '
+		'get intron frequencies'
+	)
+)
 	
 parser.add_argument('apcgen_gffs', help='APC generated gff files')
 parser.add_argument('smallgenes', 
 	help='Directory with WormBase gff/fasta files')
+parser.add_argument('--outf', required=False, help='outfile name')
 
 args = parser.parse_args()
 
@@ -31,36 +36,14 @@ for file in os.listdir(args.smallgenes):
 			wb[gid] = f'{args.smallgenes}{file}'
 		else:
 			wb[gid] = f'{args.smallgenes}/{file}'
-
+	
 genes = {}
-for a in apc:
-	i1 = isoform2.get_introns(apc[a])
-	i2 = isoform2.get_introns(wb[a])
-	genes[a] = (i1, i2)
-	
+for gid in apc:
+	wb_ints = isoform2.get_introns(wb[gid])
+	apc_ints = isoform2.get_introns(apc[gid])
+	genes[gid] = (wb_ints, apc_ints)
 
-'''
-def intsort(i1, i2):
-	
-	sdi1 = {}
-	for i in sorted(i1, key=lambda i: float(i1[i]), reverse=True):
-		sdi1[i] = i1[i]
-		
-	sdi2 = {}
-	for i in sorted(i2, key=lambda i: float(i2[i]), reverse=True):
-		sdi2[i] = i2[i]
-	
-	for i in sdi1:
-		if i not in sdi2: sdi2[i] = 0
-	
-	for i in sdi2:
-		if i not in sdi1: sdi1[i] = 0
-	
-	return sdi1, sdi2
-'''
-# not using copy is not the issue
-import copy
-def intsort(introns1, introns2):
+def add_zeroes(introns1, introns2):
 	
 	i1 = copy.deepcopy(introns1)
 	i2 = copy.deepcopy(introns2)
@@ -70,146 +53,54 @@ def intsort(introns1, introns2):
 	
 	for i in i2:
 		if i not in i1: i1[i] = 0
-	
+		
 	return i1, i2
-
-#in1 = isoform2.get_introns(apc['1_100'])
-#in2 = isoform2.get_introns(wb['1_100'])
-
-#s1, s2 = intsort(in1, in2)
-'''	
-print(len(s1), len(s2))	
-for i, j in zip(s1, s2):
-	print(i, j)
-	print(s1[i], s2[j])
+	
+# do i really need to use deepcopy?
 '''
-# shouldn't a, b be the same intron??
-#for g in genes:
-#	i1, i2 = intsort(genes[g][0], genes[g][1])
-#	for i, j in zip(i1, i2):
-#		print(i, j)
-	#print(g, genes[g][0], '*($&@', genes[g][1], '@#@#')
-	#print(i1, i2)
-	#for a, b in zip(i1, i2):
-	#	print(a, b, i1[a], i2[b])
+def add_zeroes(introns1, introns2):
 	
-# for chebyshev DO NOT add 0s. not needed
-# cannot calc chebyshev for ones that do not share introns
-# ignore undefined, or group together
-# if undefined 0
-	
-dtcs = {}
-dkls = {}
-dchs = {}
-freqs = {}
-gs = []
-for g in genes:
-	ints1, ints2 = intsort(genes[g][0], genes[g][1])
-	##print(len(ints1), len(ints2))
-	for i, j in zip(ints1, ints2):
-		#print(i, j)
-		if i == j: 
-			if g not in gs:
-				gs.append(g)
-		if i != j:
-			print(g)
-		#print(ints1[i], ints2[j])
-		#if ints1[i] == 0 and ints2[j] == 0: continue
-		#if ints1[i] == 0:
-		#	if g not in gs:
-		#		gs.append(g)
-			#print(g, ints1[i], ints2[j])
-	dtc = 0
-	dkl = 0
-	ch_vals = []
-	for i in ints1:
-		pf = ints1[i]
-		qf = ints2[i]
-		# gene_id: (apc, wb)
-		if g not in freqs:
-			freqs[g] = [(pf, qf)]
-		else:
-			freqs[g].append((pf, qf))
-		if pf == 0 or qf == 0: continue
-		ch_vals.append(abs(pf-qf))
-		dkl += pf * math.log(pf/qf)
-		dtc += abs(pf-qf)
-	dtcs[g] = dtc
-	dkls[g] = dkl
-	if len(ch_vals) == 0: 
-		dchs[g] = 'NA'
-	else:
-		dchs[g] = max(ch_vals)
-print(len(gs))
-with open('intron_frequencies.csv', 'w') as csvfile:
-	fwriter = csv.writer(csvfile)
-	fwriter.writerow(['gene_id', 'apc', 'wb'])
-	for gn in freqs:
-		for fq in freqs[gn]:
-			# drop non-shared introns
-			if fq[0] == 0 or fq[1] == 0: continue
-			fwriter.writerow([gn, fq[0], fq[1]])
+	for i in introns1:
+		if i not in introns2:
+			introns2[i] = 0
 			
-# don't drop 0s
-with open('ifreqs0.csv', 'w') as csvfile:
-	fwriter = csv.writer(csvfile)
-	fwriter.writerow(['gene_id', 'apc', 'wb'])
-	for gn in freqs:
-		for fq in freqs[gn]:
-			fwriter.writerow([gn, fq[0], fq[1]])
+	for i in introns2:
+		if i not in introns1:
+			introns1[i] = 0		
+			
+	return introns1, introns2
+'''
+
+shared_freqs = {}
+# need to come back to this
+# compare to isoforks2
+no_shared = []
+missed_gids = []
+for gid in genes:
+	# use wormbase as reference, so you don't miss/make up introns
+	ints1, ints2 = add_zeroes(genes[gid][0], genes[gid][1])
+	shared_ints = []
+	for i in ints1:
+		if ints1[i] != 0 and ints2[i] == 0: 
+			if gid not in missed_gids: missed_gids.append(gid)
+		if ints1[i] != 0 and ints2[i] != 0: 
+			shared_ints.append((ints1[i], ints2[i]))
+	if len(shared_ints) == 0: 
+		if gid not in no_shared:
+			no_shared.append(gid)
+	else:
+		shared_freqs[gid] = shared_ints
+
+if args.outf: outname = args.outf
+else: outname = 'out_isodif.csv'
+
+with open(outname, 'w') as csvfile:
+	int_writer = csv.writer(csvfile)
+	int_writer.writerow(['gene_id', 'wb', 'apc'])
+	for gene in shared_freqs.items():
+		for intron in gene[1]:
+			int_writer.writerow([gene[0], intron[0], intron[1]])
 		
-with open('intron_distances.csv', 'w') as csvfile:
-	dwriter = csv.writer(csvfile)
-	dwriter.writerow(['gene_id', 'dtc', 'dkl', 'dchs'])
-	for gn in dtcs:
-		dwriter.writerow([g, dtcs[g], dkls[g], dchs[g]])
-
-
-	
-	
-	
-'''	
-# use get_introns directly
-with open('fget.csv', 'w') as csvfile:
-	gwriter = csv.writer(csvfile)
-	gwriter.writerow(['gene_id', 'apc', 'wb'])
-	for g in genes:
-		for q in genes[g]:
-			gwriter.writerow([g, q[0], q[1]])
-'''
-		
-
-
-
-'''
-# 1_490 does not share any introns between APC and WB?
-ints1, ints2 = intsort(genes['1_490'][0], genes['1_490'][1])
-
-m = 0
-for i in ints1:
-	print(ints1[i], ints2[i], i)
-	pf = ints1[i]
-	qf = ints2[i]
-	if pf == 0 or qf == 0: continue
-	#print(pf, qf)
-	#print(abs(pf-qf))
-	m += abs(pf-qf)
-	
-print(m)
-'''
-'''
-print(f'gene_id,dtc,dkl,dchs')
-for g in dtcs:
-	print(f'{g},{dtcs[g]},{dkls[g]},{dchs[g]}')
-'''
-'''
-with open('../smallgenes/ch.1_490.gff3', 'r') as fp:
-	for line in fp.readlines():
-		line = line.rstrip()
-		line = line.split('\t')
-		if line[2] == 'intron':
-			print(line)
-'''
 
 
 
@@ -221,8 +112,3 @@ with open('../smallgenes/ch.1_490.gff3', 'r') as fp:
 
 
 
-
-
-
-	
-	

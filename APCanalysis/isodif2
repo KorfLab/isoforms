@@ -5,9 +5,14 @@ import os
 import isoform2
 import math
 import csv
+import copy
 
 parser = argparse.ArgumentParser(
-	description='Test different distance equations on APC results')
+	description=(
+		'Test different distance equations on APC results, '
+		'get intron frequencies'
+	)
+)
 	
 parser.add_argument('apcgen_gffs', help='APC generated gff files')
 parser.add_argument('smallgenes', 
@@ -33,101 +38,69 @@ for file in os.listdir(args.smallgenes):
 			wb[gid] = f'{args.smallgenes}/{file}'
 	
 genes = {}
-for a in apc:
-	wbi = isoform2.get_introns(wb[a])
-	apci = isoform2.get_introns(apc[a])
-	genes[a] = (wbi, apci)
+for gid in apc:
+	wb_ints = isoform2.get_introns(wb[gid])
+	apc_ints = isoform2.get_introns(apc[gid])
+	genes[gid] = (wb_ints, apc_ints)
 
-# use wormbase as reference, so you don't miss/make up introns
-def intsort(i1, i2):
+def add_zeroes(introns1, introns2):
 	
-	sdi1 = {}
-	for i in sorted(i1, key=lambda i: float(i1[i]), reverse=True):
-		sdi1[i] = i1[i]
+	i1 = copy.deepcopy(introns1)
+	i2 = copy.deepcopy(introns2)
+	
+	for i in i1:
+		if i not in i2: i2[i] = 0
+	
+	for i in i2:
+		if i not in i1: i1[i] = 0
 		
-	sdi2 = {}
-	for i in sorted(i2, key=lambda i: float(i2[i]), reverse=True):
-		sdi2[i] = i2[i]
+	return i1, i2
 	
-	for i in sdi1:
-		if i not in sdi2: sdi2[i] = 0
+# do i really need to use deepcopy?
+'''
+def add_zeroes(introns1, introns2):
 	
-	for i in sdi2:
-		if i not in sdi1: sdi1[i] = 0
+	for i in introns1:
+		if i not in introns2:
+			introns2[i] = 0
+			
+	for i in introns2:
+		if i not in introns1:
+			introns1[i] = 0		
+			
+	return introns1, introns2
+'''
+
+shared_freqs = {}
+# need to come back to this
+strange_gids = []
+for gid in genes:
+	# use wormbase as reference, so you don't miss/make up introns
+	ints1, ints2 = add_zeroes(genes[gid][0], genes[gid][1])
+	shared_ints = []
+	for i in ints1:
+		if ints1[i] != 0 and ints2[i] == 0: 
+			if gid not in strange_gids: strange_gids.append(gid)
+		if ints1[i] != 0 and ints2[i] != 0: 
+			shared_ints.append((ints1[i], ints2[i]))
+	if len(shared_ints) == 0: print('no share')
+	shared_freqs[gid] = shared_ints
 	
-	return sdi1, sdi2
+#for item in shared_freqs.items():#
+#	print(item[1][0])
 
-same_ints = {}
-dif_ints = {}
-for g in genes:
-	si1, si2 = intsort(genes[g][0], genes[g][1])
-	for i, j in zip(si1, si2):
-		if i == j: 
-			if g not in same_ints:
-				same_ints[g] = 1
-			else:
-				same_ints[g] += 1
-		if i != j:
-			if g not in dif_ints:
-				dif_ints[g] = 1
-			else:
-				dif_ints[g] += 1
+print(len(strange_gids))
 
-#print(dif_ints)
+print(strange_gids)
 
-# some dif ints to look at:
-# 1_134, 2_315, 3_6
-
-si1, si2 = intsort(genes['2_315'][0], genes['2_315'][1])
-c1 = 0
-c2 = 0
-for i, j in zip(si1, si2):
-	c1 += 1
-	if i == j: 
-		print(i, j, si1[i], si2[j], 'same')
-		c2 += 1
-	if i != j:
-		print(i, j, si1[i], si2[j], 'dif')
-
-print(c1, c2)
-
-print('#####')
-
-introns = {}
-for i in genes['2_315'][0]:
-	if i not in genes['2_315'][1]:
-		introns[i] 
-
-print('#####')
-	
-i1 = genes['2_315'][0]
-i2 = genes['2_315'][1]
-
-new = {}
+i1, i2 = add_zeroes(genes['1_540'][0], genes['1_540'][1])
 for i in i1:
-	if i not in i2:
-		i2[i] = 0
-		
-for i in i2:
-	if i not in i1:
-		i1[i] = 0
-		
-for i in i2:
-	print(i, i2[i])
-print('#####')
-for i in i1:
-	print(i, i1[i])
-	
-si1 = sorted(i1, key=lambda i: float(i1[i]), reverse=True)
-si2 = sorted(i2, key=lambda i: float(i1[i]), reverse=True)
-
-for i, j in zip(si1, si2):
-	print(i, j)
+	print(i1[i], i2[i], i)
 
 
 
-
-
+# 3_46 missed intron is canonical and in-bounds, a true miss?
+# same for 1_540?
 
 
 

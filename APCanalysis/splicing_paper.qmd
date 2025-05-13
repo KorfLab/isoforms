@@ -140,10 +140,6 @@ import matplotlib.pyplot as plt
 import logomaker
 ```
 
-```{r}
-
-```
-
 ```{python}
 introns = "lessintrons.txt"
 with open(introns, 'r') as fp:
@@ -197,17 +193,38 @@ pwm <- data.frame(p1, p2, p3, p4, p5) %>%
   tibble::as_tibble() %>% 
   as.data.frame() %>% 
   setNames(nuc) 
+
+dpwm <- read.csv("donor_side_pwm.csv", header=FALSE)
+colnames(dpwm) <- c('A', 'C', 'G', 'T')
+
+dpwm2 <- dpwm %>% 
+  slice(6:11)
  
+apwm <- read.csv("acceptor_side_pwm.csv", header=FALSE)
+colnames(apwm) <- c('A', 'C', 'G', 'T')
+
+apwm2 <- apwm %>% 
+  slice(20:25)
 
 ```
 
 ```{python}
 test_logo = logomaker.Logo(r.pwm, shade_below=.5,
 fade_below=.5)
+```
 
+
+```{python}
+
+dlogo = logomaker.Logo(r.dpwm2, shade_below=.5,fade_below=.5)
 plt.show()
 
 ```
+```{python}
+alogo = logomaker.Logo(r.apwm2, shade_below=.5,fade_below=.5)
+plt.show()
+```
+
 
 How is the intron frequency calculated? See modelbuilder line 78 len(introns) / exon sum Total number of introns over total number of exon sequences Example with actual numbers: 1570 introns in the smallgenes dataset 489418 total number of exon bases inf = 1570/489418 = 0.00320...
 

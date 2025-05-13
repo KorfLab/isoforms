@@ -1,6 +1,7 @@
 import argparse
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description='gathers intron, donor, ' 
+	'and acceptor sequences for PWM training')
 parser.add_argument('genome')
 parser.add_argument('gff')
 parser.add_argument('--c', action='store_true', 

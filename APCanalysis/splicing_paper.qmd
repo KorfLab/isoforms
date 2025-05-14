@@ -544,6 +544,24 @@ r0 <- z %>%
 
 
 
+```{r}
+library(ggplot2)
+
+lines <- readLines("../models/exon.len")
+lines <- lines[-1]
+df <- data.frame(text = lines)
+df$text <- as.numeric(df$text)
+df$index <- 1:nrow(df)
+
+ggplot(df, aes(x = index, y = text)) +
+  geom_line(color = "blue", size = 2) +
+  labs(x = "Length", y = "Score") +
+  theme_minimal() +
+  theme(
+    axis.title.x = element_text(size = 25),
+    axis.title.y = element_text(size = 25)
+  )
+```
 
 
 

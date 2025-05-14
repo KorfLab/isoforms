@@ -477,6 +477,8 @@ for now: keep 0s that are in APC, drop wormbase
 
 make tables: https://r-graph-gallery.com/package/gt.html
 
+
+http://courses.atlas.illinois.edu/spring2016/STAT/STAT200/RProgramming/NonParametricStats.html
 ```{r}
 ifreqs1 <- read.csv("ifreqs1.csv")
 ifreqs2 <- read.csv("ifreqs2.csv")
@@ -513,12 +515,31 @@ wres4 <- ifreqs4 %>%
 ```
 
 ```{r}
-n1 <- nrow(wres1[wres1$pval < 0.5,])
-n2 <- nrow(wres2[wres2$pval < 0.5,])
-n3 <- nrow(wres3[wres3$pval < 0.5,])
-n4 <- nrow(wres4[wres4$pval < 0.5,])
+# results are different with and without 0s
+# what do about those warnings
+n1 <- nrow(wres1[wres1$pval < 0.05,])
+n2 <- nrow(wres2[wres2$pval < 0.05,])
+n3 <- nrow(wres3[wres3$pval < 0.05,])
+n4 <- nrow(wres4[wres4$pval < 0.05,])
 ```
 
+```{r}
+write.csv(wres1,"with_optiso_nmd.csv", row.names = FALSE)
+write.csv(wres4,"without_optiso_nmd.csv", row.names = FALSE)
+
+```
+
+
+```{r}
+z <- read.csv("zeroes.csv")
+
+r0 <- z %>% 
+  group_by(gene_id) %>% 
+  summarise(
+    pval = wilcox.test(apc, wb, paired = TRUE)$p.value,
+    stat = wilcox.test(apc, wb, paired = TRUE)$statistic
+  )
+```
 
 
 

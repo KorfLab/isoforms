@@ -71,25 +71,17 @@ def add_zeroes(introns1, introns2):
 	return introns1, introns2
 '''
 
+# only keep a 0 if it is in wb but not apc
+# means we failed to predict this intron
 shared_freqs = {}
-# need to come back to this
-# compare to isoforks2
-no_shared = []
-missed_gids = []
 for gid in genes:
 	# use wormbase as reference, so you don't miss/make up introns
 	ints1, ints2 = add_zeroes(genes[gid][0], genes[gid][1])
 	shared_ints = []
 	for i in ints1:
-		if ints1[i] != 0 and ints2[i] == 0: 
-			if gid not in missed_gids: missed_gids.append(gid)
-		if ints1[i] != 0 and ints2[i] != 0: 
-			shared_ints.append((ints1[i], ints2[i]))
-	if len(shared_ints) == 0: 
-		if gid not in no_shared:
-			no_shared.append(gid)
-	else:
-		shared_freqs[gid] = shared_ints
+		if ints1[i] == 0: continue 
+		shared_ints.append((ints1[i], ints2[i]))
+	shared_freqs[gid] = shared_ints
 
 if args.outf: outname = args.outf
 else: outname = 'out_isodif.csv'
@@ -99,6 +91,8 @@ with open(outname, 'w') as csvfile:
 	int_writer.writerow(['gene_id', 'wb', 'apc'])
 	for gene in shared_freqs.items():
 		for intron in gene[1]:
+			# mannu test requires no 0s
+			#if intron[0] == 0 or intron[1] == 0: continue
 			int_writer.writerow([gene[0], intron[0], intron[1]])
 		
 

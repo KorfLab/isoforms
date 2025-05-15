@@ -7,6 +7,11 @@ import math
 import random
 import sys
 
+def anti(seq):
+	comp = str.maketrans('ACGTRYMKWSBDHV', 'TGCAYRKMWSVHDB')
+	anti = seq.translate(comp)[::-1]
+	return anti
+
 GCODE = {
 	'AAA' : 'K',	'AAC' : 'N',	'AAG' : 'K',	'AAT' : 'N',
 	'AAR' : 'K',	'AAY' : 'N',	'ACA' : 'T',	'ACC' : 'T',

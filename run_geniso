@@ -29,16 +29,21 @@ parser.add_argument('--cpu', required=False, type=int, default=1,
 
 args = parser.parse_args()
 
+if args.apc_dir.endswith('/'): 
+	adir = args.apc_dir
+else:
+	adir = args.apc_dir + '/'
+
 fpaths = {}
-for file in os.listdir(args.apc_dir):
-	gID = file.split('.')[1]
+for file in os.listdir(adir):
+	gID = '.'.join(file.split('.')[1:3])
 	if gID not in fpaths:
 		fpaths[gID] = [(), ()]
 	if file.endswith('.fa'):
-		fpaths[gID][0] = f'{args.apc_dir}{file}'
+		fpaths[gID][0] = f'{adir}{file}'
 	if file.endswith('.gff3'):
-		fpaths[gID][1] = f'{args.apc_dir}{file}'
-
+		fpaths[gID][1] = f'{adir}{file}'
+		
 # why does using no weights make the program run slower?
 if args.weights:
 	weights = {}
@@ -134,3 +139,4 @@ for res in result:
 
 end = time.perf_counter()
 print('time:', end-start)
+

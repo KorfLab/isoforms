@@ -48,21 +48,3 @@ for ff in glob.glob(f'{arg.dir}/*.fa'):
 for n, x in d.items():
 	print(n, x/genes, sep='\t')
 
-			
-	
-
-"""
-	
-	
-	for exp in range(5):
-		seen = set()
-		for i in range(10, 1000, 10):
-			for intron in random.choices(introns, weights=scores, k=i):
-				seen.add(intron)
-			n = len(seen) # number of introns seen so far
-			if i not in icount: icount[i] = []
-			icount[i].append(n)
-	
-	for samples, data in icount.items():
-		print(samples, statistics.mean(data), flush=True)
-"""

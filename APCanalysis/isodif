@@ -92,7 +92,7 @@ with open(outname, 'w') as csvfile:
 	for gene in shared_freqs.items():
 		for intron in gene[1]:
 			# mannu test requires no 0s
-			#if intron[0] == 0 or intron[1] == 0: continue
+			if intron[0] == 0 or intron[1] == 0: continue
 			int_writer.writerow([gene[0], intron[0], intron[1]])
 		
 

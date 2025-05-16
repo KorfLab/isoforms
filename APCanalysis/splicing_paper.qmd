@@ -517,10 +517,10 @@ wres4 <- ifreqs4 %>%
 ```{r}
 # results are different with and without 0s
 # what do about those warnings
-n1 <- nrow(wres1[wres1$pval < 0.05,])
-n2 <- nrow(wres2[wres2$pval < 0.05,])
-n3 <- nrow(wres3[wres3$pval < 0.05,])
-n4 <- nrow(wres4[wres4$pval < 0.05,])
+optnmd <- nrow(wres1[wres1$pval < 0.05,])
+opt <- nrow(wres2[wres2$pval < 0.05,])
+nmd <- nrow(wres3[wres3$pval < 0.05,])
+neither <- nrow(wres4[wres4$pval < 0.05,])
 ```
 
 ```{r}

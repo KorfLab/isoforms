@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+
+import argparse
+import sys
+
+import isoform2
+from isoform2 import Locus
+
+parser = argparse.ArgumentParser(
+	description='Alternative isoform generator')
+parser.add_argument('fasta', type=str, metavar='<fasta file>',
+	help='input fasta file (reads only the first sequence if multi-fasta)')
+parser.add_argument('model', type=str, metavar='<splice model>',
+	help='input splicemodel file')
+parser.add_argument('--out', help='save to named output file')
+parser.add_argument('--min_intron', required=False, type=int, default=35,
+	metavar='<int>', help='minimum length of intron [%(default)i]')
+parser.add_argument('--min_exon', required=False, type=int, default=25,
+	metavar='<int>', help='minimum length exon [%(default)i]')
+parser.add_argument('--flank', required=False, type=int, default=99,
+	metavar='<int>', help='genomic flank on each side [%(default)i]')
+parser.add_argument('--introns', required=False, type=str, metavar='<file>',
+	help='use introns in gff for source of splice sites [%(default)s]')
+parser.add_argument('--limit', required=False, type=int, default=100,
+	metavar='<int>', help='limit number of transcripts [%(default)i]')
+parser.add_argument('--wdon', required=False, type=float, default=1.0,
+	metavar='<float>', help='donor weight [%(default).2f]')
+parser.add_argument('--wacc', required=False, type=float, default=1.0,
+	metavar='<float>', help='acceptor weight [%(default).2f]')
+parser.add_argument('--wexs', required=False, type=float, default=1.0,
+	metavar='<float>', help='exon sequence weight [%(default).2f]')
+parser.add_argument('--wins', required=False, type=float, default=1.0,
+	metavar='<float>', help='intron sequence weight [%(default).2f]')
+parser.add_argument('--wexl', required=False, type=float, default=1.0,
+	metavar='<float>', help='exon length weight [%(default).2f]')
+parser.add_argument('--winl', required=False, type=float, default=1.0,
+	metavar='<float>', help='intron length weight [%(default).2f]')
+parser.add_argument('--winf', required=False, type=float, default=1.0,
+	metavar='<float>', help='intron frequency weight [%(default).2f]')
+parser.add_argument('--countonly', action='store_true',
+	help='report the total number of isoforms')
+arg = parser.parse_args()
+
+name, seq = next(isoform2.read_fasta(arg.fasta))
+model = isoform2.read_splicemodel(arg.model)
+
+weights = {
+	'wacc': arg.wacc,
+	'wdon': arg.wdon,
+	'wexs': arg.wexs,
+	'wins': arg.wins,
+	'wexl': arg.wexl,
+	'winl': arg.winl,
+	'winf': arg.winf,
+}
+
+constraints = {
+	'min_intron': arg.min_intron,
+	'min_exon': arg.min_exon,
+	'flank': arg.flank
+}
+
+if arg.out: fp = open(arg.out, 'w')
+else: fp = sys.stdout
+
+if arg.countonly:
+	locus = Locus(name, seq, model, constraints=constraints, weights=weights,
+		gff=arg.introns, limit=arg.limit, countonly=True)
+	print(locus.name, locus.isocount, sep='\t')
+else:
+	locus = Locus(name, seq, model, constraints=constraints, weights=weights,
+		limit=arg.limit, gff=arg.introns)
+	locus.write_gff(fp)

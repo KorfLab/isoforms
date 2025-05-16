@@ -18,8 +18,6 @@ Python-based applications using `isoform.py` for common functions.
 Python-based applications using 'isoform2.py' for common functions.
 'isoform2.py' uses a backtracking algorithm for APC (current version).
 
--   `geniso2` - generates isoforms and their probabilites
-
 -   `geniso3` - generates isoforms and their probabilities, with nmd
     adjustment
 
@@ -83,6 +81,46 @@ The APC algorithm generates all possible combinatons of isoforms given
 an input gene sequence in fasta format, scores each isoform, and returns
 a gff of predicted isoforms.
 
+Other components of the algorithm include `optiso` and `nmd-ish.py`. `optiso` 
+uses a genetic algorithm to optimize the weights for each part of the APC 
+model (kmer, pwm, length). `nmd-ish.py` identifies APC generated isoforms 
+that are likely NMD targets, and lowers their score. 
+
+The smallgenes dataset is used as input. `git clone` this repo in the directory
+containing your other github repos, such that:
+```
+Code/
+├──smallgenes/
+├──isoforms/
+```
+```
+git clone https://github.com/KorfLab/smallgenes.git
+```
+Create the APC model file with `modelbuilder`. This requires the OpenTURNS library
+to be installed. Can be installed using conda:
+```
+conda install -y openturns
+```
+`worm.splicemodel` is the model file used as input for APC. Individual model files
+are also created and can be viewed in `models/`
+```
+./modelbuilder smallgenes/ worm models/ > worm.splicemodel
+mv worm.splicemodel models/
+```
+In the `isoforms/` directory:
+```
+ln -s ../smallgenes/genomes/c.elegans/smallgenes.tar.gz
+tar -xvf smallgenes.tar.gz
+```
+`optiso` should be run first, as the weights are a component of `geniso3`. Note 
+that `run_optiso` by default uses n-1 available CPU cores.
+```
+chmod +x optiso2
+./run_optiso2 smallgenes/ models/worm.splicemodel
+```
+```
+chmod +x optiso2
+```
 ```         
 tar -xvf smallgenes/
 ```

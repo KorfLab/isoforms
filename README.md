@@ -113,11 +113,11 @@ as input for `geniso3`. Individual model files are also created and can be viewe
 mv worm.splicemodel models/
 ```
 Next run `optiso` as the weights are a component of `geniso3`. Note that `run_optiso` by 
-default uses n-1 available CPU cores. This will take a while, I recommend doing this on
+default uses 1 CPU core. This will take a while, I recommend doing this on
 a remote cluster. Same for `run_geniso`. This program creates `results_optiso2.csv`.
 ```
 chmod +x run_optiso2
-./run_optiso2 smallgenes/ models/worm.splicemodel
+./run_optiso2 smallgenes/ models/worm.splicemodel --cpu 15
 ```
 `run_geniso` can be used with or without weights (`optiso`), and with or without NMD
 detection. By default, one CPU core is used. Make sure the output file names 

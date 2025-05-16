@@ -106,21 +106,20 @@ to be installed. Can be installed using conda:
 ```
 conda install -y openturns
 ```
-`worm.splicemodel` is the model file used as input for APC. Individual model files
-are also created and can be viewed in `models/`
+Next use `modelbuilder` to create `worm.splicemodel`, which contains the models used 
+as input for `geniso3`. Individual model files are also created and can be viewed in `models/`
 ```
 ./modelbuilder smallgenes/ worm models/ > worm.splicemodel
 mv worm.splicemodel models/
 ```
-`optiso` should be run first, as the weights are a component of `geniso3`. Note 
-that `run_optiso` by default uses n-1 available CPU cores. This will take a while,
-I recommend doing this on a remote cluster. Same for `geniso`. This program creates
-`results_optiso2.csv`.
+Next run `optiso` as the weights are a component of `geniso3`. Note that `run_optiso` by 
+default uses n-1 available CPU cores. This will take a while, I recommend doing this on
+a remote cluster. Same for `run_geniso`. This program creates `results_optiso2.csv`.
 ```
-chmod +x optiso2
+chmod +x run_optiso2
 ./run_optiso2 smallgenes/ models/worm.splicemodel
 ```
-`run_geniso` can be run with or without weights (`optiso`), and with or without NMD
+`run_geniso` can be used with or without weights (`optiso`), and with or without NMD
 detection. By default, one CPU core is used. Make sure the output file names 
 describe the chosen parameters.
 Without weights and without NMD:

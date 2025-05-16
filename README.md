@@ -96,6 +96,11 @@ Code/
 ```
 git clone https://github.com/KorfLab/smallgenes.git
 ```
+Next unpack the smallgenes dataset in `isoforms/`
+```
+ln -s ../smallgenes/genomes/c.elegans/smallgenes.tar.gz
+tar -xvf smallgenes.tar.gz
+```
 Create the APC model file with `modelbuilder`. This requires the OpenTURNS library
 to be installed. Can be installed using conda:
 ```
@@ -107,28 +112,31 @@ are also created and can be viewed in `models/`
 ./modelbuilder smallgenes/ worm models/ > worm.splicemodel
 mv worm.splicemodel models/
 ```
-In the `isoforms/` directory:
-```
-ln -s ../smallgenes/genomes/c.elegans/smallgenes.tar.gz
-tar -xvf smallgenes.tar.gz
-```
 `optiso` should be run first, as the weights are a component of `geniso3`. Note 
-that `run_optiso` by default uses n-1 available CPU cores.
+that `run_optiso` by default uses n-1 available CPU cores. This will take a while,
+I recommend doing this on a remote cluster. Same for `geniso`. This program creates
+`results_optiso2.csv`.
 ```
 chmod +x optiso2
 ./run_optiso2 smallgenes/ models/worm.splicemodel
 ```
-```
-chmod +x optiso2
-```
+`run_geniso` can be run with or without weights (`optiso`), and with or without NMD
+detection. By default, one CPU core is used. Make sure the output file names 
+describe the chosen parameters.
+Without weights and without NMD:
 ```         
-tar -xvf smallgenes/
+./run_geniso smallgenes/ models/worm.splicemodel --outdir APCisos1/ --outname APC --cpu 15
 ```
-
-`run_geniso` can be run with or without weights, and with or without NMD
-detection. Make sure the output file names describe the chosen
-parameters.
-
+With weights and without NMD:
 ```         
-./run_geniso smallgenes/ models/worm.splicemodel --weights results_optiso2.csv --outdir APCout/ --outname APC.weights 
+./run_geniso smallgenes/ models/worm.splicemodel --weights results_optiso2.csv --outdir APCisos2/ --outname APC.optiso --cpu 15
 ```
+Without weights and with NMD:
+```         
+./run_geniso smallgenes/ models/worm.splicemodel --outdir APCisos3/ --outname APC.nmd --nmd --cpu 15
+```
+With weights and with NMD:
+```         
+./run_geniso smallgenes/ models/worm.splicemodel --weights results_optiso2.csv --outdir APCisos4/ --outname APC.optiso.nmd --nmd --cpu 15
+```
+The output of `run_geniso` is a directory with gff files containing the APC isoforms for each gene in the smallgenes dataset. 

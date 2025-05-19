@@ -5,13 +5,16 @@
 
 import random
 import argparse
+import isoform2
 
 parser = argparse.ArgumentParser(description='sequencing simulator')
-parser.add_argument('gff', help='gff file for example gene')
-parser.add_argument('big_gff', help='genomic gff')
+#parser.add_argument('gff', help='gff file for example gene')
+#parser.add_argument('big_gff', help='genomic gff')
+parser.add_argument('fasta')
 
 args = parser.parse_args()
 
+'''
 GC = 0.36
 slen = 300
 depth = 10000
@@ -68,7 +71,9 @@ with open(args.big_gff, 'r') as fp:
 		line = line.split()
 		if 'intron' in line:
 			print(line)
-
+			
+# Y48G8AL.1 is a huge gene in C. elegans
+'''
 			
 		
 	

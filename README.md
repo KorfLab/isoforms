@@ -70,10 +70,10 @@ estimate of intron frequency, divide intron counts by 20 billion.
 -   `smallgenes.tar.gz` - contains the smallgenes dataset
 -   `models/worm.splicemodel` - APC models for use with geniso2/3
 -   `results_optiso2.csv` - model weights for each gene
--   `APCisos1.tar.gz` - APC results with optiso and nmd
--   `APCisos2.tar.gz` - APC results with optiso only
--   `APCisos3.tar.gz` - APC results with nmd only
--   `APCisos4.tar.gz` - APC results without optiso and nmd
+-   `APCisos.base.tar.gz` - APC results without optiso and without nmd
+-   `APCisos.optiso.tar.gz` - APC results with optiso only
+-   `APCisos.nmd.tar.gz` - APC results with nmd only
+-   `APCisos.optiso.nmd.tar.gz` - APC results with optiso and with nmd
 
 ## Generating APC isoforms
 
@@ -124,18 +124,18 @@ detection. By default, one CPU core is used. Make sure the output file names
 describe the chosen parameters.
 Without weights and without NMD:
 ```         
-./run_geniso smallgenes/ models/worm.splicemodel --outdir APCisos1/ --outname APC --cpu 15
+./run_geniso smallgenes/ models/worm.splicemodel --outdir APCisos.base/ --outname APC.base --cpu 15
 ```
 With weights and without NMD:
 ```         
-./run_geniso smallgenes/ models/worm.splicemodel --weights results_optiso2.csv --outdir APCisos2/ --outname APC.optiso --cpu 15
+./run_geniso smallgenes/ models/worm.splicemodel --weights results_optiso2.csv --outdir APCisos.optiso/ --outname APC.optiso --cpu 15
 ```
 Without weights and with NMD:
 ```         
-./run_geniso smallgenes/ models/worm.splicemodel --outdir APCisos3/ --outname APC.nmd --nmd --cpu 15
+./run_geniso smallgenes/ models/worm.splicemodel --outdir APCisos.nmd/ --outname APC.nmd --nmd --cpu 15
 ```
 With weights and with NMD:
 ```         
-./run_geniso smallgenes/ models/worm.splicemodel --weights results_optiso2.csv --outdir APCisos4/ --outname APC.optiso.nmd --nmd --cpu 15
+./run_geniso smallgenes/ models/worm.splicemodel --weights results_optiso2.csv --outdir APCisos.optiso.nmd/ --outname APC.optiso.nmd --nmd --cpu 15
 ```
 The output of `run_geniso` is a directory with gff files containing the APC isoforms for each gene in the smallgenes dataset. 

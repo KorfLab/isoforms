@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+import argparse
+import json
+import os
+import random
+import sys
+
+import isoform
+from isoform import Locus
+
+
+def set_fitness(guy, gene, rna):
+
+	# recompute tx scores and isoform probabilities
+	for tx in gene.isoforms: tx.compute_score(reweight=guy['genotype'])
+	gene.calculate_isoform_probabilities()
+
+	# count introns and re-weight as probabilities
+	apc = {}
+	for tx in gene.isoforms:
+		for intron in tx.introns:
+			if intron not in apc: apc[intron] = 0
+			apc[intron] += tx.prob
+	total = sum(apc.values())
+	for intron in apc: apc[intron] /= total
+
+	# compute intersection distance between isoform and rna introns
+	d1 = 0
+	for intron in apc.keys() | rna.keys():
+		if intron in apc and intron in rna: d1 += abs(apc[intron] - rna[intron])
+		elif intron in apc: d1 += apc[intron]
+		else: d1 += rna[intron]
+
+	guy['fitness'] = d1 / 2 # aka Manhattan distance / 2
+
+
+def random_guy():
+	return {
+		'genotype': {
+			'wacc': random.random(),
+			'wdon': random.random(),
+			'wexs': random.random(),
+			'wins': random.random(),
+			'wexl': random.random(),
+			'winl': random.random(),
+			'winf': random.random(),
+		},
+		'fitness': None,
+	}
+
+def mate(p1, p2, mut):
+	child = {
+		'genotype': {},
+		'fitness': None
+	}
+
+	att = ('wacc', 'wdon', 'wexs', 'wins', 'wexl', 'winl', 'winf')
+	for a in att:
+		if random.random() < 0.5: child['genotype'][a] = p1['genotype'][a]
+		else:                     child['genotype'][a] = p2['genotype'][a]
+		if random.random() < mut: child['genotype'][a] = random.random();
+
+	return child
+
+# CLI
+
+parser = argparse.ArgumentParser(
+	description='Parameter optimization program')
+parser.add_argument('fasta')
+parser.add_argument('gff')
+parser.add_argument('model', help='splice model file')
+parser.add_argument('--limit', type=int, help='limit number of isoforms')
+parser.add_argument('--min_intron', required=False, type=int, default=35,
+	metavar='<int>', help='minimum length of intron [%(default)i]')
+parser.add_argument('--min_exon', required=False, type=int, default=25,
+	metavar='<int>', help='minimum length exon [%(default)i]')
+parser.add_argument('--flank', required=False, type=int, default=99,
+	metavar='<int>', help='genomic flank on each side [%(default)i]')
+parser.add_argument('--pop', required=False, type=int, default=100,
+	metavar='<int>', help='population size [%(default)i]')
+parser.add_argument('--gen', required=False, type=int, default=100,
+	metavar='<int>', help='generations [%(default)i]')
+parser.add_argument('--die', required=False, type=float, default=0.5,
+	metavar='<int>', help='fraction that die each gen [%(default).2f]')
+parser.add_argument('--mut', required=False, type=float, default=0.1,
+	metavar='<int>', help='mutation frequency [%(default).2f]')
+parser.add_argument('--seed', required=False, type=int,
+	metavar='<int>', help='random seed')
+parser.add_argument('--name', required=False, type=str, default='',
+	metavar='<int>', help='name the output')
+parser.add_argument('--verbose', action='store_true', help='show progress')
+arg = parser.parse_args()
+
+# Initialize
+if arg.seed: random.seed(arg.seed)
+name, seq = next(isoform2.read_fasta(arg.fasta))
+model = isoform2.read_splicemodel(arg.model)
+if arg.verbose: print('computing isoforms...', end='', flush=True)
+gene = Locus(name, seq, model, None, None, limit=arg.limit, memoize=True)
+if arg.verbose: print(f'found {len(gene.isoforms)} isoforms', flush=True)
+
+# RNA-Seq from GFF
+rnaseq = {}
+total = 0
+with open(arg.gff) as fp:
+	for line in fp:
+		f = line.split()
+		if f[2] != 'intron': continue
+		if f[5] == '.': continue
+		beg, end, n = int(f[3])-1, int(f[4])-1, float(f[5])
+		rnaseq[(beg,end)] = n
+		total += n
+for loc in rnaseq: rnaseq[loc] /= total
+
+# Genetic Algorithm
+
+pop = []
+for i in range(arg.pop): pop.append(random_guy())
+for guy in pop: set_fitness(guy, gene, rnaseq)
+
+half = int(len(pop) * arg.die)
+for g in range(arg.gen):
+	pop = sorted(pop, key=lambda item: item['fitness'])
+	if arg.verbose: print(f'generation: {g}, fitness: {pop[0]["fitness"]}')
+
+	# mate
+	children = []
+	for i in range(half, len(pop)):
+		p1 = random.randint(0, half)
+		p2 = random.randint(0, half)
+		pop[i] = mate(pop[p1], pop[p2], arg.mut)
+		children.append(pop[i])
+
+	# fitness
+	for child in children: set_fitness(child, gene, rnaseq)
+
+# Final report
+
+pop = sorted(pop, key=lambda item: item['fitness'])
+best = pop[0]
+print(f'{best["fitness"]:.4f}', end='\t')
+for prop, val in best['genotype'].items():
+	print(f'{prop}:{val:.4f}', end='\t')
+print(arg.name)
+

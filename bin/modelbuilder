@@ -1,0 +1,114 @@
+#!/usr/bin/env python3
+
+import argparse
+import glob
+import json
+import math
+import os
+
+import openturns as ot  # conda install -y openturns
+
+from grimoire.genome import Reader
+import isoform
+
+def create_length_model(seqs, lmin, lmax):
+	# get the lengths
+	lens = [len(seq) for seq in seqs]
+
+	# train Frechet
+	sample = ot.Sample([[x] for x in lens if x < lmax])
+	f = ot.FrechetFactory().buildAsFrechet(sample)
+	a = f.getAlpha()
+	b = f.getBeta()
+	g = f.getGamma()
+
+	# create histogram from frechet
+	pdf = []
+	for x in range(lmax):
+		if x < g: pdf.append(0)
+		else:
+			z = (x-g)/b
+			pdf.append((a/b) * z**(-1-a) * math.exp(-z**-a))
+
+	# create leading zeros and rescale
+	for i in range(lmin): pdf[i] = 0
+	total = sum(pdf)
+	for i in range(len(pdf)): pdf[i] /= total
+
+	return pdf
+
+#######
+# CLI #
+#######
+
+parser = argparse.ArgumentParser(description='splice model builder')
+parser.add_argument('dir', help='path to directory of genes (e.g. smallgenes)')
+parser.add_argument('name', help='name of the model (e.g. worm)')
+parser.add_argument('out', help='save sub-models to directory (e.g. models)')
+parser.add_argument('--don', type=int, default=5, help="[%(default)i]")
+parser.add_argument('--acc', type=int, default=6, help="[%(default)i]")
+parser.add_argument('--emm', type=int, default=3, help="[%(default)i]")
+parser.add_argument('--emin', type=int, default=25, help="[%(default)i]")
+parser.add_argument('--emax', type=int, default=1000, help="[%(default)i]")
+parser.add_argument('--imm', type=int, default=3, help="[%(default)i]")
+parser.add_argument('--imin', type=int, default=35, help="[%(default)i]")
+parser.add_argument('--imax', type=int, default=1000, help="[%(default)i]")
+arg = parser.parse_args()
+
+## collect subsequences
+accs = []
+dons = []
+exons = []
+introns = []
+exonsum = 0
+for ff in glob.glob(f'{arg.dir}/*.fa'):
+	gf = ff[:-2] + 'gff3'
+	genome = Reader(gff=gf, fasta=ff)
+	tx = next(genome).ftable.build_genes()[0].transcripts()[0]
+	for f in tx.exons:
+		exons.append(f.seq_str())
+		exonsum += f.end - f.beg + 1
+	for f in tx.introns:
+		iseq = f.seq_str()
+		dons.append(iseq[0:arg.don])
+		accs.append(iseq[-arg.acc:])
+		introns.append(iseq)
+
+## build models
+inf = len(introns) / exonsum
+acc = isoform2.create_pwm(accs)
+don = isoform2.create_pwm(dons)
+exs = isoform2.create_markov(exons, arg.emm, 0, 0)
+ins = isoform2.create_markov(introns, arg.imm, arg.don, arg.acc)
+exl = create_length_model(exons, arg.emin, arg.emax)
+inl = create_length_model(introns, arg.imin, arg.imax)
+
+## write individual models (hard-coded names)
+facc = f'{arg.out}/acc.pwm'
+fdon = f'{arg.out}/don.pwm'
+fexs = f'{arg.out}/exon.mm'
+fins = f'{arg.out}/intron.mm'
+fexl = f'{arg.out}/exon.len'
+finl = f'{arg.out}/intron.len'
+finf = f'{arg.out}/intron.freq'
+if not os.path.exists(arg.out): os.makedirs(arg.out)
+isoform2.write_pwm(facc, acc)
+isoform2.write_pwm(fdon, don)
+isoform2.write_markov(fexs, exs)
+isoform2.write_markov(fins, ins)
+isoform2.write_len(fexl, exl)
+isoform2.write_len(finl, inl)
+with open(finf, 'w') as fp: print(inf, file=fp)
+
+# write ghmm
+ghmm = {
+	'name': arg.name,
+	'inf': isoform2.prob2score(inf),
+	'acc': isoform2.read_pwm(facc),
+	'don': isoform2.read_pwm(fdon),
+	'exs': isoform2.read_markov(fexs),
+	'ins': isoform2.read_markov(fins),
+	'exl': isoform2.read_len(fexl),
+	'inl': isoform2.read_len(finl),
+}
+print(json.dumps(ghmm, indent=1))

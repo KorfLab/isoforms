@@ -1,59 +1,39 @@
-# Isoforms
+Isoforms
+========
 
-## Programs
+## Manifest ##
 
-### Python
+- APCanalysis - Ismael's sandbox
+- archive - old stuff no longer used
+- bin - programs
+- data - output of geniso runs mostly
+- gong - Gong's sandbox
+- ian - Ian's sandbox
+- lib - libraries (just isoform.py right now)
+- models - PWMs and the worm.splicemodel
 
-Python-based applications using `isoform.py` for common functions.
-'isoform.py' uses itertools for APC (old version).
+## Programs ##
 
--   `cmpiso` - compares collections of isoforms in GFF
--   `geniso` - generates isoforms and their probabilities (old version)
--   `modelbuilder` - creates the various model files
--   `optiso` - optimizes model parameters with a genetic algorithm (old
-    version)
--   `run_apc` - builds Makefile to run `isoformer` and `optiso` on apc
-    set
+- `cmpiso` - compares collections of isoforms in GFF
+- `geniso` - generates isoforms and their probabilities (old version)
+- `modelbuilder` - creates the various model files
+- `optiso` - optimizes model parameters with a genetic algorithm
+- `run_geniso` - parellelizes geniso on the smallgenes dataset
+- `run_optiso` - parellelizes optiso
+- `nmd-ish.py` - re-scores isoforms that are NMD targets
 
-Python-based applications using 'isoform2.py' for common functions.
-'isoform2.py' uses a backtracking algorithm for APC (current version).
-
--   `geniso3` - generates isoforms and their probabilities, with nmd
-    adjustment
-
--   `run_geniso` - parellelizes geniso3 for use on the smallgenes
-    dataset
-
--   `optiso2` - optimizes model paremeters with a genetic algorithm
-    (current version)
-
--   `run_optiso2` - parellelizes optiso2
-
--   `nmd-ish.py` - re-scores isoforms that are NMD targets
-
-Scripts for analyzing the APC output gff files are in `APCanalysis/`
-
-### C
-
-The genomikon repo contains a couple of faster implementations in the
-`isoformer` directory.
-
--   `isoformer` - this is the same as `geniso` but \~100x faster
--   `isocounter` - as above, but only counting, not calculating
-    probabilities
 -   `isorandom` - counting isoforms in random sequences
 
-## Utilities
-
--   `conformity.py` - compares outputs of `geniso` and `isoformer`
--   `optiso-mp` - multi-processing version with some odd bugs
--   `speedo.py` - compares speeds of `geniso` and `isoformer`
--   `summary.py` - creates TSV of the apc set
 
 ## Data
 
-Data collection is described in `datacore2024/project_splicing`. The
-1045 genes of the smallgenes dataset.
+Data collection is described in `smallgenes`.
+
+- `results_optiso2.csv` - model weights for each gene
+- `APCisos.base.tar.gz` - APC results without optiso and without nmd
+- `APCisos.optiso.tar.gz` - APC results with optiso only
+- `APCisos.nmd.tar.gz` - APC results with nmd only
+- `APCisos.optiso.nmd.tar.gz` - APC results with optiso and with nmd
 
 ## Models
 
@@ -65,15 +45,6 @@ how to build the models.
 There are 19.938 billion RNASeq_splice records in WormBase. As a rough
 estimate of intron frequency, divide intron counts by 20 billion.
 
-## Files
-
--   `smallgenes.tar.gz` - contains the smallgenes dataset
--   `models/worm.splicemodel` - APC models for use with geniso2/3
--   `results_optiso2.csv` - model weights for each gene
--   `APCisos.base.tar.gz` - APC results without optiso and without nmd
--   `APCisos.optiso.tar.gz` - APC results with optiso only
--   `APCisos.nmd.tar.gz` - APC results with nmd only
--   `APCisos.optiso.nmd.tar.gz` - APC results with optiso and with nmd
 
 ## Generating APC isoforms
 
@@ -81,10 +52,9 @@ The APC algorithm generates all possible combinatons of isoforms given
 an input gene sequence in fasta format, scores each isoform, and returns
 a gff of predicted isoforms.
 
-Other components of the algorithm include `optiso` and `nmd-ish.py`. `optiso` 
-uses a genetic algorithm to optimize the weights for each part of the APC 
-model (kmer, pwm, length). `nmd-ish.py` identifies APC generated isoforms 
-that are likely NMD targets, and lowers their score. 
+Other components of the algorithm include `optiso`. `optiso` uses a genetic
+algorithm to optimize the weights for each part of the APC model (kmer, pwm,
+length).
 
 The smallgenes dataset is used as input. `git clone` this repo in the directory
 containing your other github repos, such that:

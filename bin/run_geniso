@@ -1,0 +1,142 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import subprocess
+import multiprocessing as mp
+from multiprocessing import Pool
+import time
+
+parser = argparse.ArgumentParser(description='wrapper for geniso3')
+parser.add_argument('apc_dir', type=str, metavar='<directory>', 
+	help='directory with APC .gff3 and .fa files')
+parser.add_argument('model', type=str, metavar='<file>',
+	help='splice model file')
+parser.add_argument('--weights', required=False, type=str, metavar='<file>',
+	help='file with model weights, optional')
+parser.add_argument('--outdir', required=False, type=str, default='APCisos/',
+	metavar='<outdir>', help='name of output directory [%(default)s]')
+parser.add_argument('--outname', required=False, type=str, 
+	help='name for output gffs i.e. APC_optiso_nmd')
+parser.add_argument('--limit', required=False, type=int, default=100,
+	metavar='<int>', help='limit number of transcripts [%(default)i]')
+parser.add_argument('--nmd', action='store_true', 
+	help='use gff file to find nmd targets')
+parser.add_argument('--program', required=False, type=str, default='geniso3', 
+	metavar='<executable>', help='path to geniso3')
+parser.add_argument('--cpu', required=False, type=int, default=1,
+	metavar='<int>', help='number of cpus to use [%(default).i]')
+
+args = parser.parse_args()
+
+if args.apc_dir.endswith('/'): 
+	adir = args.apc_dir
+else:
+	adir = args.apc_dir + '/'
+
+fpaths = {}
+for file in os.listdir(adir):
+	gID = '.'.join(file.split('.')[1:3])
+	if gID not in fpaths:
+		fpaths[gID] = [(), ()]
+	if file.endswith('.fa'):
+		fpaths[gID][0] = f'{adir}{file}'
+	if file.endswith('.gff3'):
+		fpaths[gID][1] = f'{adir}{file}'
+		
+# why does using no weights make the program run slower?
+if args.weights:
+	weights = {}
+	with open(args.weights, 'r') as file:
+		for line in file.readlines():
+			line = line.rstrip()
+			if line.startswith('%'): continue
+			line = line.split(',')
+			weights[line[0]] = [x for x in line[1:]]
+	
+def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl, 
+			winf, limit, gff=False):
+
+	if gff:
+		cmd = (
+			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
+			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
+			f'--winf {winf} --limit {limit} --gff {gff}'
+		)
+	else:
+		cmd = (
+			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
+			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
+			f'--winf {winf} --limit {limit}'
+		)
+	cmd = cmd.split(' ')
+	gid = cmd[1].split('.')[-2]
+	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout
+	print(f'working on {gid}...')
+	return output.rstrip()
+
+def worker(input):
+
+    return generate(
+        input[0], input[1], input[2], input[3], input[4], input[5], 
+        input[6], input[7], input[8], input[9], input[10], input[11]
+    )
+    
+inputs = []
+for gID in fpaths:
+	if args.weights:
+		wacc = weights[gID][1]
+		wdon = weights[gID][2]
+		wexs = weights[gID][3]
+		wins = weights[gID][4]
+		wexl = weights[gID][5]
+		winl = weights[gID][6]
+		winf = weights[gID][7]
+	else:
+		wacc = 1.0
+		wdon = 1.0
+		wexs = 1.0
+		wins = 1.0
+		wexl = 1.0
+		winl = 1.0
+		winf = 1.0
+	if args.nmd:
+		input = [
+			args.program, fpaths[gID][0], args.model, wacc, wdon, wexs, 
+			wins, wexl, winl, winf, args.limit, fpaths[gID][1]
+		]
+	else:
+		input = [
+			args.program, fpaths[gID][0], args.model, wacc, wdon, wexs, 
+			wins, wexl, winl, winf, args.limit, False
+		]
+	inputs.append(input)
+
+#s = time.perf_counter()
+cpus = args.cpu
+with Pool(processes=cpus) as pool:
+    result = pool.map(worker, inputs)
+    #print(result)
+#e = time.perf_counter()
+#print('multi:', e-s)
+
+start = time.perf_counter()
+with Pool(processes=cpus) as pool:
+    result = pool.map(worker, inputs)
+
+if not os.path.exists(args.outdir):
+    os.makedirs(args.outdir)
+
+for res in result:
+	gID = res.split('\n')[0].split(' ')[2]
+	if args.outname:
+		f = open(f'{args.outdir}{gID}.{args.outname}.gff', 'w')
+	else:
+		f = open(f'{args.outdir}{gID}.APC.gff', 'w')
+	for line in res.split('\n'):
+		f.write(line+'\n')         
+	f.close()
+
+end = time.perf_counter()
+print('time:', end-start)
+

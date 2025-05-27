@@ -14,7 +14,7 @@ parser.add_argument('fasta', type=str, metavar='<fasta file>',
 parser.add_argument('model', type=str, metavar='<splice model>',
 	help='input splicemodel file')
 parser.add_argument('--gff', required=False, type=str,
-	metavar='<file>', help='gff with wormbase annotations')	
+	metavar='<file>', help='gff with wormbase annotations')
 parser.add_argument('--out', help='save to named output file')
 parser.add_argument('--min_intron', required=False, type=int, default=35,
 	metavar='<int>', help='minimum length of intron [%(default)i]')
@@ -38,6 +38,8 @@ parser.add_argument('--winl', required=False, type=float, default=1.0,
 	metavar='<float>', help='intron length weight [%(default).2f]')
 parser.add_argument('--winf', required=False, type=float, default=1.0,
 	metavar='<float>', help='intron frequency weight [%(default).2f]')
+parser.add_argument('--translate', metavar='<gff>',
+	help='translate transcripts and reduce nmd/non-stop targets')
 parser.add_argument('--nonstop', type=float, default=1e-3,
 	help='degredation from no stop codon [%(default)g]')
 parser.add_argument('--nmd', type=float, default=1e-3,
@@ -47,7 +49,7 @@ parser.add_argument('--countonly', action='store_true',
 
 arg = parser.parse_args()
 
-model = isoform2.read_splicemodel(arg.model)
+model = isoform.read_splicemodel(arg.model)
 
 weights = {
 	'wacc': arg.wacc,
@@ -67,16 +69,16 @@ constraints = {
 
 if arg.out: fp = open(arg.out, 'w')
 else: fp = sys.stdout
-	
-name, seq = next(isoform2.read_fasta(arg.fasta))	
-locus = Locus(name, seq, model, constraints=constraints,
-			  weights=weights, limit=arg.limit)
+
+name, seq = next(isoform.read_fasta(arg.fasta))
+locus = Locus(name, seq, model, constraints=constraints, weights=weights,
+	limit=arg.limit)
 
 ##### copy paste from nmd-ish.py #####
-if arg.gff:
-	reader = Reader(fasta=arg.fasta, gff=arg.gff)
+if arg.translate:
+	reader = Reader(fasta=arg.fasta, gff=arg.translate)
 	region = next(reader)
-	
+
 	# find the canonical start codon (5' atg if there are more than one listed)
 	gene = region.ftable.build_genes()[0]
 	txs = gene.transcripts()
@@ -92,7 +94,7 @@ if arg.gff:
 	rtypes = []
 	for iso in locus.isoforms:
 		iso.translate(cds_beg)
-		if   iso.rnatype == 'non-stop': iso.prob *= arg.nonstop
+		if   iso.rnatype == 'non-stop':   iso.prob *= arg.nonstop
 		elif iso.rnatype == 'nmd-target': iso.prob *= arg.nmd
 		posts.append(iso.prob)
 		rtypes.append(iso.rnatype)

@@ -2,7 +2,7 @@
 
 import argparse
 import os
-import isoform2
+import isoform
 import csv
 import copy
 
@@ -13,36 +13,24 @@ parser = argparse.ArgumentParser(
 	)
 )
 	
-parser.add_argument('apcgen_gffs', help='APC generated gff files')
+parser.add_argument('apc', help='APC generated gff files')
 parser.add_argument('smallgenes', 
 	help='Directory with WormBase gff/fasta files')
 parser.add_argument('--outf', required=False, help='outfile name')
 
 args = parser.parse_args()
 
-apc = {}
-for file in os.listdir(args.apcgen_gffs):
-	gid = file.split('.')[1]
-	if args.apcgen_gffs.endswith('/'):
-		apc[gid] = f'{args.apcgen_gffs}{file}'
-	else:
-		apc[gid] = f'{args.apcgen_gffs}/{file}'
+if not args.apc.endswith('/'):
+	args.apc = args.apc + '/'
 
-wb = {}
-for file in os.listdir(args.smallgenes):
-	gid = file.split('.')[1]
-	if file.endswith('.gff3'):
-		if args.smallgenes.endswith('/'):
-			wb[gid] = f'{args.smallgenes}{file}'
-		else:
-			wb[gid] = f'{args.smallgenes}/{file}'
+if not args.smallgenes.endswith('/'):
+	args.smallgenes = args.smallgenes + '/'
+
+gff_paths = {}
+for fname in os.listdir(args.apc):
+	gid = '.'.join(fname.split('.')[:3])
+	gff_paths[gid] = [f'{args.apc}{fname}']
 	
-genes = {}
-for gid in apc:
-	wb_ints = isoform2.get_introns(wb[gid])
-	apc_ints = isoform2.get_introns(apc[gid])
-	genes[gid] = (wb_ints, apc_ints)
-
 def add_zeroes(introns1, introns2):
 	
 	i1 = copy.deepcopy(introns1)
@@ -55,46 +43,63 @@ def add_zeroes(introns1, introns2):
 		if i not in i1: i1[i] = 0
 		
 	return i1, i2
+		
+for fname in os.listdir(args.smallgenes):
+	if fname.endswith('.gff3'):
+		gid = '.'.join(fname.split('.')[:3])
+		gff_paths[gid].append(f'{args.smallgenes}{fname}')
+
+frequencies = {}
+for g in gff_paths.items():
+	apc_ints = isoform.get_introns(g[1][0])
+	wb_ints = isoform.get_introns(g[1][1])
+	apc_ints0, wb_ints0 = add_zeroes(apc_ints, wb_ints)
+	frequencies[g[0]] = []
+	for intron in apc_ints0:
+		assert intron in wb_ints0, 'intron not found in RNASeq'
+		# drop 0s only on wormbase side
+		# keep introns APC does not predict, but exists
+		if wb_ints0[intron] == 0: continue
+		frequencies[g[0]].append((intron, apc_ints0[intron], 
+							wb_ints0[intron]))
+								
+def chebyshev(int_freqs):
+
+	return max([abs(int_f[1] - int_f[2]) for int_f in int_freqs])
+
+def manhattan(int_freqs):
 	
-# do i really need to use deepcopy?
-'''
-def add_zeroes(introns1, introns2):
+	dist = 0
+	for int_f in int_freqs:
+		dist += abs(int_f[1] - int_f[2])
+		
+	return dist
+
+distances = {}
+for gene_info in frequencies.items():
+	distances[gene_info[0]] = (chebyshev(gene_info[1]), 
+								manhattan(gene_info[1]))
+
+if args.outf: 
+	outname1 = f'{args.outf}.dist'
+	outname2 = f'{args.outf}.freq'
+else: 
+	outname1 = 'out_isodif.dist'
+	outname2 = 'out_isodif.freq'
 	
-	for i in introns1:
-		if i not in introns2:
-			introns2[i] = 0
-			
-	for i in introns2:
-		if i not in introns1:
-			introns1[i] = 0		
-			
-	return introns1, introns2
-'''
+with open(outname1, 'w') as csvfile:
+	dist_writer = csv.writer(csvfile)
+	dist_writer.writerow(['gene_id', 'chebyshev', 'manhattan'])
+	for item in distances.items():
+		dist_writer.writerow([item[0], item[1][0], item[1][1]])
 
-# only keep a 0 if it is in wb but not apc
-# means we failed to predict this intron
-shared_freqs = {}
-for gid in genes:
-	# use wormbase as reference, so you don't miss/make up introns
-	ints1, ints2 = add_zeroes(genes[gid][0], genes[gid][1])
-	shared_ints = []
-	for i in ints1:
-		if ints1[i] == 0: continue 
-		shared_ints.append((ints1[i], ints2[i]))
-	shared_freqs[gid] = shared_ints
-
-if args.outf: outname = args.outf
-else: outname = 'out_isodif.csv'
-
-with open(outname, 'w') as csvfile:
+# intron information is still in fdists
+with open(outname2, 'w') as csvfile:
 	int_writer = csv.writer(csvfile)
 	int_writer.writerow(['gene_id', 'wb', 'apc'])
-	for gene in shared_freqs.items():
-		for intron in gene[1]:
-			# mannu test requires no 0s
-			if intron[0] == 0 or intron[1] == 0: continue
-			int_writer.writerow([gene[0], intron[0], intron[1]])
-		
+	for item in frequencies.items():
+		for int_info in item[1]:
+			int_writer.writerow([item[0], int_info[1], int_info[2]])
 
 
 

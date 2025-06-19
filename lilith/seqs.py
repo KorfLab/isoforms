@@ -8,8 +8,25 @@
 
 import argparse
 import glob
-
 from grimoire.genome import Reader
+import sys
+
+
+def find_median(l):
+	m = len(l) % 2
+	m_index = len(l) // 2
+
+	if len(l) == 0:
+		return None
+	
+	if m != 0:
+		print(l[m_index])
+		return l[m_index]
+	else:
+		return (l[m_index-1] + l[m_index]) / 2
+
+
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('fasta')
@@ -30,13 +47,14 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 		sig = f.beg, f.end
 		rna[sig] = round(float(f.score))
 
+'''
 	# get all the uniqe intron pairs and assign scores
-	pair = {}
 	for gene in chrom.ftable.build_genes():
-
+		txs = []
 		for tx in gene.transcripts():
 			short = False
 			txscos = []
+			junc = {}
 
 			if len(tx.introns) < 2:
 				continue
@@ -47,43 +65,44 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 					short = True
 
 			if short == True:
-				continue
+	 			continue
 
 
 			for i in range(len(tx.introns)):
 				#b1 = tx.introns[i-1].beg
 				#e1 = tx.introns[i-1].end
-				b2 = tx.introns[i].beg
-				e2 = tx.introns[i].end
+				b = tx.introns[i].beg
+				e = tx.introns[i].end
 				#sig1 = b1, e1
-				sig2 = b2, e2
+				sig = b, e
 				# require intron is validate by rna-seq
 				#if sig1 not in rna: continue
-				if sig2 not in rna: continue
+				if sig not in rna: continue
 				# require some level of rna expression
-				#if rna[sig1] < arg.minscore: continue
-				if rna[sig2] < arg.minscore: continue
-				# remove really different values (probably errors)
-				#if rna[sig1] / rna[sig2] > arg.maxdiff: continue
-				#if rna[sig2] / rna[sig1] > arg.maxdiff: continue
-				#pair[(gene.strand, sig1, sig2)] = (rna[sig1], rna[sig2])
-				txscos.append(rna[sig2])
-			print(txscos)
+				if rna[sig] < arg.minscore: continue
+				junc[(gene.strand, sig)] = rna[sig]
+				txscos.append(rna[sig])
 
-'''
+			med = find_median(txscos)
 
-	# get all the flanks
-	for (strand, (b1, e1), (b2, e2)), (s1, s2) in pair.items():
-		e1a = chrom.seq[b1-arg.exon-1:b1+1]
-		e1b = chrom.seq[e1-2:e1+arg.exon]
-		e2a = chrom.seq[b2-arg.exon-1:b2+1]
-		e2b = chrom.seq[e2-2:e2+arg.exon]
-		if len(e1a) != arg.exon +2: continue
-		if len(e1b) != arg.exon +2: continue
-		if len(e2a) != arg.exon +2: continue
-		if len(e2b) != arg.exon +2: continue
+			for k, v in junc.items():
+				print(k)
+				print(junc[k])
+				if junc[k] < med:
+					junc[k] = (v, 'LOW')
+				else:
+					junc[k] = (v, 'HIGH')
 
-		#print(f'{strand} {e1a}..{e1b} {s1} {e2a}..{e2b} {s2}')
-		#print(f'{strand} {b1}-{e1}:{s1} {b2}-{e2}:{s2}')
+			txs.append(junc)
+
+		# get all the flanks
+		for tx in txs:
+			for (strand, (b, e)), (s, typ) in tx.items():
+				ebeg = chrom.seq[b-arg.exon-1:b+1]
+				eend = chrom.seq[e-2:e+arg.exon]
+				if len(ebeg) != arg.exon +2: continue
+				if len(eend) != arg.exon +2: continue
+
+				print(f'{strand} {ebeg}..{eend} {s} {typ}')
 
 '''

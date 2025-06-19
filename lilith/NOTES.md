@@ -11,4 +11,4 @@ A useful dataset requires the following:
 - source data consisting of only protein coding genes (mRNA-producing)
 
 
-All data was obtained from release WS297 from WormBase.
+All data was obtained from release WS297 from WormBase

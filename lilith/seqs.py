@@ -9,6 +9,7 @@
 import argparse
 import glob
 from grimoire.genome import Reader
+import statistics as stats
 import sys
 
 
@@ -36,6 +37,7 @@ parser.add_argument('--minscore', type=int, default=10000, metavar='<int>',
 	help='minimum intron count [%(default)i]')
 parser.add_argument('--maxdiff', type=float, default=2, metavar='<float>',
 	help='maximum difference between adjacent introns [%(default).1f]')
+parser.add_argument('-m', '--median', action='store_true', help='use raw median instead of mean')
 arg = parser.parse_args()
 
 for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
@@ -73,21 +75,42 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 				e = tx.introns[i].end
 				#sig1 = b1, e1
 				sig = b, e
+
 				# require intron is validate by rna-seq
 				#if sig1 not in rna: continue
-				if sig not in rna: continue
+				if sig not in rna:
+					continue
 				# require some level of rna expression
-				if rna[sig] < arg.minscore: continue
+				if rna[sig] < arg.minscore:
+					continue
+
 				junc[(gene.strand, sig)] = rna[sig]
 				txscos.append(rna[sig])
 
-			med = find_median(txscos)
 
-			for k, v in junc.items():
-				if junc[k] < med:
-					junc[k] = (v, 'LOW')
-				else:
-					junc[k] = (v, 'HIGH')
+
+			if len(txscos) < 1:
+				continue
+
+			if arg.median:
+				med = find_median(txscos)
+
+				for k, v in junc.items():
+					if junc[k] < med:
+						junc[k] = (v, 'LOW')
+					elif junc[k] == med:
+						junc[k] = (v, 'MEDIAN')
+					else:
+						junc[k] = (v, 'HIGH')
+
+			else:
+				me = stats.mean(txscos)
+				for k, v in junc.items():
+					if junc[k] < me:
+						junc[k] = (v, 'LOW')
+					else:
+						junc[k] = (v, 'HIGH')
+
 
 			txs.append(junc)
 
@@ -99,5 +122,5 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 				if len(ebeg) != arg.exon +2: continue
 				if len(eend) != arg.exon +2: continue
 
-				print(f'{strand} {ebeg}..{eend} {s} {typ}')
+				#print(f'{strand} {ebeg}..{eend} {s} {typ}')
 

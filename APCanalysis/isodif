@@ -9,7 +9,7 @@ import copy
 parser = argparse.ArgumentParser(
 	description=(
 		'Test different distance equations on APC results, '
-		'get intron frequencies'
+		'get intron frequencies, created ranked lists'
 	)
 )
 	
@@ -79,6 +79,8 @@ distances = {}
 for gene_info in frequencies.items():
 	distances[gene_info[0]] = (chebyshev(gene_info[1]), 
 								manhattan(gene_info[1]))
+
+print(distances)
 
 if args.outf: 
 	outname1 = f'{args.outf}.dist'

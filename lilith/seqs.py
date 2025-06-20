@@ -20,7 +20,6 @@ def find_median(l):
 		return None
 	
 	if m != 0:
-		print(l[m_index])
 		return l[m_index]
 	else:
 		return (l[m_index-1] + l[m_index]) / 2
@@ -47,7 +46,6 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 		sig = f.beg, f.end
 		rna[sig] = round(float(f.score))
 
-'''
 	# get all the uniqe intron pairs and assign scores
 	for gene in chrom.ftable.build_genes():
 		txs = []
@@ -86,8 +84,6 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 			med = find_median(txscos)
 
 			for k, v in junc.items():
-				print(k)
-				print(junc[k])
 				if junc[k] < med:
 					junc[k] = (v, 'LOW')
 				else:
@@ -105,4 +101,3 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 
 				print(f'{strand} {ebeg}..{eend} {s} {typ}')
 
-'''

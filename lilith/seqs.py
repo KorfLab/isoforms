@@ -38,6 +38,7 @@ parser.add_argument('--minscore', type=int, default=10000, metavar='<int>',
 parser.add_argument('--maxdiff', type=float, default=2, metavar='<float>',
 	help='maximum difference between adjacent introns [%(default).1f]')
 parser.add_argument('-m', '--median', action='store_true', help='use raw median instead of mean')
+parser.add_argument('-e', '--exmode', action='store_true', help='produce all exons from genome')
 arg = parser.parse_args()
 
 for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
@@ -51,7 +52,14 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 	# get all the uniqe intron pairs and assign scores
 	for gene in chrom.ftable.build_genes():
 		txs = []
+
 		for tx in gene.transcripts():
+			if arg.exmode:
+				for ex in tx.exons:
+					e = chrom.seq[ex.beg:ex.end]
+					print(e)
+					continue
+
 			short = False
 			txscos = []
 			junc = {}
@@ -115,6 +123,9 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 			txs.append(junc)
 
 		# get all the flanks
+		if arg.exmode:
+			continue
+			
 		for tx in txs:
 			for (strand, (b, e)), (s, typ) in tx.items():
 				ebeg = chrom.seq[b-arg.exon-1:b+1]
@@ -122,5 +133,5 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 				if len(ebeg) != arg.exon +2: continue
 				if len(eend) != arg.exon +2: continue
 
-				#print(f'{strand} {ebeg}..{eend} {s} {typ}')
+				print(f'{strand} {ebeg}..{eend} {s} {typ}')
 

@@ -5,7 +5,7 @@ import os
 import isoform
 import csv
 import copy
-import numpy as np
+import math
 
 parser = argparse.ArgumentParser(
 	description=(
@@ -80,7 +80,34 @@ distances = {}
 for gene in gene_hists:
 	distances[gene] = intersection(gene_hists[gene])
 
-print(distances)
+similarities = {x: 0 for x in range(100, -1, -1)}
+total_genes = 0
+for gdist in distances.items():
+	similarities[math.floor(gdist[1] * 100)] += 1
+	total_genes += 1
+
+sim_counts = []
+counter = 0
+for sitems in similarities.items():
+	counter += sitems[1]
+	# get total number of genes that are above each cutoff 
+	#print(sitems[0], sitems[1], counter, counter/total_genes)
+	sim_counts.append((sitems[0], counter/total_genes))
+
+if args.outf:
+	outname = f'{args.outf}.isodif.out'
+else:
+	outname = 'isodif.out'
+	
+with open(outname, 'w') as csvfile:
+	sim_writer = csv.writer(csvfile)
+	sim_writer.writerow(['similarity', 'percent_match'])
+	for stup in sim_counts:
+		sim_writer.writerow([stup[0], stup[1]])
+		
+
+
+
 
 '''
 if args.outf: 

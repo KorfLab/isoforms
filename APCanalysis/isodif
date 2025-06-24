@@ -8,11 +8,7 @@ import copy
 import math
 
 parser = argparse.ArgumentParser(
-	description=(
-		'Test different distance equations on APC results, '
-		'get intron frequencies, created ranked lists'
-	)
-)
+	description=('get gene similarites and ranked list of genes'))
 	
 parser.add_argument('apc', help='APC generated gff files')
 parser.add_argument('smallgenes', 
@@ -32,6 +28,7 @@ for fname in os.listdir(args.apc):
 	gid = '.'.join(fname.split('.')[:3])
 	gff_paths[gid] = [f'{args.apc}{fname}']
 	
+# create identical length histograms
 def add_zeroes(introns1, introns2):
 	
 	i1 = copy.deepcopy(introns1)
@@ -54,15 +51,28 @@ for fname in os.listdir(args.smallgenes):
 		gid = '.'.join(fname.split('.')[:3])
 		gff_paths[gid].append(f'{args.smallgenes}{fname}')
 
+# get wbgene id from rna seq gff
+def get_wbgene(gff):
+	
+	with open(gff) as infile:
+		for line in infile:
+			line = line.rstrip().split('\t')
+			if line[2] == 'gene':
+				wbgene = line[8].split(':')[1]
+				return wbgene
+				
 gene_hists = {}
+wbgene_ids = {}
 for gitems in gff_paths.items():
+	wbgene = get_wbgene(gitems[1][1])
+	wbgene_ids[gitems[0]] = wbgene
 	apc_ints = isoform.get_introns(gitems[1][0])
 	wb_ints = isoform.get_introns(gitems[1][1])
 	apc_ints0, wb_ints0 = add_zeroes(apc_ints, wb_ints)
 	histograms = {}
 	for intron in apc_ints0:
 		histograms[intron] = (apc_ints0[intron], wb_ints0[intron])
-	gene_hists[gitems[0]] = histograms
+	gene_hists[gitems[0]] = histograms		
 		
 def intersection(histograms):
 	
@@ -95,42 +105,26 @@ for sitems in similarities.items():
 	sim_counts.append((sitems[0], counter/total_genes))
 
 if args.outf:
-	outname = f'{args.outf}.isodif.out'
+	outname1 = f'{args.outf}.isodif.similarity'
+	outname2 = f'{args.outf}.isodif.ranks'
 else:
-	outname = 'isodif.out'
+	outname1 = 'isodif.similarity'
+	outname2 = 'isodif.ranks'
 	
-with open(outname, 'w') as csvfile:
+with open(outname1, 'w') as csvfile:
 	sim_writer = csv.writer(csvfile)
 	sim_writer.writerow(['similarity', 'percent_match'])
 	for stup in sim_counts:
 		sim_writer.writerow([stup[0], stup[1]])
-		
 
+distances = sorted(distances.items(), key=lambda item: item[1], 
+					reverse=True)
 
-
-
-'''
-if args.outf: 
-	outname1 = f'{args.outf}.dist'
-	outname2 = f'{args.outf}.freq'
-else: 
-	outname1 = 'out_isodif.dist'
-	outname2 = 'out_isodif.freq'
-	
-with open(outname1, 'w') as csvfile:
-	dist_writer = csv.writer(csvfile)
-	dist_writer.writerow(['gene_id', 'chebyshev', 'manhattan'])
-	for item in distances.items():
-		dist_writer.writerow([item[0], item[1][0], item[1][1]])
-
-# intron information is still in fdists
 with open(outname2, 'w') as csvfile:
-	int_writer = csv.writer(csvfile)
-	int_writer.writerow(['gene_id', 'wb', 'apc'])
-	for item in frequencies.items():
-		for int_info in item[1]:
-			int_writer.writerow([item[0], int_info[1], int_info[2]])
-'''
+	dist_writer = csv.writer(csvfile)
+	dist_writer.writerow(['gene_id', 'wbgene', 'dist'])
+	for gid in distances:
+		dist_writer.writerow([gid[0], wbgene_ids[gid[0]], gid[1]])
 
 
 

@@ -35,6 +35,7 @@ class GeneJunction:
 		for i in range(0, len(self.seq) - k + 1):
 			kmer = self.seq[i:i+k]
 			if kmer not in self.kcounts:
+				#print(kmer)
 				self.kcounts[kmer] = 0
 			self.kcounts[kmer] += 1
 
@@ -92,7 +93,7 @@ def make_pwms(trlist, ntf, flank = 10):
 	return pluspwm, minuspwm
 
 
-def score_juncs(meter, telist, tmdic, k):
+def score_juncs(telist, tmdic, k):
 	'''
 	hit = {
 		'HIGH': 0,
@@ -104,9 +105,10 @@ def score_juncs(meter, telist, tmdic, k):
 		'LOW': 0
 	}
 	'''
-
-	hit = 0
-	mis = 0
+	results = {
+		'+': {'hits': 0, 'misses': 0},
+		'-': {'hits': 0, 'misses': 0}
+	}
 
 	for tejunc in telist:
 		if tejunc.type not in TYPES:
@@ -115,11 +117,11 @@ def score_juncs(meter, telist, tmdic, k):
 		logprob = 0 # HIGH / LOW
 		for i in range(len(tejunc.seq) - k + 1):
 			kme = tejunc.seq[i:i+k]
-
-			if kme not in tmdic['HIGH'] or kme not in tmdic['LOW']:
+			#print(kme)
+			if kme not in tmdic[tejunc.strand]['HIGH'] or kme not in tmdic[tejunc.strand]['LOW']:
 				continue
 
-			logprob += math.log2(tmdic['HIGH'][kme] / tmdic['LOW'][kme])
+			logprob += math.log2(tmdic[tejunc.strand]['HIGH'][kme] / tmdic[tejunc.strand]['LOW'][kme])
 
 
 
@@ -129,11 +131,10 @@ def score_juncs(meter, telist, tmdic, k):
 			result = 'LOW'
 
 		if result == tejunc.type:
-			hit += 1
+			results[tejunc.strand]['hits'] += 1
 		else:
-			mis += 1
-
-	return hit, mis
+			results[tejunc.strand]['misses'] += 1
+	return results
 
 
 
@@ -174,6 +175,32 @@ def make_trainmeter(trlist, k):
 		}
 	}
 
+	for trj in trlist:
+		if trj.type not in TYPES:
+			continue
+
+		for i in range(len(trj.seq) - k + 1):
+			kme = trj.seq[i:i+k]
+
+			if kme not in tmdic[trj.strand][trj.type]:
+				tmdic[trj.strand][trj.type][kme] = 0
+
+			tmdic[trj.strand][trj.type][kme] += 1
+
+			typetots[trj.strand][trj.type] += 1
+
+	for typ, ks in tmdic['+'].items():
+		for k, v in ks.items():
+			ks[k] = v / typetots['+'][typ]
+
+	for typ, ks in tmdic['-'].items():
+		for k, v in ks.items():
+			ks[k] = v / typetots['-'][typ]
+	
+	return tmdic
+
+
+
 
 def find_ntfreq(infile):
 	ntdic = {
@@ -203,26 +230,6 @@ def find_ntfreq(infile):
 
 
 
-	for trj in trlist:
-		if trj.type not in TYPES:
-			continue
-
-		for i in range(len(trj.seq) - k + 1):
-			kme = trj.seq[i:i+k]
-
-			if kme not in tmdic[trj.strand][trj.type]:
-				tmdic[trj.strand][trj.type][kme] = 0
-
-			tmdic[trj.strand][trj.type][kme] += 1
-
-			typetots[trj.strand][trj.type] += 1
-
-	for tmstrand, tmkmers in tmdic.items():
-		for typ, ks in tmkmers.items():
-			for km in ks.keys():
-				ks[km] = ks[km] / typetots[tmstrand][typ]
-	return tmdic
-
 
 
 txtfile = sys.argv[1]
@@ -235,16 +242,20 @@ seed = sys.argv[5]
 if seed.isdigit():
 	random.seed(int(seed))
 
-results = 0
+strrestults = {
+	'+': 0.0,
+	'-': 0.0
+}
+
 #meter = json.load(files.getfp(exonfile))
 
-ntfreqs = find_ntfreq(exonfile)
+#ntfreqs = find_ntfreq(exonfile)
 
-print(ntfreqs)
+#print(ntfreqs)
 
 for trial in range(trials):
 	trainers, testers = make_sets(txtfile)
-
+	print('wedidit')
 
 	for junc in trainers:
 		junc.ksearch()
@@ -253,23 +264,29 @@ for trial in range(trials):
 	for junc in testers:
 		junc.ksearch()
 
-
+	print('wediditAGAIN')
 
 
 	trainmeter = make_trainmeter(trainers, ksize)
+	print('wediditAGAINAGAIN')
 
-	print(json.dumps(trainmeter, sort_keys=True, indent=4))
-	ppwm, npwm = make_pwms(trainers, ntfreqs)
-	sys.exit()
+	#print(json.dumps(trainmeter, sort_keys=True, indent=4))
+	#ppwm, npwm = make_pwms(trainers, ntfreqs)
+	#sys.exit()
 
-	hits, misses = score_juncs(meter, testers, trainmeter, k=ksize)
+	res = score_juncs(testers, trainmeter, k=ksize)
 
-	print(f'Trial {trial} percentage of correct junction IDs: {hits / (hits + misses)}')
+	for key in res.keys():
+		acc = res[key]['hits'] / (res[key]['hits'] + res[key]['misses'])
+		print(f'Trial {trial}, strand {key} percentage of correct junction IDs: {acc}')
 
-	results += hits / (hits + misses)
+
+		strrestults[key] += acc
 
 
-print(f'Average accuracy across {trials} trials: {results/trials}')
+print(f'Average accuracy across {trials}:')
+print(f'+: {strrestults['+'] / trials}')
+print(f'-: {strrestults['-'] / trials}')
 '''
 data struct:
 

@@ -48,17 +48,49 @@ def make_genejunctions(l):
 	
 	return GeneJunction(s, j, num, t)
 
+def make_pwms(trlist, ntf, flank = 10):
+	pluspwm = [EMPTY_PDIC.copy() for i in range(len(trlist[0].seq))]
+	minuspwm = [EMPTY_PDIC.copy() for i in range(len(trlist[0].seq))]
 
-def make_pwms(trlist, flank = 10):
-	hi5pwm = []
-	lo5pwm = []
-	hi3pwm = []
-	low3pwm = []
-'''
-	for trgj in trlist:
-		if trgj.type == 'high':
-	return hi5pwm, lo5pwm, hi3pwm, lo3pwm
-'''
+	for trg in trlist:
+		if trg.strand == '+':
+			for i in range(len(trg.seq)):
+				pluspwm[i][trg.seq[i]] += 1
+		else:
+			for i in range(len(trg.seq)):
+				minuspwm[i][trg.seq[i]] += 1
+
+	for posp, posn in zip(pluspwm, minuspwm):
+		for k1, k2 in zip(posp.keys(), posn.keys()):
+			if posp[k1] == 0:
+				posp[k1] += 1
+			if posn[k2] == 0:
+				posn[k2] += 1
+
+		ptot = sum(list(posp.values()))
+		ntot = sum(list(posn.values()))
+
+		if ptot == 0:
+			ptot += 1
+
+		if ntot == 0:
+			ntot += 1
+
+		for nt in posp:
+			posp[nt] /= ptot
+			posn[nt] /= ntot
+
+
+
+	for i in range(len(pluspwm)):
+		for nt in pluspwm[i].keys():
+
+			pluspwm[i][nt] = math.log2(pluspwm[i][nt] / ntf[nt])
+			minuspwm[i][nt] = math.log2(minuspwm[i][nt] / ntf[nt])
+
+
+	return pluspwm, minuspwm
+
 
 def score_juncs(meter, telist, tmdic, k):
 	'''
@@ -108,7 +140,7 @@ def score_juncs(meter, telist, tmdic, k):
 
 def make_sets(fname, select = 0.10):
 	trains = []
-	tests = []
+	tests = [] 
 
 	with files.getfp(fname) as fp:
 		for line in fp:
@@ -131,7 +163,6 @@ def make_trainmeter(trlist, k):
 			'LOW': 0
 		}
 	}
-
 	tmdic = {
 		'+': {
 			'HIGH': {},
@@ -142,6 +173,33 @@ def make_trainmeter(trlist, k):
 			'LOW': {}
 		}
 	}
+
+
+def find_ntfreq(infile):
+	ntdic = {
+		'A': 0,
+		'C': 0,
+		'G': 0,
+		'T': 0
+	}
+
+	total = 0
+
+	with files.getfp(infile) as fp:
+		for line in fp:
+			line = line.strip()
+			for nt in line:
+				if nt not in ntdic.keys(): continue
+				ntdic[nt] += 1
+				total += 1
+
+	for nt in ntdic.keys():
+		ntdic[nt] /= total
+
+	return ntdic
+
+
+
 
 
 
@@ -178,6 +236,11 @@ if seed.isdigit():
 	random.seed(int(seed))
 
 results = 0
+#meter = json.load(files.getfp(exonfile))
+
+ntfreqs = find_ntfreq(exonfile)
+
+print(ntfreqs)
 
 for trial in range(trials):
 	trainers, testers = make_sets(txtfile)
@@ -192,13 +255,13 @@ for trial in range(trials):
 
 
 
-	meter = json.load(files.getfp(exonfile))
 
 	trainmeter = make_trainmeter(trainers, ksize)
 
 	print(json.dumps(trainmeter, sort_keys=True, indent=4))
-
+	ppwm, npwm = make_pwms(trainers, ntfreqs)
 	sys.exit()
+
 	hits, misses = score_juncs(meter, testers, trainmeter, k=ksize)
 
 	print(f'Trial {trial} percentage of correct junction IDs: {hits / (hits + misses)}')

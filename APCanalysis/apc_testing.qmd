@@ -571,15 +571,9 @@ optiso_nmd_dists <- read.csv('data/optiso.nmd.dist')
 
 ```
 
-GO analysis
-WormBase has GO built in? not sure how to use
-```{r}
-base_sim <- read.csv('output/base.isodif.similarity')
-base_ranks <- read.csv('output/base.isodif.ranks')
+GO analysis WormBase has GO built in? not sure how to use
 
-top90 <- base_ranks[base_ranks$dist >= 0.90,]
-bot10 <- base_ranks[base_ranks$dist <= 0.10,]
-```
+
 
 ```{r}
 # packages needed for clusterProfiler
@@ -595,21 +589,62 @@ install.packages('ggtangle')
 BiocManager::install('enrichplot')
 BiocManager::install('clusterProfiler')
 ```
+
+
+
+https://academic.oup.com/genetics/article/220/4/iyac003/6521733 https://academic.oup.com/genetics/article/227/1/iyae050/7640793 https://www.youtube.com/live/MJ4A5fmgWhg https://daianna21.github.io/daianna_blog/posts/2024-08-11-Fisher_test/ https://www.pathwaycommons.org/guide/primers/statistics/fishers_exact_test/
+
+Need a list of DEGs, or genes of interest
+
+Compare to a list of background gene list. All genes in smallgenes or all genes in C. elegans genome? Background should be smaller than whole genome, only take background of area of interest. Like only liver genes in liver DEG + GO.
+
+Need list of gene sets, or groups of related genes. Like for insulin pathway, INS, INSR, IRS1, IRS2 are genes in this pathway. If you are trying to find genes in certain pathways, need to provide the gene sets.
+
+Result is a list of over represented pathways.
+
+Contingency tables describe the amount of genes that are different in enrichment. Need to test one table for each pathway?
+
+Statistical test will determine if things are enriched or not. Commonly used is Fisher's exact test, to get a p-value.
+
+Need to check if genes are up or down regulated after association.
+Can be down with thousands of pathways, need to account for multiple testing. Most commonly used Benjamini-Hochberg correction.
+
+Bioconductor annotation packages
+org.Ce.eg.db
+Genome wide annotation for Worm
+
 ```{r}
+BiocManager::install("org.Ce.eg.db")
+```
+```{r}
+BiocManager::install("DOSE")
+```
+```{r}
+BiocManager::install("ggupset")
+```
+
+
+
+```{r}
+library(tidyverse)
 library(clusterProfiler)
+library(org.Ce.eg.db)
+library(DOSE)
+library(enrichplot)
+library(ggupset)
 ```
-https://academic.oup.com/genetics/article/220/4/iyac003/6521733
-https://academic.oup.com/genetics/article/227/1/iyae050/7640793
-https://www.youtube.com/live/MJ4A5fmgWhg
-https://daianna21.github.io/daianna_blog/posts/2024-08-11-Fisher_test/
-https://www.pathwaycommons.org/guide/primers/statistics/fishers_exact_test/
+
 ```{r}
-enrichGO(WBGene00018945, OrgDb)
+base_sim <- read.csv('output/base.isodif.similarity')
+base_ranks <- read.csv('output/base.isodif.ranks')
+
+top90 <- base_ranks[base_ranks$dist >= 0.90,]
+bot10 <- base_ranks[base_ranks$dist <= 0.10,]
 ```
 
+```{r}
 
-
-
+```
 
 
 

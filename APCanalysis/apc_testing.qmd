@@ -588,6 +588,7 @@ BiocManager::install("ggtree")
 install.packages('ggtangle')
 BiocManager::install('enrichplot')
 BiocManager::install('clusterProfiler')
+BiocManager::install('AnnotationDbi')
 ```
 
 
@@ -622,8 +623,12 @@ BiocManager::install("DOSE")
 ```{r}
 BiocManager::install("ggupset")
 ```
+```{r}
+BiocManager::install("GO.db")
+```
 
 
+https://www.metwarebio.com/go-enrichment-analysis-clusterprofiler-guide/
 
 ```{r}
 library(tidyverse)
@@ -632,17 +637,53 @@ library(org.Ce.eg.db)
 library(DOSE)
 library(enrichplot)
 library(ggupset)
+library(AnnotationDbi)
+library(dplyr)
+library(GO.db)
 ```
 
 ```{r}
 base_sim <- read.csv('output/base.isodif.similarity')
 base_ranks <- read.csv('output/base.isodif.ranks')
 
-top90 <- base_ranks[base_ranks$dist >= 0.90,]
-bot10 <- base_ranks[base_ranks$dist <= 0.10,]
+top90 <- base_ranks %>% 
+  filter(dist >= 0.9) %>% 
+  pull(wbgene) %>% 
+  as.list()
+
+bot10 <- base_ranks %>% 
+  filter(dist <= 0.10) %>% 
+  pull(wbgene) %>% 
+  as.list
 ```
 
 ```{r}
+GO_res90 <- enrichGO(gene = top90, OrgDb = "org.Ce.eg.db", keyType = "ENSEMBL", ont = "BP")
+```
+
+```{r}
+GO_res10 <- enrichGO(gene = bot10, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL", ont = "BP")
+```
+
+```{r}
+as.data.frame(GO_res90)
+as.data.frame(GO_res10)
+```
+Look at youtube vid:
+RNAseq analysis | Gene ontology (GO) in R
+Sanbomics
+```{r}
+fit1 <- plot(barplot(GO_res90))
+```
+
+```{r}
+fit2 <- plot(barplot(GO_res10))
+```
+
+https://www.metwarebio.com/go-enrichment-analysis-clusterprofiler-guide/
+
+```{r}
+enrichFrame <- enrichGO(gene = top90, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL", ont = "ALL", pAdjustMethod = "BH", pvalueCutoff = 0.05, qvalueCutoff = 0.2)
 
 ```
 

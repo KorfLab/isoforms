@@ -571,3 +571,55 @@ optiso_nmd_dists <- read.csv('data/optiso.nmd.dist')
 
 ```
 
+GO analysis
+WormBase has GO built in? not sure how to use
+```{r}
+base_sim <- read.csv('output/base.isodif.similarity')
+base_ranks <- read.csv('output/base.isodif.ranks')
+
+top90 <- base_ranks[base_ranks$dist >= 0.90,]
+bot10 <- base_ranks[base_ranks$dist <= 0.10,]
+```
+
+```{r}
+# packages needed for clusterProfiler
+# install separately and in order
+# sudo apt-get install gfortran
+# need to install igraph from source
+# https://r.igraph.org/articles/installation-troubleshooting.html
+# sudo apt install libglpk-dev libxml2-dev 
+install.packages('igraph')
+# specify where you are downloading things from
+BiocManager::install("ggtree")
+install.packages('ggtangle')
+BiocManager::install('enrichplot')
+BiocManager::install('clusterProfiler')
+```
+```{r}
+library(clusterProfiler)
+```
+https://academic.oup.com/genetics/article/220/4/iyac003/6521733
+https://academic.oup.com/genetics/article/227/1/iyae050/7640793
+https://www.youtube.com/live/MJ4A5fmgWhg
+https://daianna21.github.io/daianna_blog/posts/2024-08-11-Fisher_test/
+https://www.pathwaycommons.org/guide/primers/statistics/fishers_exact_test/
+```{r}
+enrichGO(WBGene00018945, OrgDb)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

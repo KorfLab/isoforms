@@ -572,7 +572,10 @@ optiso_nmd_dists <- read.csv('data/optiso.nmd.dist')
 ```
 
 GO analysis WormBase has GO built in? not sure how to use
-
+libcurl need for httr and others
+apt install libcurl4-openssl-dev
+httr
+GenomeInfoDb
 
 
 ```{r}
@@ -646,6 +649,10 @@ library(GO.db)
 base_sim <- read.csv('output/base.isodif.similarity')
 base_ranks <- read.csv('output/base.isodif.ranks')
 
+everything <- base_ranks %>% 
+  pull(wbgene) %>% 
+  as.list()
+
 top90 <- base_ranks %>% 
   filter(dist >= 0.9) %>% 
   pull(wbgene) %>% 
@@ -664,14 +671,26 @@ GO_res90 <- enrichGO(gene = top90, OrgDb = "org.Ce.eg.db", keyType = "ENSEMBL", 
 ```{r}
 GO_res10 <- enrichGO(gene = bot10, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL", ont = "BP")
 ```
+```{r}
+every_res <- enrichGO(gene = everything, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL", ont = "BP")
+```
+
 
 ```{r}
 as.data.frame(GO_res90)
 as.data.frame(GO_res10)
+as.data.frame(every_res)
 ```
+
+```{r}
+fig <- plot(barplot(every_res))
+```
+
 Look at youtube vid:
 RNAseq analysis | Gene ontology (GO) in R
 Sanbomics
+BgRatio is background ratio, so 9,828 genes in the worm database
+But there are around 20k genes in the worm genome?
 ```{r}
 fit1 <- plot(barplot(GO_res90))
 ```
@@ -680,6 +699,13 @@ fit1 <- plot(barplot(GO_res90))
 fit2 <- plot(barplot(GO_res10))
 ```
 
+```{r}
+
+```
+
+
+What does any of this mean?
+
 https://www.metwarebio.com/go-enrichment-analysis-clusterprofiler-guide/
 
 ```{r}
@@ -687,15 +713,89 @@ enrichFrame <- enrichGO(gene = top90, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL",
 
 ```
 
+```{r}
+dotplot(enrichFrame, x = "GeneRatio", color = "p.adjust", title = "Top 15 of GO Enrichment", showCategory = 15, label_format = 80)
+```
 
 
+https://learn.gencore.bio.nyu.edu/rna-seq-analysis/gene-set-enrichment-analysis/
 
 
+Compare withing RNA-seq intron distance with APC output?
+There is about a 30% difference between introns...should that be considered when comparing APC to RNAseq? yes but it doesn't change distance
+
+```{r}
+gse <- gseGO(geneList = bot10, ont = "ALL", keyType = "ENSEMBL", nPerm = 1000, minGSSize = 3, maxGSSize = 800, pvalueCutoff = 0.05, verbose = TRUE, OrgDb = org.Ce.eg.db, pAdjustMethod = "none")
+```
+```{r}
+BiocManager::install("org.Dm.eg.db")
+
+organism = "org.Dm.eg.db"
+df = read.csv("drosphila_example_de.csv", header = TRUE)
+
+original_gene_list <- df$log2FoldChange
+
+names(original_gene_list) <- df$X
+
+gene_list <- na.omit(original_gene_list)
+
+gene_list <- sort(gene_list, decreasing = TRUE)
+```
+
+```{r}
+gse <- gseGO(geneList=gene_list, 
+             ont ="ALL", 
+             keyType = "ENSEMBL", 
+             nPerm = 10000, 
+             minGSSize = 3, 
+             maxGSSize = 800, 
+             pvalueCutoff = 0.05, 
+             verbose = TRUE, 
+             OrgDb = organism, 
+             pAdjustMethod = "none")
+```
+
+```{r}
+require(DOSE)
+dotplot(gse, showCategory=10, split=".sign") + facet_grid(.~.sign)
+```
+
+Gene set enrichment is different from GO enrichment?
+GSE needs log fold change, we do not have that
 
 
+Read through the entire clusterprofiler vignette?
+https://yulab-smu.top/biomedical-knowledge-mining-book/index.html
 
+```{r}
+both_sim <- read.csv('output/both.isodif.similarity')
+both_dists <- read.csv('output/both.isodif.ranks')
 
+both_all <- both_dists %>% 
+  pull(wbgene) %>% 
+  as.list()
 
+both_top25 <- both_dists[1:floor(nrow(both_dists) * 0.25),] %>% 
+  pull(wbgene) %>% 
+  as.list()
+
+both_bot25 <- both_dists[(nrow(both_dists) - floor(nrow(both_dists) * 0.25)):nrow(both_dists),] %>% 
+  pull(wbgene) %>% 
+  as.list()
+```
+
+```{r}
+enrich_top25 <- enrichGO(gene = both_top25, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL", ont = "ALL", pAdjustMethod = "BH", pvalueCutoff = 0.05, qvalueCutoff = 0.2)
+
+enrich_bot25 <- enrichGO(gene = both_bot25, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL", ont = "ALL", pAdjustMethod = "BH", pvalueCutoff = 0.05, qvalueCutoff = 0.2)
+```
+
+```{r}
+dotplot(enrich_top25, x = "GeneRatio", color = "p.adjust", title = "Top 15 of GO Enrichment", showCategory = 15, label_format = 80)
+```
+```{r}
+dotplot(enrich_bot25, x = "GeneRatio", color = "p.adjust", title = "Top 15 of GO Enrichment", showCategory = 15, label_format = 80)
+```
 
 
 

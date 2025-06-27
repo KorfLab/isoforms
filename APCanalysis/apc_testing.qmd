@@ -797,5 +797,5 @@ dotplot(enrich_top25, x = "GeneRatio", color = "p.adjust", title = "Top 15 of GO
 dotplot(enrich_bot25, x = "GeneRatio", color = "p.adjust", title = "Top 15 of GO Enrichment", showCategory = 15, label_format = 80)
 ```
 
-
+Just use the smallgenes against the whole genome, not subsets. Is smallgenes a weird set of genes? good representation of the worm genome?
 

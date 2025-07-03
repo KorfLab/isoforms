@@ -51,21 +51,26 @@ for fname in os.listdir(args.smallgenes):
 		gid = '.'.join(fname.split('.')[:3])
 		gff_paths[gid].append(f'{args.smallgenes}{fname}')
 
-# get wbgene id from rna seq gff
+# get wbgene and transcript id from rna seq gff				
 def get_wbgene(gff):
 	
 	with open(gff) as infile:
+		txid = ''
+		wbgene = ''
 		for line in infile:
 			line = line.rstrip().split('\t')
+			if line[2] == 'mRNA':
+				txid = line[8].split(':')[1].split(';')[0]
 			if line[2] == 'gene':
 				wbgene = line[8].split(':')[1]
-				return wbgene
+		
+		return wbgene, txid		
 				
 gene_hists = {}
 wbgene_ids = {}
 for gitems in gff_paths.items():
-	wbgene = get_wbgene(gitems[1][1])
-	wbgene_ids[gitems[0]] = wbgene
+	wbgene, txid = get_wbgene(gitems[1][1])
+	wbgene_ids[gitems[0]] = (wbgene, txid)
 	apc_ints = isoform.get_introns(gitems[1][0])
 	wb_ints = isoform.get_introns(gitems[1][1])
 	apc_ints0, wb_ints0 = add_zeroes(apc_ints, wb_ints)
@@ -85,11 +90,29 @@ def intersection(histograms):
 	dist = min_sum/total
 	
 	return dist
+	
+import numpy as np
+	
+def hints(histograms):
+
+	for item in histograms.items():
+		minima = np.minimum(item[1][0], item[1][1])
+		intersection = np.true_divide(np.sum(minima), np.sum(item[1][1]))
+		print(intersection)
+
+		
+distances = {}
+for gene in gene_hists:
+	hints(gene_hists[gene])
+
 		
 distances = {}
 for gene in gene_hists:
 	distances[gene] = intersection(gene_hists[gene])
-
+	
+	
+	
+'''
 similarities = {x: 0 for x in range(100, -1, -1)}
 total_genes = 0
 for gdist in distances.items():
@@ -122,11 +145,11 @@ distances = sorted(distances.items(), key=lambda item: item[1],
 
 with open(outname2, 'w') as csvfile:
 	dist_writer = csv.writer(csvfile)
-	dist_writer.writerow(['gene_id', 'wbgene', 'dist'])
+	dist_writer.writerow(['gene_id', 'wbgene', 'txid', 'dist'])
 	for gid in distances:
-		dist_writer.writerow([gid[0], wbgene_ids[gid[0]], gid[1]])
-
-
+		dist_writer.writerow([gid[0], wbgene_ids[gid[0]][0], 
+								wbgene_ids[gid[0]][1], gid[1]])
+'''
 
 
 

@@ -571,12 +571,7 @@ optiso_nmd_dists <- read.csv('data/optiso.nmd.dist')
 
 ```
 
-GO analysis WormBase has GO built in? not sure how to use
-libcurl need for httr and others
-apt install libcurl4-openssl-dev
-httr
-GenomeInfoDb
-
+GO analysis WormBase has GO built in? not sure how to use libcurl need for httr and others apt install libcurl4-openssl-dev httr GenomeInfoDb
 
 ```{r}
 # packages needed for clusterProfiler
@@ -594,8 +589,6 @@ BiocManager::install('clusterProfiler')
 BiocManager::install('AnnotationDbi')
 ```
 
-
-
 https://academic.oup.com/genetics/article/220/4/iyac003/6521733 https://academic.oup.com/genetics/article/227/1/iyae050/7640793 https://www.youtube.com/live/MJ4A5fmgWhg https://daianna21.github.io/daianna_blog/posts/2024-08-11-Fisher_test/ https://www.pathwaycommons.org/guide/primers/statistics/fishers_exact_test/
 
 Need a list of DEGs, or genes of interest
@@ -610,26 +603,25 @@ Contingency tables describe the amount of genes that are different in enrichment
 
 Statistical test will determine if things are enriched or not. Commonly used is Fisher's exact test, to get a p-value.
 
-Need to check if genes are up or down regulated after association.
-Can be down with thousands of pathways, need to account for multiple testing. Most commonly used Benjamini-Hochberg correction.
+Need to check if genes are up or down regulated after association. Can be down with thousands of pathways, need to account for multiple testing. Most commonly used Benjamini-Hochberg correction.
 
-Bioconductor annotation packages
-org.Ce.eg.db
-Genome wide annotation for Worm
+Bioconductor annotation packages org.Ce.eg.db Genome wide annotation for Worm
 
 ```{r}
 BiocManager::install("org.Ce.eg.db")
 ```
+
 ```{r}
 BiocManager::install("DOSE")
 ```
+
 ```{r}
 BiocManager::install("ggupset")
 ```
+
 ```{r}
 BiocManager::install("GO.db")
 ```
-
 
 https://www.metwarebio.com/go-enrichment-analysis-clusterprofiler-guide/
 
@@ -671,10 +663,10 @@ GO_res90 <- enrichGO(gene = top90, OrgDb = "org.Ce.eg.db", keyType = "ENSEMBL", 
 ```{r}
 GO_res10 <- enrichGO(gene = bot10, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL", ont = "BP")
 ```
+
 ```{r}
 every_res <- enrichGO(gene = everything, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL", ont = "BP")
 ```
-
 
 ```{r}
 as.data.frame(GO_res90)
@@ -682,15 +674,32 @@ as.data.frame(GO_res10)
 as.data.frame(every_res)
 ```
 
+parasite biomart
+currently not being update due to lack of funding
+https://bioconductor.org/packages/release/data/annotation/vignettes/BioMartGOGeneSets/inst/doc/biomart.html
+```{r}
+library(biomaRt)
+```
+```{r}
+ensembl = useEnsembl(biomart = "genes")
+datasets = listDatasets(ensembl)
+datasets
+```
+
+https://bioconductor.org/packages/release/data/annotation/vignettes/BioMartGOGeneSets/inst/doc/biomart.html
+```{r}
+ensembl = useDataset(dataset = "celegans_gene_ensembl", mart = ensembl)
+ensembl
+```
+
+
+
 ```{r}
 fig <- plot(barplot(every_res))
 ```
 
-Look at youtube vid:
-RNAseq analysis | Gene ontology (GO) in R
-Sanbomics
-BgRatio is background ratio, so 9,828 genes in the worm database
-But there are around 20k genes in the worm genome?
+Look at youtube vid: RNAseq analysis \| Gene ontology (GO) in R Sanbomics BgRatio is background ratio, so 9,828 genes in the worm database But there are around 20k genes in the worm genome?
+
 ```{r}
 fit1 <- plot(barplot(GO_res90))
 ```
@@ -702,7 +711,6 @@ fit2 <- plot(barplot(GO_res10))
 ```{r}
 
 ```
-
 
 What does any of this mean?
 
@@ -717,16 +725,14 @@ enrichFrame <- enrichGO(gene = top90, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL",
 dotplot(enrichFrame, x = "GeneRatio", color = "p.adjust", title = "Top 15 of GO Enrichment", showCategory = 15, label_format = 80)
 ```
 
-
 https://learn.gencore.bio.nyu.edu/rna-seq-analysis/gene-set-enrichment-analysis/
 
-
-Compare withing RNA-seq intron distance with APC output?
-There is about a 30% difference between introns...should that be considered when comparing APC to RNAseq? yes but it doesn't change distance
+Compare withing RNA-seq intron distance with APC output? There is about a 30% difference between introns...should that be considered when comparing APC to RNAseq? yes but it doesn't change distance
 
 ```{r}
 gse <- gseGO(geneList = bot10, ont = "ALL", keyType = "ENSEMBL", nPerm = 1000, minGSSize = 3, maxGSSize = 800, pvalueCutoff = 0.05, verbose = TRUE, OrgDb = org.Ce.eg.db, pAdjustMethod = "none")
 ```
+
 ```{r}
 BiocManager::install("org.Dm.eg.db")
 
@@ -760,12 +766,9 @@ require(DOSE)
 dotplot(gse, showCategory=10, split=".sign") + facet_grid(.~.sign)
 ```
 
-Gene set enrichment is different from GO enrichment?
-GSE needs log fold change, we do not have that
+Gene set enrichment is different from GO enrichment? GSE needs log fold change, we do not have that
 
-
-Read through the entire clusterprofiler vignette?
-https://yulab-smu.top/biomedical-knowledge-mining-book/index.html
+Read through the entire clusterprofiler vignette? https://yulab-smu.top/biomedical-knowledge-mining-book/index.html
 
 ```{r}
 both_sim <- read.csv('output/both.isodif.similarity')
@@ -793,9 +796,9 @@ enrich_bot25 <- enrichGO(gene = both_bot25, OrgDb = org.Ce.eg.db, keyType = "ENS
 ```{r}
 dotplot(enrich_top25, x = "GeneRatio", color = "p.adjust", title = "Top 15 of GO Enrichment", showCategory = 15, label_format = 80)
 ```
+
 ```{r}
 dotplot(enrich_bot25, x = "GeneRatio", color = "p.adjust", title = "Top 15 of GO Enrichment", showCategory = 15, label_format = 80)
 ```
 
 Just use the smallgenes against the whole genome, not subsets. Is smallgenes a weird set of genes? good representation of the worm genome?
-

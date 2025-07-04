@@ -747,6 +747,7 @@ gse_ce <- gseGO(geneList=rl,
              pAdjustMethod = "none")
 ```
 how can a term be suppressed? there is less than expected of that term?
+is there were you need log odds ratio? so something is below 0
 ```{r}
 require(DOSE)
 dotplot(gse_ce, showCategory=10, split=".sign") + facet_grid(.~.sign)
@@ -754,10 +755,19 @@ dotplot(gse_ce, showCategory=10, split=".sign") + facet_grid(.~.sign)
 interpretting the ridgeplot? it's basically a histogram?
 https://www.biostars.org/p/497911/
 so genes with a small similarity(still need to do -1 oops) are enriched for "protein transmembrane import into intracellular organelle"
+See biostat squid video
+ranked list should be from 1 to -1
+There is no polarity with our ranks
+What does that mean for the analysis? Does it matter?
 ```{r}
 ridgeplot(gse_ce) + labs(x = "enrichment distribution")
 ```
+How does GSEA work?
+https://www.genepattern.org/modules/docs/GSEA/14/
 
+```{r}
+gseaplot(gse_ce, by = "all", title = gse_ce$Description[52], geneSetID = 1)
+```
 
 
 ```{r}

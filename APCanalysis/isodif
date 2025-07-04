@@ -81,6 +81,8 @@ for gitems in gff_paths.items():
 		
 def intersection(histograms):
 	
+	# regular definition of histogram intersection
+	'''
 	min_sum = 0
 	total = 0
 	for item in histograms.items():
@@ -90,29 +92,22 @@ def intersection(histograms):
 	dist = min_sum/total
 	
 	return dist
-	
-import numpy as np
-	
-def hints(histograms):
+	'''
 
+	# gets the exact same numbers as above method
+	# ian's code is binning things differently
+	# 100 similarity is for genes between 99 and 100 similarity?
+	# our method (already converted to frequencies)
+	min_sum = 0
 	for item in histograms.items():
-		minima = np.minimum(item[1][0], item[1][1])
-		intersection = np.true_divide(np.sum(minima), np.sum(item[1][1]))
-		print(intersection)
+		min_sum += min(item[1][0], item[1][1])
+	
+	return min_sum
 
-		
 distances = {}
 for gene in gene_hists:
-	hints(gene_hists[gene])
+	distances[gene] = intersection(gene_hists[gene])	
 
-		
-distances = {}
-for gene in gene_hists:
-	distances[gene] = intersection(gene_hists[gene])
-	
-	
-	
-'''
 similarities = {x: 0 for x in range(100, -1, -1)}
 total_genes = 0
 for gdist in distances.items():
@@ -131,8 +126,8 @@ if args.outf:
 	outname1 = f'{args.outf}.isodif.similarity'
 	outname2 = f'{args.outf}.isodif.ranks'
 else:
-	outname1 = 'isodif.similarity'
-	outname2 = 'isodif.ranks'
+	outname1 = 'isodif.similarity.csv'
+	outname2 = 'isodif.ranks.csv'
 	
 with open(outname1, 'w') as csvfile:
 	sim_writer = csv.writer(csvfile)
@@ -149,7 +144,7 @@ with open(outname2, 'w') as csvfile:
 	for gid in distances:
 		dist_writer.writerow([gid[0], wbgene_ids[gid[0]][0], 
 								wbgene_ids[gid[0]][1], gid[1]])
-'''
+
 
 
 

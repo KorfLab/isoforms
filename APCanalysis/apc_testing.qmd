@@ -674,12 +674,12 @@ as.data.frame(GO_res10)
 as.data.frame(every_res)
 ```
 
-parasite biomart
-currently not being update due to lack of funding
-https://bioconductor.org/packages/release/data/annotation/vignettes/BioMartGOGeneSets/inst/doc/biomart.html
+parasite biomart currently not being update due to lack of funding https://bioconductor.org/packages/release/data/annotation/vignettes/BioMartGOGeneSets/inst/doc/biomart.html
+
 ```{r}
 library(biomaRt)
 ```
+
 ```{r}
 ensembl = useEnsembl(biomart = "genes")
 datasets = listDatasets(ensembl)
@@ -687,9 +687,75 @@ datasets
 ```
 
 https://bioconductor.org/packages/release/data/annotation/vignettes/BioMartGOGeneSets/inst/doc/biomart.html
+
 ```{r}
 ensembl = useDataset(dataset = "celegans_gene_ensembl", mart = ensembl)
 ensembl
+```
+
+```{r}
+at = c("ensembl_gene_id", "go_id", "namespace_1003")
+go = getBM(attributes = at, mart = ensembl)
+```
+```{r}
+go = go[go$namespace_1003 == "biological_process", , drop = FALSE]
+gs = split(go$ensembl_gene_id, go$go_id)
+```
+
+```{r}
+library(GO.db)
+bp_terms = GOID(GOTERM)[Ontology(GOTERM) == "BP"]
+GOBPOFFSPRING = as.list(GOBPOFFSPRING)
+
+```
+
+```{r}
+gs2 = lapply(bp_terms, function(nm) {
+  go_id = c(nm, GOBPOFFSPRING[[nm]]) # self + offspring
+  unique(unlist(gs[go_id]))
+})
+names(gs2) = bp_terms
+gs2 = gs2[sapply(gs2, length) > 0]
+```
+
+GSEA or GO?
+https://www.metwarebio.com/go-vs-kegg-vs-gsea-enrichment-analysis/
+GSEA ranks by change in expression, for when DEG cutoffs are vague. Considers all genes in a list.
+We don't have expression values, but if GSEA is used for a ranked list, then that maybe is useful for out distances. Can detect "expression pattern shift". GO can be used for small changes. GSEA can show enrichment curves, showing gene sets along ranked gene lists.
+
+https://learn.gencore.bio.nyu.edu/rna-seq-analysis/gene-set-enrichment-analysis/
+tutorial for GSEA
+
+```{r}
+ranked_list <- read.csv('output/base.isodif.ranks')
+organism = "org.Ce.eg.db"
+library(organism, character.only = TRUE)
+
+rl <- ranked_list$dist
+names(rl) <- ranked_list$wbgene
+rl = sort(rl, decreasing = TRUE)
+
+gse_ce <- gseGO(geneList=rl, 
+             ont ="ALL", 
+             keyType = "ENSEMBL", 
+             nPerm = 10000, 
+             minGSSize = 3, 
+             maxGSSize = 800, 
+             pvalueCutoff = 0.05, 
+             verbose = TRUE, 
+             OrgDb = organism, 
+             pAdjustMethod = "none")
+```
+how can a term be suppressed? there is less than expected of that term?
+```{r}
+require(DOSE)
+dotplot(gse_ce, showCategory=10, split=".sign") + facet_grid(.~.sign)
+```
+interpretting the ridgeplot? it's basically a histogram?
+https://www.biostars.org/p/497911/
+so genes with a small similarity(still need to do -1 oops) are enriched for "protein transmembrane import into intracellular organelle"
+```{r}
+ridgeplot(gse_ce) + labs(x = "enrichment distribution")
 ```
 
 

@@ -752,6 +752,11 @@ is there were you need log odds ratio? so something is below 0
 require(DOSE)
 dotplot(gse_ce, showCategory=10, split=".sign") + facet_grid(.~.sign)
 ```
+
+
+https://www.pathwaycommons.org/guide/primers/data_analysis/gsea/
+enrichment score is the weighted kolmogorov-smirnov statistic
+
 interpretting the ridgeplot? it's basically a histogram?
 https://www.biostars.org/p/497911/
 so genes with a small similarity(still need to do -1 oops) are enriched for "protein transmembrane import into intracellular organelle"
@@ -766,7 +771,7 @@ How does GSEA work?
 https://www.genepattern.org/modules/docs/GSEA/14/
 
 ```{r}
-gseaplot(gse_ce, by = "all", title = gse_ce$Description[52], geneSetID = 1)
+gseaplot(gse_ce, by = "all", title = gse_ce$Description[55], geneSetID = 1)
 ```
 
 
@@ -797,7 +802,7 @@ enrichFrame <- enrichGO(gene = top90, OrgDb = org.Ce.eg.db, keyType = "ENSEMBL",
 
 ```
 
-```{r}
+```{r} 
 dotplot(enrichFrame, x = "GeneRatio", color = "p.adjust", title = "Top 15 of GO Enrichment", showCategory = 15, label_format = 80)
 ```
 

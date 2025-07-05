@@ -2,7 +2,8 @@
 #define HMM_MODEL
 
 #define HS 2                            // 1 (exon) + 1 (intron) ; 5 (donor site) + 6(acceptor site) degraded
-#define FLANK 25                        // define the global flank size
+#define FLANK 99                        // define the global flank size
+#define DEBUG 3                         // if this is 1, it would print out everything
 
 typedef struct                          // observed events with length T
 {
@@ -36,7 +37,7 @@ typedef struct
     Transition_matrix A;                // the transition probability
     Emission_matrix B;                  // the pre-defined emission probibility data strcuture
     double *pi;                         // the initial probability
-    double log_values[999];            // prepared for log softmax trick
+    double log_values[1000];            // prepared for log softmax trick
 } Lambda;
 
 typedef struct
@@ -53,79 +54,66 @@ typedef struct
 {
     double **a;                         // alpha for forward algorithm
     double **basis;                     // each previous layer of calculation
+    int    first_dons;                  // where the first donor site appear
 } Forward_algorithm;
 
 typedef struct
 {
+    double **b;                         // beta for backward algorithm
     double **basis;                     // times of transition prob and emission prob
+    int    last_accs;                   // where the first acceptor site appear
 } Backward_algorithm;                   
 
 typedef struct
 {
-    double *xi;
-    double *gamma;
-    int *path;                        
-    double **xi_sum;
-    double xi_sum_exon;
-    double xi_sum_intron;
-} Viterbi_algorithm;
+    double **xi;
+} Pos_prob;
 
+/* ======================= Function Declarations ======================= */
 
-
-// declared function //
-
-// seq reading //
-
+/* ===== Sequence reading ===== */
 void read_sequence_file(const char *filename, Observed_events *info);
 void numerical_transcription(Observed_events *info, const char *seq);
 
-// input model //
-
+/* ===== Model input parsers ===== */
 void donor_parser(Lambda *l, char *filename);
 void acceptor_parser(Lambda *l, char *filename);
 void exon_intron_parser(Lambda *l, char *filename, int digit);
 void explicit_duration_probability(Explicit_duration *ed, char *filename, int digit);
 
-// EDHMM setup // 
-
-void setup_initial_probability(Lambda *l);
-
-// computation function //
-
-void normalize_transition_prob(Lambda *l, int len, int dons_or_accs);
-int power(int base, int exp);
-int base4_to_int(int *array, int beg, int length);
+/* ===== Computation utilities ===== */
+int    power(int base, int exp);
+int    base4_to_int(int *array, int beg, int length);
 double total_prob(double *array, int length);
-double safe_log(double x);
 double log_sum_exp(double *logs, int n);
+void   tolerance_checker(double *array, int len, const double epsilon);
+void   log_space_converter(double *array, int len);
 
-// suffix algorithm to get all transition prob // 
+/* ===== Transition matrix initialization ===== */
 void initialize_donor_transition_matrix(Lambda *l, Apc *a, int depth);
 void initialize_acceptor_transition_matrix(Lambda *l, Apc *a, int depth);
 
-// forward algorithm //
-
-void allocate_alpha(Observed_events *info, Forward_algorithm *alpha , Explicit_duration *ed);                        
-void basis_forward_algorithm(Lambda *l, Explicit_duration *ed,  Forward_algorithm *alpha, Observed_events *info);
-void forward_algorithm(Lambda *l, Forward_algorithm *alpha, Observed_events *info, Explicit_duration *ed);
+/* ===== Forward algorithm ===== */
+void allocate_fw(Observed_events *info, Forward_algorithm *alpha, Explicit_duration *ed);
+void basis_fw_algo(Lambda *l, Explicit_duration *ed, Forward_algorithm *alpha, Observed_events *info);
+void fw_algo(Lambda *l, Forward_algorithm *alpha, Observed_events *info, Explicit_duration *ed);
 void free_alpha(Observed_events *info, Forward_algorithm *alpha);
 
-// viterbi algorithm //
+/* ===== Backward algorithm ===== */
+void allocate_bw(Backward_algorithm *beta, Explicit_duration *ed, Observed_events *info);
+void basis_bw_algo(Lambda *l, Backward_algorithm *beta, Observed_events *info, Explicit_duration *ed);
+void bw_algo(Lambda *l, Backward_algorithm *beta, Observed_events *info, Explicit_duration *ed);
+void free_beta(Observed_events *info, Backward_algorithm *beta);
 
-void allocate_viterbi(Viterbi_algorithm *vit, Observed_events *info);
-void viterbi_basis(Viterbi_algorithm *vit, Forward_algorithm *alpha);
-void argmax_viterbi(Viterbi_algorithm *vit, int t);
-void xi_calculation(Lambda *l, Forward_algorithm *alpha, Viterbi_algorithm *vit, Observed_events *info, double backward_sum, int t, int type);
-void free_viterbi(Viterbi_algorithm *vit);
+/* ===== Posterior probabilities ===== */
+void allocate_pos(Pos_prob *pos, Observed_events *info);
+void free_pos(Pos_prob *pos, Observed_events *info);
+void pos_prob(Backward_algorithm *beta, Forward_algorithm *alpha, Observed_events *info, Pos_prob *pos);
 
-// backward algorithm //
-
-void allocate_beta(Backward_algorithm *beta, Explicit_duration *ed);                             
-void initial_backward_algorithm(Backward_algorithm *beta);
-void backward_algorithm(Lambda *l, Backward_algorithm *beta, Observed_events *info, Explicit_duration *ed, Viterbi_algorithm *vit, Forward_algorithm *alpha);
-void free_beta(Backward_algorithm *beta);
-
-// output section //
-void viterbi_path_test(Viterbi_algorithm *vit, Observed_events *info, Explicit_duration *ed);
+/* ===== Output ===== */
+void index_to_sequence(int index, int length, char *seq);
+void print_transition_matrices_summary(Lambda *l);
+void print_splice_sites(Pos_prob *pos, Observed_events *info, Explicit_duration *ed);
+void print_duration_summary(Explicit_duration *ed);
 
 #endif

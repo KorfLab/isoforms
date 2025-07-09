@@ -17,8 +17,8 @@ parser.add_argument('--limit', required=False, type=str, default=1000,
     metavar='<int>', help='limit number of isoforms [%(default)i]')
 parser.add_argument('--notes', required=False, type=str, metavar='<string>',
     help='any metadata you want to add')
-parser.add_argument('--program', required=False, type=str, default='optiso2', 
-    metavar='<executable>', help='path to optiso2')
+parser.add_argument('--program', required=False, type=str, default='optiso', 
+    metavar='<executable>', help='path to optiso')
 parser.add_argument('--cpu', required=False, type=int, default=1,
 	metavar='<int>', help='number of cpus to use [%(default).i]')
 

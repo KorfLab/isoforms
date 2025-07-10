@@ -10,6 +10,8 @@ parser = argparse.ArgumentParser(
 	description='what is the time complexity of the APC algorithm?')
 parser.add_argument('data_dir', type=str, metavar='<directory>', 
 	help='directory with input fasta files')
+parser.add_argument('model', type=str, metavar='<file>',
+	help='worm splice model file')
 
 args = parser.parse_args()
 
@@ -35,6 +37,8 @@ afreqs = [item[1]['afreq'] for item in genes.items()]
 
 global_dfreq = stats.mean(dfreqs)
 global_afreq = stats.mean(afreqs)	
+
+print(global_dfreq, global_afreq)
 	
 kmer_counts = {}
 for fasta in glob.glob(f'{args.data_dir}**.fa'):
@@ -53,16 +57,39 @@ kcounts = [item[1] for item in kmer_counts.items()]
 print(kmers)
 print(kcounts)
 				
+s = random.choices(kmers, weights = kcounts, k = 10)
 
+
+
+max_len = 10000
+inc = 100
+ran_dfreqs = []
+ran_afreqs = []
+for i in range(300, max_len + inc, inc):
+	ranseq = ''.join(random.choices(kmers, weights = kcounts, k = i))
+	dons, accs = isoform.gtag_sites(ranseq, flank, emin)
+	dfreq = round((len(dons) / (len(ranseq)/2)), 2)
+	afreq = round((len(accs) / (len(ranseq)/2)), 2)
+	ran_dfreqs.append(dfreq)
+	ran_afreqs.append(afreq)
 	
-'''
-start = time.time()
-locus = Locus(name, seq, model, countonly=True)
-end = time.time()
-elapsed = end - start
-print(locus.isocount, elapsed)
-print(len(seq), len(dons), len(accs))
-'''
+# why doesn't simulated feqs match actual?
+print(stats.mean(ran_dfreqs), stats.mean(ran_afreqs))
+
+
+
+# now do apc
+for i in range(300, max_len + inc, inc):
+	name = f'{i}'
+	ranseq = ''.join(random.choices(kmers, weights = kcounts, k = i))
+	dons, accs = isoform.gtag_sites(ranseq, flank, emin)
+	start = time.time()
+	locus = Locus(name, ranseq, args.model, countonly=True)
+	end = time.time()
+	elapsed = end - start
+	print(len(ranseq), locus.isocount, elapsed)
+	#print(len(seq), len(dons), len(accs))
+
 
 '''
 def ranseq(length):
@@ -76,30 +103,8 @@ def ranseq(length):
 	
 print(ranseq(100))
 
-max_len = 1000
-inc = 100
-for i in range(300, max_len + inc, inc):
-	seq = ranseq(i)
-	d, a = isoform.gtag_sites(seq, flank, minex)
-	print(i, len(d), len(a))
+
 	
-# frequency of GT and AG sites in real data?
-# build seqs in 2mers, with options of AC, AG, AT, CG, CT
-
-alph = ['a', 'b', 'c']
-for i in range(len(alph)):
-	for j in range(len(alph)):
-		print(alph[i], alph[j])
-		
-alph = ['A', 'C', 'G', 'T']
-dinucs = []
-for i in range(len(alph)):
-	for j in range(len(alph)):
-		dinucs.append(f'{alph[i]}{alph[j]}')
-
-dinuc_counts = {x:0 for x in dinucs}
-
-print(dinuc_counts)		
 '''
 	
 

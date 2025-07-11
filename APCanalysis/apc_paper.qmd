@@ -1,0 +1,37 @@
+---
+title: "apc paper"
+format: html
+editor: visual
+---
+
+# Describing the APC model
+
+## Algorithm
+
+All possible combinations (APC) of exons and introns are generated from a given DNA sequence. Introns are gathered based only on canonical donor (GT) and acceptor (AG) sites. A modified backtracking algorithm is used to generate only valid combinations of introns (isoforms). For example, introns that overlap would not be considered. This reduces the search space. **Need graph showing algorithm performance**
+
+```{r}
+library('ggplot2')
+```
+
+
+```{r}
+isocount_sim <- read.csv('bigo.out')
+
+p1 <- qplot(isocount_sim$seq_len, y=isocount_sim$iso_count, geom="auto", ylab = 'Number of isoforms', xlab = 'Sequence length')
+
+p1
+```
+```{r}
+p2 <- qplot(isocount_sim$seq_len, y=isocount_sim$n_dons, geom="auto", ylab = 'Number of donor sites', xlab = 'Sequence length')
+
+p2
+```
+
+```{r}
+p3 <- qplot(isocount_sim$seq_len, y=isocount_sim$n_accs, geom="auto", ylab = 'Number of acceptor sites', xlab = 'Sequence length')
+
+p3
+```
+
+

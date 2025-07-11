@@ -59,6 +59,7 @@ with open('bigo.out', 'w') as file:
 		rdons, raccs = isoform.gtag_sites(ranseq, flank, emin)
 		#print(len(ranseq), len(rdons), len(raccs))
 		# just use last instance of name from line 34
+		print(f'working on {i}...')
 		locus = Locus(name, ranseq, args.model, countonly=True)
 		file.write(f'{len(ranseq)},{locus.isocount},{len(rdons)},'
 					f'{len(raccs)}\n')

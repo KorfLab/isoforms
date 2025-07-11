@@ -128,7 +128,7 @@ myenvs
 # need to install python in the environment
 # don't add python from tools > global options
 # it conflicts
-use_condaenv("Renv")
+use_condaenv("splicing")
 # can only be run once?
 ```
 

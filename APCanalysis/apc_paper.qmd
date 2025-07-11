@@ -4,16 +4,22 @@ format: html
 editor: visual
 ---
 
+```{r}
+install.packages('gt', quiet = TRUE)
+```
+
+```{r}
+library('ggplot2')
+library('gt')
+library('dplyr')
+library('reticulate')
+```
+
 # Describing the APC model
 
 ## Algorithm
 
 All possible combinations (APC) of exons and introns are generated from a given DNA sequence. Introns are gathered based only on canonical donor (GT) and acceptor (AG) sites. A modified backtracking algorithm is used to generate only valid combinations of introns (isoforms). For example, introns that overlap would not be considered. This reduces the search space. **Need graph showing algorithm performance**
-
-```{r}
-library('ggplot2')
-```
-
 
 ```{r}
 isocount_sim <- read.csv('bigo.out')
@@ -22,6 +28,7 @@ p1 <- qplot(isocount_sim$seq_len, y=isocount_sim$iso_count, geom="auto", ylab = 
 
 p1
 ```
+
 ```{r}
 p2 <- qplot(isocount_sim$seq_len, y=isocount_sim$n_dons, geom="auto", ylab = 'Number of donor sites', xlab = 'Sequence length')
 
@@ -33,5 +40,66 @@ p3 <- qplot(isocount_sim$seq_len, y=isocount_sim$n_accs, geom="auto", ylab = 'Nu
 
 p3
 ```
+
+## Smallgenes
+
+There is a sharp exponential increase in the number of possible isoforms that can be generated from a sequence of increasing length. It is impossible to test genes above a length of around 100 base pairs before the compute time is unmanageable. Because of this, we have created a subset of the C. elegans genome called the smallgenes dataset. Each gene is represented by a single fasta file and GFF3 annotion file. This dataset has the following restrictions on each gene: no overlaps with other genes or genomic features, the gene is flanked... this can just be copy pasted from KorfLab/smallgenes
+
+## Isoform Scoring
+
+Each isoform is scored using 3 probabilistic sub-models: a position weight matrix for donor and acceptor sites, an exon and intron length distribution, and a kmer model for exon and intron sequences.
+
+### PWM
+
+The quality of donor and acceptor sites are evaluated using a position weight matrix (PWM). PWMs that cover the length of a specific motif give insight into the prevalence of each nucleotide base at a given position. The smallgenes dataset is used as training data. The position probability matrix is first computed by summing all occurrences of a nucleotide $i$ (either A, C, G, or T) at each position $j$.
+
+$$ P_{ij} = \sum_{j=1}^L C_i/L $$
+
+Frequencies are then converted to scores using a log odds ratio, where $P_{ij}$ is the frequency of nucleotide $i$ at position $j$, and $P_i$ is the background frequency of that nucleotide (0.25). If $P_{ij}$ is 0, -100 is returned.
+
+$$PWM_{ij} = log_2(p_{ij}/p_i)$$
+```{r}
+use_condaenv('splicing')
+```
+
+```{python}
+# need to load conda environment first
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import logomaker
+```
+
+```{r}
+dpwm <- read.csv('donor_side_pwm.csv', header = FALSE)
+colnames(dpwm) <- c('A', 'C', 'G', 'T')
+```
+
+```{python}
+long_dpwm = logomaker.Logo(r.dpwm, shade_below=.5,
+fade_below=.5)
+plt.show()
+```
+
+```{r}
+dpwm2 <- dpwm %>% 
+  slice(6:11)
+```
+
+```{python}
+dpwm2 = logomaker.Logo(r.dpwm2, shade_below=.5,
+fade_below=.5)
+plt.show()
+```
+
+
+
+
+
+
+
+
+
+
 
 

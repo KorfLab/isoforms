@@ -18,7 +18,8 @@ parser.add_argument('--max_len', required=False, type=int,
 parser.add_argument('--inc', required=False, type=int, default=100, 
 	metavar='<int>', help='increment sequence length by [%(default)i]')
 parser.add_argument('--reps', required=False, type=int, default=100,
-	metavar='<int>', help='number of times to repeat simulation')
+	metavar='<int>', 
+	help='number of times to repeat simulation [%(default)i]')
 
 args = parser.parse_args()
 
@@ -53,7 +54,7 @@ k2_weights = [item[1] for item in k2_counts.items()]
 
 # generate random sequences with GT/AG sites
 
-with open('bigo.out', 'w') as file:
+with open('bigo.csv', 'w') as file:
 	file.write(f'seq_len,iso_count,n_dons,n_accs,time\n')
 	for i in range(300, args.max_len+args.inc, args.inc):
 		for j in range(args.reps):

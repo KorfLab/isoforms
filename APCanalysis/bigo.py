@@ -17,6 +17,8 @@ parser.add_argument('--max_len', required=False, type=int,
 	help='max length of sequence to test [%(default)i]')
 parser.add_argument('--inc', required=False, type=int, default=100, 
 	metavar='<int>', help='increment sequence length by [%(default)i]')
+parser.add_argument('--reps', required=False, type=int, default=100,
+	metavar='<int>', help='number of times to repeat simulation')
 
 args = parser.parse_args()
 
@@ -52,6 +54,25 @@ k2_weights = [item[1] for item in k2_counts.items()]
 # generate random sequences with GT/AG sites
 
 with open('bigo.out', 'w') as file:
+	file.write(f'seq_len,iso_count,n_dons,n_accs,time\n')
+	for i in range(300, args.max_len+args.inc, args.inc):
+		for j in range(args.reps):
+			ranseq = ''.join(random.choices(k2s, weights = k2_weights, 
+							k = round(i/2)))
+			rdons, raccs = isoform.gtag_sites(ranseq, flank, emin)
+			#print(len(ranseq), len(rdons), len(raccs))
+			# just use last instance of name from line 34
+			print(f'working on {i}...')
+			start = time.time()
+			locus = Locus(name, ranseq, args.model, countonly=True)
+			end = time.time()
+			total_time = end - start
+			file.write(f'{len(ranseq)},{locus.isocount},{len(rdons)},'
+						f'{len(raccs)},{total_time}\n')
+			file.flush()
+
+'''
+with open('bigo.out', 'w') as file:
 	file.write(f'seq_len,iso_count,n_dons,n_accs\n')
 	for i in range(300, args.max_len+args.inc, args.inc):
 		ranseq = ''.join(random.choices(k2s, weights = k2_weights, 
@@ -64,8 +85,7 @@ with open('bigo.out', 'w') as file:
 		file.write(f'{len(ranseq)},{locus.isocount},{len(rdons)},'
 					f'{len(raccs)}\n')
 		file.flush()
-
-
+'''
 
 
 

@@ -58,6 +58,7 @@ $$ P_{ij} = \sum_{j=1}^L C_i/L $$
 Frequencies are then converted to scores using a log odds ratio, where $P_{ij}$ is the frequency of nucleotide $i$ at position $j$, and $P_i$ is the background frequency of that nucleotide (0.25). If $P_{ij}$ is 0, -100 is returned.
 
 $$PWM_{ij} = log_2(p_{ij}/p_i)$$
+
 ```{r}
 use_condaenv('splicing')
 ```
@@ -91,15 +92,3 @@ dpwm2 = logomaker.Logo(r.dpwm2, shade_below=.5,
 fade_below=.5)
 plt.show()
 ```
-
-
-
-
-
-
-
-
-
-
-
-

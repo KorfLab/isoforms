@@ -5,12 +5,7 @@ editor: visual
 ---
 
 ```{r}
-install.packages('gt', quiet = TRUE)
-```
-
-```{r}
 library('ggplot2')
-library('gt')
 library('dplyr')
 library('reticulate')
 ```
@@ -22,23 +17,29 @@ library('reticulate')
 All possible combinations (APC) of exons and introns are generated from a given DNA sequence. Introns are gathered based only on canonical donor (GT) and acceptor (AG) sites. A modified backtracking algorithm is used to generate only valid combinations of introns (isoforms). For example, introns that overlap would not be considered. This reduces the search space. **Need graph showing algorithm performance**
 
 ```{r}
-isocount_sim <- read.csv('bigo.out')
+isocount_sim <- read.csv('bigo.csv')
 
-p1 <- qplot(isocount_sim$seq_len, y=isocount_sim$iso_count, geom="auto", ylab = 'Number of isoforms', xlab = 'Sequence length')
+p1 <- ggplot(isocount_sim, aes(x=seq_len, y=iso_count, group=seq_len)) + xlab('Sequence length') + ylab('Isoforms Count') + ggtitle('Number of isoforms by sequence length') + geom_boxplot() 
 
 p1
 ```
 
 ```{r}
-p2 <- qplot(isocount_sim$seq_len, y=isocount_sim$n_dons, geom="auto", ylab = 'Number of donor sites', xlab = 'Sequence length')
+p2 <- ggplot(isocount_sim, aes(x=seq_len, y=time, group=seq_len)) + xlab('Sequence length') + ylab('APC compute time (seconds)') + ggtitle('APC compute time by sequence length') + geom_boxplot() 
 
 p2
 ```
 
 ```{r}
-p3 <- qplot(isocount_sim$seq_len, y=isocount_sim$n_accs, geom="auto", ylab = 'Number of acceptor sites', xlab = 'Sequence length')
+p3 <- ggplot(isocount_sim, aes(x=seq_len, y=n_dons, group=seq_len)) + xlab('Sequence length') + ylab('Number of donor sites') + ggtitle('Number of donor sites by sequence length') + geom_boxplot() 
 
 p3
+```
+
+```{r}
+p4 <- ggplot(isocount_sim, aes(x=seq_len, y=n_accs, group=seq_len)) + xlab('Sequence length') + ylab('Number of acceptor sites') + ggtitle('Number of acceptor sites by sequence length') + geom_boxplot() 
+
+p4
 ```
 
 ## Smallgenes
@@ -54,7 +55,8 @@ Each isoform is scored using 3 probabilistic sub-models: a position weight matri
 The quality of donor and acceptor sites are evaluated using a position weight matrix (PWM). PWMs that cover the length of a specific motif give insight into the prevalence of each nucleotide base at a given position. The smallgenes dataset is used as training data. The position probability matrix is first computed by summing all occurrences of a nucleotide $i$ (either A, C, G, or T) at each position $j$.
 
 $$ P_{ij} = \sum_{j=1}^L C_i/L $$
-
+How to construct pwm
+https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf
 Frequencies are then converted to scores using a log odds ratio, where $P_{ij}$ is the frequency of nucleotide $i$ at position $j$, and $P_i$ is the background frequency of that nucleotide (0.25). If $P_{ij}$ is 0, -100 is returned.
 
 $$PWM_{ij} = log_2(p_{ij}/p_i)$$
@@ -68,6 +70,8 @@ use_condaenv('splicing')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+# conda config --set channel_priority flexible
+# conda install bioconda::logomaker
 import logomaker
 ```
 
@@ -79,16 +83,19 @@ colnames(dpwm) <- c('A', 'C', 'G', 'T')
 ```{python}
 long_dpwm = logomaker.Logo(r.dpwm, shade_below=.5,
 fade_below=.5)
+long_dpwm.ax.set_ylim(0,2)
 plt.show()
 ```
-
+How to construct pwm
+https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf
 ```{r}
-dpwm2 <- dpwm %>% 
-  slice(6:11)
+apwm <- read.csv('acceptor_side_pwm.csv', header = FALSE)
+colnames(apwm) <- c('A', 'C', 'G', 'T')
 ```
 
 ```{python}
-dpwm2 = logomaker.Logo(r.dpwm2, shade_below=.5,
+long_apwm = logomaker.Logo(r.apwm, shade_below=.5,
 fade_below=.5)
+long_apwm.ax.set_ylim(0,2)
 plt.show()
 ```

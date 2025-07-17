@@ -1,5 +1,6 @@
 import argparse
 import csv
+import math
 
 parser = argparse.ArgumentParser(description='create pwm for figures')
 
@@ -10,16 +11,18 @@ parser.add_argument('--pwm_size', required=False, type=int, default=30,
 	
 args = parser.parse_args()
 
-dsides = []
-asides = []
+donor_sides = []
+acceptor_sides = []
 with open(args.introns, 'r') as fp:
 	for line in fp.readlines():
-		line = line.rstrip()
-		dside = line[:args.pwm_size]
-		aside = line[-args.pwm_size:]
-		dsides.append(dside)
-		asides.append(aside)
-
+		seq = line.rstrip()
+		donor_side = seq[:args.pwm_size]
+		acceptor_side = seq[-args.pwm_size:]
+		intron_seq = seq[5:len(seq)-5]
+		
+		donor_sides.append(donor_side)
+		acceptor_sides.append(acceptor_side)	
+		
 def build_pwm(seqs, pwm_size):
 	
 	counts = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
@@ -28,16 +31,27 @@ def build_pwm(seqs, pwm_size):
 		for i, nt in enumerate(seq):
 			counts[i][nt] += 1
 			
-	pwm = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
+	ppm = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
 	
 	for i, site in enumerate(counts):
 		for nt in site:
-			pwm[i][nt] = site[nt]/len(seqs)
+			ppm[i][nt] = site[nt]/len(seqs)
 			
+	pwm = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
+			
+	for i, site in enumerate(ppm):
+		uncertainty = 0
+		for item in site.items():
+			uncertainty += item[1] * math.log2(item[1])
+		uncertainty = -uncertainty
+		info_content = 2 - uncertainty
+		for nt in site:
+			pwm[i][nt] = site[nt] * info_content
+
 	return pwm
-	
-dpwm = build_pwm(dsides, args.pwm_size)
-apwm = build_pwm(asides, args.pwm_size)
+
+dpwm = build_pwm(donor_sides, args.pwm_size)
+apwm = build_pwm(acceptor_sides, args.pwm_size)
 
 with open('donor_side_pwm.csv', 'w') as csvfile:
 	dwriter = csv.writer(csvfile)
@@ -50,7 +64,7 @@ with open('acceptor_side_pwm.csv', 'w') as csvfile:
 	for asite in apwm:
 		row = [asite[x] for x in asite]
 		awriter.writerow(row)
-	
+
 	
 	
 	

@@ -18,7 +18,7 @@ All possible combinations (APC) of exons and introns are generated from a given 
 
 ```{r}
 isocount_sim <- read.csv('bigo.csv')
-
+# note 1100 simulation has not finished
 p1 <- ggplot(isocount_sim, aes(x=seq_len, y=iso_count, group=seq_len)) + xlab('Sequence length') + ylab('Isoforms Count') + ggtitle('Number of isoforms by sequence length') + geom_boxplot() 
 
 p1
@@ -54,10 +54,7 @@ Each isoform is scored using 3 probabilistic sub-models: a position weight matri
 
 The quality of donor and acceptor sites are evaluated using a position weight matrix (PWM). PWMs that cover the length of a specific motif give insight into the prevalence of each nucleotide base at a given position. The smallgenes dataset is used as training data. The position probability matrix is first computed by summing all occurrences of a nucleotide $i$ (either A, C, G, or T) at each position $j$.
 
-$$ P_{ij} = \sum_{j=1}^L C_i/L $$
-How to construct pwm
-https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf
-Frequencies are then converted to scores using a log odds ratio, where $P_{ij}$ is the frequency of nucleotide $i$ at position $j$, and $P_i$ is the background frequency of that nucleotide (0.25). If $P_{ij}$ is 0, -100 is returned.
+$$ P_{ij} = \sum_{j=1}^L C_i/L $$ How to construct pwm https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf Frequencies are then converted to scores using a log odds ratio, where $P_{ij}$ is the frequency of nucleotide $i$ at position $j$, and $P_i$ is the background frequency of that nucleotide (0.25). If $P_{ij}$ is 0, -100 is returned.
 
 $$PWM_{ij} = log_2(p_{ij}/p_i)$$
 
@@ -86,8 +83,9 @@ fade_below=.5)
 long_dpwm.ax.set_ylim(0,2)
 plt.show()
 ```
-How to construct pwm
-https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf
+
+How to construct pwm https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf
+
 ```{r}
 apwm <- read.csv('acceptor_side_pwm.csv', header = FALSE)
 colnames(apwm) <- c('A', 'C', 'G', 'T')

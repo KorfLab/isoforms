@@ -30,13 +30,15 @@ else:
 	
 introns = []
 exons = []
-for line in gff_fp.readlines():
+#for line in gff_fp.readlines():
+for line in gff_fp:
 	try:
 		line = line.decode('utf-8')
 		line = line.rstrip()
 	except:
 		line = line.rstrip()
 	line = line.split('\t')
+	print(line)
 	if len(line) < 9: continue
 	if line[2] == 'intron':
 		intron = (line[0], int(line[3]), int(line[4]), line[6])
@@ -45,13 +47,16 @@ for line in gff_fp.readlines():
 		exon = (line[0], int(line[3]), int(line[4]), line[6])
 		exons.append(exon)
 
+gff_fp.close()
+
 if args.genome.endswith('.gz'):
 	genome_fp = gzip.open(args.genome, 'r')
 else:
 	genome_fp = open(args.genome, 'r')
 	
 chroms = {}
-for line in genome_fp.readlines():
+#or line in genome_fp.readlines():
+for line in genome_fp:
 	try:
 		line = line.decode('utf-8')
 		line = line.rstrip()

@@ -5,13 +5,10 @@ import os
 import isoform
 import csv
 import copy
+import math
 
 parser = argparse.ArgumentParser(
-	description=(
-		'Test different distance equations on APC results, '
-		'get intron frequencies'
-	)
-)
+	description=('get gene similarites and ranked list of genes'))
 	
 parser.add_argument('apc', help='APC generated gff files')
 parser.add_argument('smallgenes', 
@@ -31,6 +28,7 @@ for fname in os.listdir(args.apc):
 	gid = '.'.join(fname.split('.')[:3])
 	gff_paths[gid] = [f'{args.apc}{fname}']
 	
+# create identical length histograms
 def add_zeroes(introns1, introns2):
 	
 	i1 = copy.deepcopy(introns1)
@@ -42,66 +40,110 @@ def add_zeroes(introns1, introns2):
 	for i in i2:
 		if i not in i1: i1[i] = 0
 		
-	return i1, i2
+	i2_sort = {}
+	for i in i1:
+		i2_sort[i] = i2[i]
+		
+	return i1, i2_sort
 		
 for fname in os.listdir(args.smallgenes):
 	if fname.endswith('.gff3'):
 		gid = '.'.join(fname.split('.')[:3])
 		gff_paths[gid].append(f'{args.smallgenes}{fname}')
 
-frequencies = {}
-for g in gff_paths.items():
-	apc_ints = isoform.get_introns(g[1][0])
-	wb_ints = isoform.get_introns(g[1][1])
-	apc_ints0, wb_ints0 = add_zeroes(apc_ints, wb_ints)
-	frequencies[g[0]] = []
-	for intron in apc_ints0:
-		assert intron in wb_ints0, 'intron not found in RNASeq'
-		# drop 0s only on wormbase side
-		# keep introns APC does not predict, but exists
-		if wb_ints0[intron] == 0: continue
-		frequencies[g[0]].append((intron, apc_ints0[intron], 
-							wb_ints0[intron]))
-								
-def chebyshev(int_freqs):
-
-	return max([abs(int_f[1] - int_f[2]) for int_f in int_freqs])
-
-def manhattan(int_freqs):
+# get wbgene and transcript id from rna seq gff				
+def get_wbgene(gff):
 	
-	dist = 0
-	for int_f in int_freqs:
-		dist += abs(int_f[1] - int_f[2])
+	with open(gff) as infile:
+		txid = ''
+		wbgene = ''
+		for line in infile:
+			line = line.rstrip().split('\t')
+			if line[2] == 'mRNA':
+				txid = line[8].split(':')[1].split(';')[0]
+			if line[2] == 'gene':
+				wbgene = line[8].split(':')[1]
 		
+		return wbgene, txid		
+				
+gene_hists = {}
+wbgene_ids = {}
+for gitems in gff_paths.items():
+	wbgene, txid = get_wbgene(gitems[1][1])
+	wbgene_ids[gitems[0]] = (wbgene, txid)
+	apc_ints = isoform.get_introns(gitems[1][0])
+	wb_ints = isoform.get_introns(gitems[1][1])
+	apc_ints0, wb_ints0 = add_zeroes(apc_ints, wb_ints)
+	histograms = {}
+	for intron in apc_ints0:
+		histograms[intron] = (apc_ints0[intron], wb_ints0[intron])
+	gene_hists[gitems[0]] = histograms		
+		
+def intersection(histograms):
+	
+	# regular definition of histogram intersection
+	'''
+	min_sum = 0
+	total = 0
+	for item in histograms.items():
+		min_sum += min(item[1][0], item[1][1])
+		total += item[1][1]
+	
+	dist = min_sum/total
+	
 	return dist
+	'''
+
+	# gets the exact same numbers as above method
+	# ian's code is binning things differently
+	# 100 similarity is for genes between 99 and 100 similarity?
+	# our method (already converted to frequencies)
+	min_sum = 0
+	for item in histograms.items():
+		min_sum += min(item[1][0], item[1][1])
+	
+	return min_sum
 
 distances = {}
-for gene_info in frequencies.items():
-	distances[gene_info[0]] = (chebyshev(gene_info[1]), 
-								manhattan(gene_info[1]))
+for gene in gene_hists:
+	distances[gene] = intersection(gene_hists[gene])	
 
-if args.outf: 
-	outname1 = f'{args.outf}.dist'
-	outname2 = f'{args.outf}.freq'
-else: 
-	outname1 = 'out_isodif.dist'
-	outname2 = 'out_isodif.freq'
+similarities = {x: 0 for x in range(100, -1, -1)}
+total_genes = 0
+for gdist in distances.items():
+	similarities[math.floor(gdist[1] * 100)] += 1
+	total_genes += 1
+
+sim_counts = []
+counter = 0
+for sitems in similarities.items():
+	counter += sitems[1]
+	# get total number of genes that are above each cutoff 
+	#print(sitems[0], sitems[1], counter, counter/total_genes)
+	sim_counts.append((sitems[0], counter/total_genes))
+
+if args.outf:
+	outname1 = f'{args.outf}.isodif.similarity'
+	outname2 = f'{args.outf}.isodif.ranks'
+else:
+	outname1 = 'isodif.similarity.csv'
+	outname2 = 'isodif.ranks.csv'
 	
 with open(outname1, 'w') as csvfile:
-	dist_writer = csv.writer(csvfile)
-	dist_writer.writerow(['gene_id', 'chebyshev', 'manhattan'])
-	for item in distances.items():
-		dist_writer.writerow([item[0], item[1][0], item[1][1]])
+	sim_writer = csv.writer(csvfile)
+	sim_writer.writerow(['similarity', 'percent_match'])
+	for stup in sim_counts:
+		sim_writer.writerow([stup[0], stup[1]])
 
-# intron information is still in fdists
+distances = sorted(distances.items(), key=lambda item: item[1], 
+					reverse=True)
+
 with open(outname2, 'w') as csvfile:
-	int_writer = csv.writer(csvfile)
-	int_writer.writerow(['gene_id', 'wb', 'apc'])
-	for item in frequencies.items():
-		for int_info in item[1]:
-			int_writer.writerow([item[0], int_info[1], int_info[2]])
-
-
+	dist_writer = csv.writer(csvfile)
+	dist_writer.writerow(['gene_id', 'wbgene', 'txid', 'dist'])
+	for gid in distances:
+		dist_writer.writerow([gid[0], wbgene_ids[gid[0]][0], 
+								wbgene_ids[gid[0]][1], gid[1]])
 
 
 

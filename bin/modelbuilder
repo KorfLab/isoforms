@@ -76,10 +76,10 @@ for ff in glob.glob(f'{arg.dir}/*.fa'):
 
 ## build models
 inf = len(introns) / exonsum
-acc = isoform2.create_pwm(accs)
-don = isoform2.create_pwm(dons)
-exs = isoform2.create_markov(exons, arg.emm, 0, 0)
-ins = isoform2.create_markov(introns, arg.imm, arg.don, arg.acc)
+acc = isoform.create_pwm(accs)
+don = isoform.create_pwm(dons)
+exs = isoform.create_markov(exons, arg.emm, 0, 0)
+ins = isoform.create_markov(introns, arg.imm, arg.don, arg.acc)
 exl = create_length_model(exons, arg.emin, arg.emax)
 inl = create_length_model(introns, arg.imin, arg.imax)
 
@@ -92,23 +92,23 @@ fexl = f'{arg.out}/exon.len'
 finl = f'{arg.out}/intron.len'
 finf = f'{arg.out}/intron.freq'
 if not os.path.exists(arg.out): os.makedirs(arg.out)
-isoform2.write_pwm(facc, acc)
-isoform2.write_pwm(fdon, don)
-isoform2.write_markov(fexs, exs)
-isoform2.write_markov(fins, ins)
-isoform2.write_len(fexl, exl)
-isoform2.write_len(finl, inl)
+isoform.write_pwm(facc, acc)
+isoform.write_pwm(fdon, don)
+isoform.write_markov(fexs, exs)
+isoform.write_markov(fins, ins)
+isoform.write_len(fexl, exl)
+isoform.write_len(finl, inl)
 with open(finf, 'w') as fp: print(inf, file=fp)
 
 # write ghmm
 ghmm = {
 	'name': arg.name,
-	'inf': isoform2.prob2score(inf),
-	'acc': isoform2.read_pwm(facc),
-	'don': isoform2.read_pwm(fdon),
-	'exs': isoform2.read_markov(fexs),
-	'ins': isoform2.read_markov(fins),
-	'exl': isoform2.read_len(fexl),
-	'inl': isoform2.read_len(finl),
+	'inf': isoform.prob2score(inf),
+	'acc': isoform.read_pwm(facc),
+	'don': isoform.read_pwm(fdon),
+	'exs': isoform.read_markov(fexs),
+	'ins': isoform.read_markov(fins),
+	'exl': isoform.read_len(fexl),
+	'inl': isoform.read_len(finl),
 }
 print(json.dumps(ghmm, indent=1))

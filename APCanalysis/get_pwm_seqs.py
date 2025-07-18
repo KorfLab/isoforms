@@ -1,4 +1,5 @@
 import argparse
+import gzip
 
 parser = argparse.ArgumentParser(description='gathers intron, donor, ' 
 	'and acceptor sequences for PWM training')
@@ -21,7 +22,57 @@ def revcomp(seq):
 		rev += comps[seq[-i]]
 
 	return rev
+	
+if args.gff.endswith('.gz'):
+	gff_fp = gzip.open(args.gff, 'r')
+else:
+	gff_fp = open(args.gff, 'r')
+	
+introns = []
+exons = []
+#for line in gff_fp.readlines():
+for line in gff_fp:
+	try:
+		line = line.decode('utf-8')
+		line = line.rstrip()
+	except:
+		line = line.rstrip()
+	line = line.split('\t')
+	print(line)
+	if len(line) < 9: continue
+	if line[2] == 'intron':
+		intron = (line[0], int(line[3]), int(line[4]), line[6])
+		introns.append(intron)
+	if line[2] == 'exon':
+		exon = (line[0], int(line[3]), int(line[4]), line[6])
+		exons.append(exon)
 
+gff_fp.close()
+
+if args.genome.endswith('.gz'):
+	genome_fp = gzip.open(args.genome, 'r')
+else:
+	genome_fp = open(args.genome, 'r')
+	
+chroms = {}
+#or line in genome_fp.readlines():
+for line in genome_fp:
+	try:
+		line = line.decode('utf-8')
+		line = line.rstrip()
+	except:
+		line = line.rstrip()
+	if line.startswith('>'):
+		chrom = line.split(' ')[0][1:]
+	else:
+		if chrom not in chroms:
+			chroms[chrom] = line
+		else:
+			chroms[chrom] += line
+	
+genome_fp.close()
+
+'''
 ## collect subsequences
 introns = []
 exons = []
@@ -48,7 +99,7 @@ with open(args.genome, 'r') as fp:
 				chroms[chrom] = line
 			else:
 				chroms[chrom] += line
-
+'''
 accs = []
 dons = []
 iseqs = []
@@ -76,6 +127,7 @@ with open('introns.txt', 'w') as ifp:
 	for iseq in iseqs:
 		ifp.write(f'{iseq}\n')
 
+'''
 with open('donors.txt', 'w') as dfp:
 	for dseq in dons:
 		dfp.write(f'{dseq}\n')
@@ -83,8 +135,7 @@ with open('donors.txt', 'w') as dfp:
 with open('acceptors.txt', 'w') as afp:
 	for aseq in accs:
 		afp.write(f'{aseq}\n')
-
-
+'''
 
 
 

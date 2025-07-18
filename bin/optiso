@@ -93,8 +93,8 @@ arg = parser.parse_args()
 
 # Initialize
 if arg.seed: random.seed(arg.seed)
-name, seq = next(isoform2.read_fasta(arg.fasta))
-model = isoform2.read_splicemodel(arg.model)
+name, seq = next(isoform.read_fasta(arg.fasta))
+model = isoform.read_splicemodel(arg.model)
 if arg.verbose: print('computing isoforms...', end='', flush=True)
 gene = Locus(name, seq, model, None, None, limit=arg.limit, memoize=True)
 if arg.verbose: print(f'found {len(gene.isoforms)} isoforms', flush=True)

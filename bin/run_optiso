@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import subprocess
+import multiprocessing as mp
+from multiprocessing import Pool
+import time
+import csv
+
+parser = argparse.ArgumentParser(description='wrapper for optiso2')
+parser.add_argument('apc_dir', type=str, metavar='<directory>', 
+    help='directory with APC .gff3 and .fa files')
+parser.add_argument('model', type=str, metavar='<file>',
+    help='splice model file')
+parser.add_argument('--limit', required=False, type=str, default=1000,
+    metavar='<int>', help='limit number of isoforms [%(default)i]')
+parser.add_argument('--notes', required=False, type=str, metavar='<string>',
+    help='any metadata you want to add')
+parser.add_argument('--program', required=False, type=str, default='optiso', 
+    metavar='<executable>', help='path to optiso')
+parser.add_argument('--cpu', required=False, type=int, default=1,
+	metavar='<int>', help='number of cpus to use [%(default).i]')
+
+args = parser.parse_args()
+
+if args.apc_dir.endswith('/'): 
+	adir = args.apc_dir
+else:
+	adir = args.apc_dir + '/'
+
+fpaths = {}
+for file in os.listdir(adir):
+	gID = '.'.join(file.split('.')[1:3])
+	if gID not in fpaths:
+		fpaths[gID] = [(), ()]
+	if file.endswith('.fa'):
+		fpaths[gID][0] = f'{adir}{file}'
+	if file.endswith('.gff3'):
+		fpaths[gID][1] = f'{adir}{file}'
+ 
+def optimize(prog, fasta, gff, model, limit):
+
+	cmd = f'./{prog} {fasta} {gff} {model} --limit {limit}'
+	cmd = cmd.split(' ')
+	gid = '.'.join(fasta.split('.')[1:3])
+	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout.split()
+	print(f'working on {gid}...')
+	return [gid] + output
+
+def worker(inputs):
+
+	return optimize(inputs[0], inputs[1], inputs[2], inputs[3], args.limit)
+
+inputs = []
+for gID in fpaths:
+	input = [args.program, fpaths[gID][0], fpaths[gID][1], args.model]
+	inputs.append(input)
+	
+#s = time.perf_counter()
+with Pool(processes=args.cpu) as pool:
+	result = pool.map(worker, inputs)
+	#print(result)
+#e = time.perf_counter()
+#print('multi:', e-s)
+
+ref = []
+for res in result:
+	gid = res[0]
+	fitness = res[1]
+	wacc = res[2].split(':')[1]
+	wdon = res[3].split(':')[1]
+	wexs = res[4].split(':')[1]
+	wins = res[5].split(':')[1]
+	wexl = res[6].split(':')[1]
+	winl = res[7].split(':')[1]
+	winf = res[8].split(':')[1]
+	ref.append([gid, fitness, wacc, wdon, wexs, wins, wexl, winl, winf])
+
+with open('results_optiso2.csv', 'w') as file:
+    writer = csv.writer(file)
+    if args.notes: 
+        writer.writerow([args.notes])
+    writer.writerow(['gid', 'fitness', 'wacc', 'wdon', 'wexs', 'wins', 'wexl', 'winl', 'winf'])
+    writer.writerows(ref)
+

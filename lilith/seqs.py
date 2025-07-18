@@ -8,8 +8,25 @@
 
 import argparse
 import glob
-
 from grimoire.genome import Reader
+import statistics as stats
+import sys
+
+
+def find_median(l):
+	m = len(l) % 2
+	m_index = len(l) // 2
+
+	if len(l) == 0:
+		return None
+	
+	if m != 0:
+		return l[m_index]
+	else:
+		return (l[m_index-1] + l[m_index]) / 2
+
+
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('fasta')
@@ -20,6 +37,8 @@ parser.add_argument('--minscore', type=int, default=10000, metavar='<int>',
 	help='minimum intron count [%(default)i]')
 parser.add_argument('--maxdiff', type=float, default=2, metavar='<float>',
 	help='maximum difference between adjacent introns [%(default).1f]')
+parser.add_argument('-m', '--median', action='store_true', help='use raw median instead of mean')
+parser.add_argument('-e', '--exmode', action='store_true', help='produce all exons from genome')
 arg = parser.parse_args()
 
 for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
@@ -31,12 +50,19 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 		rna[sig] = round(float(f.score))
 
 	# get all the uniqe intron pairs and assign scores
-	pair = {}
 	for gene in chrom.ftable.build_genes():
+		txs = []
 
 		for tx in gene.transcripts():
+			if arg.exmode:
+				for ex in tx.exons:
+					e = chrom.seq[ex.beg:ex.end]
+					print(e)
+					continue
+
 			short = False
 			txscos = []
+			junc = {}
 
 			if len(tx.introns) < 2:
 				continue
@@ -47,43 +73,65 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 					short = True
 
 			if short == True:
-				continue
+	 			continue
 
 
 			for i in range(len(tx.introns)):
 				#b1 = tx.introns[i-1].beg
 				#e1 = tx.introns[i-1].end
-				b2 = tx.introns[i].beg
-				e2 = tx.introns[i].end
+				b = tx.introns[i].beg
+				e = tx.introns[i].end
 				#sig1 = b1, e1
-				sig2 = b2, e2
+				sig = b, e
+
 				# require intron is validate by rna-seq
 				#if sig1 not in rna: continue
-				if sig2 not in rna: continue
+				if sig not in rna:
+					continue
 				# require some level of rna expression
-				#if rna[sig1] < arg.minscore: continue
-				if rna[sig2] < arg.minscore: continue
-				# remove really different values (probably errors)
-				#if rna[sig1] / rna[sig2] > arg.maxdiff: continue
-				#if rna[sig2] / rna[sig1] > arg.maxdiff: continue
-				#pair[(gene.strand, sig1, sig2)] = (rna[sig1], rna[sig2])
-				txscos.append(rna[sig2])
-			print(txscos)
+				if rna[sig] < arg.minscore:
+					continue
 
-'''
+				junc[(gene.strand, sig)] = rna[sig]
+				txscos.append(rna[sig])
 
-	# get all the flanks
-	for (strand, (b1, e1), (b2, e2)), (s1, s2) in pair.items():
-		e1a = chrom.seq[b1-arg.exon-1:b1+1]
-		e1b = chrom.seq[e1-2:e1+arg.exon]
-		e2a = chrom.seq[b2-arg.exon-1:b2+1]
-		e2b = chrom.seq[e2-2:e2+arg.exon]
-		if len(e1a) != arg.exon +2: continue
-		if len(e1b) != arg.exon +2: continue
-		if len(e2a) != arg.exon +2: continue
-		if len(e2b) != arg.exon +2: continue
 
-		#print(f'{strand} {e1a}..{e1b} {s1} {e2a}..{e2b} {s2}')
-		#print(f'{strand} {b1}-{e1}:{s1} {b2}-{e2}:{s2}')
 
-'''
+			if len(txscos) < 1:
+				continue
+
+			if arg.median:
+				med = find_median(txscos)
+
+				for k, v in junc.items():
+					if junc[k] < med:
+						junc[k] = (v, 'LOW')
+					elif junc[k] == med:
+						junc[k] = (v, 'MEDIAN')
+					else:
+						junc[k] = (v, 'HIGH')
+
+			else:
+				me = stats.mean(txscos)
+				for k, v in junc.items():
+					if junc[k] < me:
+						junc[k] = (v, 'LOW')
+					else:
+						junc[k] = (v, 'HIGH')
+
+
+			txs.append(junc)
+
+		# get all the flanks
+		if arg.exmode:
+			continue
+			
+		for tx in txs:
+			for (strand, (b, e)), (s, typ) in tx.items():
+				ebeg = chrom.seq[b-arg.exon-1:b+1]
+				eend = chrom.seq[e-2:e+arg.exon]
+				if len(ebeg) != arg.exon +2: continue
+				if len(eend) != arg.exon +2: continue
+
+				print(f'{strand} {ebeg}..{eend} {s} {typ}')
+

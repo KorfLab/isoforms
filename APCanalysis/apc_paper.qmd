@@ -1,0 +1,102 @@
+---
+title: "apc paper"
+format: html
+editor: visual
+---
+
+```{r}
+library('ggplot2')
+library('dplyr')
+library('reticulate')
+```
+
+# Describing the APC model
+
+## Algorithm
+
+All possible combinations (APC) of exons and introns are generated from a given DNA sequence. Introns are gathered based only on canonical donor (GT) and acceptor (AG) sites. A modified backtracking algorithm is used to generate only valid combinations of introns (isoforms). For example, introns that overlap would not be considered. This reduces the search space. **Need graph showing algorithm performance**
+
+```{r}
+isocount_sim <- read.csv('bigo.csv')
+# note 1100 simulation has not finished
+p1 <- ggplot(isocount_sim, aes(x=seq_len, y=iso_count, group=seq_len)) + xlab('Sequence length') + ylab('Isoforms Count') + ggtitle('Number of isoforms by sequence length') + geom_boxplot() 
+
+p1
+```
+
+```{r}
+p2 <- ggplot(isocount_sim, aes(x=seq_len, y=time, group=seq_len)) + xlab('Sequence length') + ylab('APC compute time (seconds)') + ggtitle('APC compute time by sequence length') + geom_boxplot() 
+
+p2
+```
+
+```{r}
+p3 <- ggplot(isocount_sim, aes(x=seq_len, y=n_dons, group=seq_len)) + xlab('Sequence length') + ylab('Number of donor sites') + ggtitle('Number of donor sites by sequence length') + geom_boxplot() 
+
+p3
+```
+
+```{r}
+p4 <- ggplot(isocount_sim, aes(x=seq_len, y=n_accs, group=seq_len)) + xlab('Sequence length') + ylab('Number of acceptor sites') + ggtitle('Number of acceptor sites by sequence length') + geom_boxplot() 
+
+p4
+```
+
+## Smallgenes
+
+There is a sharp exponential increase in the number of possible isoforms that can be generated from a sequence of increasing length. It is impossible to test genes above a length of around 100 base pairs before the compute time is unmanageable. Because of this, we have created a subset of the C. elegans genome called the smallgenes dataset. Each gene is represented by a single fasta file and GFF3 annotion file. This dataset has the following restrictions on each gene: no overlaps with other genes or genomic features, the gene is flanked... this can just be copy pasted from KorfLab/smallgenes
+
+## Isoform Scoring
+
+Each isoform is scored using 3 probabilistic sub-models: a position weight matrix for donor and acceptor sites, an exon and intron length distribution, and a kmer model for exon and intron sequences.
+
+### PWM
+
+The quality of donor and acceptor sites are evaluated using a position weight matrix (PWM). PWMs that cover the length of a specific motif give insight into the prevalence of each nucleotide base at a given position. The smallgenes dataset is used as training data. The position probability matrix is first computed by summing all occurrences of a nucleotide $i$ (either A, C, G, or T) at each position $j$.
+
+$$ P_{ij} = \sum_{j=1}^L C_i/L $$ How to construct pwm https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf Frequencies are then converted to scores using a log odds ratio, where $P_{ij}$ is the frequency of nucleotide $i$ at position $j$, and $P_i$ is the background frequency of that nucleotide (0.25). If $P_{ij}$ is 0, -100 is returned.
+
+$$PWM_{ij} = log_2(p_{ij}/p_i)$$
+
+```{r}
+use_condaenv('splicing')
+```
+
+```{python}
+# need to load conda environment first
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+# conda config --set channel_priority flexible
+# conda install bioconda::logomaker
+import logomaker
+```
+
+All introns from the Wormbase annotation WS282 were extracted and used to create the position weight matrices. A donor and acceptor side sequence logo was made, to empirically determine the length of each model that should be used in the APC algorithm. 
+
+```{r}
+dpwm <- read.csv('donor_side_pwm.csv', header = FALSE)
+colnames(dpwm) <- c('A', 'C', 'G', 'T')
+```
+
+```{python}
+long_dpwm = logomaker.Logo(r.dpwm, shade_below=.5,
+fade_below=.5)
+long_dpwm.ax.set_ylim(0,2)
+plt.show()
+```
+
+How to construct pwm https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf
+
+```{r}
+apwm <- read.csv('acceptor_side_pwm.csv', header = FALSE)
+colnames(apwm) <- c('A', 'C', 'G', 'T')
+```
+
+```{python}
+long_apwm = logomaker.Logo(r.apwm, shade_below=.5,
+fade_below=.5)
+long_apwm.ax.set_ylim(0,2)
+plt.show()
+```
+Based on this sequence logo, we could argue that the acceptor PWM size for the APC model could be 8 base pairs long instead of 6. The general consensus is that C. elegans does not have a well defined branch point. Here there is a weak signal, but it is present. Branch point is not considered for the APC algorithm. The donor site should include two base pairs upstream of the GT motif, and be a total of 8 base pairs long.

@@ -23,6 +23,10 @@ with open(args.introns, 'r') as fp:
 		donor_sides.append(donor_side)
 		acceptor_sides.append(acceptor_side)	
 		
+# introns/exons are NOT weighted using this method
+# each one counts the same as everyone else
+# WormBase does not have counts
+# RNASeq_splice does have counts
 def build_pwm(seqs, pwm_size):
 	
 	counts = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]

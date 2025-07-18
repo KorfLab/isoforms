@@ -24,7 +24,7 @@ def revcomp(seq):
 	return rev
 	
 if args.gff.endswith('.gz'):
-	gff_fp = gzip.open(args.gff, 'r')
+	gff_fp = gzip.open(args.gff, 'rt')
 else:
 	gff_fp = open(args.gff, 'r')
 	
@@ -32,6 +32,7 @@ introns = []
 exons = []
 #for line in gff_fp.readlines():
 for line in gff_fp:
+	# rt reads as text, don't need to decode
 	try:
 		line = line.decode('utf-8')
 		line = line.rstrip()
@@ -39,6 +40,20 @@ for line in gff_fp:
 		line = line.rstrip()
 	line = line.split('\t')
 	print(line)
+	
+	# need to search for either WormBase or RNAseq_splice
+	# this just gets either, bad
+	# coordinate could appear twice from different transcripts
+	# then you accidently double count
+	# the counts on RNAseq_splice are associated with the PROMOTER
+	# not the splice site
+	# in region you are looking at, what is the one count?
+	# normalize the counts to region you are looking at
+	# small genes are already regionized
+	# highest count gets one count, rest gets partial count
+	# weight from 0-1
+	# compare all different methods in smallgenes set instead of 
+	# whole genome. much easier
 	if len(line) < 9: continue
 	if line[2] == 'intron':
 		intron = (line[0], int(line[3]), int(line[4]), line[6])
@@ -53,6 +68,9 @@ if args.genome.endswith('.gz'):
 	genome_fp = gzip.open(args.genome, 'r')
 else:
 	genome_fp = open(args.genome, 'r')
+	
+# grep whole annotation.gff3 to keep only things of interest
+# makes file smaller
 	
 chroms = {}
 #or line in genome_fp.readlines():

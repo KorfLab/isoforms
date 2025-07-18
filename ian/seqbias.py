@@ -20,6 +20,8 @@ parser.add_argument('--minscore', type=int, default=10000, metavar='<int>',
 	help='minimum intron count [%(default)i]')
 parser.add_argument('--maxdiff', type=float, default=2, metavar='<float>',
 	help='maximum difference between adjacent introns [%(default).1f]')
+parser.add_argument('--interior', type=int, default=2, metavar='<int>',
+	help='number of nt on each side of splice to keep [%(default)')
 arg = parser.parse_args()
 
 for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
@@ -55,14 +57,14 @@ for chrom in Reader(fasta=arg.fasta, gff=arg.gff3):
 
 	# get all the flanks
 	for (strand, (b1, e1), (b2, e2)), (s1, s2) in pair.items():
-		e1a = chrom.seq[b1-arg.exon-1:b1+1]
-		e1b = chrom.seq[e1-2:e1+arg.exon]
-		e2a = chrom.seq[b2-arg.exon-1:b2+1]
-		e2b = chrom.seq[e2-2:e2+arg.exon]
-		if len(e1a) != arg.exon +2: continue
-		if len(e1b) != arg.exon +2: continue
-		if len(e2a) != arg.exon +2: continue
-		if len(e2b) != arg.exon +2: continue
+		e1a = chrom.seq[b1-arg.exon-1:b1+arg.interior-1]
+		e1b = chrom.seq[e1-arg.interior:e1+arg.exon]
+		e2a = chrom.seq[b2-arg.exon-1:b2+arg.interior-1]
+		e2b = chrom.seq[e2-arg.interior:e2+arg.exon]
+	#	if len(e1a) != arg.exon +2: continue
+	#	if len(e1b) != arg.exon +2: continue
+	#	if len(e2a) != arg.exon +2: continue
+	#	if len(e2b) != arg.exon +2: continue
 
 		print(f'{strand} {e1a}..{e1b} {s1} {e2a}..{e2b} {s2}')
 		#print(f'{strand} {b1}-{e1}:{s1} {b2}-{e2}:{s2}')

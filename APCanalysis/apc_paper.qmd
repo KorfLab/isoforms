@@ -72,6 +72,8 @@ import matplotlib.pyplot as plt
 import logomaker
 ```
 
+All introns from the Wormbase annotation WS282 were extracted and used to create the position weight matrices. A donor and acceptor side sequence logo was made, to empirically determine the length of each model that should be used in the APC algorithm. 
+
 ```{r}
 dpwm <- read.csv('donor_side_pwm.csv', header = FALSE)
 colnames(dpwm) <- c('A', 'C', 'G', 'T')
@@ -97,3 +99,4 @@ fade_below=.5)
 long_apwm.ax.set_ylim(0,2)
 plt.show()
 ```
+Based on this sequence logo, we could argue that the acceptor PWM size for the APC model could be 8 base pairs long instead of 6. The general consensus is that C. elegans does not have a well defined branch point. Here there is a weak signal, but it is present. Branch point is not considered for the APC algorithm. The donor site should include two base pairs upstream of the GT motif, and be a total of 8 base pairs long.

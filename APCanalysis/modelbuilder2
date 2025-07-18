@@ -8,7 +8,8 @@ import os
 
 import openturns as ot  # conda install -y openturns
 
-import isoform2
+from grimoire.genome import Reader
+import isoform
 
 def create_length_model(seqs, lmin, lmax):
 	# get the lengths
@@ -36,23 +37,12 @@ def create_length_model(seqs, lmin, lmax):
 
 	return pdf
 
-def revcomp(seq):
-
-	comps = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
-
-	rev = ''
-	for i in range(1, len(seq) + 1):
-		rev += comps[seq[-i]]
-
-	return rev
-
 #######
 # CLI #
 #######
 
 parser = argparse.ArgumentParser(description='splice model builder')
-parser.add_argument('genome', help='fasta file with genome seq')
-parser.add_argument('gff', help='genome annotation file')
+parser.add_argument('dir', help='path to directory of genes (e.g. smallgenes)')
 parser.add_argument('name', help='name of the model (e.g. worm)')
 parser.add_argument('out', help='save sub-models to directory (e.g. models)')
 parser.add_argument('--don', type=int, default=5, help="[%(default)i]")
@@ -63,128 +53,66 @@ parser.add_argument('--emax', type=int, default=1000, help="[%(default)i]")
 parser.add_argument('--imm', type=int, default=3, help="[%(default)i]")
 parser.add_argument('--imin', type=int, default=35, help="[%(default)i]")
 parser.add_argument('--imax', type=int, default=1000, help="[%(default)i]")
-args = parser.parse_args()
-
-
-
-'''
-Sequences I need to gather from wormbase genome annotation
-Exons
-WormBase	exon
-in column 9, some parents are pseudogenes, maybe exclude those
-should say Parent=Transcript
-
-Introns
-first find:
-WormBase	intron
-then filter for duplicates
-then get score for the boundaries of that intron
-which is in 
-RNASeq_splice intron
-'''
+arg = parser.parse_args()
 
 ## collect subsequences
-introns = []
-exons = []
-with open(args.gff, 'r') as gp:
-	for line in gp.readlines():
-		line = line.rstrip()
-		line = line.split('\t')
-		if len(line) < 9: continue
-		if line[2] == 'intron':
-			intron = (line[0], int(line[3]), int(line[4]), line[6])
-			introns.append(intron)
-		if line[2] == 'exon':
-			exon = (line[0], int(line[3]), int(line[4]), line[6])
-			exons.append(exon)
-
-chroms = {}
-with open(args.genome, 'r') as fp:
-	for line in fp.readlines():
-		line = line.rstrip()
-		if line.startswith('>'):
-			chrom = line.split(' ')[0][1:]
-		else:
-			if chrom not in chroms:
-				chroms[chrom] = line
-			else:
-				chroms[chrom] += line
-
 accs = []
 dons = []
-eseqs = []
-iseqs = []
+exons = []
+introns = []
 exonsum = 0
+for ff in glob.glob(f'{arg.dir}/*.fa'):
+	gf = ff[:-2] + 'gff3'
+	genome = Reader(gff=gf, fasta=ff)
+	tx = next(genome).ftable.build_genes()[0].transcripts()[0]
+	for f in tx.exons:
+		print(f)
+		exons.append(f.seq_str())
+		exonsum += f.end - f.beg + 1
+	for f in tx.introns:
+		print(f)
+		iseq = f.seq_str()
+		dons.append(iseq[0:arg.don])
+		accs.append(iseq[-arg.acc:])
+		introns.append(iseq)
 
-for i in introns:
-	beg = i[1]-1
-	end = i[2]
-	if i[3] == '-':
-		miseq = chroms[i[0]][beg:end]
-		iseq = revcomp(miseq)
-	else:
-		iseq = chroms[i[0]][beg:end]
-	aseq = iseq[-6:]
-	dseq = iseq[:5]
-	if aseq.endswith('AG'):
-		accs.append(aseq)
-	if dseq.startswith('GT'):
-		dons.append(dseq)
-	iseqs.append(iseq)
-
-# get introns for testing
 '''
-with open('introns.txt', 'w') as ip:
-	for i in iseqs:
-		ip.write(f'{i}\n')
-'''
-
-for e in exons:
-	beg = e[1]-1
-	end = e[2]
-	if e[3] == '-':
-		meseq = chroms[e[0]][beg:end]
-		eseq = revcomp(meseq)
-	else:
-		eseq = chroms[e[0]][beg:end]
-	exonsum += len(eseq)
-	eseqs.append(eseq)
-
 ## build models
 inf = len(introns) / exonsum
-acc = isoform2.create_pwm(accs)
-don = isoform2.create_pwm(dons)
-exs = isoform2.create_markov(eseqs, args.emm, 0, 0)
-ins = isoform2.create_markov(iseqs, args.imm, args.don, args.acc)
-exl = create_length_model(eseqs, args.emin, args.emax)
-inl = create_length_model(iseqs, args.imin, args.imax)
+acc = isoform.create_pwm(accs)
+don = isoform.create_pwm(dons)
+exs = isoform.create_markov(exons, arg.emm, 0, 0)
+ins = isoform.create_markov(introns, arg.imm, arg.don, arg.acc)
+exl = create_length_model(exons, arg.emin, arg.emax)
+inl = create_length_model(introns, arg.imin, arg.imax)
 
 ## write individual models (hard-coded names)
-facc = f'{args.out}/acc.pwm'
-fdon = f'{args.out}/don.pwm'
-fexs = f'{args.out}/exon.mm'
-fins = f'{args.out}/intron.mm'
-fexl = f'{args.out}/exon.len'
-finl = f'{args.out}/intron.len'
-finf = f'{args.out}/intron.freq'
-if not os.path.exists(args.out): os.makedirs(args.out)
-isoform2.write_pwm(facc, acc)
-isoform2.write_pwm(fdon, don)
-isoform2.write_markov(fexs, exs)
-isoform2.write_markov(fins, ins)
-isoform2.write_len(fexl, exl)
-isoform2.write_len(finl, inl)
+facc = f'{arg.out}/acc.pwm'
+fdon = f'{arg.out}/don.pwm'
+fexs = f'{arg.out}/exon.mm'
+fins = f'{arg.out}/intron.mm'
+fexl = f'{arg.out}/exon.len'
+finl = f'{arg.out}/intron.len'
+finf = f'{arg.out}/intron.freq'
+if not os.path.exists(arg.out): os.makedirs(arg.out)
+isoform.write_pwm(facc, acc)
+isoform.write_pwm(fdon, don)
+isoform.write_markov(fexs, exs)
+isoform.write_markov(fins, ins)
+isoform.write_len(fexl, exl)
+isoform.write_len(finl, inl)
 with open(finf, 'w') as fp: print(inf, file=fp)
 
 # write ghmm
 ghmm = {
-	'name': args.name,
-	'inf': isoform2.prob2score(inf),
-	'acc': isoform2.read_pwm(facc),
-	'don': isoform2.read_pwm(fdon),
-	'exs': isoform2.read_markov(fexs),
-	'ins': isoform2.read_markov(fins),
-	'exl': isoform2.read_len(fexl),
-	'inl': isoform2.read_len(finl),
+	'name': arg.name,
+	'inf': isoform.prob2score(inf),
+	'acc': isoform.read_pwm(facc),
+	'don': isoform.read_pwm(fdon),
+	'exs': isoform.read_markov(fexs),
+	'ins': isoform.read_markov(fins),
+	'exl': isoform.read_len(fexl),
+	'inl': isoform.read_len(finl),
 }
 print(json.dumps(ghmm, indent=1))
+'''

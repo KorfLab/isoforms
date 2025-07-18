@@ -127,6 +127,7 @@ with open('introns.txt', 'w') as ifp:
 	for iseq in iseqs:
 		ifp.write(f'{iseq}\n')
 
+'''
 with open('donors.txt', 'w') as dfp:
 	for dseq in dons:
 		dfp.write(f'{dseq}\n')
@@ -134,7 +135,7 @@ with open('donors.txt', 'w') as dfp:
 with open('acceptors.txt', 'w') as afp:
 	for aseq in accs:
 		afp.write(f'{aseq}\n')
-
+'''
 
 
 

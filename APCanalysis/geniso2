@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+
+import argparse
+import sys
+import json 
+
+import isoform
+from isoform import Locus
+from grimoire.genome import Reader
+
+parser = argparse.ArgumentParser(
+	description='Alternative isoform generator with NMD')
+parser.add_argument('fasta', type=str, metavar='<fasta file>',
+	help='input fasta file (reads only the first sequence if multi-fasta)')
+parser.add_argument('model', type=str, metavar='<splice model>',
+	help='input splicemodel file')
+parser.add_argument('--gff', required=False, type=str,
+	metavar='<file>', help='gff with wormbase annotations')
+parser.add_argument('--out', help='save to named output file')
+parser.add_argument('--min_intron', required=False, type=int, default=35,
+	metavar='<int>', help='minimum length of intron [%(default)i]')
+parser.add_argument('--min_exon', required=False, type=int, default=25,
+	metavar='<int>', help='minimum length exon [%(default)i]')
+parser.add_argument('--flank', required=False, type=int, default=99,
+	metavar='<int>', help='genomic flank on each side [%(default)i]')
+parser.add_argument('--limit', required=False, type=int, default=100,
+	metavar='<int>', help='limit number of transcripts [%(default)i]')
+parser.add_argument('--wdon', required=False, type=float, default=1.0,
+	metavar='<float>', help='donor weight [%(default).2f]')
+parser.add_argument('--wacc', required=False, type=float, default=1.0,
+	metavar='<float>', help='acceptor weight [%(default).2f]')
+parser.add_argument('--wexs', required=False, type=float, default=1.0,
+	metavar='<float>', help='exon sequence weight [%(default).2f]')
+parser.add_argument('--wins', required=False, type=float, default=1.0,
+	metavar='<float>', help='intron sequence weight [%(default).2f]')
+parser.add_argument('--wexl', required=False, type=float, default=1.0,
+	metavar='<float>', help='exon length weight [%(default).2f]')
+parser.add_argument('--winl', required=False, type=float, default=1.0,
+	metavar='<float>', help='intron length weight [%(default).2f]')
+parser.add_argument('--winf', required=False, type=float, default=1.0,
+	metavar='<float>', help='intron frequency weight [%(default).2f]')
+parser.add_argument('--translate', metavar='<gff>',
+	help='translate transcripts and reduce nmd/non-stop targets')
+parser.add_argument('--nonstop', type=float, default=1e-3,
+	help='degredation from no stop codon [%(default)g]')
+parser.add_argument('--nmd', type=float, default=1e-3,
+	help='degredation from NMD [%(default)g]')
+parser.add_argument('--countonly', action='store_true',
+	help='report the total number of isoforms')
+
+arg = parser.parse_args()
+
+model = isoform.read_splicemodel(arg.model)
+
+weights = {
+	'wacc': arg.wacc,
+	'wdon': arg.wdon,
+	'wexs': arg.wexs,
+	'wins': arg.wins,
+	'wexl': arg.wexl,
+	'winl': arg.winl,
+	'winf': arg.winf,
+}
+
+constraints = {
+	'min_intron': arg.min_intron,
+	'min_exon': arg.min_exon,
+	'flank': arg.flank
+}
+
+if arg.out: fp = open(arg.out, 'w')
+else: fp = sys.stdout
+
+name, seq = next(isoform.read_fasta(arg.fasta))
+locus = Locus(name, seq, model, constraints=constraints, weights=weights,
+	limit=arg.limit)
+	
+# re-score isoform using alternative pwms
+with open(arg.model, 'r') as fp:
+	data = json.load(fp)
+	if len(data['don']) == 8 and len(data['acc']) == 8:
+		print('wow')
+	print(len(data['don']))
+	for thing in data:
+		print(thing)
+		
+	print(locus.isoforms)
+	for isoform in locus.isoforms:
+		for aix in isoform.accs:
+			print(seq[aix-7:aix+1])
+		for dix in isoform.dons:
+			print(seq[dix-2:dix+6])
+		for eix in isoform.exons:
+			print(seq[eix[0]:eix[1]+1])
+		for iix in isoform.introns:
+			print(seq[iix[0]:iix[1]+1])
+		
+		
+print(dir(locus))
+
+print(locus.dons)
+	
+
+
+'''
+##### copy paste from nmd-ish.py #####
+if arg.translate:
+	reader = Reader(fasta=arg.fasta, gff=arg.translate)
+	region = next(reader)
+
+	# find the canonical start codon (5' atg if there are more than one listed)
+	gene = region.ftable.build_genes()[0]
+	txs = gene.transcripts()
+	atgs = set()
+	for tx in txs:
+		cdss = sorted(tx.cdss, key=lambda x: x.beg)
+		atgs.add(cdss[0].beg -1)
+	cds_beg = sorted(list(atgs))[0]
+
+	# examine the isoforms to determine if they are NMD targets
+	prevs = [iso.prob for iso in locus.isoforms]
+	posts = []
+	rtypes = []
+	for iso in locus.isoforms:
+		iso.translate(cds_beg)
+		if   iso.rnatype == 'non-stop':   iso.prob *= arg.nonstop
+		elif iso.rnatype == 'nmd-target': iso.prob *= arg.nmd
+		posts.append(iso.prob)
+		rtypes.append(iso.rnatype)
+
+	# recompute probabilities
+	total = sum([iso.prob for iso in locus.isoforms])
+	for iso in locus.isoforms:
+		iso.prob /= total
+
+	#locus.write_gff(fp)
+
+#else:
+	#locus.write_gff(fp)
+'''
+
+
+
+
+
+
+
+
+
+

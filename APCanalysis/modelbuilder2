@@ -45,6 +45,8 @@ parser = argparse.ArgumentParser(description='splice model builder')
 parser.add_argument('dir', help='path to directory of genes (e.g. smallgenes)')
 parser.add_argument('name', help='name of the model (e.g. worm)')
 parser.add_argument('out', help='save sub-models to directory (e.g. models)')
+parser.add_argument('--alt_splice_sites', required=False, type=str, 
+	help='list of donor and acceptor sites to use')
 parser.add_argument('--don', type=int, default=5, help="[%(default)i]")
 parser.add_argument('--acc', type=int, default=6, help="[%(default)i]")
 parser.add_argument('--emm', type=int, default=3, help="[%(default)i]")
@@ -66,17 +68,25 @@ for ff in glob.glob(f'{arg.dir}/*.fa'):
 	genome = Reader(gff=gf, fasta=ff)
 	tx = next(genome).ftable.build_genes()[0].transcripts()[0]
 	for f in tx.exons:
-		print(f)
 		exons.append(f.seq_str())
 		exonsum += f.end - f.beg + 1
 	for f in tx.introns:
-		print(f)
 		iseq = f.seq_str()
 		dons.append(iseq[0:arg.don])
 		accs.append(iseq[-arg.acc:])
 		introns.append(iseq)
+		
+if arg.alt_splice_sites:
+	
+	dons = []
+	accs = []
+	with open(arg.alt_splice_sites, 'r') as fp:
+		for line in fp:
+			line = line.rstrip()
+			line = line.split(',')
+			dons.append(line[0])
+			accs.append(line[1])		
 
-'''
 ## build models
 inf = len(introns) / exonsum
 acc = isoform.create_pwm(accs)
@@ -115,4 +125,6 @@ ghmm = {
 	'inl': isoform.read_len(finl),
 }
 print(json.dumps(ghmm, indent=1))
-'''
+
+
+

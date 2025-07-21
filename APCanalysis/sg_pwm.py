@@ -83,8 +83,11 @@ for file in glob.glob(f'{args.smallgenes}*.fa'):
 	for d, a, s in rna_pwm.splice_sites():
 		print(d, a, s)
 		
+genome_pwm = SpliceSites('1pct.fa', '1pct.gff3', DN, DL, AN, AR, source='WormBase')
+		
 
-	
+for d, a in genome_pwm.splice_sites():
+	print(d, a)
 	
 
 

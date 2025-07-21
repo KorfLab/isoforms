@@ -13,6 +13,12 @@ parser.add_argument('--flank', required=False, type=int,
 
 args = parser.parse_args()
 
+# i used to chatgpt to write this grep command...
+# gets pattern match to 3rd field in tab delimited file
+'''
+grep -P "^([^\t]*\t){2}intron\b" annotation.gff3
+'''
+
 def revcomp(seq):
 
 	comps = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
@@ -26,21 +32,12 @@ def revcomp(seq):
 if args.gff.endswith('.gz'):
 	gff_fp = gzip.open(args.gff, 'rt')
 else:
-	gff_fp = open(args.gff, 'r')
+	gff_fp = open(args.gff, 'rt')
 	
 introns = []
 exons = []
-#for line in gff_fp.readlines():
 for line in gff_fp:
-	# rt reads as text, don't need to decode
-	try:
-		line = line.decode('utf-8')
-		line = line.rstrip()
-	except:
-		line = line.rstrip()
 	line = line.split('\t')
-	print(line)
-	
 	# need to search for either WormBase or RNAseq_splice
 	# this just gets either, bad
 	# coordinate could appear twice from different transcripts
@@ -58,9 +55,7 @@ for line in gff_fp:
 	if line[2] == 'intron':
 		intron = (line[0], int(line[3]), int(line[4]), line[6])
 		introns.append(intron)
-	if line[2] == 'exon':
-		exon = (line[0], int(line[3]), int(line[4]), line[6])
-		exons.append(exon)
+		print(line)
 
 gff_fp.close()
 

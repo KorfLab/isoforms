@@ -20,7 +20,17 @@ class SpliceSites:
 				if line.startswith('>'): continue
 				else:
 					self.seq += line
-		
+					
+	def _revcomp(self):
+
+		comps = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+
+		rev = ''
+		for i in range(1, len(self.seq) + 1):
+			rev += comps[self.seq[-i]]
+
+		return rev
+	'''
 	def _annotated_splice_sites(self):
 		
 		with open(self.gff, 'rt') as fp:
@@ -29,6 +39,23 @@ class SpliceSites:
 				line = line.split('\t')
 				if line[6] == '-': continue
 				if line[1] == 'WormBase' and line[2] == 'intron':
+					donor = self.seq[int(line[3])-self.DL-1:
+										int(line[3])+self.DN-1]
+					acceptor = self.seq[int(line[4])-self.AN:
+										int(line[4])+self.AR]
+						
+					yield donor, acceptor
+	'''
+	
+	def _annotated_splice_sites(self):
+		
+		with open(self.gff, 'rt') as fp:
+			for line in fp:
+				line = line.rstrip()
+				line = line.split('\t')
+				if line[6] == '-': continue
+				if line[1] == 'WormBase' and line[2] == 'intron':
+					print('wow')
 					donor = self.seq[int(line[3])-self.DL-1:
 										int(line[3])+self.DN-1]
 					acceptor = self.seq[int(line[4])-self.AN:
@@ -50,7 +77,7 @@ class SpliceSites:
 										int(line[4])+self.AR]				
 										
 					yield donor, acceptor, line[5]
-					
+	
 	def splice_sites(self):
 
 		self._intron_seq()
@@ -68,7 +95,10 @@ class SpliceSites:
 			
 			return splice_sites
 		
-		
+class PWM:
+	
+	def __init__(self):
+		print('pwm')
 	
 				
 

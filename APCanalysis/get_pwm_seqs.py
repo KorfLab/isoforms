@@ -55,7 +55,7 @@ for line in gff_fp:
 	if line[2] == 'intron':
 		intron = (line[0], int(line[3]), int(line[4]), line[6])
 		introns.append(intron)
-		print(line)
+		#print(line)
 
 gff_fp.close()
 
@@ -122,6 +122,7 @@ for i in introns:
 	if i[3] == '-':
 		miseq = chroms[i[0]][beg-5:end+5]
 		iseq = revcomp(miseq)
+		print(iseq[5:7])
 	else:
 		iseq = chroms[i[0]][beg-5:end+5]
 	aseq = iseq[-6:]

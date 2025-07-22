@@ -85,9 +85,22 @@ for file in glob.glob(f'{args.smallgenes}*.fa'):
 		
 genome_pwm = SpliceSites('1pct.fa', '1pct.gff3', DN, DL, AN, AR, source='WormBase')
 		
+# each chromosome restarts coordinates
+#for d, a in genome_pwm.splice_sites():
+#	print(d, a)
 
-for d, a in genome_pwm.splice_sites():
-	print(d, a)
+with open(self.gff, 'rt') as fp:
+	for line in fp:
+		line = line.rstrip()
+		line = line.split('\t')
+		if line[6] == '-': continue
+		if line[1] == 'WormBase' and line[2] == 'intron':
+			print('wow')
+			donor = self.seq[int(line[3])-self.DL-1:
+							int(line[3])+self.DN-1]
+			acceptor = self.seq[int(line[4])-self.AN:
+								int(line[4])+self.AR]
+			print(donor, acceptor)
 	
 
 

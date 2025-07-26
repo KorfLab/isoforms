@@ -136,5 +136,19 @@ for item in genes.items():
 		if item[0] in introns:
 			print(introns[item[0]])
 			
+# once an intron is assigned, remove it from the search
 
-
+search = [1, 2, 3, 4, 5, 6, 7, 8]
+for i in range(10):
+	print(i)
+	if i in search:
+		search.pop(i)
+	
+	
+	
+	
+	
+	
+	
+	
+	

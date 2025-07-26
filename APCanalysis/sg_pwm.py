@@ -83,12 +83,17 @@ for file in glob.glob(f'{args.smallgenes}*.fa'):
 	for d, a, s in rna_pwm.splice_sites():
 		print(d, a, s)
 		
-genome_pwm = SpliceSites('1pct.fa', '1pct.gff3', DN, DL, AN, AR, source='WormBase')
-		
+#genome_pwm = SpliceSites('1pct.fa', '1pct.gff3', DN, DL, AN, AR, source='WormBase')
+
+#for i, j in genome_pwm.splice_sites():
+#	print(i, j)
+'''
 # each chromosome restarts coordinates
 #for d, a in genome_pwm.splice_sites():
 #	print(d, a)
+'''
 
+'''
 with open(self.gff, 'rt') as fp:
 	for line in fp:
 		line = line.rstrip()
@@ -101,6 +106,35 @@ with open(self.gff, 'rt') as fp:
 			acceptor = self.seq[int(line[4])-self.AN:
 								int(line[4])+self.AR]
 			print(donor, acceptor)
-	
+'''
+print('########')
+# get regions based on WormBase genes
+genes = {}
+introns = {}
+with open('1pct.gff3', 'rt') as fp:
+	for line in fp:
+		line = line.rstrip()
+		line = line.split('\t')
+		if line[1] == 'WormBase' and line[2] == 'gene':
+			wbgene = line[8].split(';')[0].split(':')[1]
+			region = (wbgene, line[3], line[4], line[6])
+			if line[0] not in genes:
+				genes[line[0]] = [region]
+			elif len(genes[line[0]]) < 10:
+				genes[line[0]].append(region)
+		if line[1] == 'RNASeq_splice' and line[2] == 'intron':
+			intron = (line[3], line[4], line[5], line[6])
+			if line[0] not in introns:
+				introns[line[0]] =[intron]
+			elif len(introns[line[0]]) < 10:
+				introns[line[0]].append(intron)
+			
+
+for item in genes.items():
+	for intron in item[1]:
+		print(item[0], intron)
+		if item[0] in introns:
+			print(introns[item[0]])
+			
 
 

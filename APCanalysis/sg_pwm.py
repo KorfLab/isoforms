@@ -1,6 +1,7 @@
 import argparse
 import glob
 from apc_analysis import SpliceSites
+import copy
 
 parser = argparse.ArgumentParser(
 	description='creates PWMs from smallgenes')
@@ -128,21 +129,76 @@ with open('1pct.gff3', 'rt') as fp:
 				introns[line[0]] =[intron]
 			elif len(introns[line[0]]) < 10:
 				introns[line[0]].append(intron)
-			
-
+				
+sequences = {}
+current_chrom = None
+with open('1pct.fa', 'rt') as fp:
+	for line in fp:
+		line = line.rstrip()
+		if line.startswith('>'):
+			chrom = line.split('>')[1].split(' ')[0]
+			current_chrom = chrom
+			sequences[chrom] = ''
+		else:
+			sequences[current_chrom] += line
+		
+# there is weird stuff here, like a 21 bp 'gene'
+# need to filter?
+assigned_introns = {}
 for item in genes.items():
-	for intron in item[1]:
-		print(item[0], intron)
+	for gene_region in item[1]:
+		region_info = (item[0],) + gene_region
 		if item[0] in introns:
-			print(introns[item[0]])
-			
-# once an intron is assigned, remove it from the search
+			for intron in introns[item[0]]:
+				int_beg = int(intron[0])
+				int_end = int(intron[1])
+				reg_beg = int(gene_region[1])
+				reg_end = int(gene_region[2])
+				if intron[3] == gene_region[3]:
+					if ((int_beg >= reg_beg and int_beg <= reg_end) or
+						(int_end >= reg_beg and int_end <= reg_end) or
+						(reg_beg >= int_beg and reg_beg <= int_end) or
+						(reg_end >= int_beg and reg_end <= int_end)):
+							if region_info not in assigned_introns:
+								assigned_introns[region_info] = []
+								assigned_introns[region_info].append(intron)
+							else:
+								assigned_introns[region_info].append(intron)
+						
+def revcomp(seq):
 
-search = [1, 2, 3, 4, 5, 6, 7, 8]
-for i in range(10):
-	print(i)
-	if i in search:
-		search.pop(i)
+	comps = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+
+	rev = ''
+	for i in range(1, len(seq) + 1):
+		rev += comps[seq[-i]]
+
+	return rev
+	
+								
+adjusted_intron_counts = {}
+for item in assigned_introns.items():
+	print(item)
+	for intron in item[1]:
+		print(intron)
+		int_beg = int(intron[0])
+		int_end = int(intron[1])
+		int_seq = sequences[item[0][0]][int_beg-1:int_end]
+		if intron[3] == '-':
+			int_seq = revcomp(int_seq)
+		print(int_seq)
+	break
+		
+
+							
+							
+
+		
+		
+			
+
+
+
 	
 	
 	

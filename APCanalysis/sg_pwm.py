@@ -118,7 +118,7 @@ with open('1pct.gff3', 'rt') as fp:
 		line = line.split('\t')
 		if line[1] == 'WormBase' and line[2] == 'gene':
 			wbgene = line[8].split(';')[0].split(':')[1]
-			region = (wbgene, line[3], line[4], line[6])
+			region = (wbgene, int(line[3]), int(line[4]), line[6])
 			if line[0] not in genes:
 				genes[line[0]] = [region]
 			elif len(genes[line[0]]) < 10:
@@ -129,6 +129,86 @@ with open('1pct.gff3', 'rt') as fp:
 				introns[line[0]] =[intron]
 			elif len(introns[line[0]]) < 10:
 				introns[line[0]].append(intron)
+
+i1 = ('w', 100, 200, '+')
+i2 = ('w', 150, 250, '-')
+i3 = ('w', 300, 400, '+')				
+				
+def overlap(g1, g2):
+	
+	if g1[1] >= g2[1] and g1[1] <= g2[2]:
+		return True
+	elif g2[1] >= g1[1] and g2[1] <= g1[2]:
+		return True
+	else:
+		return False
+	
+	
+print(overlap(i2, i3)) 
+# remove overlapping genes
+# should also remove things like ncRNA_gene?
+'''
+gene_coors = {}
+for item in genes.items():
+	for gene in item[1]:
+		current_intron = (int(gene[1]), int(gene[2]))
+		if item[0] not in gene_coors:
+			gene_coors[item[0]] = [current_intron]
+		else:
+			for intron in gene_coors[item[0]]:
+				print(item[0], intron, current_intron, overlap(intron, current_intron))
+			gene_coors[item[0]].append(current_intron)
+			
+#print(gene_coors['X'])
+'''
+'''
+genes_no_overlap = {}
+for item in genes.items():
+	print(item[0])
+	for current_gene in item[1]:
+		if item[0] not in genes_no_overlap:
+			genes_no_overlap[item[0]] = [current_gene]
+		else:
+			for gene in genes_no_overlap[item[0]]:
+				print(gene, current_gene, overlap(gene, current_gene))
+				if overlap(gene, current_gene):
+					genes_no_overlap[item[0]].remove(current_gene)
+'''
+
+overlapping_genes = {}
+for item in genes.items():
+	overlapping_genes[item[0]] = []
+	for i, g1 in enumerate(item[1]):
+		for j, g2 in enumerate(item[1]):
+			if i == j: continue
+			#print(item[0], i, j, g1, g2, overlap(g1, g2))
+			if overlap(g1, g2):
+				if g1 not in overlapping_genes[item[0]]:
+					overlapping_genes[item[0]].append(g1)
+				if g2 not in overlapping_genes[item[0]]:
+					overlapping_genes[item[0]].append(g2)	
+			
+for item in overlapping_genes.items():
+	for gene in item[1]:
+		genes[item[0]].remove(gene)
+		
+for item in genes.items():
+	print(item[0])
+	for g in item[1]:
+		print(g)
+		
+	
+				
+'''
+
+4116...10230	11495...16837	17484...26781	22882...23600
+
+
+
+'''
+
+				
+			
 				
 sequences = {}
 current_chrom = None
@@ -178,15 +258,15 @@ def revcomp(seq):
 								
 adjusted_intron_counts = {}
 for item in assigned_introns.items():
-	print(item)
+	#print(item)
 	for intron in item[1]:
-		print(intron)
+		#print(intron)
 		int_beg = int(intron[0])
 		int_end = int(intron[1])
 		int_seq = sequences[item[0][0]][int_beg-1:int_end]
 		if intron[3] == '-':
 			int_seq = revcomp(int_seq)
-		print(int_seq)
+		#print(int_seq)
 	break
 		
 

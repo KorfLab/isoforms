@@ -16,6 +16,33 @@ def revcomp(seq):
 		rev += comps[seq[-i]]
 
 	return rev
+	
+def build_pwm(seqs, pwm_size):
+	
+	counts = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
+	
+	for seq in seqs:
+		for i, nt in enumerate(seq):
+			counts[i][nt] += 1
+			
+	ppm = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
+	
+	for i, site in enumerate(counts):
+		for nt in site:
+			ppm[i][nt] = site[nt]/len(seqs)
+			
+	pwm = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
+			
+	for i, site in enumerate(ppm):
+		uncertainty = 0
+		for item in site.items():
+			uncertainty += item[1] * math.log2(item[1])
+		uncertainty = -uncertainty
+		info_content = 2 - uncertainty
+		for nt in site:
+			pwm[i][nt] = site[nt] * info_content
+
+	return pwm	
 
 class SpliceSites:
 

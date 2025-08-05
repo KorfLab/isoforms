@@ -9,9 +9,9 @@ parser = argparse.ArgumentParser(
 parser.add_argument('smallgenes', type=str, metavar='<directory>', 
 	help='path to smallgenes directory')
 parser.add_argument('--don_len', required=False, type=int, default=5, 
-	metavar='<integer>', help='donor site length')
+	metavar='<integer>', help='donor site length [%(default)i]')
 parser.add_argument('--acc_len', required=False, type=int, default=5, 
-	metavar='<integer>', help='acceptor site length')
+	metavar='<integer>', help='acceptor site length [%(default)i]')
 parser.add_argument('--don_left', required=False, type=int, default=0, 
 	metavar='<integer>', 
 	help='get bases on donor site left flank [%(default)i]')
@@ -188,9 +188,11 @@ for item in genes.items():
 		
 # need to remove pseudogenes			
 # get intron seqences with weights
+# some introns have a decimal score, like '1.1304e+06'
 weighted_introns = {}
 for item in assigned_introns.items():
-	total_score = sum([int(x[2]) for x in item[1]])
+	
+	total_score = sum([float(x[2]) for x in item[1]])
 	weighted_introns[item[0]] = []
 	for intron in item[1]:
 		int_beg = int(intron[0])
@@ -201,7 +203,7 @@ for item in assigned_introns.items():
 		#print(int_seq[:10], int_seq[-10:], item[0][1], item[0][2], 
 		#		item[0][3], intron)
 		weighted_introns[item[0]].append([int_seq, 
-							int(intron[2])/total_score])
+							float(intron[2])/total_score])
 	
 with open('weighted_introns.txt', 'wt') as fp:
 	for region in weighted_introns:

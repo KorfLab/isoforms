@@ -1,3 +1,22 @@
+def overlap(g1, g2):
+	
+	if g1[1] >= g2[1] and g1[1] <= g2[2]:
+		return True
+	elif g2[1] >= g1[1] and g2[1] <= g1[2]:
+		return True
+	else:
+		return False
+		
+def revcomp(seq):
+
+	comps = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+
+	rev = ''
+	for i in range(1, len(seq) + 1):
+		rev += comps[seq[-i]]
+
+	return rev
+
 class SpliceSites:
 
 	def __init__(self, fasta, gff, don_len, don_left, acc_len, 

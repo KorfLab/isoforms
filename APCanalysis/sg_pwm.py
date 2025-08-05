@@ -1,5 +1,6 @@
 import argparse
 import glob
+import apc_analysis as aa
 from apc_analysis import SpliceSites
 import copy
 
@@ -109,6 +110,7 @@ with open(self.gff, 'rt') as fp:
 			print(donor, acceptor)
 '''
 print('########')
+
 # get regions based on WormBase genes
 genes = {}
 introns = {}
@@ -121,60 +123,16 @@ with open('1pct.gff3', 'rt') as fp:
 			region = (wbgene, int(line[3]), int(line[4]), line[6])
 			if line[0] not in genes:
 				genes[line[0]] = [region]
-			elif len(genes[line[0]]) < 10:
+			elif len(genes[line[0]]) < 100:
 				genes[line[0]].append(region)
 		if line[1] == 'RNASeq_splice' and line[2] == 'intron':
 			intron = (line[3], line[4], line[5], line[6])
 			if line[0] not in introns:
 				introns[line[0]] =[intron]
-			elif len(introns[line[0]]) < 10:
-				introns[line[0]].append(intron)
-
-i1 = ('w', 100, 200, '+')
-i2 = ('w', 150, 250, '-')
-i3 = ('w', 300, 400, '+')				
+			elif len(introns[line[0]]) < 100:
+				introns[line[0]].append(intron)			
 				
-def overlap(g1, g2):
-	
-	if g1[1] >= g2[1] and g1[1] <= g2[2]:
-		return True
-	elif g2[1] >= g1[1] and g2[1] <= g1[2]:
-		return True
-	else:
-		return False
-	
-	
-print(overlap(i2, i3)) 
-# remove overlapping genes
-# should also remove things like ncRNA_gene?
-'''
-gene_coors = {}
-for item in genes.items():
-	for gene in item[1]:
-		current_intron = (int(gene[1]), int(gene[2]))
-		if item[0] not in gene_coors:
-			gene_coors[item[0]] = [current_intron]
-		else:
-			for intron in gene_coors[item[0]]:
-				print(item[0], intron, current_intron, overlap(intron, current_intron))
-			gene_coors[item[0]].append(current_intron)
-			
-#print(gene_coors['X'])
-'''
-'''
-genes_no_overlap = {}
-for item in genes.items():
-	print(item[0])
-	for current_gene in item[1]:
-		if item[0] not in genes_no_overlap:
-			genes_no_overlap[item[0]] = [current_gene]
-		else:
-			for gene in genes_no_overlap[item[0]]:
-				print(gene, current_gene, overlap(gene, current_gene))
-				if overlap(gene, current_gene):
-					genes_no_overlap[item[0]].remove(current_gene)
-'''
-
+# gather overlapping genes
 overlapping_genes = {}
 for item in genes.items():
 	overlapping_genes[item[0]] = []
@@ -182,34 +140,18 @@ for item in genes.items():
 		for j, g2 in enumerate(item[1]):
 			if i == j: continue
 			#print(item[0], i, j, g1, g2, overlap(g1, g2))
-			if overlap(g1, g2):
+			if aa.overlap(g1, g2):
 				if g1 not in overlapping_genes[item[0]]:
 					overlapping_genes[item[0]].append(g1)
 				if g2 not in overlapping_genes[item[0]]:
 					overlapping_genes[item[0]].append(g2)	
-			
+
+# remove overlapping genes	
 for item in overlapping_genes.items():
 	for gene in item[1]:
 		genes[item[0]].remove(gene)
-		
-for item in genes.items():
-	print(item[0])
-	for g in item[1]:
-		print(g)
-		
-	
-				
-'''
-
-4116...10230	11495...16837	17484...26781	22882...23600
-
-
-
-'''
-
-				
 			
-				
+# get chromosomal sequences
 sequences = {}
 current_chrom = None
 with open('1pct.fa', 'rt') as fp:
@@ -222,8 +164,7 @@ with open('1pct.fa', 'rt') as fp:
 		else:
 			sequences[current_chrom] += line
 		
-# there is weird stuff here, like a 21 bp 'gene'
-# need to filter?
+# gather introns that overlap with gene regions
 assigned_introns = {}
 for item in genes.items():
 	for gene_region in item[1]:
@@ -244,31 +185,32 @@ for item in genes.items():
 								assigned_introns[region_info].append(intron)
 							else:
 								assigned_introns[region_info].append(intron)
-						
-def revcomp(seq):
-
-	comps = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
-
-	rev = ''
-	for i in range(1, len(seq) + 1):
-		rev += comps[seq[-i]]
-
-	return rev
-	
-								
-adjusted_intron_counts = {}
+		
+# need to remove pseudogenes			
+# get intron seqences with weights
+weighted_introns = {}
 for item in assigned_introns.items():
-	#print(item)
+	total_score = sum([int(x[2]) for x in item[1]])
+	weighted_introns[item[0]] = []
 	for intron in item[1]:
-		#print(intron)
 		int_beg = int(intron[0])
 		int_end = int(intron[1])
-		int_seq = sequences[item[0][0]][int_beg-1:int_end]
+		int_seq = sequences[item[0][0]][int_beg-1-DL:int_end+AR]
 		if intron[3] == '-':
-			int_seq = revcomp(int_seq)
-		#print(int_seq)
-	break
-		
+			int_seq = aa.revcomp(int_seq)
+		#print(int_seq[:10], int_seq[-10:], item[0][1], item[0][2], 
+		#		item[0][3], intron)
+		weighted_introns[item[0]].append([int_seq, 
+							int(intron[2])/total_score])
+	
+with open('weighted_introns.txt', 'wt') as fp:
+	for region in weighted_introns:
+		for intron in weighted_introns[region]:
+			if len(intron[0]) < 100:
+				print(intron[0])
+			fp.write(f'{intron[0]},{intron[1]}\n')
+		#print('####')
+
 
 							
 							

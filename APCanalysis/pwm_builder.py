@@ -46,31 +46,34 @@ if not args.weighted:
 '''
 
 # includes addition weights for each sequence, normalized to region
-def build_weighted_pwm(seqs):
-	
-	pwm_size = len(seqs[0][0])
-	
-	lengths = []
-	for seq in seqs:
-		lengths.append(len(seq[0]))
-		
-	# make sure all sequences are the same length
-	assert len(set(lengths)) == 1, 'bad sequence length'
+def build_weighted_pwm(seqs, pwm_size):
 	
 	counts = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} 
 				for x in range(pwm_size)]
 	
+	wt_total = 0
 	for seq in seqs:
+		# discard sequences that are too short
+		if len(seq[0]) < pwm_size: continue
 		for i, nt in enumerate(seq[0]):
 			# add weighted counts
-			counts[i][nt] += seq[1]
+			counts[i][nt] += 1
+			#counts[i][nt] += seq[1]
+			wt_total += seq[1]
+
+	print(counts[0])
+	print(counts[1])
 
 	ppm = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
 	
 	for i, site in enumerate(counts):
+		site_sum = sum(site.values())
 		for nt in site:
-			ppm[i][nt] = site[nt]/len(seqs)
+			#ppm[i][nt] = site[nt]/len(seqs)
+			ppm[i][nt] = site[nt]/site_sum
 			
+	print(ppm[0])
+	print(ppm[1])		
 	pwm = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
 			
 	for i, site in enumerate(ppm):
@@ -86,9 +89,11 @@ def build_weighted_pwm(seqs):
 		for nt in site:
 			pwm[i][nt] = site[nt] * info_content
 
-	return pwm	
+	return pwm
 
-dpwm = build_weighted_pwm(donor_sides)
+
+dpwm = build_weighted_pwm(donor_sides, args.pwm_size)
+
 
 with open('weighted_donor_side_pwm.csv', 'w') as csvfile:
 	dwriter = csv.writer(csvfile)

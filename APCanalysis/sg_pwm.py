@@ -123,13 +123,15 @@ with open('1pct.gff3', 'rt') as fp:
 			region = (wbgene, int(line[3]), int(line[4]), line[6])
 			if line[0] not in genes:
 				genes[line[0]] = [region]
-			elif len(genes[line[0]]) < 100:
+			#elif len(genes[line[0]]) < 200:
+			else:
 				genes[line[0]].append(region)
 		if line[1] == 'RNASeq_splice' and line[2] == 'intron':
 			intron = (line[3], line[4], line[5], line[6])
 			if line[0] not in introns:
 				introns[line[0]] =[intron]
-			elif len(introns[line[0]]) < 100:
+			#elif len(introns[line[0]]) < 200:
+			else:	
 				introns[line[0]].append(intron)			
 				
 # gather overlapping genes
@@ -205,11 +207,21 @@ for item in assigned_introns.items():
 		weighted_introns[item[0]].append([int_seq, 
 							float(intron[2])/total_score])
 	
+'''
+for item in weighted_introns.items():
+	print(item[0])
+	check_sum = 0
+	for intron in item[1]:
+		print(intron[1])
+		check_sum += intron[1]
+	print(check_sum, '*')
+'''
+	
 with open('weighted_introns.txt', 'wt') as fp:
 	for region in weighted_introns:
+		print(region)
 		for intron in weighted_introns[region]:
-			if len(intron[0]) < 100:
-				print(intron[0])
+			print(intron[1], len(intron[0]))
 			fp.write(f'{intron[0]},{intron[1]}\n')
 		#print('####')
 

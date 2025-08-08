@@ -55,14 +55,12 @@ def build_weighted_pwm(seqs, pwm_size):
 	counts = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} 
 				for x in range(pwm_size)]
 	
-	wt_total = 0
 	for seq in seqs:
 		# discard sequences that are too short
 		if len(seq[0]) < pwm_size: continue
 		for i, nt in enumerate(seq[0]):
 			# add weighted counts
-			counts[i][nt] += 1
-			wt_total += seq[1]
+			counts[i][nt] += seq[1]
 
 	ppm = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
 	

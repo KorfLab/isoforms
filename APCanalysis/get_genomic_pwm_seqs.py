@@ -1,5 +1,6 @@
 import argparse
 import apc_analysis as aa
+import csv
 
 parser = argparse.ArgumentParser(description='gathers intron sequences '
 	'from genome annotation for PWM training')
@@ -147,11 +148,64 @@ for intron in introns:
 	dons.append(donor_side)
 	accs.append(acceptor_side)
 	
+print(w_dons)
+	
 dpwm = aa.build_pwm(dons, args.pwm_size)
 apwm = aa.build_pwm(accs, args.pwm_size)
 
 wdpwm = aa.build_weighted_pwm(w_dons, args.pwm_size)
 wapwm = aa.build_weighted_pwm(w_accs, args.pwm_size)
+
+if args.c:
+	with open('canon_weighted_genomic_donor_pwm.csv', 'w') as csvfile:
+		writer = csv.writer(csvfile)
+		for site in wdpwm:
+			row = [dsite[x] for x in dsite]
+			writer.writerow(row)
+
+	with open('canon_weighted_genomic_acceptor_pwm.csv', 'w') as csvfile:
+		writer = csv.writer(csvfile)
+		for asite in wapwm:
+			row = [asite[x] for x in asite]
+			dwriter.writerow(row)
+			
+	with open('canon_genomic_donor_pwm.csv', 'w') as csvfile:
+		writer = csv.writer(csvfile)
+		for dsite in dpwm:
+			row = [dsite[x] for x in dsite]
+			dwriter.writerow(row)
+
+	with open('canon_genomic_acceptor_pwm.csv', 'w') as csvfile:
+		writer = csv.writer(csvfile)
+		for asite in apwm:
+			row = [asite[x] for x in asite]
+			dwriter.writerow(row)
+
+else:
+	with open('weighted_genomic_donor_pwm.csv', 'w') as csvfile:
+		writer = csv.writer(csvfile)
+		for dsite in wdpwm:
+			row = [dsite[x] for x in dsite]
+			dwriter.writerow(row)
+
+	with open('weighted_genomic_acceptor_pwm.csv', 'w') as csvfile:
+		writer = csv.writer(csvfile)
+		for asite in wapwm:
+			row = [asite[x] for x in asite]
+			dwriter.writerow(row)
+			
+	with open('genomic_donor_pwm.csv', 'w') as csvfile:
+		writer = csv.writer(csvfile)
+		for dsite in dpwm:
+			row = [dsite[x] for x in dsite]
+			dwriter.writerow(row)
+
+	with open('genomic_acceptor_pwm.csv', 'w') as csvfile:
+		writer = csv.writer(csvfile)
+		for asite in apwm:
+			row = [asite[x] for x in asite]
+			dwriter.writerow(row)
+
 
 
 # notes

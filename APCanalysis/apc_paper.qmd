@@ -78,21 +78,48 @@ But does having each site count differently than mean each site is on it's own s
 
 
 ```{r}
-dpwm <- read.csv('weighted_donor_side_pwm.csv', header = FALSE)
-colnames(dpwm) <- c('A', 'C', 'G', 'T')
+wsdpwm <- read.csv('weighted_smallgenes_donor_pwm.csv', header = FALSE)
+colnames(wsdpwm) <- c('A', 'C', 'G', 'T')
 ```
-
 ```{r}
-dpwm <- read.csv('donor_side_pwm.csv', header = FALSE)
-colnames(dpwm) <- c('A', 'C', 'G', 'T')
+wsapwm <- read.csv('weighted_smallgenes_acceptor_pwm.csv', header = FALSE)
+colnames(wsapwm) <- c('A', 'C', 'G', 'T')
+```
+```{r}
+sdpwm <- read.csv('smallgenes_donor_pwm.csv', header = FALSE)
+colnames(sdpwm) <- c('A', 'C', 'G', 'T')
+```
+```{r}
+sapwm <- read.csv('smallgenes_acceptor_pwm.csv', header = FALSE)
+colnames(sapwm) <- c('A', 'C', 'G', 'T')
 ```
 
 ```{python}
-long_dpwm = logomaker.Logo(r.dpwm, shade_below=.5,
+wsdpwm_plot = logomaker.Logo(r.wsdpwm, shade_below=.5,
 fade_below=.5)
 long_dpwm.ax.set_ylim(0,2)
 plt.show()
 ```
+
+```{python}
+wsapwm_plot = logomaker.Logo(r.wsapwm, shade_below=.5,
+fade_below=.5)
+long_dpwm.ax.set_ylim(0,2)
+plt.show()
+```
+```{python}
+sdpwm_plot = logomaker.Logo(r.sdpwm, shade_below=.5,
+fade_below=.5)
+long_dpwm.ax.set_ylim(0,2)
+plt.show()
+```
+```{python}
+sapwm = logomaker.Logo(r.sapwm, shade_below=.5,
+fade_below=.5)
+long_dpwm.ax.set_ylim(0,2)
+plt.show()
+```
+
 
 How to construct pwm https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf
 

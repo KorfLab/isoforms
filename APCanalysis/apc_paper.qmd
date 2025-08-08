@@ -74,6 +74,9 @@ import logomaker
 
 All introns from the Wormbase annotation WS282 were extracted and used to create the position weight matrices. A donor and acceptor side sequence logo was made, to empirically determine the length of each model that should be used in the APC algorithm. 
 
+But does having each site count differently than mean each site is on it's own scale and can't be compared?
+
+
 ```{r}
 dpwm <- read.csv('weighted_donor_side_pwm.csv', header = FALSE)
 colnames(dpwm) <- c('A', 'C', 'G', 'T')

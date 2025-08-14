@@ -89,7 +89,7 @@ wb_apwm = aa.build_pwm(wb_accs, len(wb_accs[0]))
 rna_dpwm = aa.build_weighted_pwm(rna_dons, len(rna_dons[0][0]))
 rna_apwm = aa.build_weighted_pwm(rna_accs, len(rna_accs[0][0]))
 
-print(wb_dpwm)
+#print(wb_dpwm)
 
 
 aa.print_pwm(wb_dpwm, 'smallgenes_wormbase_donor_pwm')
@@ -97,7 +97,7 @@ aa.print_pwm(wb_apwm, 'smallgenes_wormbase_acceptor_pwm')
 aa.print_pwm(rna_dpwm, 'smallgenes_rnaseq_donor_pwm')
 aa.print_pwm(rna_apwm, 'smallgenes_rnaseq_acceptor_pwm')
 
-
+'''
 from grimoire.genome import Reader
 
 def pwm(size):
@@ -126,5 +126,5 @@ for ff in glob.glob(f'{args.smallgenes}/*.fa'):
 # grimoire gets less introns
 # idk what it is filtering
 print(don_gene)
-
+'''
 

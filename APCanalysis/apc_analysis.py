@@ -91,7 +91,7 @@ def print_pwm(pwm, pwm_name):
 	for row in pwm:
 		site = [x[1] for x in row.items()]
 		ent = sum(site)
-		print(ent, '***')
+		#print(ent, '***')
 		print(f'{pwm_name},{site[0]},{site[1]},{site[2]},{site[3]}')
 
 class SpliceSites:

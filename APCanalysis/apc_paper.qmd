@@ -3,11 +3,26 @@ title: "apc paper"
 format: html
 editor: visual
 ---
-
+Before installing, run these in terminal:
+sudo apt install make
+sudo apt install gcc
+sudo apt install g++
+reticulate also needs:
+sudo apt-get install -y libpng-dev
 ```{r}
 library('ggplot2')
 library('dplyr')
 library('reticulate')
+```
+```{r}
+use_condaenv('splicing')
+```
+Make sure these packages are installed in the conda environment
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import logomaker
 ```
 
 # Describing the APC model
@@ -58,19 +73,6 @@ $$ P_{ij} = \sum_{j=1}^L C_i/L $$ How to construct pwm https://www.bioconductor.
 
 $$PWM_{ij} = log_2(p_{ij}/p_i)$$
 
-```{r}
-use_condaenv('splicing')
-```
-
-```{python}
-# need to load conda environment first
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-# conda config --set channel_priority flexible
-# conda install bioconda::logomaker
-import logomaker
-```
 
 All introns from the Wormbase annotation WS282 were extracted and used to create the position weight matrices. A donor and acceptor side sequence logo was made, to empirically determine the length of each model that should be used in the APC algorithm.
 
@@ -80,7 +82,8 @@ But does having each site count differently than mean each site is on it's own s
 pwms <- read.csv('test.pwm', header = FALSE)
 split_pwms <- split(pwms, pwms$V1) 
 wbdpwm <- split_pwms$smallgenes_wormbase_donor_pwm %>% 
-  select(, -1)
+  select(, -1) 
+colnames(wbdpwm) <- c('A', 'C', 'G', 'T')
 wbapwm <- split_pwms$smallgenes_wormbase_acceptor_pwm   %>% 
   select(, -1)
 rsdpwm <- split_pwms$smallgenes_rnaseq_donor_pwm %>% 

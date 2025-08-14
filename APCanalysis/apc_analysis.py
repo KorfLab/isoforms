@@ -60,7 +60,7 @@ def build_weighted_pwm(seqs, pwm_size):
 		if len(seq[0]) < pwm_size: continue
 		for i, nt in enumerate(seq[0]):
 			# add weighted counts
-			counts[i][nt] += seq[1]
+			counts[i][nt] += float(seq[1])
 
 	ppm = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} for x in range(pwm_size)]
 	
@@ -86,10 +86,19 @@ def build_weighted_pwm(seqs, pwm_size):
 
 	return pwm
 
+def print_pwm(pwm, pwm_name):
+
+	for row in pwm:
+		site = [x[1] for x in row.items()]
+		ent = sum(site)
+		print(ent, '***')
+		print(f'{pwm_name},{site[0]},{site[1]},{site[2]},{site[3]}')
+
 class SpliceSites:
 
 	def __init__(self, fasta, gff, don_len, don_left, acc_len, 
 					acc_right, source=None):
+
 		self.fasta = fasta
 		self.gff = gff
 		self.seq = None
@@ -167,6 +176,96 @@ class SpliceSites:
 			
 			return splice_sites
 		
+'''
+class GenomicSpliceSites:
+
+	def __init__(self, genome, annotation, flank=0, pwm_size=30, 
+				canonical=False):
+
+		self.fasta = genome
+		self.gff = annotation
+		self.flank = flank
+		self.pwm_size = pwm_size
+		self.canonical = canonical
+		self.genes = {}
+		self.introns = {}
+		self.chr_seqs = {}
+	
+	# get regions based on WormBase genes
+	# this does not get WormBase annotated introns
+	def _gather_regions(self):
+
+		with open(self.gff, 'rt') as fp:
+			for line in fp:
+				line = line.rstrip()
+				line = line.split('\t')
+				if line[1] == 'WormBase' and line[2] == 'gene':
+
+					# skip pseudogenes
+					pseudo = False
+					for info in line[8].split(';'):
+						if info == 'biotype=pseudogene':
+							pseudo = True
+					if pseudo == True: continue
+			
+					wbgene = line[8].split(';')[0].split(':')[1]
+					region = (wbgene, int(line[3]), int(line[4]), 
+								line[6])
+					if line[0] not in self.genes:
+						self.genes[line[0]] = [region]
+					else:
+						self.genes[line[0]].append(region)
+				if line[1] == 'RNASeq_splice' and line[2] == 'intron':
+					intron = (line[3], line[4], line[5], line[6])
+					if line[0] not in self.introns:
+						self.introns[line[0]] =[intron]
+					else:	
+						self.introns[line[0]].append(intron)
+	
+	def _overlapping_genes(self):
+		
+		# gather overlapping genes
+		overlapping_genes = {}
+		for item in self.genes.items():
+			overlapping_genes[item[0]] = []
+			for i, g1 in enumerate(item[1]):
+				for j, g2 in enumerate(item[1]):
+					if i == j: continue
+					if overlap(g1, g2):
+						if g1 not in overlapping_genes[item[0]]:
+							overlapping_genes[item[0]].append(g1)
+						if g2 not in overlapping_genes[item[0]]:
+							overlapping_genes[item[0]].append(g2)
+		
+		# remove overlapping genes
+		for item in overlapping_genes.items():
+			for gene in item[1]:
+				self.genes[item[0]].remove(gene)
+
+	def _chromosomal_sequences(self):
+
+		# get chromosomal sequences
+		current_chrom = None
+		with open(self.fasta, 'rt') as fp:
+			for line in fp:
+				line = line.rstrip()
+				if line.startswith('>'):
+					chrom = line.split('>')[1].split(' ')[0]
+					current_chrom = chrom
+					self.chr_seqs[chrom] = ''
+				else:
+					self.chr_seqs[current_chrom] += line
+
+	def res(self):
+
+		self._gather_regions
+		self._overlapping_genes
+		self._chromosomal_sequences()
+
+		self.chr_seqs
+
+	
+'''
 class PWM:
 	
 	def __init__(self):

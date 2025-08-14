@@ -72,30 +72,25 @@ import matplotlib.pyplot as plt
 import logomaker
 ```
 
-All introns from the Wormbase annotation WS282 were extracted and used to create the position weight matrices. A donor and acceptor side sequence logo was made, to empirically determine the length of each model that should be used in the APC algorithm. 
+All introns from the Wormbase annotation WS282 were extracted and used to create the position weight matrices. A donor and acceptor side sequence logo was made, to empirically determine the length of each model that should be used in the APC algorithm.
 
 But does having each site count differently than mean each site is on it's own scale and can't be compared?
 
-
 ```{r}
-wsdpwm <- read.csv('weighted_smallgenes_donor_pwm.csv', header = FALSE)
-colnames(wsdpwm) <- c('A', 'C', 'G', 'T')
-```
-```{r}
-wsapwm <- read.csv('weighted_smallgenes_acceptor_pwm.csv', header = FALSE)
-colnames(wsapwm) <- c('A', 'C', 'G', 'T')
-```
-```{r}
-sdpwm <- read.csv('smallgenes_donor_pwm.csv', header = FALSE)
-colnames(sdpwm) <- c('A', 'C', 'G', 'T')
-```
-```{r}
-sapwm <- read.csv('smallgenes_acceptor_pwm.csv', header = FALSE)
-colnames(sapwm) <- c('A', 'C', 'G', 'T')
+pwms <- read.csv('test.pwm', header = FALSE)
+split_pwms <- split(pwms, pwms$V1) 
+wbdpwm <- split_pwms$smallgenes_wormbase_donor_pwm %>% 
+  select(, -1)
+wbapwm <- split_pwms$smallgenes_wormbase_acceptor_pwm   %>% 
+  select(, -1)
+rsdpwm <- split_pwms$smallgenes_rnaseq_donor_pwm %>% 
+  select(, -1)
+rsapwm <- split_pwms$smallgenes_rnaseq_acceptor_pwm %>% 
+  select(, -1)
 ```
 
 ```{python}
-wsdpwm_plot = logomaker.Logo(r.wsdpwm, shade_below=.5,
+wbdpwm_plt = logomaker.Logo(r.wbdpwm, shade_below=.5,
 fade_below=.5)
 long_dpwm.ax.set_ylim(0,2)
 plt.show()
@@ -107,19 +102,20 @@ fade_below=.5)
 long_dpwm.ax.set_ylim(0,2)
 plt.show()
 ```
+
 ```{python}
 sdpwm_plot = logomaker.Logo(r.sdpwm, shade_below=.5,
 fade_below=.5)
 long_dpwm.ax.set_ylim(0,2)
 plt.show()
 ```
+
 ```{python}
 sapwm = logomaker.Logo(r.sapwm, shade_below=.5,
 fade_below=.5)
 long_dpwm.ax.set_ylim(0,2)
 plt.show()
 ```
-
 
 How to construct pwm https://www.bioconductor.org/packages/devel/bioc/vignettes/universalmotif/inst/doc/IntroductionToSequenceMotifs.pdf
 
@@ -134,4 +130,5 @@ fade_below=.5)
 long_apwm.ax.set_ylim(0,2)
 plt.show()
 ```
+
 Based on this sequence logo, we could argue that the acceptor PWM size for the APC model could be 8 base pairs long instead of 6. The general consensus is that C. elegans does not have a well defined branch point. Here there is a weak signal, but it is present. Branch point is not considered for the APC algorithm. The donor site should include two base pairs upstream of the GT motif, and be a total of 8 base pairs long.

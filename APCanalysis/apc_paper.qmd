@@ -3,21 +3,22 @@ title: "apc paper"
 format: html
 editor: visual
 ---
-Before installing, run these in terminal:
-sudo apt install make
-sudo apt install gcc
-sudo apt install g++
-reticulate also needs:
-sudo apt-get install -y libpng-dev
+
+Before installing, run these in terminal: "sudo apt install make", "sudo apt install gcc", "sudo apt install g++" reticulate also needs: "sudo apt-get install -y libpng-dev"
+
 ```{r}
 library('ggplot2')
 library('dplyr')
 library('reticulate')
 ```
+
 ```{r}
 use_condaenv('splicing')
 ```
+
 Make sure these packages are installed in the conda environment
+
+Import each one individually or else Rstudio will crash
 ```{python}
 import numpy as np
 import pandas as pd
@@ -58,8 +59,7 @@ p4
 ```
 
 ## Smallgenes
-
-There is a sharp exponential increase in the number of possible isoforms that can be generated from a sequence of increasing length. It is impossible to test genes above a length of around 100 base pairs before the compute time is unmanageable. Because of this, we have created a subset of the C. elegans genome called the smallgenes dataset. Each gene is represented by a single fasta file and GFF3 annotion file. This dataset has the following restrictions on each gene: no overlaps with other genes or genomic features, the gene is flanked... this can just be copy pasted from KorfLab/smallgenes
+There is a sharp exponential increase in the number of possible isoforms that can be generated from a sequence of increasing length (Figure 1). It is impossible to test genes above a length of around 1000 base pairs before the compute time is unmanageable. Sequences of length 1200 bp have the potential to take sround 80 hours of compute time (Figure 2) Because of this, we have created a subset of the C. elegans genome called the smallgenes dataset. Each gene is represented by a single fasta file and GFF3 annotion file. This dataset has the following restrictions on each gene: no overlaps with other genes or genomic features, the gene is flanked... this can just be copy pasted from KorfLab/smallgenes
 
 ## Isoform Scoring
 
@@ -73,7 +73,6 @@ $$ P_{ij} = \sum_{j=1}^L C_i/L $$ How to construct pwm https://www.bioconductor.
 
 $$PWM_{ij} = log_2(p_{ij}/p_i)$$
 
-
 All introns from the Wormbase annotation WS282 were extracted and used to create the position weight matrices. A donor and acceptor side sequence logo was made, to empirically determine the length of each model that should be used in the APC algorithm.
 
 But does having each site count differently than mean each site is on it's own scale and can't be compared?
@@ -81,15 +80,22 @@ But does having each site count differently than mean each site is on it's own s
 ```{r}
 pwms <- read.csv('test.pwm', header = FALSE)
 split_pwms <- split(pwms, pwms$V1) 
+
 wbdpwm <- split_pwms$smallgenes_wormbase_donor_pwm %>% 
   select(, -1) 
 colnames(wbdpwm) <- c('A', 'C', 'G', 'T')
+
 wbapwm <- split_pwms$smallgenes_wormbase_acceptor_pwm   %>% 
   select(, -1)
+colnames(wbapwm) <- c('A', 'C', 'G', 'T')
+
 rsdpwm <- split_pwms$smallgenes_rnaseq_donor_pwm %>% 
   select(, -1)
+colnames(rsdpwm) <- c('A', 'C', 'G', 'T')
+
 rsapwm <- split_pwms$smallgenes_rnaseq_acceptor_pwm %>% 
   select(, -1)
+colnames(rsapwm) <- c('A', 'C', 'G', 'T')
 ```
 
 ```{python}
@@ -100,21 +106,21 @@ plt.show()
 ```
 
 ```{python}
-wsapwm_plot = logomaker.Logo(r.wsapwm, shade_below=.5,
+wbapwm_plot = logomaker.Logo(r.wbapwm, shade_below=.5,
 fade_below=.5)
 long_dpwm.ax.set_ylim(0,2)
 plt.show()
 ```
 
 ```{python}
-sdpwm_plot = logomaker.Logo(r.sdpwm, shade_below=.5,
+rsdpwm_plot = logomaker.Logo(r.rsdpwm, shade_below=.5,
 fade_below=.5)
 long_dpwm.ax.set_ylim(0,2)
 plt.show()
 ```
 
 ```{python}
-sapwm = logomaker.Logo(r.sapwm, shade_below=.5,
+rsapwm = logomaker.Logo(r.rsapwm, shade_below=.5,
 fade_below=.5)
 long_dpwm.ax.set_ylim(0,2)
 plt.show()
@@ -135,3 +141,12 @@ plt.show()
 ```
 
 Based on this sequence logo, we could argue that the acceptor PWM size for the APC model could be 8 base pairs long instead of 6. The general consensus is that C. elegans does not have a well defined branch point. Here there is a weak signal, but it is present. Branch point is not considered for the APC algorithm. The donor site should include two base pairs upstream of the GT motif, and be a total of 8 base pairs long.
+
+Interpreting results of the APC algorithm
+
+```{r}
+dist_bins <- read.csv('bins.csv', header = FALSE)
+ggplot(dist_bins, aes(x=V1, y=V2)) +
+  geom_bar(stat = "identity")
+```
+

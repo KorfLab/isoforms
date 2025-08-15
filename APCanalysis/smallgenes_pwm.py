@@ -20,6 +20,13 @@ parser.add_argument('--acc_right', required=False, type=int, default=0,
 
 args = parser.parse_args()	
 
+'''
+make sure to filter only one isoform from each gene
+some genes have more than one isoform in smallgenes 
+one-based counting is not good for PWMs
+remove non-coding RNA genes from genomic PWM training sequences
+'''
+
 # shorten arguments for indexing
 DN = args.don_len
 AN = args.acc_len

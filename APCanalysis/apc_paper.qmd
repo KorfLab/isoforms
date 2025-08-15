@@ -150,3 +150,5 @@ ggplot(dist_bins, aes(x=V1, y=V2)) +
   geom_bar(stat = "identity")
 ```
 
+Take one really bad gene, why is it broken?
+Nmd filter?

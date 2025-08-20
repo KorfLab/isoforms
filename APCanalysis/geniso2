@@ -2,10 +2,9 @@
 
 import argparse
 import sys
-import json 
 
-import isoform
-from isoform import Locus
+import isoform2
+from isoform2 import Locus
 from grimoire.genome import Reader
 
 parser = argparse.ArgumentParser(
@@ -50,7 +49,7 @@ parser.add_argument('--countonly', action='store_true',
 
 arg = parser.parse_args()
 
-model = isoform.read_splicemodel(arg.model)
+model = isoform2.read_splicemodel(arg.model)
 
 weights = {
 	'wacc': arg.wacc,
@@ -71,38 +70,10 @@ constraints = {
 if arg.out: fp = open(arg.out, 'w')
 else: fp = sys.stdout
 
-name, seq = next(isoform.read_fasta(arg.fasta))
+name, seq = next(isoform2.read_fasta(arg.fasta))
 locus = Locus(name, seq, model, constraints=constraints, weights=weights,
 	limit=arg.limit)
-	
-# re-score isoform using alternative pwms
-with open(arg.model, 'r') as fp:
-	data = json.load(fp)
-	if len(data['don']) == 8 and len(data['acc']) == 8:
-		print('wow')
-	print(len(data['don']))
-	for thing in data:
-		print(thing)
-		
-	print(locus.isoforms)
-	for isoform in locus.isoforms:
-		for aix in isoform.accs:
-			print(seq[aix-7:aix+1])
-		for dix in isoform.dons:
-			print(seq[dix-2:dix+6])
-		for eix in isoform.exons:
-			print(seq[eix[0]:eix[1]+1])
-		for iix in isoform.introns:
-			print(seq[iix[0]:iix[1]+1])
-		
-		
-print(dir(locus))
 
-print(locus.dons)
-	
-
-
-'''
 ##### copy paste from nmd-ish.py #####
 if arg.translate:
 	reader = Reader(fasta=arg.fasta, gff=arg.translate)
@@ -133,11 +104,11 @@ if arg.translate:
 	for iso in locus.isoforms:
 		iso.prob /= total
 
-	#locus.write_gff(fp)
+	locus.write_gff(fp)
 
 #else:
-	#locus.write_gff(fp)
-'''
+#	locus.write_gff(fp)
+
 
 
 

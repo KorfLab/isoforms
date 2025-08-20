@@ -48,7 +48,7 @@ parser.add_argument('out', help='save sub-models to directory (e.g. models)')
 parser.add_argument('--alt_splice_sites', required=False, type=str, 
 	help='list of donor and acceptor sites to use')
 parser.add_argument('--don', type=int, default=5, help="[%(default)i]")
-parser.add_argument('--up_don', action='store_true', 
+parser.add_argument('--up2_don', action='store_true', 
 	help="include 2 base pairs upstream of GT donor site")
 parser.add_argument('--acc', type=int, default=6, help="[%(default)i]")
 parser.add_argument('--emm', type=int, default=3, help="[%(default)i]")
@@ -65,12 +65,6 @@ dons = []
 exons = []
 introns = []
 exonsum = 0
-
-for ff in glob.glob(f'{arg.dir}/*.fa'):
-	gf = ff[:-2] + 'gff3'
-	
-
-
 for ff in glob.glob(f'{arg.dir}/*.fa'):
 	gf = ff[:-2] + 'gff3'
 	genome = Reader(gff=gf, fasta=ff)
@@ -82,7 +76,7 @@ for ff in glob.glob(f'{arg.dir}/*.fa'):
 		exonsum += f.end - f.beg + 1
 	for i, f in enumerate(tx.introns):
 		iseq = f.seq_str()
-		if arg.up_don:
+		if arg.up2_don:
 			# offset coordinates by 100 bp flank
 			ex_end = wb_exons[i][1]-99
 			up_dseq = tx.seq_str()[ex_end-2:f.beg-100+arg.don]
@@ -91,8 +85,6 @@ for ff in glob.glob(f'{arg.dir}/*.fa'):
 			dons.append(iseq[0:arg.don])
 		accs.append(iseq[-arg.acc:])
 		introns.append(iseq)
-
-
 
 '''
 if arg.alt_splice_sites:
@@ -104,7 +96,8 @@ if arg.alt_splice_sites:
 			line = line.rstrip()
 			line = line.split(',')
 			dons.append(line[0])
-			accs.append(line[1])		
+			accs.append(line[1])	
+'''	
 
 ## build models
 inf = len(introns) / exonsum
@@ -131,22 +124,32 @@ isoform.write_markov(fins, ins)
 isoform.write_len(fexl, exl)
 isoform.write_len(finl, inl)
 with open(finf, 'w') as fp: print(inf, file=fp)
-'''
-'''
+
 # write ghmm
-ghmm = {
-	'name': arg.name,
-	'inf': isoform.prob2score(inf),
-	'acc': isoform.read_pwm(facc),
-	'don': isoform.read_pwm(fdon),
-	'exs': isoform.read_markov(fexs),
-	'ins': isoform.read_markov(fins),
-	'exl': isoform.read_len(fexl),
-	'inl': isoform.read_len(finl),
-}
+if arg.up2_don:
+	ghmm = {
+		'name': arg.name,
+		'inf': isoform.prob2score(inf),
+		'acc': isoform.read_pwm(facc),
+		'up2_don': isoform.read_pwm(fdon),
+		'exs': isoform.read_markov(fexs),
+		'ins': isoform.read_markov(fins),
+		'exl': isoform.read_len(fexl),
+		'inl': isoform.read_len(finl),
+	}
+else:
+	ghmm = {
+		'name': arg.name,
+		'inf': isoform.prob2score(inf),
+		'acc': isoform.read_pwm(facc),
+		'don': isoform.read_pwm(fdon),
+		'exs': isoform.read_markov(fexs),
+		'ins': isoform.read_markov(fins),
+		'exl': isoform.read_len(fexl),
+		'inl': isoform.read_len(finl),
+	}	
+	
 print(json.dumps(ghmm, indent=1))
 
-print(arg.up_don)
-'''
 
 

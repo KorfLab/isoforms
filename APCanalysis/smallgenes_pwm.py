@@ -9,7 +9,7 @@ parser.add_argument('smallgenes', type=str, metavar='<directory>',
 	help='path to smallgenes directory')
 parser.add_argument('--don_len', required=False, type=int, default=5, 
 	metavar='<integer>', help='donor site length [%(default)i]')
-parser.add_argument('--acc_len', required=False, type=int, default=5, 
+parser.add_argument('--acc_len', required=False, type=int, default=6, 
 	metavar='<integer>', help='acceptor site length [%(default)i]')
 parser.add_argument('--don_left', required=False, type=int, default=0, 
 	metavar='<integer>', 
@@ -38,7 +38,7 @@ if args.smallgenes.endswith('/'):
 else:
 	args.smallgenes = args.smallgenes + '/'
 	
-annotated_splice_sites = []
+parent_txs = {}
 rnaseq_splice_sites = {}
 for file in glob.glob(f'{args.smallgenes}*.fa'):
 	ff = file
@@ -53,7 +53,7 @@ for file in glob.glob(f'{args.smallgenes}*.fa'):
 	# there are - strand features mixed in for 13 genes
 	# only get + strand features
 	# smallgenes converts - strand gene features to +
-	# should not be any - features in the gffs
+	# should not be any - features in the g
 	with open(gf, 'rt') as fp:
 		splice_site_set = {}
 		for line in fp:
@@ -62,11 +62,18 @@ for file in glob.glob(f'{args.smallgenes}*.fa'):
 			
 			if line[6] == '-': continue
 			
+			# for ce.3.58 (and probably others), the same intron has 3 
+			# different parent transcripts...so different transcripts 
+			# overlap the same intron
 			if line[1] == 'WormBase' and line[2] == 'intron':
+				parent_tx = line[8].split(':')[1]
 				donor = seq[int(line[3])-DL-1:int(line[3])+DN-1]
 				acceptor = seq[int(line[4])-AN:int(line[4])+AR]
-				annotated_splice_sites.append((donor, acceptor))
-				
+				if parent_tx not in parent_txs:
+					parent_txs[parent_tx] = []
+					parent_txs[parent_tx].append((donor, acceptor))
+				else:
+					parent_txs[parent_tx].append((donor, acceptor))
 			if line[1] == 'RNASeq_splice' and line[2] == 'intron':
 				donor = seq[int(line[3])-3:int(line[3])+5]
 				acceptor = seq[int(line[4])-8:int(line[4])]
@@ -74,6 +81,16 @@ for file in glob.glob(f'{args.smallgenes}*.fa'):
 				
 		# assign splice sites to score
 		rnaseq_splice_sites[line[0]] = splice_site_set
+		
+# only keep sites from first isoform (parent transcript) seen
+annotated_splice_sites = []
+seen = []
+for parent in parent_txs:
+	base = parent.split('.')[0]
+	if base in seen: continue
+	seen.append(base)
+	for sites in parent_txs[parent]:
+		annotated_splice_sites.append(sites)
 
 wb_dons = []
 wb_accs = []
@@ -82,27 +99,36 @@ rna_accs = []
 for file in glob.glob(f'{args.smallgenes}*.fa'):
 	ff = file
 	gf = ff[:-2] + 'gff3'
-	wb_pwm = SpliceSites(ff, gf, DN, DL, AN, AR, source='WormBase')
-	rna_pwm = SpliceSites(ff, gf, DN, DL, AN, AR, source='RNASeq')
-	for d, a in wb_pwm.splice_sites():
+	wb_sites = SpliceSites(ff, gf, DN, DL, AN, AR, source='WormBase')
+	rna_sites = SpliceSites(ff, gf, DN, DL, AN, AR, source='RNASeq')
+	for d, a in wb_sites.splice_sites():
 		wb_dons.append(d)
 		wb_accs.append(a)
-	for d, a, s in rna_pwm.splice_sites():
+	for d, a, s in rna_sites.splice_sites():
 		rna_dons.append([d, s])
 		rna_accs.append([a, s])
+		
+wb_dons = []
+for sites in annotated_splice_sites:
+	print(sites[0])
+	wb_dons.append(sites[0])		
 		
 wb_dpwm = aa.build_pwm(wb_dons, len(wb_dons[0]))		
 wb_apwm = aa.build_pwm(wb_accs, len(wb_accs[0]))
 rna_dpwm = aa.build_weighted_pwm(rna_dons, len(rna_dons[0][0]))
 rna_apwm = aa.build_weighted_pwm(rna_accs, len(rna_accs[0][0]))
 
-#print(wb_dpwm)
-
-
-aa.print_pwm(wb_dpwm, 'smallgenes_wormbase_donor_pwm')
+#aa.print_pwm(wb_dpwm, 'smallgenes_wormbase_donor_pwm')
+'''
 aa.print_pwm(wb_apwm, 'smallgenes_wormbase_acceptor_pwm')
 aa.print_pwm(rna_dpwm, 'smallgenes_rnaseq_donor_pwm')
 aa.print_pwm(rna_apwm, 'smallgenes_rnaseq_acceptor_pwm')
+'''
+
+
+
+
+
 
 '''
 from grimoire.genome import Reader

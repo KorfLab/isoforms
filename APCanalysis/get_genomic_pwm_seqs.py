@@ -31,10 +31,11 @@ with open(args.gff, 'rt') as fp:
 		line = line.rstrip()
 		line = line.split('\t')
 		if line[1] == 'WormBase' and line[2] == 'gene':
-			
+			#####IMPORTANT#####
 			# skip pseudogenes
 			# look for CDS, these are only protein-coding
 			# if not CDS, do not include
+			###################
 			pseudo = False
 			for info in line[8].split(';'):
 				print(info)

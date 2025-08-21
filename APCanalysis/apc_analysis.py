@@ -47,7 +47,7 @@ def build_pwm(seqs, pwm_size):
 		for nt in site:
 			pwm[i][nt] = site[nt] * info_content
 
-	return pwm	
+	return ppm	
 
 # includes addition of weights for each sequence, normalized to region
 def build_weighted_pwm(seqs, pwm_size):

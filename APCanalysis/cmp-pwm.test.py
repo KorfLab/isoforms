@@ -106,7 +106,7 @@ for ff in glob.glob(f'{arg.apc}/*.fa'):
 			nt = iseq[-arg.acc+i]
 			acc_rnar[i][nt] += intron.score / total_score
 
-#print_pwm('don_gene', don_gene)
+print_pwm('don_gene', don_gene)
 #print_pwm('don_rna_one', don_rna1)
 '''
 print_pwm('don_rna_abs', don_rnaa)

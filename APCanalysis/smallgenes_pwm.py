@@ -2,6 +2,7 @@ import argparse
 import glob
 import apc_analysis as aa
 from apc_analysis import SpliceSites
+from grimoire.genome import Reader
 
 parser = argparse.ArgumentParser(
 	description='creates PWMs from smallgenes')
@@ -38,6 +39,42 @@ if args.smallgenes.endswith('/'):
 else:
 	args.smallgenes = args.smallgenes + '/'
 	
+for ff in glob.glob(f'{args.smallgenes}/*.fa'):
+	gf = ff[:-2] + 'gff3'
+	genome = Reader(gff=gf, fasta=ff)
+	chrom = next(genome)
+	gene = chrom.ftable.build_genes()[0]
+	tx = gene.transcripts()[0]
+	gseq = gene.seq_str()
+
+	'''
+	exon_coors = []
+	for exon in tx.exons:
+		exon_coors.append((exon.beg, exon.end))
+	
+	for i, intron in enumerate(tx.introns):
+		intron_coor = (intron.beg, intron.end)
+		#print(exon_coors[i], intron_coor, intron.score)
+	'''	
+		
+	total_score = 0
+	for f in chrom.ftable.features: 
+		if f.source == 'RNASeq_splice':
+			total_score += f.score
+			#print('@@@')
+			#print(gseq)
+			#print(f)
+			#print(f.beg, f.end, '!!!!!!')
+			print(
+			don = gseq[f.beg-100-DL:f.beg-100+DN]
+			acc = gseq[f.end-99-AN:f.end-99+AR]
+	
+	
+	#print('####', gf)
+	
+
+	
+'''
 parent_txs = {}
 rnaseq_splice_sites = {}
 for file in glob.glob(f'{args.smallgenes}*.fa'):
@@ -117,9 +154,11 @@ wb_dpwm = aa.build_pwm(wb_dons, len(wb_dons[0]))
 wb_apwm = aa.build_pwm(wb_accs, len(wb_accs[0]))
 rna_dpwm = aa.build_weighted_pwm(rna_dons, len(rna_dons[0][0]))
 rna_apwm = aa.build_weighted_pwm(rna_accs, len(rna_accs[0][0]))
-
-#aa.print_pwm(wb_dpwm, 'smallgenes_wormbase_donor_pwm')
 '''
+
+
+'''
+aa.print_pwm(wb_dpwm, 'smallgenes_wormbase_donor_pwm')
 aa.print_pwm(wb_apwm, 'smallgenes_wormbase_acceptor_pwm')
 aa.print_pwm(rna_dpwm, 'smallgenes_rnaseq_donor_pwm')
 aa.print_pwm(rna_apwm, 'smallgenes_rnaseq_acceptor_pwm')

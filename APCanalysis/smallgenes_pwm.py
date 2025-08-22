@@ -39,6 +39,9 @@ if args.smallgenes.endswith('/'):
 else:
 	args.smallgenes = args.smallgenes + '/'
 	
+
+all_rel_dons = []	
+all_rel_accs = []
 for ff in glob.glob(f'{args.smallgenes}/*.fa'):
 	gf = ff[:-2] + 'gff3'
 	genome = Reader(gff=gf, fasta=ff)
@@ -47,6 +50,7 @@ for ff in glob.glob(f'{args.smallgenes}/*.fa'):
 	tx = gene.transcripts()[0]
 	gseq = gene.seq_str()
 
+	# started writing code for one-based counting
 	'''
 	exon_coors = []
 	for exon in tx.exons:
@@ -58,22 +62,33 @@ for ff in glob.glob(f'{args.smallgenes}/*.fa'):
 	'''	
 		
 	total_score = 0
+	don_acc_sites = []
 	for f in chrom.ftable.features: 
 		if f.source == 'RNASeq_splice':
 			total_score += f.score
-			#print('@@@')
-			#print(gseq)
-			#print(f)
-			#print(f.beg, f.end, '!!!!!!')
-			print(
 			don = gseq[f.beg-100-DL:f.beg-100+DN]
 			acc = gseq[f.end-99-AN:f.end-99+AR]
+			don_acc = (don, acc, f.score)
+			don_acc_sites.append(don_acc)
+			
+	# get relative counts
+	for sites in don_acc_sites:
+		rdon = [sites[0], sites[2] / total_score]
+		racc = [sites[1], sites[2] / total_score]
+		all_rel_dons.append(rdon)
+		all_rel_accs.append(racc)
 	
+rel_dpwm = aa.build_weighted_pwm(all_rel_dons, len(all_rel_dons[0][0]))
+rel_apwm = aa.build_weighted_pwm(all_rel_accs, len(all_rel_accs[0][0]))
 	
-	#print('####', gf)
-	
+aa.print_pwm(rel_dpwm, 'smallgenes_rnaseq_relative_donpwm')
+aa.print_pwm(rel_apwm, 'smallgenes_rnaseq_relative_accpwm')
 
-	
+
+
+
+# old method
+# use grimoire instead to standardize inputs
 '''
 parent_txs = {}
 rnaseq_splice_sites = {}
@@ -169,34 +184,4 @@ aa.print_pwm(rna_apwm, 'smallgenes_rnaseq_acceptor_pwm')
 
 
 
-'''
-from grimoire.genome import Reader
-
-def pwm(size):
-	pwm = []
-	for _ in range(size):
-		pwm.append({'A':0, 'C':0, 'G':0, 'T':0})
-	return pwm
-
-don_gene = pwm(5)
-
-c = 0
-for ff in glob.glob(f'{args.smallgenes}/*.fa'):
-	gf = ff[:-2] + 'gff3'
-	genome = Reader(gff=gf, fasta=ff)
-	chrom = next(genome)
-	gene = chrom.ftable.build_genes()[0]
-	tx = gene.transcripts()[0]
-	
-	for intron in tx.introns:
-		c += 1
-		iseq = intron.seq_str()
-		for i in range(5):
-			nt = iseq[i]
-			don_gene[i][nt] += 1
-
-# grimoire gets less introns
-# idk what it is filtering
-print(don_gene)
-'''
 

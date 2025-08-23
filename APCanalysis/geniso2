@@ -49,6 +49,11 @@ parser.add_argument('--countonly', action='store_true',
 
 arg = parser.parse_args()
 
+### TO DO ###
+# geniso2 and geniso results do not match with regular donor site
+# should be very similiar
+
+
 model = isoform2.read_splicemodel(arg.model)
 
 weights = {
@@ -106,8 +111,8 @@ if arg.translate:
 
 	locus.write_gff(fp)
 
-#else:
-#	locus.write_gff(fp)
+else:
+	locus.write_gff(fp)
 
 
 

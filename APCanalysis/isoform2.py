@@ -439,6 +439,8 @@ class Isoform:
 		acc = self.model['acc']
 
 		# use donor site that includes 2 base pairs upstream
+		
+		### need to edit the exon as well ###
 		up2 = False
 		try: 
 			don = self.model['up2_don']
@@ -466,18 +468,26 @@ class Isoform:
 		s = 0
 		for i in self.accs:
 			s += score_pwm(acc, seq, i -len(acc)+1, memo=macc) * wacc
+			
 		for i in self.dons:
 			# adjust scored sequence with upstream nucleotides
+			# reduce size of exon scored by 2 bp
+			# exon models needs to be trained with 2 less bp
 			if up2:
 				s += score_pwm(don, seq, i -2, memo=mdon) * wdon
+				for b, e in self.exons:
+					s += score_len(exl, e - b -2 + 1)
+				for b, e in self.exons:
+					s += score_markov(exs, seq, b, e -2, memo=mexs) * wexs
 			else:
 				s += score_pwm(don, seq, i, memo=mdon) * wdon
-		for b, e in self.exons:
-			s += score_len(exl, e - b + 1) * wexl
+				for b, e in self.exons:
+					s += score_len(exl, e - b + 1) * wexl
+				for b, e in self.exons:
+					s += score_markov(exs, seq, b, e, memo=mexs) * wexs
+					
 		for b, e in self.introns:
 			s += score_len(inl, e - b + 1) * winl
-		for b, e in self.exons:
-			s += score_markov(exs, seq, b, e, memo=mexs) * wexs
 		for b, e in self.introns: s += score_markov(ins, seq,
 			b + len(don), e - len(acc), memo=mins) * wins
 		s += inf * len(self.introns) * winf

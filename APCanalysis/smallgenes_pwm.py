@@ -60,7 +60,7 @@ for ff in glob.glob(f'{args.smallgenes}/*.fa'):
 		intron_coor = (intron.beg, intron.end)
 		#print(exon_coors[i], intron_coor, intron.score)
 	'''	
-		
+
 	total_score = 0
 	don_acc_sites = []
 	for f in chrom.ftable.features: 

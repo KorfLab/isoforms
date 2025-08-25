@@ -48,12 +48,10 @@ parser = argparse.ArgumentParser(description='splice model builder')
 parser.add_argument('dir', help='path to directory of genes (e.g. smallgenes)')
 parser.add_argument('name', help='name of the model (e.g. worm)')
 parser.add_argument('out', help='save sub-models to directory (e.g. models)')
-parser.add_argument('--alt_splice_sites', required=False, type=str, 
-	help='list of donor and acceptor sites to use')
-#parser.add_argument('--don', type=int, default=5, help="[%(default)i]")
+#parser.add_argument('--alt_splice_sites', required=False, type=str, 
+#	help='list of donor and acceptor sites to use')
 parser.add_argument('--up2_don', action='store_true', 
 	help="include 2 base pairs upstream of GT donor site")
-#parser.add_argument('--acc', type=int, default=6, help="[%(default)i]")
 parser.add_argument('--emm', type=int, default=3, help="[%(default)i]")
 parser.add_argument('--emin', type=int, default=25, help="[%(default)i]")
 parser.add_argument('--emax', type=int, default=1000, help="[%(default)i]")
@@ -66,20 +64,12 @@ parser.add_argument('--don_len', required=False, type=int, default=5,
 	metavar='<integer>', help='donor site length [%(default)i]')
 parser.add_argument('--acc_len', required=False, type=int, default=6, 
 	metavar='<integer>', help='acceptor site length [%(default)i]')
-parser.add_argument('--don_left', required=False, type=int, default=0, 
-	metavar='<integer>', 
-	help='get bases on donor site left flank [%(default)i]')
-parser.add_argument('--acc_right', required=False, type=int, default=0, 
-	metavar='<integer>', 
-	help='get bases on acceptor site right flank [%(default)i]')
 
 arg = parser.parse_args()
 
 # shorten arguments for indexing
 DN = arg.don_len
-AN = arg.acc_len
-DL = arg.don_left 
-AR = arg.acc_right 
+AN = arg.acc_len 
 
 ## collect subsequences
 rel_accs = []
@@ -109,8 +99,8 @@ for ff in glob.glob(f'{arg.dir}/*.fa'):
 	for f in chrom.ftable.features:
 		if f.source == 'RNASeq_splice':
 			total_score += f.score
-			don = gseq[f.beg-100-DL:f.beg-100+DN]
-			acc = gseq[f.end-99-AN:f.end-99+AR]
+			don = gseq[f.beg-100:f.beg-100+DN]
+			acc = gseq[f.end-99-AN:f.end-99]
 			don_acc = (don, acc, f.score)
 			don_acc_sites.append(don_acc)
 			
@@ -183,6 +173,7 @@ if arg.alt_splice_sites:
 
 ## build models
 inf = len(introns) / exonsum
+# pwms should use weighted sequences
 #acc = isoform2.create_pwm(accs)
 #don = isoform2.create_pwm(dons)
 acc = aa.build_weighted_pwm(rel_dons, len(rel_dons[0][0]))

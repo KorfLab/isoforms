@@ -84,7 +84,7 @@ def build_weighted_pwm(seqs, pwm_size):
 		for nt in site:
 			pwm[i][nt] = site[nt] * info_content
 
-	return ppm
+	return pwm
 
 def print_pwm(pwm, pwm_name):
 

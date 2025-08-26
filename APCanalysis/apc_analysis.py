@@ -50,7 +50,7 @@ def build_pwm(seqs, pwm_size):
 	return ppm	
 
 # includes addition of weights for each sequence, normalized to region
-def build_weighted_pwm(seqs, pwm_size):
+def build_weighted_pwm(seqs, pwm_size, return_pwm=False):
 	
 	counts = [{'A': 0, 'C': 0, 'G': 0, 'T': 0} 
 				for x in range(pwm_size)]
@@ -84,7 +84,10 @@ def build_weighted_pwm(seqs, pwm_size):
 		for nt in site:
 			pwm[i][nt] = site[nt] * info_content
 
-	return pwm
+	if return_pwm:
+		return pwm
+	else:
+		return ppm
 
 def print_pwm(pwm, pwm_name):
 

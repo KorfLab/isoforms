@@ -230,8 +230,10 @@ def read_pwm(file):
 def score_pwm(pwm, seq, pos, memo=None):
 	if memo is not None and pos in memo: return memo[pos]
 	score = 0
+	s = ''
 	for i in range(len(pwm)):
 		nt = seq[pos+i]
+		s += nt
 		score += pwm[i][nt]
 	if memo is not None: memo[pos] = score
 	return score

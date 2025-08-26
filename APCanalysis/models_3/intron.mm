@@ -1,4 +1,4 @@
-% MM models_up2_d7_a8//intron.mm 256
+% MM models_3//intron.mm 256
 AAAA 0.497479
 AAAC 0.117569
 AAAG 0.071258

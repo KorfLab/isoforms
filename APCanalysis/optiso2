@@ -111,7 +111,6 @@ with open(arg.gff) as fp:
 		rnaseq[(beg,end)] = n
 		total += n
 for loc in rnaseq: rnaseq[loc] /= total
-
 # Genetic Algorithm
 
 pop = []

@@ -99,7 +99,10 @@ for ff in glob.glob(f'{arg.dir}/*.fa'):
 	for f in chrom.ftable.features:
 		if f.source == 'RNASeq_splice':
 			total_score += f.score
-			don = gseq[f.beg-100:f.beg-100+DN]
+			if arg.up2_don:
+				don = gseq[f.beg-100-2:f.beg-100+DN]
+			else:
+				don = gseq[f.beg-100:f.beg-100+DN]
 			acc = gseq[f.end-99-AN:f.end-99]
 			don_acc = (don, acc, f.score)
 			don_acc_sites.append(don_acc)
@@ -176,8 +179,8 @@ inf = len(introns) / exonsum
 # pwms should use weighted sequences
 #acc = isoform2.create_pwm(accs)
 #don = isoform2.create_pwm(dons)
-acc = aa.build_weighted_pwm(rel_dons, len(rel_dons[0][0]))
-don = aa.build_weighted_pwm(rel_accs, len(rel_accs[0][0]))
+don = aa.build_weighted_pwm(rel_dons, len(rel_dons[0][0]))
+acc = aa.build_weighted_pwm(rel_accs, len(rel_accs[0][0]))
 exs = isoform2.create_markov(exons, arg.emm, 0, 0)
 ins = isoform2.create_markov(introns, arg.imm, arg.don_len, arg.acc_len)
 exl = create_length_model(exons, arg.emin, arg.emax)

@@ -78,8 +78,10 @@ for ff in glob.glob(f'{args.smallgenes}/*.fa'):
 		all_rel_dons.append(rdon)
 		all_rel_accs.append(racc)
 	
-rel_dpwm = aa.build_weighted_pwm(all_rel_dons, len(all_rel_dons[0][0]))
-rel_apwm = aa.build_weighted_pwm(all_rel_accs, len(all_rel_accs[0][0]))
+rel_dpwm = aa.build_weighted_pwm(all_rel_dons, len(all_rel_dons[0][0]), 
+								return_pwm=True)
+rel_apwm = aa.build_weighted_pwm(all_rel_accs, len(all_rel_accs[0][0]), 
+								return_pwm=True)
 	
 aa.print_pwm(rel_dpwm, 'smallgenes_rnaseq_relative_donpwm')
 aa.print_pwm(rel_apwm, 'smallgenes_rnaseq_relative_accpwm')

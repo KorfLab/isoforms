@@ -46,6 +46,8 @@ parser.add_argument('--nmd', type=float, default=1e-3,
 	help='degredation from NMD [%(default)g]')
 parser.add_argument('--countonly', action='store_true',
 	help='report the total number of isoforms')
+parser.add_argument('--mdata', action='store_true',
+	help='add extra parameter/model info to gff')
 
 arg = parser.parse_args()
 

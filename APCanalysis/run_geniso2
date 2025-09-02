@@ -43,7 +43,7 @@ for file in os.listdir(adir):
 		fpaths[gID][0] = f'{adir}{file}'
 	if file.endswith('.gff3'):
 		fpaths[gID][1] = f'{adir}{file}'
-		
+
 # why does using no weights make the program run slower?
 if args.weights:
 	weights = {}
@@ -53,7 +53,7 @@ if args.weights:
 			if line.startswith('%'): continue
 			line = line.split(',')
 			weights[line[0]] = [x for x in line[1:]]
-			
+		
 def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl, 
 			winf, limit, gff=False):
 
@@ -70,10 +70,12 @@ def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl,
 			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
 			f'--winf {winf} --limit {limit}'
 		)
+
 	cmd = cmd.split(' ')
-	gid = cmd[1].split('.')[-2]
-	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout
+	gid = '.'.join(cmd[1].split('.')[-3:-1])
 	print(f'working on {gid}...')
+	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout
+	print(f'...{gid} done')
 	return output.rstrip()
 
 def worker(input):
@@ -113,16 +115,8 @@ for gID in fpaths:
 		]
 	inputs.append(input)
 
-#s = time.perf_counter()
-cpus = args.cpu
-with Pool(processes=cpus) as pool:
-    result = pool.map(worker, inputs)
-    #print(result)
-#e = time.perf_counter()
-#print('multi:', e-s)
-
 start = time.perf_counter()
-with Pool(processes=cpus) as pool:
+with Pool(processes=args.cpu) as pool:
     result = pool.map(worker, inputs)
 
 if not os.path.exists(args.outdir):

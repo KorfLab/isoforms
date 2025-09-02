@@ -592,18 +592,16 @@ class Locus:
 	"""Class to represent an alternatively spliced locus"""
 
 	def __init__(self, desc, seq, model, constraints=None, weights=None,
-			gff=None, limit=None, countonly=False, memoize=False, mdata=None):
+			gff=None, limit=None, countonly=False, memoize=False):
 
 		# sequence stuff
 		self.desc = desc
 		self.name = desc.split()[0]
 		self.seq = seq
 
-		# add meta data to gff
-		self.mdata = mdata
-
 		# model, weights, and memoizers pass-through to transcript
 		self.model = model
+		self.mod_name = model['name']
 		self.weights = weights
 		if memoize: self.memo = {'acc': {}, 'don': {}, 'exs': {}, 'ins': {}}
 		else: self.memo = None
@@ -720,8 +718,7 @@ class Locus:
 		print(f'# maxprob: {self.isoforms[0].prob:.4g}', file=fp)
 		print(f'# minprob {self.isoforms[-1].prob:.4g}', file=fp)
 		print(f'# complexity: {complexity(self.isoforms):.3f}', file=fp)
-		if self.mdata != None:
-			print(f'{self.mdata}')
+		print(f'# model: {self.mod_name}')
 
 		src = 'apc'
 		cs = f'{self.name}\t{src}\t'

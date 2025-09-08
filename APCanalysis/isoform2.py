@@ -800,6 +800,7 @@ def expdiff(introns1, introns2):
 		p2.append(i2[k])
 		details.append((k, i1[k], i2[k]))
 
-	distance = manhattan(p1, p2)
-	return distance, details
+	distance1 = manhattan(p1, p2) / 2
+	distance2 = intersection(p1, p2)
+	return distance1, distance2, details
 

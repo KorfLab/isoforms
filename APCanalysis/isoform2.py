@@ -794,13 +794,11 @@ def expdiff(introns1, introns2):
 	# compare distances
 	p1 = []
 	p2 = []
-	details = []
+	intron_info = []
 	for k in i1:
 		p1.append(i1[k])
 		p2.append(i2[k])
-		details.append((k, i1[k], i2[k]))
-
-	distance1 = manhattan(p1, p2) / 2
-	distance2 = intersection(p1, p2)
-	return distance1, distance2, details
-
+		intron_info.append((k, i1[k], i2[k]))
+		
+	dist = intersection(p1, p2)
+	return dist, intron_info

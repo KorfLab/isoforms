@@ -1,49 +1,75 @@
 #!/usr/bin/env python3
 
 import argparse
+import glob
 import os
 import isoform2
 import csv
 
-parser = argparse.ArgumentParser()
-parser.add_argument('APCgen_gffs', type=str, metavar='<directory>',
-    help='directory with APC generated gff files')
-parser.add_argument('WB_gffs', type=str, metavar='<directory>',
-    help='directory with WormBase gff files')
+parser = argparse.ArgumentParser(description='create files with' 
+	'histogram ditances')
+parser.add_argument('smallgenes', type=str, metavar='<directory>',
+    help='path to smallgenes directory')
+parser.add_argument('APC_results', nargs='*', type=str, 
+	metavar='<directory>', help='path to directories with APC'
+	'generated gff files')
 
 args = parser.parse_args()
 
-gffPaths = {}
-for fname in os.listdir(args.APCgen_gffs):
-    if fname.endswith('.gff'):
-        gID = fname.split('.')[1]
-        gffPaths[gID] = [args.APCgen_gffs + fname]
+gff_paths = {}
 
-for fname in os.listdir(args.WB_gffs):
-    if fname.endswith('.gff3'):
-        gID = fname.split('.')[1]
-        gffPaths[gID].append(args.WB_gffs + fname)
+if not args.smallgenes.endswith('/'):
+	args.smallgenes = f'{args.smallgenes}/'
 
-comparisons = {}
-for g in gffPaths:
-    i1 = isoform2.get_introns(gffPaths[g][0])
-    i2 = isoform2.get_introns(gffPaths[g][1])
-    dist, details = isoform2.expdiff(i1, i2)
-    comparisons[g] = dist
-            
-ranked = dict(sorted(comparisons.items(), key=lambda item: item[1]))
+for fpath in glob.glob(f'{args.smallgenes}*gff3'):
+	gID = '.'.join(fpath.split('/')[-1:][0].split('.')[1:3])
+	gff_paths[gID] = [fpath]
+		
 
-# 1_598 2.0000
+for apc_dir in args.APC_results:
+	if not apc_dir.endswith('/'):
+		apc_dir = f'{apc_dir}/'
+	for fpath in glob.glob(f'{apc_dir}*'):
+		gID = '.'.join(fpath.split('/')[-1:][0].split('.')[1:3])
+		gff_paths[gID].append(fpath)
+
+comps = {}
+for item in gff_paths.items():
+	apc_paths = item[1][1:]
+	for apc_path in apc_paths:
+		i1 = isoform2.get_introns(item[1][0])
+		i2 = isoform2.get_introns(apc_path)
+		apc_type = '_'.join(apc_path.split('/')[-1].split('.')[3:-1])
+		dist, intron_info = isoform2.expdiff(i1, i2)
+		if apc_type not in comps:
+			comps[apc_type] = {item[0]: dist}
+		else:
+			comps[apc_type][item[0]] = dist
+
+for item in comps.items():
+	comps[item[0]] = dict(sorted(comps[item[0]].items(), key=lambda
+							item: item[1]))
+
+columns = ['gene_id']
+distances = {} 
+for item in comps.items():
+	columns.append(item[0])
+	for gid in item[1].keys():
+		if gid not in distances:
+			distances[gid] = [item[1][gid]]
+		else:	
+			distances[gid].append(item[1][gid])
+
+with open('apc_distances.csv', 'w') as csvfile:
+	writer = csv.writer(csvfile)
+	writer.writerow(columns)
+	for item in distances.items():
+		writer.writerow([item[0], item[1][0], item[1][0]])
+	
+
+
+
 '''
-for r in ranked:
-    print(r, ranked[r])
-
-with open('ranked_dist.csv', 'w') as csvfile:
-    writer = csv.writer(csvfile, delimiter=',')
-    for r in ranked:
-        writer.writerow([f'{r}', f'{ranked[r]}'])
-'''
-
 # get intron parent transcripts and intron scores
 wbintron_info = {}
 for gID in gffPaths:
@@ -79,8 +105,8 @@ for gene in wbintron_info:
 
 # returns dictionary with only the top scoring/annotated wormbase isoform
 print(wbg_scores)
+'''
 
-print('#####')
 '''
 count = 1
 APCisos = {}
@@ -105,13 +131,6 @@ for iso in APCisos:
         print(iso, 'same')
 '''
 
-print('##############')
-# is top isos same as WB iso?
-
-# need to format an output file
-
-# geneid, mdist, isomatchwb
-# ch.2_1, 0.01, 1
 
 
 

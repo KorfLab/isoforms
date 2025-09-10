@@ -693,6 +693,7 @@ class Locus:
 		print(f'# maxprob: {self.isoforms[0].prob:.4g}', file=fp)
 		print(f'# minprob {self.isoforms[-1].prob:.4g}', file=fp)
 		print(f'# complexity: {complexity(self.isoforms):.3f}', file=fp)
+		print(f'# model: {self.mod_name}')
 
 		src = 'apc'
 		cs = f'{self.name}\t{src}\t'

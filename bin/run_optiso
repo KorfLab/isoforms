@@ -15,8 +15,8 @@ parser.add_argument('model', type=str, metavar='<file>',
     help='splice model file')
 parser.add_argument('--limit', required=False, type=str, default=1000,
     metavar='<int>', help='limit number of isoforms [%(default)i]')
-parser.add_argument('--notes', required=False, type=str, metavar='<string>',
-    help='any metadata you want to add')
+parser.add_argument('--out_name', required=False, type=str, metavar='<string>',
+    help='name of output file')
 parser.add_argument('--program', required=False, type=str, default='optiso', 
     metavar='<executable>', help='path to optiso')
 parser.add_argument('--cpu', required=False, type=int, default=1,
@@ -43,7 +43,7 @@ def optimize(prog, fasta, gff, model, limit):
 
 	cmd = f'./{prog} {fasta} {gff} {model} --limit {limit}'
 	cmd = cmd.split(' ')
-	gid = '.'.join(fasta.split('.')[1:3])
+	gid = '.'.join(fasta.split('.')[-3:-1])
 	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout.split()
 	print(f'working on {gid}...')
 	return [gid] + output
@@ -56,13 +56,9 @@ inputs = []
 for gID in fpaths:
 	input = [args.program, fpaths[gID][0], fpaths[gID][1], args.model]
 	inputs.append(input)
-	
-#s = time.perf_counter()
+
 with Pool(processes=args.cpu) as pool:
 	result = pool.map(worker, inputs)
-	#print(result)
-#e = time.perf_counter()
-#print('multi:', e-s)
 
 ref = []
 for res in result:
@@ -77,10 +73,13 @@ for res in result:
 	winf = res[8].split(':')[1]
 	ref.append([gid, fitness, wacc, wdon, wexs, wins, wexl, winl, winf])
 
-with open('results_optiso2.csv', 'w') as file:
+if args.out_name:
+	out_name = args.out_name
+else:
+	out_name = 'results_optisos2.csv'	
+	
+with open(out_name, 'w') as file:
     writer = csv.writer(file)
-    if args.notes: 
-        writer.writerow([args.notes])
     writer.writerow(['gid', 'fitness', 'wacc', 'wdon', 'wexs', 'wins', 'wexl', 'winl', 'winf'])
     writer.writerows(ref)
 

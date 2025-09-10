@@ -103,6 +103,7 @@ for ff in glob.glob(f'{arg.dir}/*.fa'):
 				don = gseq[f.beg-100-2:f.beg-100+DN]
 			else:
 				don = gseq[f.beg-100:f.beg-100+DN]
+				print(don)
 			acc = gseq[f.end-99-AN:f.end-99]
 			don_acc = (don, acc, f.score)
 			don_acc_sites.append(don_acc)
@@ -227,7 +228,7 @@ else:
 		'inl': isoform2.read_len(finl),
 	}	
 	
-print(json.dumps(ghmm, indent=1))
+#print(json.dumps(ghmm, indent=1))
 
 
 

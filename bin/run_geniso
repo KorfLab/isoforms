@@ -22,27 +22,25 @@ parser.add_argument('--limit', required=False, type=int, default=100,
 	metavar='<int>', help='limit number of transcripts [%(default)i]')
 parser.add_argument('--nmd', action='store_true', 
 	help='use gff file to find nmd targets')
-parser.add_argument('--program', required=False, type=str, default='geniso3', 
-	metavar='<executable>', help='path to geniso3')
+parser.add_argument('--program', required=False, type=str, default='geniso', 
+	metavar='<executable>', help='path to geniso')
 parser.add_argument('--cpu', required=False, type=int, default=1,
 	metavar='<int>', help='number of cpus to use [%(default).i]')
 
 args = parser.parse_args()
 
-if args.apc_dir.endswith('/'): 
-	adir = args.apc_dir
-else:
-	adir = args.apc_dir + '/'
+if not args.apc_dir.endswith('/'):
+	args.apc_dir = f'{args.apc_dir}/'
 
 fpaths = {}
-for file in os.listdir(adir):
+for file in os.listdir(args.apc_dir):
 	gID = '.'.join(file.split('.')[1:3])
 	if gID not in fpaths:
 		fpaths[gID] = [(), ()]
 	if file.endswith('.fa'):
-		fpaths[gID][0] = f'{adir}{file}'
+		fpaths[gID][0] = f'{args.apc_dir}{file}'
 	if file.endswith('.gff3'):
-		fpaths[gID][1] = f'{adir}{file}'
+		fpaths[gID][1] = f'{args.apc_dir}{file}'
 		
 # why does using no weights make the program run slower?
 if args.weights:
@@ -57,11 +55,12 @@ if args.weights:
 def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl, 
 			winf, limit, gff=False):
 
+	# --nmd means gff is passed to --translate in geniso
 	if gff:
 		cmd = (
 			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
 			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
-			f'--winf {winf} --limit {limit} --gff {gff}'
+			f'--winf {winf} --limit {limit} --translate {gff}'
 		)
 	else:
 		cmd = (
@@ -70,9 +69,10 @@ def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl,
 			f'--winf {winf} --limit {limit}'
 		)
 	cmd = cmd.split(' ')
-	gid = cmd[1].split('.')[-2]
+	gid = '.'.join(cmd[1].split('.')[-3:-1])
+	print(f'working on {gid}', flush=True)
 	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout
-	print(f'working on {gid}...')
+	print(f'{gid} is done', flush=True)
 	return output.rstrip()
 
 def worker(input):
@@ -112,20 +112,13 @@ for gID in fpaths:
 		]
 	inputs.append(input)
 
-#s = time.perf_counter()
-cpus = args.cpu
-with Pool(processes=cpus) as pool:
-    result = pool.map(worker, inputs)
-    #print(result)
-#e = time.perf_counter()
-#print('multi:', e-s)
-
 start = time.perf_counter()
-with Pool(processes=cpus) as pool:
+with Pool(processes=args.cpu) as pool:
     result = pool.map(worker, inputs)
 
 if not os.path.exists(args.outdir):
     os.makedirs(args.outdir)
+
 
 for res in result:
 	gID = res.split('\n')[0].split(' ')[2]

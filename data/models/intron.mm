@@ -1,4 +1,4 @@
-% MM ../data/models//intron.mm 256
+% MM models//intron.mm 256
 AAAA 0.495811
 AAAC 0.116654
 AAAG 0.070069

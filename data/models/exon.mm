@@ -1,4 +1,4 @@
-% MM ../data/models//exon.mm 256
+% MM models//exon.mm 256
 AAAA 0.370496
 AAAC 0.161600
 AAAG 0.168554

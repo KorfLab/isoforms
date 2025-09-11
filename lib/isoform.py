@@ -577,6 +577,7 @@ class Locus:
 
 		# model, weights, and memoizers pass-through to transcript
 		self.model = model
+		self.mod_name = model['name']
 		self.weights = weights
 		if memoize: self.memo = {'acc': {}, 'don': {}, 'exs': {}, 'ins': {}}
 		else: self.memo = None

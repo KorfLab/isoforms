@@ -119,7 +119,6 @@ with Pool(processes=args.cpu) as pool:
 if not os.path.exists(args.outdir):
     os.makedirs(args.outdir)
 
-
 for res in result:
 	gID = res.split('\n')[0].split(' ')[2]
 	if args.outname:

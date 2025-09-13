@@ -40,16 +40,30 @@ for item in gff_paths.items():
 		i1 = isoform2.get_introns(item[1][0])
 		i2 = isoform2.get_introns(apc_path)
 		apc_type = '_'.join(apc_path.split('/')[-1].split('.')[3:-1])
-		dist, intron_info = isoform2.expdiff(i1, i2)
+		
+		# copy paste from optiso
+		# histogram intersection distance
+		d1 = 0
+		for intron in i1.keys() | i2.keys():
+			if intron in i1 and intron in i2: d1 += abs(i1[intron] - i2[intron])
+			elif intron in i1: d1 += i1[intron]
+			else: d1 += i2[intron]
+			
+		dist = d1 / 2
+		
+		intersection = 1 - dist
+		
 		if apc_type not in comps:
-			comps[apc_type] = {item[0]: dist}
+			comps[apc_type] = {item[0]: intersection}
 		else:
-			comps[apc_type][item[0]] = dist
+			comps[apc_type][item[0]] = intersection
+
 '''
 for item in comps.items():
 	comps[item[0]] = dict(sorted(comps[item[0]].items(), key=lambda
 							item: item[1]))
 '''
+
 columns = ['gene_id']
 distances = {} 
 for item in comps.items():
@@ -60,6 +74,9 @@ for item in comps.items():
 		else:	
 			distances[gid].append(item[1][gid])
 
+
+
+'''
 with open('apc_distances.csv', 'w') as csvfile:
 	writer = csv.writer(csvfile)
 	writer.writerow(columns)
@@ -69,7 +86,28 @@ with open('apc_distances.csv', 'w') as csvfile:
 		for dist in item[1]:
 			row.append(dist)
 		writer.writerow(row)
+'''
+
+
+col_str = ''
+for i, col in enumerate(columns):
+	if i == len(columns) - 1:
+		col_str += f'{col}'
+	else:
+		col_str += f'{col},'
 	
+print(col_str)
+
+for item in distances.items():
+	row_str = f'{item[0]},'	
+	for i, dist in enumerate(item[1]):
+		if i == len(item[1]) - 1:
+			row_str += f'{str(dist)}'
+		else:
+			row_str += f'{str(dist)},'
+	print(row_str)
+
+
 
 
 

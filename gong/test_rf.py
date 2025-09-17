@@ -1,8 +1,17 @@
+"""
+validation test by using dev data to test rf lib
+
+    result:
+        the isoformtree do behave as a full split tree
+        which that leaf nodes == splits + 1
+        aka the random forest approach do success
+"""
+
 import random
-import randomf
 import argparse
 
-from randomf import IsoformTree
+from lib import randomf
+from lib.randomf import IsoformTree
 
 parser = argparse.ArgumentParser(
     description='Tree test exe')
@@ -26,9 +35,3 @@ for _ in range(arg.trails):
         print(tree.rules)
         print(leaves)
         print(tree.output)
-        
-'''
-    result:
-        the isoformtree do behave as a full split tree
-        which that leaf nodes == splits + 1
-'''

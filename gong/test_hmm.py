@@ -1,3 +1,11 @@
+'''
+validation test for HMM model output
+
+    result:
+        HMM model works 100 on the smallgene dataset
+        would be same for larger gene
+'''
+
 import os
 import argparse
 import tarfile

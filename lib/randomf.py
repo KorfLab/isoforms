@@ -1,12 +1,13 @@
 import random
 import numpy as np
 
+import isoform
+
 ############################################################
 ##################### DevData Generator ####################
 ############################################################
 
 ''' simulator for output of the HMM model '''
-
 def generate_dev_data(
         total_samples   = 20,
         don_ratio       = 0.6,
@@ -33,8 +34,78 @@ def generate_dev_data(
     return dons, accs, pos2info
 
 ############################################################
-######################### Functions ########################
+################### Auxiliary Functions ####################
 ############################################################
+
+def basis_sample(seq, hints_result, flank=99, minex=25):
+    '''
+    Get basis samples:      GT/AG sites that are NOT included in hmm
+    Returns:                basis_dons, basis_accs
+    '''
+
+    all_dons, all_accs = isoform.gtag_sites(seq, flank, minex)
+    
+    hint_dons = set()
+    hint_accs = set()
+    
+    for pos, typ, val in hints_result:
+        if typ == "don":
+            hint_dons.add(pos)
+        elif typ == "acc":
+            hint_accs.add(pos)
+    
+    basis_dons = [pos for pos in all_dons if pos not in hint_dons]
+    basis_accs = [pos for pos in all_accs if pos not in hint_accs]
+    
+    return basis_dons, basis_accs
+
+def f_otl_percentile(hints, percentile=90):
+    ''' take out those outliers '''
+
+    dons        = [(pos, typ, val) for pos, typ, val in hints if typ == 'don']
+    accs        = [(pos, typ, val) for pos, typ, val in hints if typ == 'acc']    
+    outliers    = []
+    
+    if dons:
+        don_values = [val for pos, typ, val in dons]
+        threshold = np.percentile(don_values, percentile)
+        outliers.extend([(pos, typ, val) for pos, typ, val in dons if val > threshold])
+    
+    if accs:
+        acc_values = [val for pos, typ, val in accs]
+        threshold = np.percentile(acc_values, percentile)
+        outliers.extend([(pos, typ, val) for pos, typ, val in accs if val > threshold])
+    
+    return outliers
+
+def prepare_rf_input(hints):
+    ''' hmm hints to rf input '''
+    
+    dons = []
+    accs = []
+    pos2info = {}
+    
+    for pos, typ, val in hints:
+        pos2info[pos] = (val, typ)
+        if typ == 'don':
+            dons.append(pos)
+        elif typ == 'acc':
+            accs.append(pos)
+    
+    return dons, accs, pos2info
+
+############################################################
+##################### DecisionTree Class ###################
+############################################################
+
+'''
+random forest parameter:
+    mtry    : p/3
+    nodesize: 30% of root node
+    
+    diff_split_coeff: current being inhibit
+        if diff_coeff: expand the full binary tree
+'''
 
 def base2_to_int(bits) -> int:
 
@@ -56,7 +127,7 @@ def finding_outlier(doa, pos2info, z_threshold=None):
         val, typ = pos2info[pos]
         mdoa.append((pos, typ, val))
 
-    mdoa = sorted(mdoa, key=lambda x: x[2])
+    mdoa  = sorted(mdoa, key=lambda x: x[2])
     vals  = np.asarray([val for _, _, val in mdoa], dtype=float)
     mean  = vals.mean()
     std   = vals.std(ddof=0)
@@ -69,19 +140,6 @@ def finding_outlier(doa, pos2info, z_threshold=None):
     doa   = [info for info, tf in zip(mdoa, otest) if not tf]
 
     return otl, doa
-
-############################################################
-##################### DecisionTree Class ###################
-############################################################
-
-'''
-random forest parameter:
-    mtry    : p/3
-    nodesize: 30% of root node
-    
-    diff_split_coeff: current being inhibit
-        if diff_coeff: expand the full binary tree
-'''
 
 class IsoformTree:
 
@@ -103,6 +161,7 @@ class IsoformTree:
         self.diff_samples_split = self.min_samples_split * diff_split_coeff
         self.output             = dict()
         self.rules              = []
+        self.oob_samples        = []
 
         self._btstrapping()
 
@@ -116,9 +175,27 @@ class IsoformTree:
         self._recursion_tree(dataset, [])
 
     def _btstrapping(self):
-        ''' Bootstrap original donor and acceptor sites '''
-        self.dons = sorted(random.choices(self.dons, k=len(self.dons)))
-        self.accs = sorted(random.choices(self.accs, k=len(self.accs)))
+        '''Bootstrap original donor and acceptor sites and track OOB samples'''
+        n_dons = len(self.dons)
+        n_accs = len(self.accs)
+    
+        don_indices     = np.random.choice(n_dons, size=n_dons, replace=True)
+        acc_indices     = np.random.choice(n_accs, size=n_accs, replace=True)
+        oob_don_indices = set(range(n_dons)) - set(don_indices)
+        oob_acc_indices = set(range(n_accs)) - set(acc_indices)    
+        original_dons   = self.dons.copy()
+        original_accs   = self.accs.copy()
+        self.dons       = sorted([original_dons[i] for i in don_indices])
+        self.accs       = sorted([original_accs[i] for i in acc_indices])
+    
+        self.oob_samples = []
+        for idx in oob_don_indices:
+            pos = original_dons[idx]
+            self.oob_samples.append((pos, self.pos2info[pos][1], self.pos2info[pos][0]))
+    
+        for idx in oob_acc_indices:
+            pos = original_accs[idx]
+            self.oob_samples.append((pos, self.pos2info[pos][1], self.pos2info[pos][0]))
 
     def _fsubset(self, node, mtry):
         ''' Find random subset of current dataset '''
@@ -207,8 +284,8 @@ class IsoformTree:
                 if ltest and rtest: continue
 
                 '''
-                diff_test = abs(len(left_node)-len(right_node))
-                if diff_test > self.diff_samples_split: continue
+                    diff_test = abs(len(left_node)-len(right_node))
+                    if diff_test > self.diff_samples_split: continue
                 '''
                 
                 ltest = self._gini_test([typ for _, typ, _ in left_node])
@@ -325,3 +402,50 @@ class IsoformClassifer:
             self.prediction.append(1)
         
         self._rules2base2(next_node)
+
+def collect_oob_predictions(oob_samples, rules, output, total_dons, total_accs, lower_pct, upper_pct):
+    ''' pick from oob sample and collect until subset meet certain range '''
+    if not oob_samples:
+        return [], []
+    
+    don_lower   = int(total_dons * lower_pct)
+    don_upper   = int(total_dons * upper_pct)
+    acc_lower   = int(total_accs * lower_pct)
+    acc_upper   = int(total_accs * upper_pct)
+    
+    target_dons = random.randint(don_lower, don_upper)
+    target_accs = random.randint(acc_lower, acc_upper)
+    
+    pred_dons   = set()
+    pred_accs   = set()
+    used_samp   = set()
+    
+    max_it      = len(oob_samples)
+    iteration   = 0
+    
+    while (len(pred_dons) < target_dons or len(pred_accs) < target_accs) and iteration < max_it:
+        iteration += 1
+        
+        avai_samp = [s for i, s in enumerate(oob_samples) if i not in used_samp]
+        if not avai_samp:
+            break
+            
+        samp     = random.choice(avai_samp)
+        samp_idx = oob_samples.index(samp)
+        used_samp.add(samp_idx)
+        
+        pos, typ, val = samp
+        
+        sample_data = [(pos, typ, val)]
+        classifier = IsoformClassifer(sample_data, rules, output)
+        c_dons, c_accs = classifier.predict()
+        
+        for don_pos in c_dons:
+            if len(pred_dons) < target_dons:
+                pred_dons.add(don_pos)
+                
+        for acc_pos in c_accs:
+            if len(pred_accs) < target_accs:
+                pred_accs.add(acc_pos)
+    
+    return sorted(list(pred_dons)), sorted(list(pred_accs))

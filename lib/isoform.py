@@ -568,7 +568,7 @@ class Locus:
 	"""Class to represent an alternatively spliced locus"""
 
 	def __init__(self, desc, seq, model, constraints=None, weights=None,
-			gff=None, limit=None, countonly=False, memoize=False):
+           gff=None, limit=None, countonly=False, memoize=False, dons=False, accs=False):
 
 		# sequence stuff
 		self.desc = desc
@@ -593,8 +593,9 @@ class Locus:
 			self.flank = constraints['flank']
 
 		# algorithm init
-		if gff: self.dons, self.accs = gff_sites(seq, gff)
-		else:   self.dons, self.accs = gtag_sites(seq, self.flank, self.emin)
+		if gff:             self.dons, self.accs = gff_sites(seq, gff)
+		elif dons and accs: self.dons, self.accs = dons, accs
+		else:               self.dons, self.accs = gtag_sites(seq, self.flank, self.emin)
 		self.isoforms = []
 		self.worst = None
 		self.rejected = 0
@@ -778,4 +779,3 @@ def expdiff(introns1, introns2):
 
 	distance = manhattan(p1, p2)
 	return distance, details
-

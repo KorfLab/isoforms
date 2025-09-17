@@ -1,0 +1,244 @@
+Compiling main
+gcc -fsanitize=address -g -c main.c
+Compiling function and data structure for computation
+gcc -fsanitize=address -g -c parser.c
+Compiling model
+gcc -fsanitize=address -g -c model.c
+Compiling output session
+gcc -fsanitize=address -g -c output.c
+Compiling stochastic Viterbi
+gcc -fsanitize=address -g -c stovit.c
+gcc -fsanitize=address -g -o edhmm2 main.o parser.o model.o output.o stovit.o -lm
+Running stochastic Viterbi with verbose output
+./edhmm2 --sequence seq \
+		--don_emission ../models/don.pwm \
+		--acc_emission ../models/acc.pwm \
+		--exon_emission ../models/exon.mm \
+		--intron_emission ../models/intron.mm \
+		--ped_exon ../models/exon.len \
+		--ped_intron ../models/intron.len \
+		--sto_viterbi --verbose
+=== Starting EDHMM Analysis ===
+Loading sequence from: seq
+Loading model files...
+  Donor emission: ../models/don.pwm
+  Acceptor emission: ../models/acc.pwm
+  Exon emission: ../models/exon.mm
+  Intron emission: ../models/intron.mm
+  Exon length distribution: ../models/exon.len
+  Intron length distribution: ../models/intron.len
+Explicit duration parameters loaded:
+  Exon: min=25, max=1000
+  Intron: min=39, max=1000
+  Sequence length: 780
+  Analysis range: 124 to 656
+Start calculating transition probability for donor sites:
+	Finished
+Start calculating transition probability for acceptor sites:
+	Finished
+
+=== TRANSITION MATRIX SUMMARY ===
+Donor Summary:
+Non-zero entries: 64 / 1024
+Maximum probability: 3.160784e-01 (sequence: GTAAG, index: 706)
+Acceptor Summary:
+Non-zero entries: 256 / 4096
+Maximum probability: 5.008547e-01 (sequence: TTTCAG, index: 4050)
+================================
+
+
+=== EXPLICIT DURATION SUMMARY ===
+EXON DURATION:
+  Min length: 25, Max length: 1000
+  Non-zero entries: 975 / 1000
+  First non-zero at: 25 (should match min_len: 25) ✓
+  Last non-zero at: 999
+  Range span: 975 (last - first + 1 = 975)
+  Probability sum: 1.000000 (should be ~1.0) ✓
+  Maximum prob: 5.249000e-03 at length 120
+
+INTRON DURATION:
+  Min length: 39, Max length: 1000
+  Non-zero entries: 961 / 1000
+  First non-zero at: 39 (should match min_len: 39) ✓
+  Last non-zero at: 999
+  Range span: 961 (last - first + 1 = 961)
+  Probability sum: 0.999985 (should be ~1.0) ✓
+  Maximum prob: 4.559600e-02 at length 45
+
+VALIDATION:
+  ✓ All duration probabilities look good!
+==================================
+
+
+=== Running Stochastic Viterbi Algorithm ===
+Initial Iteration: 2
+Starting from position: 681
+Found 20 donor sites and 19 acceptor sites
+
+mRNA	196	681	-790.214039
+Intron	196	242	-797.124966
+Exon	242	330	-797.124947
+Intron	330	387	-803.205379
+Exon	387	412	-816.389003
+Intron	412	458	-790.917298
+Exon	458	509	-790.901135
+Intron	509	639	-808.288465
+Exon	99	639	-806.117348
+
+mRNA	196	681	-790.881390
+Intron	196	242	-797.124966
+Exon	242	416	-797.124947
+Intron	416	458	-795.037705
+Exon	458	509	-790.901135
+Intron	509	639	-808.288465
+Exon	99	639	-806.117348
+
+mRNA	196	681	-796.430469
+Intron	196	242	-797.124966
+Exon	242	351	-797.124947
+Intron	351	425	-803.099060
+Exon	425	509	-813.008705
+Intron	509	639	-808.288465
+Exon	99	639	-806.117348
+
+mRNA	196	681	-796.431241
+Intron	196	242	-797.124966
+Exon	242	357	-797.124947
+Intron	357	425	-804.035742
+Exon	425	509	-813.008705
+Intron	509	639	-808.288465
+Exon	99	639	-806.117348
+
+mRNA	196	681	-790.214041
+Intron	196	242	-797.124966
+Exon	242	412	-797.124947
+Intron	412	458	-790.917298
+Exon	458	589	-790.901135
+Intron	589	639	-809.736029
+Exon	99	639	-806.117348
+
+mRNA	196	681	-790.881390
+Intron	196	242	-797.124966
+Exon	242	416	-797.124947
+Intron	416	458	-795.037705
+Exon	458	589	-790.901135
+Intron	589	639	-809.736029
+Exon	99	639	-806.117348
+
+mRNA	196	681	-790.883335
+Intron	196	330	-797.124966
+Exon	330	416	-813.560000
+Intron	416	458	-795.037705
+Exon	458	589	-790.901135
+Intron	589	639	-809.736029
+Exon	99	639	-806.117348
+
+mRNA	196	681	-796.430447
+Intron	196	242	-797.124966
+Exon	242	425	-797.124947
+Intron	425	545	-804.594265
+Exon	545	589	-803.326041
+Intron	589	639	-809.736029
+Exon	99	639	-806.117348
+
+mRNA	196	681	-797.122244
+Intron	196	330	-797.124966
+Exon	330	425	-813.560000
+Intron	425	545	-804.594265
+Exon	545	589	-803.326041
+Intron	589	639	-809.736029
+Exon	99	639	-806.117348
+
+mRNA	196	681	-796.430694
+Intron	196	242	-797.124966
+Exon	242	422	-797.124947
+Intron	422	545	-806.617620
+Exon	545	589	-803.326041
+Intron	589	639	-809.736029
+Exon	99	639	-806.117348
+
+mRNA	196	681	-790.214041
+Intron	196	242	-797.124966
+Exon	242	412	-797.124947
+Intron	412	458	-790.917298
+Exon	458	509	-790.901135
+Intron	509	650	-808.288465
+Exon	99	650	-807.343643
+
+mRNA	196	681	-790.881391
+Intron	196	242	-797.124966
+Exon	242	416	-797.124947
+Intron	416	458	-795.037705
+Exon	458	509	-790.901135
+Intron	509	650	-808.288465
+Exon	99	650	-807.343643
+
+mRNA	196	681	-790.883335
+Intron	196	330	-797.124966
+Exon	330	416	-813.560000
+Intron	416	458	-795.037705
+Exon	458	509	-790.901135
+Intron	509	650	-808.288465
+Exon	99	650	-807.343643
+
+mRNA	196	681	-796.430513
+Intron	196	242	-797.124966
+Exon	242	351	-797.124947
+Intron	351	425	-803.099060
+Exon	425	509	-813.008705
+Intron	509	650	-808.288465
+Exon	99	650	-807.343643
+
+mRNA	196	681	-796.430641
+Intron	196	242	-797.124966
+Exon	242	330	-797.124947
+Intron	330	425	-803.205379
+Exon	425	509	-813.008705
+Intron	509	650	-808.288465
+Exon	99	650	-807.343643
+
+mRNA	196	681	-790.214041
+Intron	196	242	-797.124966
+Exon	242	412	-797.124947
+Intron	412	458	-790.917298
+Exon	458	589	-790.901135
+Intron	589	650	-809.736029
+Exon	99	650	-807.343643
+
+mRNA	196	681	-790.215038
+Intron	196	330	-797.124966
+Exon	330	412	-813.560000
+Intron	412	458	-790.917298
+Exon	458	589	-790.901135
+Intron	589	650	-809.736029
+Exon	99	650	-807.343643
+
+mRNA	196	681	-790.881391
+Intron	196	242	-797.124966
+Exon	242	416	-797.124947
+Intron	416	458	-795.037705
+Exon	458	589	-790.901135
+Intron	589	650	-809.736029
+Exon	99	650	-807.343643
+
+mRNA	196	681	-794.815913
+Intron	196	242	-797.124966
+Exon	242	416	-797.124947
+Intron	416	545	-795.037705
+Exon	545	589	-803.326041
+Intron	589	650	-809.736029
+Exon	99	650	-807.343643
+
+mRNA	196	681	-796.430491
+Intron	196	242	-797.124966
+Exon	242	425	-797.124947
+Intron	425	545	-804.594265
+Exon	545	589	-803.326041
+Intron	589	650	-809.736029
+Exon	99	650	-807.343643
+
+=== Stochastic Viterbi Complete ===
+Total unique isoforms found: 20
+Use --print_splice to see detailed splice site analysis
+=== EDHMM Analysis Complete ===

@@ -49,6 +49,8 @@ for item in gff_paths.items():
 			elif intron in i1: d1 += i1[intron]
 			else: d1 += i2[intron]
 			
+		if d1 >= 2: d1 = 2
+			
 		dist = d1 / 2
 		
 		intersection = 1 - dist

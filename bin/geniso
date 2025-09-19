@@ -148,15 +148,3 @@ if arg.translate:
     if total > 0:
         for iso in locus.isoforms:
             iso.prob /= total
-
-# Output handling
-if arg.no_output:
-	sys.exit(0)
-else:
-	# Normal GFF output
-	if arg.out:
-		fp.close()
-		fp = open(arg.out, 'w')
-	locus.write_gff(fp)
-	if arg.out:
-		fp.close()

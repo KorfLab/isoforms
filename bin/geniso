@@ -17,7 +17,7 @@ parser.add_argument('model', type=str, metavar='<splice model>',
     help='input splicemodel file')
 parser.add_argument('--gff', required=False, type=str,
     metavar='<file>', help='gff with wormbase annotations')
-# removed --out, always write to stdout
+parser.add_argument('--out', help='save to named output file')
 parser.add_argument('--min_intron', type=int, default=35,
     metavar='<int>', help='minimum length of intron [%(default)i]')
 parser.add_argument('--min_exon', type=int, default=25,

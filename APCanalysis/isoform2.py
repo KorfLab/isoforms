@@ -336,7 +336,7 @@ def score_markov(model, seq, beg, end, memo=None):
 	score = 0
 	k = model['k']
 	mm = model['mm']
-
+	
 	for i in range(beg, end -k + 2):
 		kmer = seq[i:i+k]
 		score += mm[kmer]

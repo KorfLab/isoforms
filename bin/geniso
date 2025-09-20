@@ -6,8 +6,7 @@ import sys
 import isoform
 from isoform import Locus
 from grimoire.genome import Reader
-
-import isohint
+from lib import util
 
 parser = argparse.ArgumentParser(
     description='Alternative isoform generator with NMD')
@@ -100,7 +99,7 @@ else: fp = sys.stdout
 
 name, seq = next(isoform.read_fasta(arg.fasta))
 
-##### run geniso with hint from hmm model #####
+##### run degrade version of geniso by HMM hints cutoff #####
 if arg.hints:
     method_kwargs = {
         'k': arg.k,
@@ -108,7 +107,7 @@ if arg.hints:
         't': arg.t,
         'min_sites': arg.min_sites
     }
-    dons, accs = isohint.hints(
+    dons, accs = util.hints(
         arg.hmm, arg.fasta, arg.hmm_model,
         method=arg.method,
         **method_kwargs
@@ -116,7 +115,6 @@ if arg.hints:
     locus = Locus(name, seq, model, constraints=constraints, weights=weights,
         limit=arg.limit, dons=dons, accs=accs)
     
-##### original execution #####
 else:
     locus = Locus(name, seq, model, constraints=constraints, weights=weights,
         limit=arg.limit)

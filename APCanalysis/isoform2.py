@@ -230,10 +230,8 @@ def read_pwm(file):
 def score_pwm(pwm, seq, pos, memo=None):
 	if memo is not None and pos in memo: return memo[pos]
 	score = 0
-	s = ''
 	for i in range(len(pwm)):
 		nt = seq[pos+i]
-		s += nt
 		score += pwm[i][nt]
 	if memo is not None: memo[pos] = score
 	return score
@@ -490,10 +488,10 @@ class Isoform:
 					
 		for b, e in self.introns:
 			s += score_len(inl, e - b + 1) * winl
-		for b, e in self.introns: s += score_markov(ins, seq,
-			b + len(don), e - len(acc), memo=mins) * wins
+		for b, e in self.introns: 
+			s += score_markov(ins, seq, b + len(don), e - len(acc), 
+								memo=mins) * wins
 		s += inf * len(self.introns) * winf
-
 		self.score = s
 
 	def _canonical_start_codon(self, x):

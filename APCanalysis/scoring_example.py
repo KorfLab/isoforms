@@ -3,9 +3,9 @@
 
 import sys
 import isoform2
-#from isoform2 import Locus
+from isoform2 import Locus
 import isoform
-from isoform import Locus
+#from isoform import Locus
 
 fasta = sys.argv[1]
 gff = sys.argv[2]
@@ -67,37 +67,54 @@ ins = model['ins']
 # APC considers the UTRs part of the exon!!!!!!!
 # next modification: scan for ATG...
 
-
 for iso in locus.isoforms:
+	total = 0
 	if iso.introns != [(232, 278)]: continue
 	for i in iso.accs:
 		s = isoform2.score_pwm(acc, iso.seq, i -len(acc)+1, memo=None)
+		total += s
 		a_seq = iso.seq[i-len(acc)+1:i+1]
 		print('Acceptor: ', a_seq, i, s)
 	for i in iso.dons:
 		s = isoform2.score_pwm(don, iso.seq, i, memo=None)
+		total += s
 		d_seq = iso.seq[i:i+5]
 		print('Donor: ', d_seq, i, s)
 	for b, e in iso.exons:
-		print(b, e, '###')
-		elen = e - b -2 + 1
+		elen = e - b + 1
 		slen = isoform2.score_len(exl, elen)
+		total += slen
 		smm = isoform2.score_markov(exs, iso.seq, b, e, memo=None)
-		
-		isoform.score_markov(exs, iso.seq, b, e, memo=None)
-		
-		print(iso.seq[b:e])
-		
-		# first kmer score is not ATGN, but 3 bp upstream of exon start
-		print(f'{iso.seq[b+3:b+3+6]}...{iso.seq[e-5:e+1]}')
-		
+		total += smm
+		print('Exon: ', f'{iso.seq[b:b+6]}...{iso.seq[e-5:e+1]}', f'{b, e}')
 		print('Ex len: ', elen, slen)
-		print('Ex mm: ', smm)
+		print('Ex mm: ', smm, '$$')
 	for b, e in iso.introns:
 		ilen = e - b + 1
-		s = isoform2.score_len(inl, ilen)
-		print('In len: ', ilen, s)
-	print(iso.score)
+		slen = isoform2.score_len(inl, ilen)
+		total += slen
+		# don/acc seq not part of intron mm 
+		smm = isoform2.score_markov(ins, iso.seq, b + len(don), 
+			e - len(acc), memo=None)
+		total += smm
+		total += model['inf'] * len(iso.introns)
+		print('Intron: ', f'{iso.seq[b+5:b+11]}...{iso.seq[e-11:e-5]}')
+		print('In len: ', ilen, slen)
+		print('In mm: ', smm)
+	print(iso.score, total)
+
+
+'''
+10.907457181792099
+5.663082135803814
+2.381151251216277
+2.281113512556373
+9.877905709654959
+14.08864071944679
+2.2309530782449323
+9.856043635846964
+-6.252390479016578
+'''
 
 	
 seq = ''

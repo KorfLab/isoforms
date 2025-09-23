@@ -3,11 +3,39 @@ import numpy as np
 
 import isoform
 
-############################################################
-##################### DevData Generator ####################
-############################################################
+def countiso(dons, accs, min_intron, min_exon, limit=False):
+    """count all possible isoform"""
+    count   = 0
 
-''' simulator for output of the HMM model '''
+    def all_possible(dpos, apos, ipos, old):
+        """recursion"""
+        nonlocal count
+        
+        if limit:
+            if count > limit: return
+            
+        test  = ipos == 0
+        start = dpos      if test else apos
+        end   = len(dons) if test else len(accs)
+        
+        for i in range(start, end):
+            new = dons[i] if test else accs[i]
+            if old != 0 and test:      
+                if new - old - 1 < min_exon: continue
+            else:                       
+                if new - old + 1 < min_intron: continue
+            if not test: count += 1
+            if test:    all_possible(i + 1, apos, 1, dons[i])
+            else:       all_possible(dpos, i + 1, 0, accs[i])
+    
+    # recursion
+    all_possible(0, 0, 0, 0)
+    return count
+
+#####################
+## UTILITY SECTION ##
+#####################
+
 def generate_dev_data(
         total_samples   = 20,
         don_ratio       = 0.6,
@@ -33,16 +61,11 @@ def generate_dev_data(
 
     return dons, accs, pos2info
 
-############################################################
-################### Auxiliary Functions ####################
-############################################################
-
 def basis_sample(seq, hints_result, flank=99, minex=25):
     '''
     Get basis samples:      GT/AG sites that are NOT included in hmm
     Returns:                basis_dons, basis_accs
     '''
-
     all_dons, all_accs = isoform.gtag_sites(seq, flank, minex)
     
     hint_dons = set()
@@ -78,34 +101,9 @@ def f_otl_percentile(hints, percentile=90):
     
     return outliers
 
-def prepare_rf_input(hints):
-    ''' hmm hints to rf input '''
-    
-    dons = []
-    accs = []
-    pos2info = {}
-    
-    for pos, typ, val in hints:
-        pos2info[pos] = (val, typ)
-        if typ == 'don':
-            dons.append(pos)
-        elif typ == 'acc':
-            accs.append(pos)
-    
-    return dons, accs, pos2info
-
-############################################################
-##################### DecisionTree Class ###################
-############################################################
-
-'''
-random forest parameter:
-    mtry    : p/3
-    nodesize: 30% of root node
-    
-    diff_split_coeff: current being inhibit
-        if diff_coeff: expand the full binary tree
-'''
+#########################
+## Decision Tree Class ##
+#########################
 
 def base2_to_int(bits) -> int:
 
@@ -360,9 +358,9 @@ class IsoformTree:
         self._recursion_tree(left_node,  [0] + path)
         self._recursion_tree(right_node, [1] + path)
 
-############################################################
-##################### Classifier Class #####################
-############################################################
+##############################
+#### Classifer Tree Class ####
+##############################
 
 class IsoformClassifer:
     
@@ -380,8 +378,7 @@ class IsoformClassifer:
         self.prediction = []
         self._rules2base2(self.rules)
         
-        idx        = base2_to_int(self.prediction)
-        
+        idx  = base2_to_int(self.prediction)
         dons = [pos for typ, pos, _ in [self.output[idx] + self.input] if typ == 'dons']
         accs = [pos for typ, pos, _ in [self.output[idx] + self.input] if typ == 'accs']
         

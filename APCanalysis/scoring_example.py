@@ -124,10 +124,11 @@ with open(arg.fasta) as fp:
 		if line.startswith('>'): continue
 		seq += line
 		
+print('##########')
 
-
-
-
+print(model['exs']['mm']['AAAA'])
+print(model['exs']['mm']['AAAT'])
+print(model['exs']['mm']['AATG'])
 
 
 

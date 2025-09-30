@@ -1,14 +1,8 @@
-# get data for figure showing isoform scoring
-# using the simplest gene
-
-import sys
 import isoform2
 from isoform2 import Locus
 import isoform
 #from isoform import Locus
-
-fasta = sys.argv[1]
-gff = sys.argv[2]
+from grimoire.genome import Reader
 
 import argparse
 
@@ -130,12 +124,46 @@ print(model['exs']['mm']['AAAA'])
 print(model['exs']['mm']['AAAT'])
 print(model['exs']['mm']['AATG'])
 
+print(model['exl']['tail'])
 
 
+reader = Reader(fasta=arg.fasta, gff=arg.gff)
+region = next(reader)
+
+# find the canonical start codon
+gene = region.ftable.build_genes()[0]
+txs = gene.transcripts()
+atgs = set()
+for tx in txs:
+	cdss = sorted(tx.cdss, key=lambda x: x.beg)
+	atgs.add(cdss[0].beg - 1)
+cds_beg = sorted(atgs)[0]
+
+nonstop = 1e-3
+nmd = 1e-3
+
+prevs = [iso.prob for iso in locus.isoforms]
+for iso in locus.isoforms:
+	iso.translate(cds_beg)
+	if iso.rnatype == 'non-stop':
+		iso.prob *= nonstop
+	elif iso.rnatype == 'nmd-target':
+		iso.prob *= nmd
+
+# recompute probabilities
+total = sum(iso.prob for iso in locus.isoforms)
+if total > 0:
+	for iso in locus.isoforms:
+		iso.prob /= total
 
 
+# x is the start codon coordinate
+# x += 3 finds the stop codon coordinate
 
+# isoforms can also be labeled as non-stop
 
+# what does splice_after_stop = -1 mean?
+# this value is continuously updated
 
 
 

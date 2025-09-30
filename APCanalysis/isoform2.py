@@ -554,6 +554,7 @@ class Isoform:
 				self.splice_after_stop = d
 				break
 		self.utr3_length = len(self.seq) - self.stop_codon
+		print(self.splice_after_stop)
 		if self.splice_after_stop > minejc or self.utr3_length > minutr:
 			self.rnatype = 'nmd-target'
 			return

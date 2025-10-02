@@ -165,6 +165,8 @@ if total > 0:
 # what does splice_after_stop = -1 mean?
 # this value is continuously updated
 
+# use a two intron gene for example
+
 
 
 

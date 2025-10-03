@@ -60,10 +60,12 @@ ins = model['ins']
 
 # APC considers the UTRs part of the exon!!!!!!!
 # next modification: scan for ATG...
-
 for iso in locus.isoforms:
 	total = 0
-	if iso.introns != [(232, 278)]: continue
+	# for ce.1.1
+	#if iso.introns != [(232, 278)]: continue
+	# for ce.2.1
+	if iso.introns != [(187, 241), (286, 333)]: continue
 	for i in iso.accs:
 		s = isoform2.score_pwm(acc, iso.seq, i -len(acc)+1, memo=None)
 		total += s
@@ -95,7 +97,7 @@ for iso in locus.isoforms:
 		print('Intron: ', f'{iso.seq[b+5:b+11]}...{iso.seq[e-11:e-5]}')
 		print('In len: ', ilen, slen)
 		print('In mm: ', smm)
-	print(iso.score, total)
+	print('iso score: ', iso.score, 'total score: ', total)
 
 
 '''
@@ -165,8 +167,17 @@ if total > 0:
 # what does splice_after_stop = -1 mean?
 # this value is continuously updated
 
-# use a two intron gene for example
-
+'''
+ce.2.1
+APC.base first isoform
+prob 0.9231
+gene/mRNA 100 425
+exon 100 187
+exon 243 286
+exon 335 425
+intron 188 242
+intron 287 334
+'''
 
 
 

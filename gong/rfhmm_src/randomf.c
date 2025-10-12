@@ -385,7 +385,7 @@ static int find_best_split(SpliceSite *sites, int n_sites, double *best_threshol
 
 void viterbi_on_subset(SpliceSite *sites, int n_sites, Observed_events *info,
                       Explicit_duration *ed, Lambda *l, Locus *loc, 
-                      Vitbi_algo *vit, int use_path_restriction, int node_size,
+                      Vitbi_algo *vit, int node_size,
                       IsoformHashTable *hash_table) {
     
     if (n_sites <= node_size || sites == NULL) {
@@ -439,11 +439,7 @@ void viterbi_on_subset(SpliceSite *sites, int n_sites, Observed_events *info,
     
     int prev_count = loc->n_isoforms;
     
-    if (use_path_restriction) {
-        path_restricted_viterbi(&subset_pos, info, ed, vit, l, loc);
-    } else {
-        single_viterbi_algo(&subset_pos, info, ed, vit, l, loc);
-    }
+    path_restricted_viterbi(&subset_pos, info, ed, vit, l, loc);
     // check duplicate isoform
     if (loc->n_isoforms > prev_count) {
         Isoform *new_iso = loc->isoforms[loc->n_isoforms - 1];
@@ -470,8 +466,7 @@ void viterbi_on_subset(SpliceSite *sites, int n_sites, Observed_events *info,
 
 void build_tree_with_viterbi(SpliceSite *sites, int n_sites, RandomForest *rf,
                              Observed_events *info, Explicit_duration *ed, 
-                             Lambda *l, Locus *loc, Vitbi_algo *vit,
-                             int use_path_restriction) {
+                             Lambda *l, Locus *loc, Vitbi_algo *vit) {
     
     SpliceSite *unique_sites = NULL;
     int unique_count = remove_duplicates(sites, n_sites, &unique_sites);
@@ -482,8 +477,8 @@ void build_tree_with_viterbi(SpliceSite *sites, int n_sites, RandomForest *rf,
     }
     
     if (unique_count >= rf->node_size) {
-        viterbi_on_subset(unique_sites, unique_count, info, ed, l, loc, vit, 
-                         use_path_restriction, rf->node_size, rf->hash_table);
+        viterbi_on_subset(unique_sites, unique_count, info, ed, l, loc, vit,
+                        rf->node_size, rf->hash_table);
     }
     
     double threshold;
@@ -507,12 +502,12 @@ void build_tree_with_viterbi(SpliceSite *sites, int n_sites, RandomForest *rf,
     
     // Recursion on children
     if (left_count > 0) {
-        build_tree_with_viterbi(left_sites, left_count, rf, info, ed, l, 
-                               loc, vit, use_path_restriction);
+        build_tree_with_viterbi(left_sites, left_count, rf, info, ed, l,
+                                loc, vit);
     }
     if (right_count > 0) {
-        build_tree_with_viterbi(right_sites, right_count, rf, info, ed, l, 
-                               loc, vit, use_path_restriction);
+        build_tree_with_viterbi(right_sites, right_count, rf, info, ed, l,
+                                loc, vit);
     }
     
     free(unique_sites);
@@ -524,9 +519,8 @@ void build_tree_with_viterbi(SpliceSite *sites, int n_sites, RandomForest *rf,
 
 void generate_isoforms_random_forest(RandomForest *rf, Observed_events *info,
                                      Explicit_duration *ed, Lambda *l, 
-                                     Locus *loc, Vitbi_algo *vit,
-                                     int use_path_restriction) {
-    
+                                     Locus *loc, Vitbi_algo *vit) {
+
     int trees_without_new_isoforms  = 0;
     int max_trees_without_progress  = 100;
     int tree_count                  = 0;
@@ -545,7 +539,7 @@ void generate_isoforms_random_forest(RandomForest *rf, Observed_events *info,
         
         // Build tree and collect isoforms
         build_tree_with_viterbi(bootstrap, rf->sample_size, rf, info, ed, l, 
-                               loc, vit, use_path_restriction);
+                               loc, vit);
         free(bootstrap);
         
         // Check if we found new isoforms

@@ -4,11 +4,11 @@ CFLAGS = -fsanitize=address -g
 
 OBJS = main.o parser.o model.o output.o viterbi.o randomf.o
 
-all: rfhmm
+all: hmm
 
-rfhmm: $(OBJS)
-	$(CC) $(CFLAGS) -o rfhmm $(OBJS) -lm
-	@chmod +x rfhmm
+hmm: $(OBJS)
+	$(CC) $(CFLAGS) -o hmm $(OBJS) -lm
+	@chmod +x hmm
 
 main.o: main.c parser.c model.c model.h output.c randomf.h
 	@echo "Compiling main"
@@ -36,14 +36,14 @@ randomf.o: randomf.c randomf.h model.h
 
 clean:
 	@echo "Removing everything but the source file"
-	rm -f rfhmm *.o *.json
+	rm -f hmm *.o *.json
 
-debug: rfhmm
-	lldb ./rfhmm --sequence seq --verbose
+debug: hmm
+	lldb ./hmm --sequence seq --verbose
 
-test: rfhmm
+test: hmm
 	@echo "Running test with debug information (verbose mode)"
-	./rfhmm --sequence seq \
+	./hmm --sequence seq \
 		--don_emission ../models/don.pwm \
 		--acc_emission ../models/acc.pwm \
 		--exon_emission ../models/exon.mm \
@@ -52,8 +52,8 @@ test: rfhmm
 		--ped_intron ../models/intron.len \
 		--verbose
 
-hint: rfhmm
-	./rfhmm --sequence seq \
+hint: hmm
+	./hmm --sequence seq \
 		--don_emission ../models/don.pwm \
 		--acc_emission ../models/acc.pwm \
 		--exon_emission ../models/exon.mm \
@@ -63,9 +63,9 @@ hint: rfhmm
 		--print_splice
 
 # Random Forest Viterbi tests
-rf: rfhmm
+rf: hmm
 	@echo "Running Random Forest isoform generation"
-	./rfhmm --sequence seq \
+	./hmm --sequence seq \
 		--don_emission ../models/don.pwm \
 		--acc_emission ../models/acc.pwm \
 		--exon_emission ../models/exon.mm \
@@ -76,9 +76,9 @@ rf: rfhmm
 		--m 0.5 \
 		--stovit
 
-rf-verbose: rfhmm
+rf-verbose: hmm
 	@echo "Running Random Forest with verbose output"
-	./rfhmm --sequence seq \
+	./hmm --sequence seq \
 		--don_emission ../models/don.pwm \
 		--acc_emission ../models/acc.pwm \
 		--exon_emission ../models/exon.mm \
@@ -87,25 +87,26 @@ rf-verbose: rfhmm
 		--ped_intron ../models/intron.len \
 		--n_isoforms 100 \
 		--m 0.5 \
-		--stovit --verbose --r
+		--stovit --verbose
 
-rf-custom: rfhmm
+rf-custom: hmm
 	@echo "Running Random Forest with custom parameters"
-	./rfhmm --sequence seq \
+	./hmm --sequence seq \
 		--don_emission ../models/don.pwm \
 		--acc_emission ../models/acc.pwm \
 		--exon_emission ../models/exon.mm \
 		--intron_emission ../models/intron.mm \
 		--ped_exon ../models/exon.len \
 		--ped_intron ../models/intron.len \
-		--n_isoforms 100 \
+		--n_isoforms 10 \
 		--m 0.5 \
 		--stovit \
-		--node_size 5
+		--node_size 5 \
+		--json
 
-rf-restrict: rfhmm
+rf-restrict: hmm
 	@echo "Running Random Forest with path restriction"
-	./rfhmm --sequence seq \
+	./hmm --sequence seq \
 		--don_emission ../models/don.pwm \
 		--acc_emission ../models/acc.pwm \
 		--exon_emission ../models/exon.mm \
@@ -114,22 +115,21 @@ rf-restrict: rfhmm
 		--ped_intron ../models/intron.len \
 		--n_isoforms 100 \
 		--m 0.5 \
-		--stovit \
-		--restrict_path
+		--stovit
 
-rf-short: rfhmm
+rf-short: hmm
 	@echo "Running Random Forest (short flags)"
-	./rfhmm -s seq -S -N 500 -m 3 -z 5
+	./hmm -s seq -S -N 500 -m 3 -z 5
 
-test-short: rfhmm
+test-short: hmm
 	@echo "Running test (short flags)"
-	./rfhmm -s seq -v
+	./hmm -s seq -v
 
-hint-short: rfhmm
+hint-short: hmm
 	@echo "Running hint (short flags)"
-	./rfhmm -s seq -p
+	./hmm -s seq -p
 
-help: rfhmm
-	./rfhmm --help
+help: hmm
+	./hmm --help
 
 .PHONY: all clean debug test hint rf rf-verbose rf-custom rf-restrict rf-short test-short hint-short help

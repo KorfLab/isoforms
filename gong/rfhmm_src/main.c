@@ -8,7 +8,6 @@
 int     DEBUG                   = 0;
 int     use_random_forest       = 0;
 int     n_isoforms              = 10000;
-int     use_path_restriction    = 0;
 
 void print_usage(const char *program_name) {
     printf("RFHMM - Random Forest Hidden Markov Model for gene prediction\n");
@@ -29,9 +28,9 @@ void print_usage(const char *program_name) {
     printf("  -N, --n_isoforms NUM          Maximum isoform capacity (default: 10000)\n");
     printf("  -m, --mtry FRACTION           Fraction of features to sample (e.g., 0.5 or 1/2, default: 0.5)\n");
     printf("  -z, --node_size NUM           Minimum number of observations in terminal node (default: 5)\n");
-    printf("  -r, --restrict_path           Use path restriction in Viterbi\n");
     printf("\nOutput control:\n");
     printf("  -p, --print_splice            Print detailed splice site analysis\n");
+    printf("  -j, --json                    Emit isoform locus information as JSON\n");
     printf("  -v, --verbose                 Show debug and progress information\n");
     printf("  -h, --help                    Show this help message\n");
     printf("\nExamples:\n");
@@ -65,6 +64,7 @@ int main(int argc, char *argv[])
     char *Ped_intron            = default_Ped_intron;
     char *seq_input             = NULL;
     int print_splice_detailed   = 0;
+    int output_json             = 0;
     int flank_size              = DEFAULT_FLANK;
     float mtry                  = 0.5;          // Default to 1/2 of features
     int node_size               = 5;            // for regression 5 as node_size
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
         {"n_isoforms",      required_argument, 0, 'N'},
         {"mtry",            required_argument, 0, 'm'},
         {"node_size",       required_argument, 0, 'z'},
-        {"restrict_path",   no_argument,       0, 'r'},
+        {"json",            no_argument,       0, 'j'},
         {"print_splice",    no_argument,       0, 'p'},
         {"stovit",          no_argument,       0, 'S'},
         {"verbose",         no_argument,       0, 'v'},
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
     int option_index = 0;
     int c;
 
-    while ((c = getopt_long(argc, argv, "s:d:a:e:i:x:n:f:N:m:z:rSpvh", long_options, &option_index)) != -1) {
+    while ((c = getopt_long(argc, argv, "s:d:a:e:i:x:n:f:N:m:z:jSpvh", long_options, &option_index)) != -1) {
         switch (c) {
             case 's':
                 seq_input = optarg;
@@ -139,9 +139,7 @@ int main(int argc, char *argv[])
                 }
                 break;
             case 'm':
-                // Parse as a fraction or decimal
                 if (strchr(optarg, '/')) {
-                    // Handle fraction input like "1/2" or "1/3"
                     int numerator, denominator;
                     if (sscanf(optarg, "%d/%d", &numerator, &denominator) == 2 && denominator != 0) {
                         mtry = (float)numerator / denominator;
@@ -150,7 +148,6 @@ int main(int argc, char *argv[])
                         return 1;
                     }
                 } else {
-                    // Handle decimal input like "0.5" or "0.33"
                     mtry = atof(optarg);
                 }
                 if (mtry <= 0.0 || mtry > 1.0) {
@@ -165,8 +162,8 @@ int main(int argc, char *argv[])
                     return 1;
                 }
                 break;
-            case 'r':
-                use_path_restriction = 1;
+            case 'j':
+                output_json = 1;
                 break;
             case 'S':
                 use_random_forest = 1;
@@ -314,22 +311,30 @@ int main(int argc, char *argv[])
             printf("Warning: No splice sites found. Cannot run Random Forest.\n");
         } else {
             Locus *loc = create_locus(n_isoforms);
+            Vitbi_algo vit;
+            memset(&vit, 0, sizeof(Vitbi_algo));
+            allocate_vit(&vit, &info);
             
             if (DEBUG) {
                 printf("Generating isoforms using Random Forest:\n");
                 printf("  Locus capacity: %d\n", n_isoforms);
                 printf("  Node size: %d\n", node_size);
                 printf("  Mtry: %.2f (%.0f%% of features)\n", mtry, mtry * 100);
-                printf("  Path restriction: %s\n", use_path_restriction ? "Yes" : "No");
+                printf("  Path restriction: Yes\n");
             }
 
             RandomForest *rf = create_random_forest(&pos, loc, node_size, mtry);
-            generate_isoforms_random_forest(rf, &info, &ed, &l, loc, use_path_restriction);
+            generate_isoforms_random_forest(rf, &info, &ed, &l, loc, &vit);
             if (DEBUG) printf("Unique isoforms found: %d\n", loc->n_isoforms);
-            print_locus(loc, &info);
-            
+            if (output_json) {
+                print_locus_json(loc, &info, stdout);
+            } else {
+                print_locus(loc, &info);    
+            }
+
             // Clean up random forest and locus
             free_random_forest(rf);
+            free_vit(&vit, &info);
             free_locus(loc);
         }
     }

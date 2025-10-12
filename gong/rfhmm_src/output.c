@@ -43,6 +43,7 @@ Isoform* create_isoform(int beg, int end) {
     iso->dons       = NULL;
     iso->accs       = NULL;
     iso->n_introns  = 0;
+    iso->val        = 0.0;
     return iso;
 }
 
@@ -64,7 +65,7 @@ void free_locus(Locus *loc) {
     }
 }
 
-/* --------------- Json Output --------------- */
+/* --------------- Text Output --------------- */
 
 void print_locus(Locus *loc, Observed_events *info) {
     int FLANK = (info->flank != 0) ? info->flank : DEFAULT_FLANK;
@@ -96,6 +97,52 @@ void print_locus(Locus *loc, Observed_events *info) {
         
         if (i < loc->n_isoforms - 1) printf("\n");
     }
+}
+
+/* --------------- JSON Output --------------- */
+
+void print_locus_json(Locus *loc, Observed_events *info, FILE *out) {
+    if (!loc || !info || !out) {
+        return;
+    }
+
+    int FLANK = (info->flank != 0) ? info->flank : DEFAULT_FLANK;
+
+    fprintf(out, "{\n");
+    fprintf(out, "  \"flank\": %d,\n", FLANK);
+    fprintf(out, "  \"sequence_length\": %d,\n", info->T);
+    
+    // Print begin and end once at the top level
+    if (loc->n_isoforms > 0 && loc->isoforms[0]) {
+        fprintf(out, "  \"begin\": %d,\n", loc->isoforms[0]->beg);
+        fprintf(out, "  \"end\": %d,\n", loc->isoforms[0]->end);
+    }
+    
+    fprintf(out, "  \"locus\": [\n");
+
+    for (int i = 0; i < loc->n_isoforms; i++) {
+        Isoform *iso = loc->isoforms[i];
+        fprintf(out, "    {\n");
+        fprintf(out, "      \"dons\": [");
+        for (int j = 0; j < iso->n_introns; j++) {
+            fprintf(out, "%d", iso->dons ? iso->dons[j] : 0);
+            if (j < iso->n_introns - 1) {
+                fprintf(out, ", ");
+            }
+        }
+        fprintf(out, "],\n");
+        fprintf(out, "      \"accs\": [");
+        for (int j = 0; j < iso->n_introns; j++) {
+            fprintf(out, "%d", iso->accs ? iso->accs[j] : 0);
+            if (j < iso->n_introns - 1) {
+                fprintf(out, ", ");
+            }
+        }
+        fprintf(out, "]\n");
+        fprintf(out, "    }%s\n", (i < loc->n_isoforms - 1) ? "," : "");
+    }
+    fprintf(out, "  ]\n");
+    fprintf(out, "}\n");
 }
 
 /* --------------- Debug Output --------------- */

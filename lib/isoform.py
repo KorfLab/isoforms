@@ -129,6 +129,33 @@ def read_fasta(filename):
 	yield(name, ''.join(seqs))
 	fp.close()
 
+def load_locus(locus_json):
+    
+	if isinstance(locus_json, str):
+		with open(locus_json) as fp:
+			data = json.load(fp)
+	else:
+		data = locus_json
+
+	locus 		= data.get('locus')
+	isoforms 	= []
+
+	for isoform in locus:
+		dons = [int(d) for d in isoform.get('dons', [])]
+		accs = [int(a) for a in isoform.get('accs', [])]
+		isoforms.append((dons, accs))
+
+	flank 	= data.get('flank')
+	beg 	= data.get('beg')
+	end 	= data.get('end')
+
+	return {
+		'isoforms': isoforms,
+		'flank': int(flank),
+		'beg': int(beg),
+		'end': int(end)
+	}
+ 
 def prob2score(p):
 	if p == 0: return -100
 	return math.log2(p/0.25)
@@ -568,7 +595,8 @@ class Locus:
 	"""Class to represent an alternatively spliced locus"""
 
 	def __init__(self, desc, seq, model, constraints=None, weights=None,
-           gff=None, limit=None, countonly=False, memoize=False, dons=False, accs=False):
+			gff=None, limit=None, countonly=False, memoize=False, dons=False, accs=False,
+			locus=False):
 
 		# sequence stuff
 		self.desc = desc
@@ -591,7 +619,7 @@ class Locus:
 			self.imin = constraints['min_intron']
 			self.emin = constraints['min_exon']
 			self.flank = constraints['flank']
-
+   
 		# algorithm init
 		if gff:             self.dons, self.accs = gff_sites(seq, gff)
 		elif dons and accs: self.dons, self.accs = dons, accs
@@ -604,6 +632,11 @@ class Locus:
 		else:          self.resize = None
 		self.countonly = countonly
 		self.isocount = 0
+
+		# if given locus
+		if locus:
+			self._score_locus(locus)
+			return
 
 		# recursion
 		introns = []
@@ -683,6 +716,25 @@ class Locus:
 			self.rejected += diff
 			self.worst = self.isoforms[-1].score
 
+	def _score_locus(self, locus):
+     
+		isoforms 	= locus['isoforms']
+		beg 		= locus['beg']
+		end			= locus['end']
+
+		n = 0
+		for dons, accs in isoforms:
+			if self.limit and len(self.isoforms) >= self.limit:
+				self.rejected += 1
+				continue
+			tx = Isoform(self.seq, beg, end, dons, accs, model=self.model,
+                weights=self.weights, memo=self.memo)
+			self.isoforms.append(tx)
+			n += 1
+	
+		if n > 0:
+			self.calculate_isoform_probabilities()
+   
 	def write_gff(self, fp):
 		"""write locus as GFF to stream"""
 

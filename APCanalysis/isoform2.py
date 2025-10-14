@@ -465,9 +465,24 @@ class Isoform:
 		mexs = self.memo['exs'] if self.memo is not None else None
 		mins = self.memo['ins'] if self.memo is not None else None
 
+		ce_introns = [(187, 241), (286, 333)]
+		
+		##########
+		##########
+		'''
+		IMPORTANT! isoform2 DOES NOT get the correct score total
+		Compare to regular isoform
+		Need to fix
+		'''
+		##########
+		##########
+
+
 		s = 0
 		for i in self.accs:
 			s += score_pwm(acc, seq, i -len(acc)+1, memo=macc) * wacc
+			if self.introns == [(187, 241), (286, 333)]:
+				print(s, 'acc')
 			
 		for i in self.dons:
 			# adjust scored sequence with upstream nucleotides
@@ -481,18 +496,30 @@ class Isoform:
 					s += score_markov(exs, seq, b, e -2, memo=mexs) * wexs
 			else:
 				s += score_pwm(don, seq, i, memo=mdon) * wdon
+				if self.introns == [(187, 241), (286, 333)]:
+					print(s, 'don')
 				for b, e in self.exons:
 					s += score_len(exl, e - b + 1) * wexl
+					if self.introns == [(187, 241), (286, 333)]:
+						print(s, 'exl')
 				for b, e in self.exons:
 					s += score_markov(exs, seq, b, e, memo=mexs) * wexs
+					if self.introns == [(187, 241), (286, 333)]:
+						print(s, 'exs')
 					
 		for b, e in self.introns:
 			s += score_len(inl, e - b + 1) * winl
+			if self.introns == [(187, 241), (286, 333)]:
+					print(s, 'inl')
 		for b, e in self.introns: 
 			s += score_markov(ins, seq, b + len(don), e - len(acc), 
 								memo=mins) * wins
+			if self.introns == [(187, 241), (286, 333)]:
+					print(s, 'ins')
 		s += inf * len(self.introns) * winf
 		self.score = s
+		if self.introns == [(187, 241), (286, 333)]:
+			print(s, '$$$$$$$$')
 
 	def _canonical_start_codon(self, x):
 		pos = set()

@@ -117,6 +117,7 @@ with open(arg.out_name, 'w') as fp:
 	y += 10
 	for iso in sorted_isos[:arg.limit]:
 		prob = iso[0][3]
+		int_def = []
 		for exin in iso:
 			if exin[0] == 'exon':
 				prob = exin[3]
@@ -125,12 +126,15 @@ with open(arg.out_name, 'w') as fp:
 				rect = draw_rect(width, height, exin[1], y, 'blue')
 				fp.write(rect)
 			if exin[0] == 'intron':
+				int_def.append([exin[1], exin[2]])
 				prob = exin[3]
 				height = 6
 				width = exin[2] - exin[1] + 1
 				rect = draw_rect(width, height, exin[1], y+7, 'black')
 				fp.write(rect)
-		text = draw_text(prob, 40, y+15)
+		text1 = draw_text(prob, 20, y+15)
+		print(iso)
+		print(int_def)
 		fp.write(text)
 		y += 30
 	fp.write(f'</svg>')

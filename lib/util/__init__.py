@@ -7,6 +7,7 @@ from ._io_collector import (
     run_geniso2,
     parse_rf,
     prepare_rf_input,
+    get_locus_fhmm
 )
 
 from _validator import (
@@ -23,4 +24,5 @@ __all__ = [
     "parse_rf",
     "prepare_rf_input",
     "mgtag_sites",
+    "get_locus_fhmm"
 ]

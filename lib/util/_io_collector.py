@@ -1,4 +1,5 @@
 import subprocess
+import json
 import os
 
 #########################
@@ -256,3 +257,58 @@ def prepare_rf_input(hints):
             accs.append(pos)
     
     return dons, accs, pos2info
+
+############################
+####### rfhmm section ######
+############################
+
+def get_locus_fhmm(hmm, seq, models_dir=None, flank=None, n_isoforms=None,
+                   mtry=None, node_size=None):
+    """Get Locus from HMM"""
+    
+    # Find models directory
+    if models_dir is None:
+        exe_dir = os.path.dirname(os.path.abspath(hmm))
+        models_dir = os.path.join(exe_dir, "..", "..", "models")
+    
+    models_dir = os.path.abspath(models_dir)
+    
+    if not os.path.exists(models_dir):
+        raise ValueError(f"Models directory not found: {models_dir}")
+    
+    cmd = [
+        hmm,
+        "--sequence", seq,
+        "--json",
+        "--stovit",
+        "--don_emission", os.path.join(models_dir, "don.pwm"),
+        "--acc_emission", os.path.join(models_dir, "acc.pwm"),
+        "--exon_emission", os.path.join(models_dir, "exon.mm"),
+        "--intron_emission", os.path.join(models_dir, "intron.mm"),
+        "--ped_exon", os.path.join(models_dir, "exon.len"),
+        "--ped_intron", os.path.join(models_dir, "intron.len"),
+    ]
+    
+    if flank is not None:
+        cmd.extend(["--flank", str(flank)])
+    if n_isoforms is not None:
+        cmd.extend(["--n_isoforms", str(n_isoforms)])
+    if mtry is not None:
+        cmd.extend(["--mtry", str(mtry)])
+    if node_size is not None:
+        cmd.extend(["--node_size", str(node_size)])
+    
+    try:
+        result = subprocess.run(cmd, check=True, text=True, capture_output=True)
+        return json.loads(result.stdout)
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError(
+            f"RFHMM execution failed with exit code {e.returncode}:\n{e.stderr}"
+        ) from e
+    except json.JSONDecodeError as e:
+        raise RuntimeError(
+            f"Unable to decode RFHMM JSON output.\n"
+            f"Error: {e}\n"
+            f"--- STDOUT ---\n{result.stdout}\n"
+            f"--- STDERR ---\n{result.stderr}"
+        ) from e

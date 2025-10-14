@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+
+import argparse
+import sys
+
+import isoform
+from isoform import Locus
+from lib import util
+
+parser = argparse.ArgumentParser(
+    description='Run the hmm binary and score isoforms with the isoform library')
+parser.add_argument('hmm', type=str, metavar='<hmm executable>',
+    help='path to the HMM executable')
+parser.add_argument('sequence', type=str, metavar='<sequence file>',
+    help='sequence file consumed by HMM')
+parser.add_argument('model', type=str, metavar='<splice model>',
+    help='input splice model file')
+parser.add_argument('--out', help='save to named output file')
+parser.add_argument('--limit', type=int, default=100,
+    metavar='<int>', help='limit number of isoforms stored [%(default)i]')
+parser.add_argument('--min_intron', type=int, default=35,
+    metavar='<int>', help='minimum intron length [%(default)i]')
+parser.add_argument('--min_exon', type=int, default=25,
+    metavar='<int>', help='minimum exon length [%(default)i]')
+parser.add_argument('--flank', type=int,
+    metavar='<int>', help='override flank value used by isoform.Locus')
+parser.add_argument('--memoize', action='store_true',
+    help='enable memoization in isoform scoring')
+parser.add_argument('--wdon', type=float, default=1.0,
+    metavar='<float>', help='donor weight [%(default).2f]')
+parser.add_argument('--wacc', type=float, default=1.0,
+    metavar='<float>', help='acceptor weight [%(default).2f]')
+parser.add_argument('--wexs', type=float, default=1.0,
+    metavar='<float>', help='exon sequence weight [%(default).2f]')
+parser.add_argument('--wins', type=float, default=1.0,
+    metavar='<float>', help='intron sequence weight [%(default).2f]')
+parser.add_argument('--wexl', type=float, default=1.0,
+    metavar='<float>', help='exon length weight [%(default).2f]')
+parser.add_argument('--winl', type=float, default=1.0,
+    metavar='<float>', help='intron length weight [%(default).2f]')
+parser.add_argument('--winf', type=float, default=1.0,
+    metavar='<float>', help='intron frequency weight [%(default).2f]')
+
+# hmm & rf parameter
+parser.add_argument('--locus_size', type=int, default=100000,
+    metavar='<int>', help='isoform capacity for a locus')
+parser.add_argument('--mtry', type=float, default=0.5,  
+    metavar='<value>', help='mtry parameter for random forest (number or fraction)')
+parser.add_argument('--node_size', type=int, default=5,
+    metavar='<int>', help='random forest node size')
+parser.add_argument('--hmm_model', type=str, metavar='<hmm model file path>',
+    help='hmm model file path dir')
+
+arg = parser.parse_args()
+
+model = isoform.read_splicemodel(arg.model)
+
+weights = {
+    'wacc': arg.wacc,
+    'wdon': arg.wdon,
+    'wexs': arg.wexs,
+    'wins': arg.wins,
+    'wexl': arg.wexl,
+    'winl': arg.winl,
+    'winf': arg.winf,
+}
+
+constraints = {
+    'min_intron': arg.min_intron,
+    'min_exon': arg.min_exon,
+    'flank': arg.flank
+}
+
+if arg.out: fp = open(arg.out, 'w')
+else: fp = sys.stdout
+
+name, seq = next(isoform.read_fasta(arg.fasta))
+
+# capture and parse locus from HMM
+locus = util.get_locus_fhmm(arg.hmm, arg.seq, arg.hmm_model, arg.flank, 
+                            arg.locus_size, arg.mtry, arg.node_size)
+locus = isoform.load_locus(locus)
+
+# send to the scoring system
+locus = Locus(name, seq, model, constraints=constraints, weights=weights,
+        limit=arg.limit, locus=locus)

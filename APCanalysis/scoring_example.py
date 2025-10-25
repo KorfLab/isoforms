@@ -12,6 +12,7 @@ parser = argparse.ArgumentParser(description='get data for figure '
 parser.add_argument('fasta')
 parser.add_argument('gff')
 parser.add_argument('model')
+parser.add_argument('apc_gff')
 parser.add_argument('--weights', required=False)
 
 arg = parser.parse_args()
@@ -143,7 +144,25 @@ for p in prob:
 
 print('##### Distance example #####')
 
-	
+
+
+i1 = isoform.get_introns(arg.apc_gff)
+i2 = isoform.get_introns(arg.gff)
+
+for intron in i1.keys() | i2.keys():
+	print(intron)
+
+
+'''
+for i in i1.items():
+	print(i)
+
+for tx in locus.isoforms:
+	for intron in tx.introns:
+		print(intron, tx.prob)
+'''
+
+'''
 seq = ''
 with open(arg.fasta) as fp:
 	for line in fp.readlines():
@@ -197,7 +216,7 @@ if total > 0:
 
 # what does splice_after_stop = -1 mean?
 # this value is continuously updated
-
+'''
 '''
 ce.2.1
 APC.base first isoform

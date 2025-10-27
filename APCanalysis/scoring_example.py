@@ -142,10 +142,12 @@ for p in prob:
 '''
 
 
+
+
 print('##### Distance example #####')
 
 
-
+'''
 i1 = isoform.get_introns(arg.apc_gff)
 i2 = isoform.get_introns(arg.gff)
 
@@ -166,6 +168,8 @@ dist = d1 / 2
 
 print(d1)
 print(dist)
+
+'''
 
 '''
 for i in i1.items():

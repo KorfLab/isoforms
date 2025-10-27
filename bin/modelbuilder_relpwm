@@ -136,4 +136,3 @@ ghmm = {
 	'inl': isoform.read_len(finl),
 }
 print(json.dumps(ghmm, indent=1))
-

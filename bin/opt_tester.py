@@ -37,11 +37,10 @@ def optimize(prog, fasta, gff, model, limit):
 	return [gid] + output
 
 def worker(inputs):
-	print(inputs[0], inputs[11], 'wow')
 	return optimize(inputs[0], inputs[1], inputs[2], inputs[3], args.limit)
 
-inputs = [[args.program, args.fasta, args.gff, args.model] * args.trials]
-print(inputs)
+inputs = [[args.program, args.fasta, args.gff, args.model] for x in range(args.trials)]
+
 with Pool(processes=args.cpu) as pool:
 	result = pool.map(worker, inputs)
 

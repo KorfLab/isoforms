@@ -12,7 +12,7 @@ parser.add_argument('smallgenes', type=str, metavar='<directory>',
     help='path to smallgenes directory')
 parser.add_argument('APC_results', nargs='*', type=str, 
 	metavar='<directory>', help='path to directories with APC'
-	'generated gff files')
+	'generated gff files, for example: APC1/ APC2/ APC3/ APC4/')
 
 args = parser.parse_args()
 

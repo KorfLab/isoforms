@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import argparse
 import os
 import subprocess
@@ -8,9 +6,12 @@ from multiprocessing import Pool
 import time
 import csv
 
-parser = argparse.ArgumentParser(description='wrapper for optiso')
-parser.add_argument('apc_dir', type=str, metavar='<directory>', 
-    help='directory with APC .gff3 and .fa files')
+parser = argparse.ArgumentParser(description='runs optiso on a single'
+	'gene multiple times')
+parser.add_argument('fasta', type=str, metavar='<file>', 
+    help='single smallgenes fasta file')
+parser.add_argument('gff', type=str, metavar='<file>', 
+    help='single smallgenes gff file')
 parser.add_argument('model', type=str, metavar='<file>',
     help='splice model file')
 parser.add_argument('--limit', required=False, type=str, default=1000,
@@ -21,24 +22,11 @@ parser.add_argument('--program', required=False, type=str, default='optiso',
     metavar='<executable>', help='path to optiso')
 parser.add_argument('--cpu', required=False, type=int, default=1,
 	metavar='<int>', help='number of cpus to use [%(default).i]')
+parser.add_argument('--trials', required=False, type=int, default=100,
+	metavar='<int>', help='number of times to run optiso [%(default).i]')
 
 args = parser.parse_args()
 
-if args.apc_dir.endswith('/'): 
-	adir = args.apc_dir
-else:
-	adir = args.apc_dir + '/'
-
-fpaths = {}
-for file in os.listdir(adir):
-	gID = '.'.join(file.split('.')[1:3])
-	if gID not in fpaths:
-		fpaths[gID] = [(), ()]
-	if file.endswith('.fa'):
-		fpaths[gID][0] = f'{adir}{file}'
-	if file.endswith('.gff3'):
-		fpaths[gID][1] = f'{adir}{file}'
- 
 def optimize(prog, fasta, gff, model, limit):
 
 	cmd = f'./{prog} {fasta} {gff} {model} --limit {limit}'
@@ -49,14 +37,11 @@ def optimize(prog, fasta, gff, model, limit):
 	return [gid] + output
 
 def worker(inputs):
-
+	print(inputs[0], inputs[11], 'wow')
 	return optimize(inputs[0], inputs[1], inputs[2], inputs[3], args.limit)
 
-inputs = []
-for gID in fpaths:
-	input = [args.program, fpaths[gID][0], fpaths[gID][1], args.model]
-	inputs.append(input)
-
+inputs = [[args.program, args.fasta, args.gff, args.model] * args.trials]
+print(inputs)
 with Pool(processes=args.cpu) as pool:
 	result = pool.map(worker, inputs)
 
@@ -76,7 +61,7 @@ for res in result:
 if args.out_name:
 	out_name = args.out_name
 else:
-	out_name = 'results_optisos2.csv'	
+	out_name = 'results_opt_test.csv'	
 	
 with open(out_name, 'w') as file:
     writer = csv.writer(file)

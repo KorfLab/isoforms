@@ -120,20 +120,20 @@ for sitems in similarities.items():
 	counter += sitems[1]
 	# get total number of genes that are above each cutoff 
 	#print(sitems[0], sitems[1], counter, counter/total_genes)
-	sim_counts.append((sitems[0], counter/total_genes))
+	sim_counts.append((sitems[0], counter/total_genes, counter))
 
 if args.outf:
-	outname1 = f'{args.outf}.isodif.similarity'
-	outname2 = f'{args.outf}.isodif.ranks'
+	outname1 = f'{args.outf}.isodif.bins'
+	outname2 = f'{args.outf}.isodif.ranked'
 else:
-	outname1 = 'isodif.similarity.csv'
-	outname2 = 'isodif.ranks.csv'
+	outname1 = 'isodif.bins.csv'
+	outname2 = 'isodif.ranked.csv'
 	
 with open(outname1, 'w') as csvfile:
 	sim_writer = csv.writer(csvfile)
-	sim_writer.writerow(['similarity', 'percent_match'])
+	sim_writer.writerow(['similarity', 'percent_match', 'counts'])
 	for stup in sim_counts:
-		sim_writer.writerow([stup[0], stup[1]])
+		sim_writer.writerow([stup[0], stup[1], stup[2]])
 
 distances = sorted(distances.items(), key=lambda item: item[1], 
 					reverse=True)

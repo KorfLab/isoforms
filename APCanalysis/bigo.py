@@ -65,7 +65,6 @@ with open('bigo.csv', 'w') as file:
 			# just use last instance of name from line 34
 			print(f'working on {i}...')
 			start = time.time()
-			print(name, ranseq, args.model, '###')
 			locus = Locus(name, ranseq, args.model, countonly=True)
 			end = time.time()
 			total_time = end - start

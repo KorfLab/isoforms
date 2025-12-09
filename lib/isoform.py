@@ -1,4 +1,3 @@
-
 import copy
 import gzip
 import itertools
@@ -603,6 +602,7 @@ class Locus:
 		self.name = desc.split()[0]
 		self.seq = seq
 
+		model = read_splicemodel(model)
 		# model, weights, and memoizers pass-through to transcript
 		self.model = model
 		self.mod_name = model['name']

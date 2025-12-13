@@ -17,7 +17,7 @@ parser.add_argument('--weights', required=False)
 
 arg = parser.parse_args()
 
-model = isoform2.read_splicemodel(arg.model)
+model = isoform.read_splicemodel(arg.model)
 
 weights = {
 	'wacc': 1.0,

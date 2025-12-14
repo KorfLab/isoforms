@@ -147,7 +147,7 @@ for p in prob:
 print('##### Distance example #####')
 
 
-'''
+
 i1 = isoform.get_introns(arg.apc_gff)
 i2 = isoform.get_introns(arg.gff)
 
@@ -156,20 +156,22 @@ for intron in i1.keys() | i2.keys():
 	if intron in i1 and intron in i2: 
 		d1 += abs(i1[intron] - i2[intron])
 		print(intron, f'{i1[intron]:.2e}', f'{i2[intron]:.2e}', 
-				f'{i1[intron] - i2[intron]:.2e}')
+				f'{i1[intron] - i2[intron]:.2e}')		
 	elif intron in i1: 
 		d1 += i1[intron]
 		print(intron, f'{i1[intron]:.2e}', 0, f'{i1[intron]:.2e}')
 	else: 
+		# this should not happen
+		# would mean APC did not generate an intron found in RNA-seq
 		d1 += i2[intron]
 		print(intron, 0, f'{i2[intron]:.2e}', f'{i1[intron]:.2e}')
-	
+
 dist = d1 / 2
 
 print(d1)
 print(dist)
 
-'''
+
 
 '''
 for i in i1.items():

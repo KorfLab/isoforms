@@ -4,9 +4,10 @@ import gzip
 parser = argparse.ArgumentParser(
 	description='find gene sequences in the C. elegans genome')
 parser.add_argument('genome', help='')
-parser.add_argument('coordinates', help='chromosome:loc i.e. X:99:999; ' 
-	'I, II, III, IV, V, X, MtDNA')
-parser.add_argument('seq_desc', help='add description for '
+parser.add_argument('--coordinates', nargs='+', 
+	help='chromosome:loc i.e. X:99:999; can list multiple locations '
+	'as well; I, II, III, IV, V, X, MtDNA')
+parser.add_argument('--seq_desc', help='add description for '
 	'sequence in first line of fasta and file name')
 
 args = parser.parse_args()
@@ -15,9 +16,15 @@ args = parser.parse_args()
 # for APC, only use 15571571 to 15573021
 # includes only last 3 exons
 
+print(args.coordinates)
+print('wow')
+
+'''
 read_arg = args.coordinates.split(':')
 selected_chrom = read_arg[0]
 gen_coors = [int(read_arg[1]), int(read_arg[2])]
+
+
 
 #print(selected_chrom, gen_coors)
 
@@ -47,8 +54,9 @@ with open_type(args.genome, 'rt') as fp:
 print(''.join(gen_seq))
 							
 if args.seq_desc:
-	seq_desc = args.seq_desc)
+	seq_desc = args.seq_desc
 else:
 	print('wow')
 	
-with open(''
+#with open(''
+'''

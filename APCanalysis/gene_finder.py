@@ -65,7 +65,7 @@ else:
 	seq_desc = '_'.join(read_arg)	
 	
 with open(f'{seq_desc}.fa', 'wt') as fp:
-	fp.write(f'>{seq_desc}\n')
+	fp.write(f'>{'_'.join(read_arg)}\n')
 	for seq in seq_lines:
 		fp.write(seq)
 

@@ -15,6 +15,11 @@ args = parser.parse_args()
 dyn-1 whole gene sequence is X:15568921:15573021
 for APC, only use 15571571 to 15573021
 includes only last 3 exons
+may be too long
+1kb: 15572021 15573021
+1066 bp: 15571955 15573021
+test 500 bp: 15572521 15573021
+
 '''
 
 read_arg = args.coordinates.split(':')

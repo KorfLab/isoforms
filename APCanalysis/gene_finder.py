@@ -21,6 +21,13 @@ may be too long
 1kb is too long to run
 test 900 bp: 15572121 15573021
 
+unc-16 to test exon 16
+unc-16 900 bp: III:9553541:9554441
+
+mod-1 test exon 0
+1082 bp V:8909913:8910995
+
+
 '''
 
 read_arg = args.coordinates.split(':')

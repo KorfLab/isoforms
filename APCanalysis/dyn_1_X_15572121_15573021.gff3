@@ -1,17 +1,8 @@
-X	RNASeq_splice	intron	15570997	15571720	6	-	.	Name=RNASeq intron
 X	RNASeq_splice	intron	15571010	15572910	4	+	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15571037	15571583	3	+	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15571037	15571592	4	+	.	Name=RNASeq intron
 X	RNASeq_splice	intron	15571037	15572876	156	+	.	Name=RNASeq intron
 X	RNASeq_splice	intron	15571242	15572876	9	+	.	Name=RNASeq intron
 X	RNASeq_splice	intron	15571609	15572901	8	+	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15571695	15573221	3	+	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15571749	15571958	5	+	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15571762	15571808	5	+	.	Name=RNASeq intron
 X	RNASeq_splice	intron	15571812	15572255	3	-	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15571851	15571954	295325	+	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15571851	15571958	118	+	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15572079	15572103	8	+	.	Name=RNASeq intron
 X	RNASeq_splice	intron	15572208	15572524	10	-	.	Name=RNASeq intron
 X	RNASeq_splice	intron	15572211	15572267	14	-	.	Name=RNASeq intron
 X	RNASeq_splice	intron	15572226	15572252	4	+	.	Name=RNASeq intron

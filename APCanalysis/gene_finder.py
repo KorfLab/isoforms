@@ -18,7 +18,8 @@ includes only last 3 exons
 may be too long
 1kb: 15572021 15573021
 1066 bp: 15571955 15573021
-test 500 bp: 15572521 15573021
+1kb is too long to run
+test 900 bp: 15572121 15573021
 
 '''
 

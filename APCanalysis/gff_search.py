@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument('annotation', help='gff3 genome annotation')
 parser.add_argument('coordinates', help='chromosome:loc i.e. X:99:999; '
 	'chromosomes: I, II, III, IV, V, X, MtDNA')
-parser.add_argument('--fname', help='name file')
+#parser.add_argument('--fname', help='name file')
 
 args = parser.parse_args()
 

@@ -29,11 +29,16 @@ with open_type(args.annotation, 'rt') as fp:
 		line = line.rstrip()
 		line = line.split('\t')
 		if len(line) == 9:
+			if (line[0] == chrom and line[1] == 'WormBase' and
+				line[2] == 'CDS'):
+				if ((int(line[3]) <= gen_coors[1] and 
+					int(line[3]) >= gen_coors[0]) or 
+					(int(line[4]) <= gen_coors[1] and
+					int(line[4]) >= gen_coors[0])):
+						print('\t'.join(line))
 			if line[0] == chrom and line[1] == 'RNASeq_splice':
-				if (
-					(int(line[3]) <= gen_coors[1] 
-					and int(line[3]) >= gen_coors[0])
-					or (int(line[4]) <= gen_coors[1] 
-					and int(line[4]) >= gen_coors[0])
-				):
-					print('\t'.join(line))
+				if ((int(line[3]) <= gen_coors[1] and 
+					int(line[3]) >= gen_coors[0]) or 
+					(int(line[4]) <= gen_coors[1] and 
+					int(line[4]) >= gen_coors[0])):
+						print('\t'.join(line))

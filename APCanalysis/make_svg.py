@@ -7,6 +7,8 @@ parser.add_argument('wb_gff')
 parser.add_argument('--limit', type=int, required=False, default=10)
 parser.add_argument('--out_name', type=str, required=False, 
 					default='isoforms.svg')
+parser.add_argument('--width', type=int, required=False, default=1000)
+parser.add_argument('--height', type=int, required=False, default=1000)
 
 arg = parser.parse_args()
 
@@ -65,7 +67,7 @@ def draw_text(text, x, y):
 	return text
 	
 with open(arg.out_name, 'w') as fp:
-	fp.write(f'<svg width="1000" height="1000">\n')
+	fp.write(f'<svg width="{arg.width}" height="{arg.height}">\n')
 	
 	y = 100
 	# draw WormBase gene
@@ -133,8 +135,6 @@ with open(arg.out_name, 'w') as fp:
 				rect = draw_rect(width, height, exin[1], y+7, 'black')
 				fp.write(rect)
 		text1 = draw_text(prob, 20, y+15)
-		print(iso)
-		print(int_def)
 		fp.write(text)
 		y += 30
 	fp.write(f'</svg>')

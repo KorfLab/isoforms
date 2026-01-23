@@ -7,7 +7,8 @@ parser.add_argument('genome', help='')
 parser.add_argument('coordinates', help='chromosome:loc i.e. X:99:999; '
 	'chromosomes: I, II, III, IV, V, X, MtDNA')
 parser.add_argument('--seq_desc', help='add description for sequence '
-	'in first line of fasta and file name')
+	'in first line of fasta file')
+parser.add_argument('--fname', help='add file name')
 
 args = parser.parse_args()
 
@@ -20,6 +21,7 @@ may be too long
 1066 bp: 15571955 15573021
 1kb is too long to run
 test 900 bp: 15572121 15573021
+test 500 bp: 15572521 15573021
 
 unc-16 to test exon 16
 unc-16 900 bp: III:9553541:9554441
@@ -70,15 +72,9 @@ for n in gen_seq:
 
 if len(seq_line) != 0:
 	seq_lines.append(''.join(seq_line))
-
-# write output file
-if args.seq_desc:
-	seq_desc = args.seq_desc
-else:
-	seq_desc = '_'.join(read_arg)	
 	
-with open(f'{seq_desc}.fa', 'wt') as fp:
-	fp.write(f'>{'_'.join(read_arg)}\n')
+with open(f'{args.fname}.fa', 'wt') as fp:
+	fp.write(f'>{args.seq_desc}\n')
 	for seq in seq_lines:
 		fp.write(seq)
 

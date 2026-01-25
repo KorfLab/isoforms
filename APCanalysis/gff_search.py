@@ -31,6 +31,24 @@ with open_type(args.annotation, 'rt') as fp:
 		if len(line) == 9:
 			if (line[0] == chrom and line[1] == 'WormBase' and
 				line[2] == 'CDS'):
+				# get any CDS regions that overlap
+				if ((int(line[3]) <= gen_coors[1] and 
+					int(line[3]) >= gen_coors[0]) or 
+					(int(line[4]) <= gen_coors[1] and
+					int(line[4]) >= gen_coors[0])):
+						print('\t'.join(line))
+			if line[0] == chrom and line[1] == 'RNASeq_splice':
+				# only get introns within coors
+				if (int(line[3]) <= gen_coors[1] and 
+					int(line[3]) >= gen_coors[0] and
+					int(line[4]) <= gen_coors[1] and
+					int(line[4]) >= gen_coors[0]):
+						print('\t'.join(line))
+			
+			# this code gets any introns that overlap
+			'''
+			if (line[0] == chrom and line[1] == 'WormBase' and
+				line[2] == 'CDS'):
 				if ((int(line[3]) <= gen_coors[1] and 
 					int(line[3]) >= gen_coors[0]) or 
 					(int(line[4]) <= gen_coors[1] and
@@ -42,3 +60,15 @@ with open_type(args.annotation, 'rt') as fp:
 					(int(line[4]) <= gen_coors[1] and 
 					int(line[4]) >= gen_coors[0])):
 						print('\t'.join(line))
+			'''
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

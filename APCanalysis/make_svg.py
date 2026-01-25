@@ -52,8 +52,8 @@ with open(arg.wb_gff, 'r') as fp:
 sorted_cdss = []
 for item in wb_cds.items():
 	sorted_cds = sorted(item[1], key=lambda index : index[1])
-	sorted_cdss.append(sorted_cds)
-			
+	sorted_cdss.append(sorted_cds)	
+	
 def draw_rect(width, height, x, y, fill):
 	
 	rect = f'<rect width="{width}" height="{height}" x="{x}" y="{y}" fill="{fill}" />\n'
@@ -72,12 +72,14 @@ with open(arg.out_name, 'w') as fp:
 	y = 100
 	# draw WormBase gene
 	for cdss in sorted_cdss:
+		print(cdss)
 		intron_coors = []
 		# first intron
+		# 2 CDS must share same parent transcript
 		first_beg = cdss[0][1] + 1
 		first_end = cdss[1][0] - 1
 		intron_coors.append([first_beg, first_end])
-		
+	
 		# inner introns
 		for i, cds in enumerate(cdss[1:len(cdss)-2]):
 			inner_int = [cds[1]+1, cdss[i+2][0]-1]

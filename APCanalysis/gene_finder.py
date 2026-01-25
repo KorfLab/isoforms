@@ -20,8 +20,10 @@ may be too long
 1kb: 15572021 15573021
 1066 bp: 15571955 15573021
 1kb is too long to run
+don't forget to set flank to 0
 test 900 bp: 15572121 15573021 *too long
-test 800 bp: 15572221 15573021 *takes a couple mins
+test 800 bp: 15572221 15573021 *too long
+test 700 bp: 15572321 15573021
 test 500 bp: 15572521 15573021
 
 unc-16 to test exon 16

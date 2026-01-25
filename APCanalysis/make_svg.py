@@ -70,9 +70,14 @@ with open(arg.out_name, 'w') as fp:
 	fp.write(f'<svg width="{arg.width}" height="{arg.height}">\n')
 	
 	y = 100
+	x_offset = 0
 	# draw WormBase gene
 	for cdss in sorted_cdss:
-		print(cdss)
+		
+		# this may not work for every gff3 (check CDS starts)
+		if cdss[0][0] < 0: 
+			x_offset = abs(cdss[0][0])
+			
 		intron_coors = []
 		# first intron
 		# 2 CDS must share same parent transcript
@@ -94,13 +99,13 @@ with open(arg.out_name, 'w') as fp:
 		for cds in cdss:
 			height = 20
 			width = cds[1] - cds[0] + 1
-			rect = draw_rect(width, height, cds[0], y, 'blue')
+			rect = draw_rect(width, height, cds[0]+x_offset, y, 'blue')
 			fp.write(rect)
 			
 		for int_c in intron_coors:
 			height = 6
 			width = int_c[1] - int_c[0] + 1 
-			rect = draw_rect(width, height, int_c[0], y+7, 'black')
+			rect = draw_rect(width, height, int_c[0]+x_offset, y+7, 'black')
 			fp.write(rect)
 		
 		y += 30
@@ -111,8 +116,8 @@ with open(arg.out_name, 'w') as fp:
 		score = intron[1]
 		height = 6
 		width = intron[0][1] - intron[0][0] + 1
-		rect = draw_rect(width, height, intron[0][0], y, 'green')
-		text = draw_text(score, start_pt[0][0]-50, y+7)
+		rect = draw_rect(width, height, intron[0][0]+x_offset, y, 'green')
+		text = draw_text(score, start_pt[0][0]-50+x_offset, y+7)
 		fp.write(rect)
 		fp.write(text)
 		y += 20
@@ -127,14 +132,14 @@ with open(arg.out_name, 'w') as fp:
 				prob = exin[3]
 				height = 20
 				width = exin[2] - exin[1] + 1
-				rect = draw_rect(width, height, exin[1], y, 'blue')
+				rect = draw_rect(width, height, exin[1]+x_offset, y, 'blue')
 				fp.write(rect)
 			if exin[0] == 'intron':
 				int_def.append([exin[1], exin[2]])
 				prob = exin[3]
 				height = 6
 				width = exin[2] - exin[1] + 1
-				rect = draw_rect(width, height, exin[1], y+7, 'black')
+				rect = draw_rect(width, height, exin[1]+x_offset, y+7, 'black')
 				fp.write(rect)
 		text1 = draw_text(prob, 20, y+15)
 		fp.write(text)

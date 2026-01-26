@@ -36,6 +36,9 @@ with open_type(args.annotation, 'rt') as fp:
 					int(line[3]) >= gen_coors[0]) or 
 					(int(line[4]) <= gen_coors[1] and
 					int(line[4]) >= gen_coors[0])):
+						# negative CDS coors needed for make_svg.py
+						line[3] = str(int(line[3]) - gen_coors[0] +1)
+						line[4] = str(int(line[4]) - gen_coors[0] +1)
 						print('\t'.join(line))
 			if line[0] == chrom and line[1] == 'RNASeq_splice':
 				# only get introns within coors
@@ -43,24 +46,9 @@ with open_type(args.annotation, 'rt') as fp:
 					int(line[3]) >= gen_coors[0] and
 					int(line[4]) <= gen_coors[1] and
 					int(line[4]) >= gen_coors[0]):
+						line[3] = str(int(line[3]) - gen_coors[0] +1)
+						line[4] = str(int(line[4]) - gen_coors[0] +1)
 						print('\t'.join(line))
-			
-			# this code gets any introns that overlap
-			'''
-			if (line[0] == chrom and line[1] == 'WormBase' and
-				line[2] == 'CDS'):
-				if ((int(line[3]) <= gen_coors[1] and 
-					int(line[3]) >= gen_coors[0]) or 
-					(int(line[4]) <= gen_coors[1] and
-					int(line[4]) >= gen_coors[0])):
-						print('\t'.join(line))
-			if line[0] == chrom and line[1] == 'RNASeq_splice':
-				if ((int(line[3]) <= gen_coors[1] and 
-					int(line[3]) >= gen_coors[0]) or 
-					(int(line[4]) <= gen_coors[1] and 
-					int(line[4]) >= gen_coors[0])):
-						print('\t'.join(line))
-			'''
 			
 			
 			

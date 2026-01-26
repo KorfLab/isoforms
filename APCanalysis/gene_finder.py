@@ -6,9 +6,9 @@ parser = argparse.ArgumentParser(
 parser.add_argument('genome', help='')
 parser.add_argument('coordinates', help='chromosome:loc i.e. X:99:999; '
 	'chromosomes: I, II, III, IV, V, X, MtDNA')
-parser.add_argument('--seq_desc', help='add description for sequence '
+parser.add_argument('--seq_desc', required=True, help='add description for sequence '
 	'in first line of fasta file')
-parser.add_argument('--fname', help='add file name')
+parser.add_argument('--fname', required=True, help='add file name')
 
 args = parser.parse_args()
 
@@ -23,7 +23,8 @@ may be too long
 don't forget to set flank to 0
 test 900 bp: 15572121 15573021 *too long
 test 800 bp: 15572221 15573021 *too long
-test 700 bp: 15572321 15573021
+test 700 bp: 15572321 15573021 *need longer first exon
+test 750 bp: 15572271 15573021
 test 500 bp: 15572521 15573021
 
 unc-16 to test exon 16

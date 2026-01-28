@@ -1,0 +1,978 @@
+# name: dyn-1
+# length: 751
+# donors: 44
+# acceptors: 39
+# isoforms: 100
+# rejected: 31470169
+# maxprob: 0.09776
+# minprob 0.001419
+# complexity: 5.389
+# model: worm
+dyn-1	apc	gene	1	751	.	+	.	ID=Gene-dyn-1
+
+dyn-1	apc	mRNA	1	751	0.09776	+	.	ID=tx-dyn-1-1;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.09776	+	.	Parent=tx-dyn-1-1
+dyn-1	apc	exon	244	367	0.09776	+	.	Parent=tx-dyn-1-1
+dyn-1	apc	exon	409	550	0.09776	+	.	Parent=tx-dyn-1-1
+dyn-1	apc	exon	607	751	0.09776	+	.	Parent=tx-dyn-1-1
+dyn-1	apc	intron	71	243	0.09776	+	.	Parent=tx-dyn-1-1
+dyn-1	apc	intron	368	408	0.09776	+	.	Parent=tx-dyn-1-1
+dyn-1	apc	intron	551	606	0.09776	+	.	Parent=tx-dyn-1-1
+
+dyn-1	apc	mRNA	1	751	0.08707	+	.	ID=tx-dyn-1-2;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.08707	+	.	Parent=tx-dyn-1-2
+dyn-1	apc	exon	244	299	0.08707	+	.	Parent=tx-dyn-1-2
+dyn-1	apc	exon	354	412	0.08707	+	.	Parent=tx-dyn-1-2
+dyn-1	apc	exon	479	550	0.08707	+	.	Parent=tx-dyn-1-2
+dyn-1	apc	exon	607	751	0.08707	+	.	Parent=tx-dyn-1-2
+dyn-1	apc	intron	71	243	0.08707	+	.	Parent=tx-dyn-1-2
+dyn-1	apc	intron	300	353	0.08707	+	.	Parent=tx-dyn-1-2
+dyn-1	apc	intron	413	478	0.08707	+	.	Parent=tx-dyn-1-2
+dyn-1	apc	intron	551	606	0.08707	+	.	Parent=tx-dyn-1-2
+
+dyn-1	apc	mRNA	1	751	0.0867	+	.	ID=tx-dyn-1-3;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.0867	+	.	Parent=tx-dyn-1-3
+dyn-1	apc	exon	244	412	0.0867	+	.	Parent=tx-dyn-1-3
+dyn-1	apc	exon	479	550	0.0867	+	.	Parent=tx-dyn-1-3
+dyn-1	apc	exon	607	751	0.0867	+	.	Parent=tx-dyn-1-3
+dyn-1	apc	intron	71	243	0.0867	+	.	Parent=tx-dyn-1-3
+dyn-1	apc	intron	413	478	0.0867	+	.	Parent=tx-dyn-1-3
+dyn-1	apc	intron	551	606	0.0867	+	.	Parent=tx-dyn-1-3
+
+dyn-1	apc	mRNA	1	751	0.05762	+	.	ID=tx-dyn-1-4;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.05762	+	.	Parent=tx-dyn-1-4
+dyn-1	apc	exon	244	347	0.05762	+	.	Parent=tx-dyn-1-4
+dyn-1	apc	exon	395	550	0.05762	+	.	Parent=tx-dyn-1-4
+dyn-1	apc	exon	607	751	0.05762	+	.	Parent=tx-dyn-1-4
+dyn-1	apc	intron	71	243	0.05762	+	.	Parent=tx-dyn-1-4
+dyn-1	apc	intron	348	394	0.05762	+	.	Parent=tx-dyn-1-4
+dyn-1	apc	intron	551	606	0.05762	+	.	Parent=tx-dyn-1-4
+
+dyn-1	apc	mRNA	1	751	0.05502	+	.	ID=tx-dyn-1-5;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.05502	+	.	Parent=tx-dyn-1-5
+dyn-1	apc	exon	244	359	0.05502	+	.	Parent=tx-dyn-1-5
+dyn-1	apc	exon	409	550	0.05502	+	.	Parent=tx-dyn-1-5
+dyn-1	apc	exon	607	751	0.05502	+	.	Parent=tx-dyn-1-5
+dyn-1	apc	intron	71	243	0.05502	+	.	Parent=tx-dyn-1-5
+dyn-1	apc	intron	360	408	0.05502	+	.	Parent=tx-dyn-1-5
+dyn-1	apc	intron	551	606	0.05502	+	.	Parent=tx-dyn-1-5
+
+dyn-1	apc	mRNA	1	751	0.04791	+	.	ID=tx-dyn-1-6;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.04791	+	.	Parent=tx-dyn-1-6
+dyn-1	apc	exon	244	347	0.04791	+	.	Parent=tx-dyn-1-6
+dyn-1	apc	exon	409	550	0.04791	+	.	Parent=tx-dyn-1-6
+dyn-1	apc	exon	607	751	0.04791	+	.	Parent=tx-dyn-1-6
+dyn-1	apc	intron	71	243	0.04791	+	.	Parent=tx-dyn-1-6
+dyn-1	apc	intron	348	408	0.04791	+	.	Parent=tx-dyn-1-6
+dyn-1	apc	intron	551	606	0.04791	+	.	Parent=tx-dyn-1-6
+
+dyn-1	apc	mRNA	1	751	0.04768	+	.	ID=tx-dyn-1-7;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.04768	+	.	Parent=tx-dyn-1-7
+dyn-1	apc	exon	244	357	0.04768	+	.	Parent=tx-dyn-1-7
+dyn-1	apc	exon	409	550	0.04768	+	.	Parent=tx-dyn-1-7
+dyn-1	apc	exon	607	751	0.04768	+	.	Parent=tx-dyn-1-7
+dyn-1	apc	intron	71	243	0.04768	+	.	Parent=tx-dyn-1-7
+dyn-1	apc	intron	358	408	0.04768	+	.	Parent=tx-dyn-1-7
+dyn-1	apc	intron	551	606	0.04768	+	.	Parent=tx-dyn-1-7
+
+dyn-1	apc	mRNA	1	751	0.03842	+	.	ID=tx-dyn-1-8;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.03842	+	.	Parent=tx-dyn-1-8
+dyn-1	apc	exon	244	347	0.03842	+	.	Parent=tx-dyn-1-8
+dyn-1	apc	exon	398	550	0.03842	+	.	Parent=tx-dyn-1-8
+dyn-1	apc	exon	607	751	0.03842	+	.	Parent=tx-dyn-1-8
+dyn-1	apc	intron	71	243	0.03842	+	.	Parent=tx-dyn-1-8
+dyn-1	apc	intron	348	397	0.03842	+	.	Parent=tx-dyn-1-8
+dyn-1	apc	intron	551	606	0.03842	+	.	Parent=tx-dyn-1-8
+
+dyn-1	apc	mRNA	1	751	0.02672	+	.	ID=tx-dyn-1-9;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.02672	+	.	Parent=tx-dyn-1-9
+dyn-1	apc	exon	244	299	0.02672	+	.	Parent=tx-dyn-1-9
+dyn-1	apc	exon	354	412	0.02672	+	.	Parent=tx-dyn-1-9
+dyn-1	apc	exon	479	565	0.02672	+	.	Parent=tx-dyn-1-9
+dyn-1	apc	exon	607	751	0.02672	+	.	Parent=tx-dyn-1-9
+dyn-1	apc	intron	71	243	0.02672	+	.	Parent=tx-dyn-1-9
+dyn-1	apc	intron	300	353	0.02672	+	.	Parent=tx-dyn-1-9
+dyn-1	apc	intron	413	478	0.02672	+	.	Parent=tx-dyn-1-9
+dyn-1	apc	intron	566	606	0.02672	+	.	Parent=tx-dyn-1-9
+
+dyn-1	apc	mRNA	1	751	0.0266	+	.	ID=tx-dyn-1-10;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.0266	+	.	Parent=tx-dyn-1-10
+dyn-1	apc	exon	244	412	0.0266	+	.	Parent=tx-dyn-1-10
+dyn-1	apc	exon	479	565	0.0266	+	.	Parent=tx-dyn-1-10
+dyn-1	apc	exon	607	751	0.0266	+	.	Parent=tx-dyn-1-10
+dyn-1	apc	intron	71	243	0.0266	+	.	Parent=tx-dyn-1-10
+dyn-1	apc	intron	413	478	0.0266	+	.	Parent=tx-dyn-1-10
+dyn-1	apc	intron	566	606	0.0266	+	.	Parent=tx-dyn-1-10
+
+dyn-1	apc	mRNA	1	751	0.02105	+	.	ID=tx-dyn-1-11;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.02105	+	.	Parent=tx-dyn-1-11
+dyn-1	apc	exon	244	367	0.02105	+	.	Parent=tx-dyn-1-11
+dyn-1	apc	exon	409	565	0.02105	+	.	Parent=tx-dyn-1-11
+dyn-1	apc	exon	607	751	0.02105	+	.	Parent=tx-dyn-1-11
+dyn-1	apc	intron	71	243	0.02105	+	.	Parent=tx-dyn-1-11
+dyn-1	apc	intron	368	408	0.02105	+	.	Parent=tx-dyn-1-11
+dyn-1	apc	intron	566	606	0.02105	+	.	Parent=tx-dyn-1-11
+
+dyn-1	apc	mRNA	1	751	0.02052	+	.	ID=tx-dyn-1-12;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.02052	+	.	Parent=tx-dyn-1-12
+dyn-1	apc	exon	244	367	0.02052	+	.	Parent=tx-dyn-1-12
+dyn-1	apc	exon	409	553	0.02052	+	.	Parent=tx-dyn-1-12
+dyn-1	apc	exon	607	751	0.02052	+	.	Parent=tx-dyn-1-12
+dyn-1	apc	intron	71	243	0.02052	+	.	Parent=tx-dyn-1-12
+dyn-1	apc	intron	368	408	0.02052	+	.	Parent=tx-dyn-1-12
+dyn-1	apc	intron	554	606	0.02052	+	.	Parent=tx-dyn-1-12
+
+dyn-1	apc	mRNA	1	751	0.01982	+	.	ID=tx-dyn-1-13;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01982	+	.	Parent=tx-dyn-1-13
+dyn-1	apc	exon	244	299	0.01982	+	.	Parent=tx-dyn-1-13
+dyn-1	apc	exon	354	412	0.01982	+	.	Parent=tx-dyn-1-13
+dyn-1	apc	exon	479	553	0.01982	+	.	Parent=tx-dyn-1-13
+dyn-1	apc	exon	607	751	0.01982	+	.	Parent=tx-dyn-1-13
+dyn-1	apc	intron	71	243	0.01982	+	.	Parent=tx-dyn-1-13
+dyn-1	apc	intron	300	353	0.01982	+	.	Parent=tx-dyn-1-13
+dyn-1	apc	intron	413	478	0.01982	+	.	Parent=tx-dyn-1-13
+dyn-1	apc	intron	554	606	0.01982	+	.	Parent=tx-dyn-1-13
+
+dyn-1	apc	mRNA	1	751	0.01974	+	.	ID=tx-dyn-1-14;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01974	+	.	Parent=tx-dyn-1-14
+dyn-1	apc	exon	244	412	0.01974	+	.	Parent=tx-dyn-1-14
+dyn-1	apc	exon	479	553	0.01974	+	.	Parent=tx-dyn-1-14
+dyn-1	apc	exon	607	751	0.01974	+	.	Parent=tx-dyn-1-14
+dyn-1	apc	intron	71	243	0.01974	+	.	Parent=tx-dyn-1-14
+dyn-1	apc	intron	413	478	0.01974	+	.	Parent=tx-dyn-1-14
+dyn-1	apc	intron	554	606	0.01974	+	.	Parent=tx-dyn-1-14
+
+dyn-1	apc	mRNA	1	751	0.0121	+	.	ID=tx-dyn-1-15;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.0121	+	.	Parent=tx-dyn-1-15
+dyn-1	apc	exon	244	347	0.0121	+	.	Parent=tx-dyn-1-15
+dyn-1	apc	exon	395	565	0.0121	+	.	Parent=tx-dyn-1-15
+dyn-1	apc	exon	607	751	0.0121	+	.	Parent=tx-dyn-1-15
+dyn-1	apc	intron	71	243	0.0121	+	.	Parent=tx-dyn-1-15
+dyn-1	apc	intron	348	394	0.0121	+	.	Parent=tx-dyn-1-15
+dyn-1	apc	intron	566	606	0.0121	+	.	Parent=tx-dyn-1-15
+
+dyn-1	apc	mRNA	1	751	0.01203	+	.	ID=tx-dyn-1-16;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01203	+	.	Parent=tx-dyn-1-16
+dyn-1	apc	exon	244	347	0.01203	+	.	Parent=tx-dyn-1-16
+dyn-1	apc	exon	395	553	0.01203	+	.	Parent=tx-dyn-1-16
+dyn-1	apc	exon	607	751	0.01203	+	.	Parent=tx-dyn-1-16
+dyn-1	apc	intron	71	243	0.01203	+	.	Parent=tx-dyn-1-16
+dyn-1	apc	intron	348	394	0.01203	+	.	Parent=tx-dyn-1-16
+dyn-1	apc	intron	554	606	0.01203	+	.	Parent=tx-dyn-1-16
+
+dyn-1	apc	mRNA	1	751	0.01184	+	.	ID=tx-dyn-1-17;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01184	+	.	Parent=tx-dyn-1-17
+dyn-1	apc	exon	244	359	0.01184	+	.	Parent=tx-dyn-1-17
+dyn-1	apc	exon	409	565	0.01184	+	.	Parent=tx-dyn-1-17
+dyn-1	apc	exon	607	751	0.01184	+	.	Parent=tx-dyn-1-17
+dyn-1	apc	intron	71	243	0.01184	+	.	Parent=tx-dyn-1-17
+dyn-1	apc	intron	360	408	0.01184	+	.	Parent=tx-dyn-1-17
+dyn-1	apc	intron	566	606	0.01184	+	.	Parent=tx-dyn-1-17
+
+dyn-1	apc	mRNA	1	751	0.01168	+	.	ID=tx-dyn-1-18;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01168	+	.	Parent=tx-dyn-1-18
+dyn-1	apc	exon	244	296	0.01168	+	.	Parent=tx-dyn-1-18
+dyn-1	apc	exon	354	412	0.01168	+	.	Parent=tx-dyn-1-18
+dyn-1	apc	exon	479	550	0.01168	+	.	Parent=tx-dyn-1-18
+dyn-1	apc	exon	607	751	0.01168	+	.	Parent=tx-dyn-1-18
+dyn-1	apc	intron	71	243	0.01168	+	.	Parent=tx-dyn-1-18
+dyn-1	apc	intron	297	353	0.01168	+	.	Parent=tx-dyn-1-18
+dyn-1	apc	intron	413	478	0.01168	+	.	Parent=tx-dyn-1-18
+dyn-1	apc	intron	551	606	0.01168	+	.	Parent=tx-dyn-1-18
+
+dyn-1	apc	mRNA	1	751	0.01155	+	.	ID=tx-dyn-1-19;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01155	+	.	Parent=tx-dyn-1-19
+dyn-1	apc	exon	244	359	0.01155	+	.	Parent=tx-dyn-1-19
+dyn-1	apc	exon	409	553	0.01155	+	.	Parent=tx-dyn-1-19
+dyn-1	apc	exon	607	751	0.01155	+	.	Parent=tx-dyn-1-19
+dyn-1	apc	intron	71	243	0.01155	+	.	Parent=tx-dyn-1-19
+dyn-1	apc	intron	360	408	0.01155	+	.	Parent=tx-dyn-1-19
+dyn-1	apc	intron	554	606	0.01155	+	.	Parent=tx-dyn-1-19
+
+dyn-1	apc	mRNA	1	751	0.01031	+	.	ID=tx-dyn-1-20;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01031	+	.	Parent=tx-dyn-1-20
+dyn-1	apc	exon	244	347	0.01031	+	.	Parent=tx-dyn-1-20
+dyn-1	apc	exon	409	565	0.01031	+	.	Parent=tx-dyn-1-20
+dyn-1	apc	exon	607	751	0.01031	+	.	Parent=tx-dyn-1-20
+dyn-1	apc	intron	71	243	0.01031	+	.	Parent=tx-dyn-1-20
+dyn-1	apc	intron	348	408	0.01031	+	.	Parent=tx-dyn-1-20
+dyn-1	apc	intron	566	606	0.01031	+	.	Parent=tx-dyn-1-20
+
+dyn-1	apc	mRNA	1	751	0.01026	+	.	ID=tx-dyn-1-21;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01026	+	.	Parent=tx-dyn-1-21
+dyn-1	apc	exon	244	357	0.01026	+	.	Parent=tx-dyn-1-21
+dyn-1	apc	exon	409	565	0.01026	+	.	Parent=tx-dyn-1-21
+dyn-1	apc	exon	607	751	0.01026	+	.	Parent=tx-dyn-1-21
+dyn-1	apc	intron	71	243	0.01026	+	.	Parent=tx-dyn-1-21
+dyn-1	apc	intron	358	408	0.01026	+	.	Parent=tx-dyn-1-21
+dyn-1	apc	intron	566	606	0.01026	+	.	Parent=tx-dyn-1-21
+
+dyn-1	apc	mRNA	1	751	0.01006	+	.	ID=tx-dyn-1-22;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01006	+	.	Parent=tx-dyn-1-22
+dyn-1	apc	exon	244	347	0.01006	+	.	Parent=tx-dyn-1-22
+dyn-1	apc	exon	409	553	0.01006	+	.	Parent=tx-dyn-1-22
+dyn-1	apc	exon	607	751	0.01006	+	.	Parent=tx-dyn-1-22
+dyn-1	apc	intron	71	243	0.01006	+	.	Parent=tx-dyn-1-22
+dyn-1	apc	intron	348	408	0.01006	+	.	Parent=tx-dyn-1-22
+dyn-1	apc	intron	554	606	0.01006	+	.	Parent=tx-dyn-1-22
+
+dyn-1	apc	mRNA	1	751	0.01001	+	.	ID=tx-dyn-1-23;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.01001	+	.	Parent=tx-dyn-1-23
+dyn-1	apc	exon	244	357	0.01001	+	.	Parent=tx-dyn-1-23
+dyn-1	apc	exon	409	553	0.01001	+	.	Parent=tx-dyn-1-23
+dyn-1	apc	exon	607	751	0.01001	+	.	Parent=tx-dyn-1-23
+dyn-1	apc	intron	71	243	0.01001	+	.	Parent=tx-dyn-1-23
+dyn-1	apc	intron	358	408	0.01001	+	.	Parent=tx-dyn-1-23
+dyn-1	apc	intron	554	606	0.01001	+	.	Parent=tx-dyn-1-23
+
+dyn-1	apc	mRNA	1	751	0.008108	+	.	ID=tx-dyn-1-24;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.008108	+	.	Parent=tx-dyn-1-24
+dyn-1	apc	exon	244	347	0.008108	+	.	Parent=tx-dyn-1-24
+dyn-1	apc	exon	398	565	0.008108	+	.	Parent=tx-dyn-1-24
+dyn-1	apc	exon	607	751	0.008108	+	.	Parent=tx-dyn-1-24
+dyn-1	apc	intron	71	243	0.008108	+	.	Parent=tx-dyn-1-24
+dyn-1	apc	intron	348	397	0.008108	+	.	Parent=tx-dyn-1-24
+dyn-1	apc	intron	566	606	0.008108	+	.	Parent=tx-dyn-1-24
+
+dyn-1	apc	mRNA	1	751	0.008029	+	.	ID=tx-dyn-1-25;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.008029	+	.	Parent=tx-dyn-1-25
+dyn-1	apc	exon	244	347	0.008029	+	.	Parent=tx-dyn-1-25
+dyn-1	apc	exon	398	553	0.008029	+	.	Parent=tx-dyn-1-25
+dyn-1	apc	exon	607	751	0.008029	+	.	Parent=tx-dyn-1-25
+dyn-1	apc	intron	71	243	0.008029	+	.	Parent=tx-dyn-1-25
+dyn-1	apc	intron	348	397	0.008029	+	.	Parent=tx-dyn-1-25
+dyn-1	apc	intron	554	606	0.008029	+	.	Parent=tx-dyn-1-25
+
+dyn-1	apc	mRNA	1	751	0.007027	+	.	ID=tx-dyn-1-26;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.007027	+	.	Parent=tx-dyn-1-26
+dyn-1	apc	exon	244	367	0.007027	+	.	Parent=tx-dyn-1-26
+dyn-1	apc	exon	409	550	0.007027	+	.	Parent=tx-dyn-1-26
+dyn-1	apc	exon	607	751	0.007027	+	.	Parent=tx-dyn-1-26
+dyn-1	apc	intron	202	243	0.007027	+	.	Parent=tx-dyn-1-26
+dyn-1	apc	intron	368	408	0.007027	+	.	Parent=tx-dyn-1-26
+dyn-1	apc	intron	551	606	0.007027	+	.	Parent=tx-dyn-1-26
+
+dyn-1	apc	mRNA	1	751	0.007001	+	.	ID=tx-dyn-1-27;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.007001	+	.	Parent=tx-dyn-1-27
+dyn-1	apc	exon	181	299	0.007001	+	.	Parent=tx-dyn-1-27
+dyn-1	apc	exon	354	412	0.007001	+	.	Parent=tx-dyn-1-27
+dyn-1	apc	exon	479	550	0.007001	+	.	Parent=tx-dyn-1-27
+dyn-1	apc	exon	607	751	0.007001	+	.	Parent=tx-dyn-1-27
+dyn-1	apc	intron	71	180	0.007001	+	.	Parent=tx-dyn-1-27
+dyn-1	apc	intron	300	353	0.007001	+	.	Parent=tx-dyn-1-27
+dyn-1	apc	intron	413	478	0.007001	+	.	Parent=tx-dyn-1-27
+dyn-1	apc	intron	551	606	0.007001	+	.	Parent=tx-dyn-1-27
+
+dyn-1	apc	mRNA	1	751	0.006809	+	.	ID=tx-dyn-1-28;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.006809	+	.	Parent=tx-dyn-1-28
+dyn-1	apc	exon	244	387	0.006809	+	.	Parent=tx-dyn-1-28
+dyn-1	apc	exon	479	550	0.006809	+	.	Parent=tx-dyn-1-28
+dyn-1	apc	exon	607	751	0.006809	+	.	Parent=tx-dyn-1-28
+dyn-1	apc	intron	71	243	0.006809	+	.	Parent=tx-dyn-1-28
+dyn-1	apc	intron	388	478	0.006809	+	.	Parent=tx-dyn-1-28
+dyn-1	apc	intron	551	606	0.006809	+	.	Parent=tx-dyn-1-28
+
+dyn-1	apc	mRNA	1	751	0.006666	+	.	ID=tx-dyn-1-29;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.006666	+	.	Parent=tx-dyn-1-29
+dyn-1	apc	exon	244	367	0.006666	+	.	Parent=tx-dyn-1-29
+dyn-1	apc	exon	409	550	0.006666	+	.	Parent=tx-dyn-1-29
+dyn-1	apc	exon	607	751	0.006666	+	.	Parent=tx-dyn-1-29
+dyn-1	apc	intron	138	243	0.006666	+	.	Parent=tx-dyn-1-29
+dyn-1	apc	intron	368	408	0.006666	+	.	Parent=tx-dyn-1-29
+dyn-1	apc	intron	551	606	0.006666	+	.	Parent=tx-dyn-1-29
+
+dyn-1	apc	mRNA	1	751	0.006359	+	.	ID=tx-dyn-1-30;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.006359	+	.	Parent=tx-dyn-1-30
+dyn-1	apc	exon	244	407	0.006359	+	.	Parent=tx-dyn-1-30
+dyn-1	apc	exon	479	550	0.006359	+	.	Parent=tx-dyn-1-30
+dyn-1	apc	exon	607	751	0.006359	+	.	Parent=tx-dyn-1-30
+dyn-1	apc	intron	71	243	0.006359	+	.	Parent=tx-dyn-1-30
+dyn-1	apc	intron	408	478	0.006359	+	.	Parent=tx-dyn-1-30
+dyn-1	apc	intron	551	606	0.006359	+	.	Parent=tx-dyn-1-30
+
+dyn-1	apc	mRNA	1	751	0.006275	+	.	ID=tx-dyn-1-31;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.006275	+	.	Parent=tx-dyn-1-31
+dyn-1	apc	exon	244	367	0.006275	+	.	Parent=tx-dyn-1-31
+dyn-1	apc	exon	409	550	0.006275	+	.	Parent=tx-dyn-1-31
+dyn-1	apc	exon	607	751	0.006275	+	.	Parent=tx-dyn-1-31
+dyn-1	apc	intron	134	243	0.006275	+	.	Parent=tx-dyn-1-31
+dyn-1	apc	intron	368	408	0.006275	+	.	Parent=tx-dyn-1-31
+dyn-1	apc	intron	551	606	0.006275	+	.	Parent=tx-dyn-1-31
+
+dyn-1	apc	mRNA	1	751	0.006258	+	.	ID=tx-dyn-1-32;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.006258	+	.	Parent=tx-dyn-1-32
+dyn-1	apc	exon	244	299	0.006258	+	.	Parent=tx-dyn-1-32
+dyn-1	apc	exon	354	412	0.006258	+	.	Parent=tx-dyn-1-32
+dyn-1	apc	exon	479	550	0.006258	+	.	Parent=tx-dyn-1-32
+dyn-1	apc	exon	607	751	0.006258	+	.	Parent=tx-dyn-1-32
+dyn-1	apc	intron	202	243	0.006258	+	.	Parent=tx-dyn-1-32
+dyn-1	apc	intron	300	353	0.006258	+	.	Parent=tx-dyn-1-32
+dyn-1	apc	intron	413	478	0.006258	+	.	Parent=tx-dyn-1-32
+dyn-1	apc	intron	551	606	0.006258	+	.	Parent=tx-dyn-1-32
+
+dyn-1	apc	mRNA	1	751	0.006232	+	.	ID=tx-dyn-1-33;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.006232	+	.	Parent=tx-dyn-1-33
+dyn-1	apc	exon	244	412	0.006232	+	.	Parent=tx-dyn-1-33
+dyn-1	apc	exon	479	550	0.006232	+	.	Parent=tx-dyn-1-33
+dyn-1	apc	exon	607	751	0.006232	+	.	Parent=tx-dyn-1-33
+dyn-1	apc	intron	202	243	0.006232	+	.	Parent=tx-dyn-1-33
+dyn-1	apc	intron	413	478	0.006232	+	.	Parent=tx-dyn-1-33
+dyn-1	apc	intron	551	606	0.006232	+	.	Parent=tx-dyn-1-33
+
+dyn-1	apc	mRNA	1	751	0.005937	+	.	ID=tx-dyn-1-34;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.005937	+	.	Parent=tx-dyn-1-34
+dyn-1	apc	exon	244	299	0.005937	+	.	Parent=tx-dyn-1-34
+dyn-1	apc	exon	354	412	0.005937	+	.	Parent=tx-dyn-1-34
+dyn-1	apc	exon	479	550	0.005937	+	.	Parent=tx-dyn-1-34
+dyn-1	apc	exon	607	751	0.005937	+	.	Parent=tx-dyn-1-34
+dyn-1	apc	intron	138	243	0.005937	+	.	Parent=tx-dyn-1-34
+dyn-1	apc	intron	300	353	0.005937	+	.	Parent=tx-dyn-1-34
+dyn-1	apc	intron	413	478	0.005937	+	.	Parent=tx-dyn-1-34
+dyn-1	apc	intron	551	606	0.005937	+	.	Parent=tx-dyn-1-34
+
+dyn-1	apc	mRNA	1	751	0.005912	+	.	ID=tx-dyn-1-35;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.005912	+	.	Parent=tx-dyn-1-35
+dyn-1	apc	exon	244	412	0.005912	+	.	Parent=tx-dyn-1-35
+dyn-1	apc	exon	479	550	0.005912	+	.	Parent=tx-dyn-1-35
+dyn-1	apc	exon	607	751	0.005912	+	.	Parent=tx-dyn-1-35
+dyn-1	apc	intron	138	243	0.005912	+	.	Parent=tx-dyn-1-35
+dyn-1	apc	intron	413	478	0.005912	+	.	Parent=tx-dyn-1-35
+dyn-1	apc	intron	551	606	0.005912	+	.	Parent=tx-dyn-1-35
+
+dyn-1	apc	mRNA	1	751	0.005589	+	.	ID=tx-dyn-1-36;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.005589	+	.	Parent=tx-dyn-1-36
+dyn-1	apc	exon	244	299	0.005589	+	.	Parent=tx-dyn-1-36
+dyn-1	apc	exon	354	412	0.005589	+	.	Parent=tx-dyn-1-36
+dyn-1	apc	exon	479	550	0.005589	+	.	Parent=tx-dyn-1-36
+dyn-1	apc	exon	607	751	0.005589	+	.	Parent=tx-dyn-1-36
+dyn-1	apc	intron	134	243	0.005589	+	.	Parent=tx-dyn-1-36
+dyn-1	apc	intron	300	353	0.005589	+	.	Parent=tx-dyn-1-36
+dyn-1	apc	intron	413	478	0.005589	+	.	Parent=tx-dyn-1-36
+dyn-1	apc	intron	551	606	0.005589	+	.	Parent=tx-dyn-1-36
+
+dyn-1	apc	mRNA	1	751	0.005565	+	.	ID=tx-dyn-1-37;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.005565	+	.	Parent=tx-dyn-1-37
+dyn-1	apc	exon	244	412	0.005565	+	.	Parent=tx-dyn-1-37
+dyn-1	apc	exon	479	550	0.005565	+	.	Parent=tx-dyn-1-37
+dyn-1	apc	exon	607	751	0.005565	+	.	Parent=tx-dyn-1-37
+dyn-1	apc	intron	134	243	0.005565	+	.	Parent=tx-dyn-1-37
+dyn-1	apc	intron	413	478	0.005565	+	.	Parent=tx-dyn-1-37
+dyn-1	apc	intron	551	606	0.005565	+	.	Parent=tx-dyn-1-37
+
+dyn-1	apc	mRNA	1	751	0.005057	+	.	ID=tx-dyn-1-38;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.005057	+	.	Parent=tx-dyn-1-38
+dyn-1	apc	exon	244	299	0.005057	+	.	Parent=tx-dyn-1-38
+dyn-1	apc	exon	354	407	0.005057	+	.	Parent=tx-dyn-1-38
+dyn-1	apc	exon	479	550	0.005057	+	.	Parent=tx-dyn-1-38
+dyn-1	apc	exon	607	751	0.005057	+	.	Parent=tx-dyn-1-38
+dyn-1	apc	intron	71	243	0.005057	+	.	Parent=tx-dyn-1-38
+dyn-1	apc	intron	300	353	0.005057	+	.	Parent=tx-dyn-1-38
+dyn-1	apc	intron	408	478	0.005057	+	.	Parent=tx-dyn-1-38
+dyn-1	apc	intron	551	606	0.005057	+	.	Parent=tx-dyn-1-38
+
+dyn-1	apc	mRNA	1	751	0.004759	+	.	ID=tx-dyn-1-39;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.004759	+	.	Parent=tx-dyn-1-39
+dyn-1	apc	exon	244	374	0.004759	+	.	Parent=tx-dyn-1-39
+dyn-1	apc	exon	479	550	0.004759	+	.	Parent=tx-dyn-1-39
+dyn-1	apc	exon	607	751	0.004759	+	.	Parent=tx-dyn-1-39
+dyn-1	apc	intron	71	243	0.004759	+	.	Parent=tx-dyn-1-39
+dyn-1	apc	intron	375	478	0.004759	+	.	Parent=tx-dyn-1-39
+dyn-1	apc	intron	551	606	0.004759	+	.	Parent=tx-dyn-1-39
+
+dyn-1	apc	mRNA	1	751	0.004208	+	.	ID=tx-dyn-1-40;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.004208	+	.	Parent=tx-dyn-1-40
+dyn-1	apc	exon	244	380	0.004208	+	.	Parent=tx-dyn-1-40
+dyn-1	apc	exon	479	550	0.004208	+	.	Parent=tx-dyn-1-40
+dyn-1	apc	exon	607	751	0.004208	+	.	Parent=tx-dyn-1-40
+dyn-1	apc	intron	71	243	0.004208	+	.	Parent=tx-dyn-1-40
+dyn-1	apc	intron	381	478	0.004208	+	.	Parent=tx-dyn-1-40
+dyn-1	apc	intron	551	606	0.004208	+	.	Parent=tx-dyn-1-40
+
+dyn-1	apc	mRNA	1	751	0.004142	+	.	ID=tx-dyn-1-41;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.004142	+	.	Parent=tx-dyn-1-41
+dyn-1	apc	exon	244	347	0.004142	+	.	Parent=tx-dyn-1-41
+dyn-1	apc	exon	395	550	0.004142	+	.	Parent=tx-dyn-1-41
+dyn-1	apc	exon	607	751	0.004142	+	.	Parent=tx-dyn-1-41
+dyn-1	apc	intron	202	243	0.004142	+	.	Parent=tx-dyn-1-41
+dyn-1	apc	intron	348	394	0.004142	+	.	Parent=tx-dyn-1-41
+dyn-1	apc	intron	551	606	0.004142	+	.	Parent=tx-dyn-1-41
+
+dyn-1	apc	mRNA	1	751	0.003954	+	.	ID=tx-dyn-1-42;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.003954	+	.	Parent=tx-dyn-1-42
+dyn-1	apc	exon	244	359	0.003954	+	.	Parent=tx-dyn-1-42
+dyn-1	apc	exon	409	550	0.003954	+	.	Parent=tx-dyn-1-42
+dyn-1	apc	exon	607	751	0.003954	+	.	Parent=tx-dyn-1-42
+dyn-1	apc	intron	202	243	0.003954	+	.	Parent=tx-dyn-1-42
+dyn-1	apc	intron	360	408	0.003954	+	.	Parent=tx-dyn-1-42
+dyn-1	apc	intron	551	606	0.003954	+	.	Parent=tx-dyn-1-42
+
+dyn-1	apc	mRNA	1	751	0.003929	+	.	ID=tx-dyn-1-43;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.003929	+	.	Parent=tx-dyn-1-43
+dyn-1	apc	exon	244	347	0.003929	+	.	Parent=tx-dyn-1-43
+dyn-1	apc	exon	395	550	0.003929	+	.	Parent=tx-dyn-1-43
+dyn-1	apc	exon	607	751	0.003929	+	.	Parent=tx-dyn-1-43
+dyn-1	apc	intron	138	243	0.003929	+	.	Parent=tx-dyn-1-43
+dyn-1	apc	intron	348	394	0.003929	+	.	Parent=tx-dyn-1-43
+dyn-1	apc	intron	551	606	0.003929	+	.	Parent=tx-dyn-1-43
+
+dyn-1	apc	mRNA	1	751	0.003752	+	.	ID=tx-dyn-1-44;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.003752	+	.	Parent=tx-dyn-1-44
+dyn-1	apc	exon	244	359	0.003752	+	.	Parent=tx-dyn-1-44
+dyn-1	apc	exon	409	550	0.003752	+	.	Parent=tx-dyn-1-44
+dyn-1	apc	exon	607	751	0.003752	+	.	Parent=tx-dyn-1-44
+dyn-1	apc	intron	138	243	0.003752	+	.	Parent=tx-dyn-1-44
+dyn-1	apc	intron	360	408	0.003752	+	.	Parent=tx-dyn-1-44
+dyn-1	apc	intron	551	606	0.003752	+	.	Parent=tx-dyn-1-44
+
+dyn-1	apc	mRNA	1	751	0.003732	+	.	ID=tx-dyn-1-45;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.003732	+	.	Parent=tx-dyn-1-45
+dyn-1	apc	exon	244	299	0.003732	+	.	Parent=tx-dyn-1-45
+dyn-1	apc	exon	349	412	0.003732	+	.	Parent=tx-dyn-1-45
+dyn-1	apc	exon	479	550	0.003732	+	.	Parent=tx-dyn-1-45
+dyn-1	apc	exon	607	751	0.003732	+	.	Parent=tx-dyn-1-45
+dyn-1	apc	intron	71	243	0.003732	+	.	Parent=tx-dyn-1-45
+dyn-1	apc	intron	300	348	0.003732	+	.	Parent=tx-dyn-1-45
+dyn-1	apc	intron	413	478	0.003732	+	.	Parent=tx-dyn-1-45
+dyn-1	apc	intron	551	606	0.003732	+	.	Parent=tx-dyn-1-45
+
+dyn-1	apc	mRNA	1	751	0.003699	+	.	ID=tx-dyn-1-46;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.003699	+	.	Parent=tx-dyn-1-46
+dyn-1	apc	exon	244	347	0.003699	+	.	Parent=tx-dyn-1-46
+dyn-1	apc	exon	395	550	0.003699	+	.	Parent=tx-dyn-1-46
+dyn-1	apc	exon	607	751	0.003699	+	.	Parent=tx-dyn-1-46
+dyn-1	apc	intron	134	243	0.003699	+	.	Parent=tx-dyn-1-46
+dyn-1	apc	intron	348	394	0.003699	+	.	Parent=tx-dyn-1-46
+dyn-1	apc	intron	551	606	0.003699	+	.	Parent=tx-dyn-1-46
+
+dyn-1	apc	mRNA	1	751	0.003606	+	.	ID=tx-dyn-1-47;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	58	0.003606	+	.	Parent=tx-dyn-1-47
+dyn-1	apc	exon	109	201	0.003606	+	.	Parent=tx-dyn-1-47
+dyn-1	apc	exon	244	367	0.003606	+	.	Parent=tx-dyn-1-47
+dyn-1	apc	exon	409	550	0.003606	+	.	Parent=tx-dyn-1-47
+dyn-1	apc	exon	607	751	0.003606	+	.	Parent=tx-dyn-1-47
+dyn-1	apc	intron	59	108	0.003606	+	.	Parent=tx-dyn-1-47
+dyn-1	apc	intron	202	243	0.003606	+	.	Parent=tx-dyn-1-47
+dyn-1	apc	intron	368	408	0.003606	+	.	Parent=tx-dyn-1-47
+dyn-1	apc	intron	551	606	0.003606	+	.	Parent=tx-dyn-1-47
+
+dyn-1	apc	mRNA	1	751	0.003584	+	.	ID=tx-dyn-1-48;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.003584	+	.	Parent=tx-dyn-1-48
+dyn-1	apc	exon	244	296	0.003584	+	.	Parent=tx-dyn-1-48
+dyn-1	apc	exon	354	412	0.003584	+	.	Parent=tx-dyn-1-48
+dyn-1	apc	exon	479	565	0.003584	+	.	Parent=tx-dyn-1-48
+dyn-1	apc	exon	607	751	0.003584	+	.	Parent=tx-dyn-1-48
+dyn-1	apc	intron	71	243	0.003584	+	.	Parent=tx-dyn-1-48
+dyn-1	apc	intron	297	353	0.003584	+	.	Parent=tx-dyn-1-48
+dyn-1	apc	intron	413	478	0.003584	+	.	Parent=tx-dyn-1-48
+dyn-1	apc	intron	566	606	0.003584	+	.	Parent=tx-dyn-1-48
+
+dyn-1	apc	mRNA	1	751	0.003532	+	.	ID=tx-dyn-1-49;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.003532	+	.	Parent=tx-dyn-1-49
+dyn-1	apc	exon	244	359	0.003532	+	.	Parent=tx-dyn-1-49
+dyn-1	apc	exon	409	550	0.003532	+	.	Parent=tx-dyn-1-49
+dyn-1	apc	exon	607	751	0.003532	+	.	Parent=tx-dyn-1-49
+dyn-1	apc	intron	134	243	0.003532	+	.	Parent=tx-dyn-1-49
+dyn-1	apc	intron	360	408	0.003532	+	.	Parent=tx-dyn-1-49
+dyn-1	apc	intron	551	606	0.003532	+	.	Parent=tx-dyn-1-49
+
+dyn-1	apc	mRNA	1	751	0.003444	+	.	ID=tx-dyn-1-50;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.003444	+	.	Parent=tx-dyn-1-50
+dyn-1	apc	exon	244	347	0.003444	+	.	Parent=tx-dyn-1-50
+dyn-1	apc	exon	409	550	0.003444	+	.	Parent=tx-dyn-1-50
+dyn-1	apc	exon	607	751	0.003444	+	.	Parent=tx-dyn-1-50
+dyn-1	apc	intron	202	243	0.003444	+	.	Parent=tx-dyn-1-50
+dyn-1	apc	intron	348	408	0.003444	+	.	Parent=tx-dyn-1-50
+dyn-1	apc	intron	551	606	0.003444	+	.	Parent=tx-dyn-1-50
+
+dyn-1	apc	mRNA	1	751	0.003427	+	.	ID=tx-dyn-1-51;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.003427	+	.	Parent=tx-dyn-1-51
+dyn-1	apc	exon	244	357	0.003427	+	.	Parent=tx-dyn-1-51
+dyn-1	apc	exon	409	550	0.003427	+	.	Parent=tx-dyn-1-51
+dyn-1	apc	exon	607	751	0.003427	+	.	Parent=tx-dyn-1-51
+dyn-1	apc	intron	202	243	0.003427	+	.	Parent=tx-dyn-1-51
+dyn-1	apc	intron	358	408	0.003427	+	.	Parent=tx-dyn-1-51
+dyn-1	apc	intron	551	606	0.003427	+	.	Parent=tx-dyn-1-51
+
+dyn-1	apc	mRNA	1	751	0.003267	+	.	ID=tx-dyn-1-52;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.003267	+	.	Parent=tx-dyn-1-52
+dyn-1	apc	exon	244	347	0.003267	+	.	Parent=tx-dyn-1-52
+dyn-1	apc	exon	409	550	0.003267	+	.	Parent=tx-dyn-1-52
+dyn-1	apc	exon	607	751	0.003267	+	.	Parent=tx-dyn-1-52
+dyn-1	apc	intron	138	243	0.003267	+	.	Parent=tx-dyn-1-52
+dyn-1	apc	intron	348	408	0.003267	+	.	Parent=tx-dyn-1-52
+dyn-1	apc	intron	551	606	0.003267	+	.	Parent=tx-dyn-1-52
+
+dyn-1	apc	mRNA	1	751	0.003251	+	.	ID=tx-dyn-1-53;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.003251	+	.	Parent=tx-dyn-1-53
+dyn-1	apc	exon	244	357	0.003251	+	.	Parent=tx-dyn-1-53
+dyn-1	apc	exon	409	550	0.003251	+	.	Parent=tx-dyn-1-53
+dyn-1	apc	exon	607	751	0.003251	+	.	Parent=tx-dyn-1-53
+dyn-1	apc	intron	138	243	0.003251	+	.	Parent=tx-dyn-1-53
+dyn-1	apc	intron	358	408	0.003251	+	.	Parent=tx-dyn-1-53
+dyn-1	apc	intron	551	606	0.003251	+	.	Parent=tx-dyn-1-53
+
+dyn-1	apc	mRNA	1	751	0.003212	+	.	ID=tx-dyn-1-54;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	58	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	exon	109	201	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	exon	244	299	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	exon	354	412	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	exon	479	550	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	exon	607	751	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	intron	59	108	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	intron	202	243	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	intron	300	353	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	intron	413	478	0.003212	+	.	Parent=tx-dyn-1-54
+dyn-1	apc	intron	551	606	0.003212	+	.	Parent=tx-dyn-1-54
+
+dyn-1	apc	mRNA	1	751	0.003198	+	.	ID=tx-dyn-1-55;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	58	0.003198	+	.	Parent=tx-dyn-1-55
+dyn-1	apc	exon	109	201	0.003198	+	.	Parent=tx-dyn-1-55
+dyn-1	apc	exon	244	412	0.003198	+	.	Parent=tx-dyn-1-55
+dyn-1	apc	exon	479	550	0.003198	+	.	Parent=tx-dyn-1-55
+dyn-1	apc	exon	607	751	0.003198	+	.	Parent=tx-dyn-1-55
+dyn-1	apc	intron	59	108	0.003198	+	.	Parent=tx-dyn-1-55
+dyn-1	apc	intron	202	243	0.003198	+	.	Parent=tx-dyn-1-55
+dyn-1	apc	intron	413	478	0.003198	+	.	Parent=tx-dyn-1-55
+dyn-1	apc	intron	551	606	0.003198	+	.	Parent=tx-dyn-1-55
+
+dyn-1	apc	mRNA	1	751	0.003075	+	.	ID=tx-dyn-1-56;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.003075	+	.	Parent=tx-dyn-1-56
+dyn-1	apc	exon	244	347	0.003075	+	.	Parent=tx-dyn-1-56
+dyn-1	apc	exon	409	550	0.003075	+	.	Parent=tx-dyn-1-56
+dyn-1	apc	exon	607	751	0.003075	+	.	Parent=tx-dyn-1-56
+dyn-1	apc	intron	134	243	0.003075	+	.	Parent=tx-dyn-1-56
+dyn-1	apc	intron	348	408	0.003075	+	.	Parent=tx-dyn-1-56
+dyn-1	apc	intron	551	606	0.003075	+	.	Parent=tx-dyn-1-56
+
+dyn-1	apc	mRNA	1	751	0.003061	+	.	ID=tx-dyn-1-57;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.003061	+	.	Parent=tx-dyn-1-57
+dyn-1	apc	exon	244	357	0.003061	+	.	Parent=tx-dyn-1-57
+dyn-1	apc	exon	409	550	0.003061	+	.	Parent=tx-dyn-1-57
+dyn-1	apc	exon	607	751	0.003061	+	.	Parent=tx-dyn-1-57
+dyn-1	apc	intron	134	243	0.003061	+	.	Parent=tx-dyn-1-57
+dyn-1	apc	intron	358	408	0.003061	+	.	Parent=tx-dyn-1-57
+dyn-1	apc	intron	551	606	0.003061	+	.	Parent=tx-dyn-1-57
+
+dyn-1	apc	mRNA	1	751	0.00278	+	.	ID=tx-dyn-1-58;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.00278	+	.	Parent=tx-dyn-1-58
+dyn-1	apc	exon	181	299	0.00278	+	.	Parent=tx-dyn-1-58
+dyn-1	apc	exon	354	412	0.00278	+	.	Parent=tx-dyn-1-58
+dyn-1	apc	exon	479	550	0.00278	+	.	Parent=tx-dyn-1-58
+dyn-1	apc	exon	607	751	0.00278	+	.	Parent=tx-dyn-1-58
+dyn-1	apc	intron	134	180	0.00278	+	.	Parent=tx-dyn-1-58
+dyn-1	apc	intron	300	353	0.00278	+	.	Parent=tx-dyn-1-58
+dyn-1	apc	intron	413	478	0.00278	+	.	Parent=tx-dyn-1-58
+dyn-1	apc	intron	551	606	0.00278	+	.	Parent=tx-dyn-1-58
+
+dyn-1	apc	mRNA	1	751	0.002762	+	.	ID=tx-dyn-1-59;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.002762	+	.	Parent=tx-dyn-1-59
+dyn-1	apc	exon	244	347	0.002762	+	.	Parent=tx-dyn-1-59
+dyn-1	apc	exon	398	550	0.002762	+	.	Parent=tx-dyn-1-59
+dyn-1	apc	exon	607	751	0.002762	+	.	Parent=tx-dyn-1-59
+dyn-1	apc	intron	202	243	0.002762	+	.	Parent=tx-dyn-1-59
+dyn-1	apc	intron	348	397	0.002762	+	.	Parent=tx-dyn-1-59
+dyn-1	apc	intron	551	606	0.002762	+	.	Parent=tx-dyn-1-59
+
+dyn-1	apc	mRNA	1	751	0.002679	+	.	ID=tx-dyn-1-60;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.002679	+	.	Parent=tx-dyn-1-60
+dyn-1	apc	exon	244	357	0.002679	+	.	Parent=tx-dyn-1-60
+dyn-1	apc	exon	398	550	0.002679	+	.	Parent=tx-dyn-1-60
+dyn-1	apc	exon	607	751	0.002679	+	.	Parent=tx-dyn-1-60
+dyn-1	apc	intron	71	243	0.002679	+	.	Parent=tx-dyn-1-60
+dyn-1	apc	intron	358	397	0.002679	+	.	Parent=tx-dyn-1-60
+dyn-1	apc	intron	551	606	0.002679	+	.	Parent=tx-dyn-1-60
+
+dyn-1	apc	mRNA	1	751	0.002659	+	.	ID=tx-dyn-1-61;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.002659	+	.	Parent=tx-dyn-1-61
+dyn-1	apc	exon	244	296	0.002659	+	.	Parent=tx-dyn-1-61
+dyn-1	apc	exon	354	412	0.002659	+	.	Parent=tx-dyn-1-61
+dyn-1	apc	exon	479	553	0.002659	+	.	Parent=tx-dyn-1-61
+dyn-1	apc	exon	607	751	0.002659	+	.	Parent=tx-dyn-1-61
+dyn-1	apc	intron	71	243	0.002659	+	.	Parent=tx-dyn-1-61
+dyn-1	apc	intron	297	353	0.002659	+	.	Parent=tx-dyn-1-61
+dyn-1	apc	intron	413	478	0.002659	+	.	Parent=tx-dyn-1-61
+dyn-1	apc	intron	554	606	0.002659	+	.	Parent=tx-dyn-1-61
+
+dyn-1	apc	mRNA	1	751	0.00262	+	.	ID=tx-dyn-1-62;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.00262	+	.	Parent=tx-dyn-1-62
+dyn-1	apc	exon	244	347	0.00262	+	.	Parent=tx-dyn-1-62
+dyn-1	apc	exon	398	550	0.00262	+	.	Parent=tx-dyn-1-62
+dyn-1	apc	exon	607	751	0.00262	+	.	Parent=tx-dyn-1-62
+dyn-1	apc	intron	138	243	0.00262	+	.	Parent=tx-dyn-1-62
+dyn-1	apc	intron	348	397	0.00262	+	.	Parent=tx-dyn-1-62
+dyn-1	apc	intron	551	606	0.00262	+	.	Parent=tx-dyn-1-62
+
+dyn-1	apc	mRNA	1	751	0.002466	+	.	ID=tx-dyn-1-63;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.002466	+	.	Parent=tx-dyn-1-63
+dyn-1	apc	exon	244	347	0.002466	+	.	Parent=tx-dyn-1-63
+dyn-1	apc	exon	398	550	0.002466	+	.	Parent=tx-dyn-1-63
+dyn-1	apc	exon	607	751	0.002466	+	.	Parent=tx-dyn-1-63
+dyn-1	apc	intron	134	243	0.002466	+	.	Parent=tx-dyn-1-63
+dyn-1	apc	intron	348	397	0.002466	+	.	Parent=tx-dyn-1-63
+dyn-1	apc	intron	551	606	0.002466	+	.	Parent=tx-dyn-1-63
+
+dyn-1	apc	mRNA	1	751	0.002402	+	.	ID=tx-dyn-1-64;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	154	0.002402	+	.	Parent=tx-dyn-1-64
+dyn-1	apc	exon	244	367	0.002402	+	.	Parent=tx-dyn-1-64
+dyn-1	apc	exon	409	550	0.002402	+	.	Parent=tx-dyn-1-64
+dyn-1	apc	exon	607	751	0.002402	+	.	Parent=tx-dyn-1-64
+dyn-1	apc	intron	155	243	0.002402	+	.	Parent=tx-dyn-1-64
+dyn-1	apc	intron	368	408	0.002402	+	.	Parent=tx-dyn-1-64
+dyn-1	apc	intron	551	606	0.002402	+	.	Parent=tx-dyn-1-64
+
+dyn-1	apc	mRNA	1	751	0.002382	+	.	ID=tx-dyn-1-65;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.002382	+	.	Parent=tx-dyn-1-65
+dyn-1	apc	exon	181	299	0.002382	+	.	Parent=tx-dyn-1-65
+dyn-1	apc	exon	354	412	0.002382	+	.	Parent=tx-dyn-1-65
+dyn-1	apc	exon	479	550	0.002382	+	.	Parent=tx-dyn-1-65
+dyn-1	apc	exon	607	751	0.002382	+	.	Parent=tx-dyn-1-65
+dyn-1	apc	intron	138	180	0.002382	+	.	Parent=tx-dyn-1-65
+dyn-1	apc	intron	300	353	0.002382	+	.	Parent=tx-dyn-1-65
+dyn-1	apc	intron	413	478	0.002382	+	.	Parent=tx-dyn-1-65
+dyn-1	apc	intron	551	606	0.002382	+	.	Parent=tx-dyn-1-65
+
+dyn-1	apc	mRNA	1	751	0.002148	+	.	ID=tx-dyn-1-66;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.002148	+	.	Parent=tx-dyn-1-66
+dyn-1	apc	exon	181	299	0.002148	+	.	Parent=tx-dyn-1-66
+dyn-1	apc	exon	354	412	0.002148	+	.	Parent=tx-dyn-1-66
+dyn-1	apc	exon	479	565	0.002148	+	.	Parent=tx-dyn-1-66
+dyn-1	apc	exon	607	751	0.002148	+	.	Parent=tx-dyn-1-66
+dyn-1	apc	intron	71	180	0.002148	+	.	Parent=tx-dyn-1-66
+dyn-1	apc	intron	300	353	0.002148	+	.	Parent=tx-dyn-1-66
+dyn-1	apc	intron	413	478	0.002148	+	.	Parent=tx-dyn-1-66
+dyn-1	apc	intron	566	606	0.002148	+	.	Parent=tx-dyn-1-66
+
+dyn-1	apc	mRNA	1	751	0.002139	+	.	ID=tx-dyn-1-67;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	154	0.002139	+	.	Parent=tx-dyn-1-67
+dyn-1	apc	exon	244	299	0.002139	+	.	Parent=tx-dyn-1-67
+dyn-1	apc	exon	354	412	0.002139	+	.	Parent=tx-dyn-1-67
+dyn-1	apc	exon	479	550	0.002139	+	.	Parent=tx-dyn-1-67
+dyn-1	apc	exon	607	751	0.002139	+	.	Parent=tx-dyn-1-67
+dyn-1	apc	intron	155	243	0.002139	+	.	Parent=tx-dyn-1-67
+dyn-1	apc	intron	300	353	0.002139	+	.	Parent=tx-dyn-1-67
+dyn-1	apc	intron	413	478	0.002139	+	.	Parent=tx-dyn-1-67
+dyn-1	apc	intron	551	606	0.002139	+	.	Parent=tx-dyn-1-67
+
+dyn-1	apc	mRNA	1	751	0.00213	+	.	ID=tx-dyn-1-68;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	154	0.00213	+	.	Parent=tx-dyn-1-68
+dyn-1	apc	exon	244	412	0.00213	+	.	Parent=tx-dyn-1-68
+dyn-1	apc	exon	479	550	0.00213	+	.	Parent=tx-dyn-1-68
+dyn-1	apc	exon	607	751	0.00213	+	.	Parent=tx-dyn-1-68
+dyn-1	apc	intron	155	243	0.00213	+	.	Parent=tx-dyn-1-68
+dyn-1	apc	intron	413	478	0.00213	+	.	Parent=tx-dyn-1-68
+dyn-1	apc	intron	551	606	0.00213	+	.	Parent=tx-dyn-1-68
+
+dyn-1	apc	mRNA	1	751	0.002126	+	.	ID=tx-dyn-1-69;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	58	0.002126	+	.	Parent=tx-dyn-1-69
+dyn-1	apc	exon	109	201	0.002126	+	.	Parent=tx-dyn-1-69
+dyn-1	apc	exon	244	347	0.002126	+	.	Parent=tx-dyn-1-69
+dyn-1	apc	exon	395	550	0.002126	+	.	Parent=tx-dyn-1-69
+dyn-1	apc	exon	607	751	0.002126	+	.	Parent=tx-dyn-1-69
+dyn-1	apc	intron	59	108	0.002126	+	.	Parent=tx-dyn-1-69
+dyn-1	apc	intron	202	243	0.002126	+	.	Parent=tx-dyn-1-69
+dyn-1	apc	intron	348	394	0.002126	+	.	Parent=tx-dyn-1-69
+dyn-1	apc	intron	551	606	0.002126	+	.	Parent=tx-dyn-1-69
+
+dyn-1	apc	mRNA	1	751	0.00209	+	.	ID=tx-dyn-1-70;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.00209	+	.	Parent=tx-dyn-1-70
+dyn-1	apc	exon	244	387	0.00209	+	.	Parent=tx-dyn-1-70
+dyn-1	apc	exon	479	565	0.00209	+	.	Parent=tx-dyn-1-70
+dyn-1	apc	exon	607	751	0.00209	+	.	Parent=tx-dyn-1-70
+dyn-1	apc	intron	71	243	0.00209	+	.	Parent=tx-dyn-1-70
+dyn-1	apc	intron	388	478	0.00209	+	.	Parent=tx-dyn-1-70
+dyn-1	apc	intron	566	606	0.00209	+	.	Parent=tx-dyn-1-70
+
+dyn-1	apc	mRNA	1	751	0.002074	+	.	ID=tx-dyn-1-71;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.002074	+	.	Parent=tx-dyn-1-71
+dyn-1	apc	exon	181	367	0.002074	+	.	Parent=tx-dyn-1-71
+dyn-1	apc	exon	409	550	0.002074	+	.	Parent=tx-dyn-1-71
+dyn-1	apc	exon	607	751	0.002074	+	.	Parent=tx-dyn-1-71
+dyn-1	apc	intron	71	180	0.002074	+	.	Parent=tx-dyn-1-71
+dyn-1	apc	intron	368	408	0.002074	+	.	Parent=tx-dyn-1-71
+dyn-1	apc	intron	551	606	0.002074	+	.	Parent=tx-dyn-1-71
+
+dyn-1	apc	mRNA	1	751	0.002067	+	.	ID=tx-dyn-1-72;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.002067	+	.	Parent=tx-dyn-1-72
+dyn-1	apc	exon	244	299	0.002067	+	.	Parent=tx-dyn-1-72
+dyn-1	apc	exon	354	550	0.002067	+	.	Parent=tx-dyn-1-72
+dyn-1	apc	exon	607	751	0.002067	+	.	Parent=tx-dyn-1-72
+dyn-1	apc	intron	71	243	0.002067	+	.	Parent=tx-dyn-1-72
+dyn-1	apc	intron	300	353	0.002067	+	.	Parent=tx-dyn-1-72
+dyn-1	apc	intron	551	606	0.002067	+	.	Parent=tx-dyn-1-72
+
+dyn-1	apc	mRNA	1	751	0.002039	+	.	ID=tx-dyn-1-73;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.002039	+	.	Parent=tx-dyn-1-73
+dyn-1	apc	exon	244	367	0.002039	+	.	Parent=tx-dyn-1-73
+dyn-1	apc	exon	409	527	0.002039	+	.	Parent=tx-dyn-1-73
+dyn-1	apc	exon	607	751	0.002039	+	.	Parent=tx-dyn-1-73
+dyn-1	apc	intron	71	243	0.002039	+	.	Parent=tx-dyn-1-73
+dyn-1	apc	intron	368	408	0.002039	+	.	Parent=tx-dyn-1-73
+dyn-1	apc	intron	528	606	0.002039	+	.	Parent=tx-dyn-1-73
+
+dyn-1	apc	mRNA	1	751	0.002029	+	.	ID=tx-dyn-1-74;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	58	0.002029	+	.	Parent=tx-dyn-1-74
+dyn-1	apc	exon	109	201	0.002029	+	.	Parent=tx-dyn-1-74
+dyn-1	apc	exon	244	359	0.002029	+	.	Parent=tx-dyn-1-74
+dyn-1	apc	exon	409	550	0.002029	+	.	Parent=tx-dyn-1-74
+dyn-1	apc	exon	607	751	0.002029	+	.	Parent=tx-dyn-1-74
+dyn-1	apc	intron	59	108	0.002029	+	.	Parent=tx-dyn-1-74
+dyn-1	apc	intron	202	243	0.002029	+	.	Parent=tx-dyn-1-74
+dyn-1	apc	intron	360	408	0.002029	+	.	Parent=tx-dyn-1-74
+dyn-1	apc	intron	551	606	0.002029	+	.	Parent=tx-dyn-1-74
+
+dyn-1	apc	mRNA	1	751	0.001951	+	.	ID=tx-dyn-1-75;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001951	+	.	Parent=tx-dyn-1-75
+dyn-1	apc	exon	244	407	0.001951	+	.	Parent=tx-dyn-1-75
+dyn-1	apc	exon	479	565	0.001951	+	.	Parent=tx-dyn-1-75
+dyn-1	apc	exon	607	751	0.001951	+	.	Parent=tx-dyn-1-75
+dyn-1	apc	intron	71	243	0.001951	+	.	Parent=tx-dyn-1-75
+dyn-1	apc	intron	408	478	0.001951	+	.	Parent=tx-dyn-1-75
+dyn-1	apc	intron	566	606	0.001951	+	.	Parent=tx-dyn-1-75
+
+dyn-1	apc	mRNA	1	751	0.00192	+	.	ID=tx-dyn-1-76;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.00192	+	.	Parent=tx-dyn-1-76
+dyn-1	apc	exon	244	299	0.00192	+	.	Parent=tx-dyn-1-76
+dyn-1	apc	exon	354	412	0.00192	+	.	Parent=tx-dyn-1-76
+dyn-1	apc	exon	479	565	0.00192	+	.	Parent=tx-dyn-1-76
+dyn-1	apc	exon	607	751	0.00192	+	.	Parent=tx-dyn-1-76
+dyn-1	apc	intron	202	243	0.00192	+	.	Parent=tx-dyn-1-76
+dyn-1	apc	intron	300	353	0.00192	+	.	Parent=tx-dyn-1-76
+dyn-1	apc	intron	413	478	0.00192	+	.	Parent=tx-dyn-1-76
+dyn-1	apc	intron	566	606	0.00192	+	.	Parent=tx-dyn-1-76
+
+dyn-1	apc	mRNA	1	751	0.001912	+	.	ID=tx-dyn-1-77;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.001912	+	.	Parent=tx-dyn-1-77
+dyn-1	apc	exon	244	412	0.001912	+	.	Parent=tx-dyn-1-77
+dyn-1	apc	exon	479	565	0.001912	+	.	Parent=tx-dyn-1-77
+dyn-1	apc	exon	607	751	0.001912	+	.	Parent=tx-dyn-1-77
+dyn-1	apc	intron	202	243	0.001912	+	.	Parent=tx-dyn-1-77
+dyn-1	apc	intron	413	478	0.001912	+	.	Parent=tx-dyn-1-77
+dyn-1	apc	intron	566	606	0.001912	+	.	Parent=tx-dyn-1-77
+
+dyn-1	apc	mRNA	1	751	0.001851	+	.	ID=tx-dyn-1-78;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001851	+	.	Parent=tx-dyn-1-78
+dyn-1	apc	exon	244	325	0.001851	+	.	Parent=tx-dyn-1-78
+dyn-1	apc	exon	409	550	0.001851	+	.	Parent=tx-dyn-1-78
+dyn-1	apc	exon	607	751	0.001851	+	.	Parent=tx-dyn-1-78
+dyn-1	apc	intron	71	243	0.001851	+	.	Parent=tx-dyn-1-78
+dyn-1	apc	intron	326	408	0.001851	+	.	Parent=tx-dyn-1-78
+dyn-1	apc	intron	551	606	0.001851	+	.	Parent=tx-dyn-1-78
+
+dyn-1	apc	mRNA	1	751	0.001822	+	.	ID=tx-dyn-1-79;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.001822	+	.	Parent=tx-dyn-1-79
+dyn-1	apc	exon	244	299	0.001822	+	.	Parent=tx-dyn-1-79
+dyn-1	apc	exon	354	412	0.001822	+	.	Parent=tx-dyn-1-79
+dyn-1	apc	exon	479	565	0.001822	+	.	Parent=tx-dyn-1-79
+dyn-1	apc	exon	607	751	0.001822	+	.	Parent=tx-dyn-1-79
+dyn-1	apc	intron	138	243	0.001822	+	.	Parent=tx-dyn-1-79
+dyn-1	apc	intron	300	353	0.001822	+	.	Parent=tx-dyn-1-79
+dyn-1	apc	intron	413	478	0.001822	+	.	Parent=tx-dyn-1-79
+dyn-1	apc	intron	566	606	0.001822	+	.	Parent=tx-dyn-1-79
+
+dyn-1	apc	mRNA	1	751	0.001814	+	.	ID=tx-dyn-1-80;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.001814	+	.	Parent=tx-dyn-1-80
+dyn-1	apc	exon	244	412	0.001814	+	.	Parent=tx-dyn-1-80
+dyn-1	apc	exon	479	565	0.001814	+	.	Parent=tx-dyn-1-80
+dyn-1	apc	exon	607	751	0.001814	+	.	Parent=tx-dyn-1-80
+dyn-1	apc	intron	138	243	0.001814	+	.	Parent=tx-dyn-1-80
+dyn-1	apc	intron	413	478	0.001814	+	.	Parent=tx-dyn-1-80
+dyn-1	apc	intron	566	606	0.001814	+	.	Parent=tx-dyn-1-80
+
+dyn-1	apc	mRNA	1	751	0.001767	+	.	ID=tx-dyn-1-81;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	58	0.001767	+	.	Parent=tx-dyn-1-81
+dyn-1	apc	exon	109	201	0.001767	+	.	Parent=tx-dyn-1-81
+dyn-1	apc	exon	244	347	0.001767	+	.	Parent=tx-dyn-1-81
+dyn-1	apc	exon	409	550	0.001767	+	.	Parent=tx-dyn-1-81
+dyn-1	apc	exon	607	751	0.001767	+	.	Parent=tx-dyn-1-81
+dyn-1	apc	intron	59	108	0.001767	+	.	Parent=tx-dyn-1-81
+dyn-1	apc	intron	202	243	0.001767	+	.	Parent=tx-dyn-1-81
+dyn-1	apc	intron	348	408	0.001767	+	.	Parent=tx-dyn-1-81
+dyn-1	apc	intron	551	606	0.001767	+	.	Parent=tx-dyn-1-81
+
+dyn-1	apc	mRNA	1	751	0.001759	+	.	ID=tx-dyn-1-82;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	58	0.001759	+	.	Parent=tx-dyn-1-82
+dyn-1	apc	exon	109	201	0.001759	+	.	Parent=tx-dyn-1-82
+dyn-1	apc	exon	244	357	0.001759	+	.	Parent=tx-dyn-1-82
+dyn-1	apc	exon	409	550	0.001759	+	.	Parent=tx-dyn-1-82
+dyn-1	apc	exon	607	751	0.001759	+	.	Parent=tx-dyn-1-82
+dyn-1	apc	intron	59	108	0.001759	+	.	Parent=tx-dyn-1-82
+dyn-1	apc	intron	202	243	0.001759	+	.	Parent=tx-dyn-1-82
+dyn-1	apc	intron	358	408	0.001759	+	.	Parent=tx-dyn-1-82
+dyn-1	apc	intron	551	606	0.001759	+	.	Parent=tx-dyn-1-82
+
+dyn-1	apc	mRNA	1	751	0.001715	+	.	ID=tx-dyn-1-83;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.001715	+	.	Parent=tx-dyn-1-83
+dyn-1	apc	exon	244	299	0.001715	+	.	Parent=tx-dyn-1-83
+dyn-1	apc	exon	354	412	0.001715	+	.	Parent=tx-dyn-1-83
+dyn-1	apc	exon	479	565	0.001715	+	.	Parent=tx-dyn-1-83
+dyn-1	apc	exon	607	751	0.001715	+	.	Parent=tx-dyn-1-83
+dyn-1	apc	intron	134	243	0.001715	+	.	Parent=tx-dyn-1-83
+dyn-1	apc	intron	300	353	0.001715	+	.	Parent=tx-dyn-1-83
+dyn-1	apc	intron	413	478	0.001715	+	.	Parent=tx-dyn-1-83
+dyn-1	apc	intron	566	606	0.001715	+	.	Parent=tx-dyn-1-83
+
+dyn-1	apc	mRNA	1	751	0.001708	+	.	ID=tx-dyn-1-84;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	133	0.001708	+	.	Parent=tx-dyn-1-84
+dyn-1	apc	exon	244	412	0.001708	+	.	Parent=tx-dyn-1-84
+dyn-1	apc	exon	479	565	0.001708	+	.	Parent=tx-dyn-1-84
+dyn-1	apc	exon	607	751	0.001708	+	.	Parent=tx-dyn-1-84
+dyn-1	apc	intron	134	243	0.001708	+	.	Parent=tx-dyn-1-84
+dyn-1	apc	intron	413	478	0.001708	+	.	Parent=tx-dyn-1-84
+dyn-1	apc	intron	566	606	0.001708	+	.	Parent=tx-dyn-1-84
+
+dyn-1	apc	mRNA	1	751	0.001598	+	.	ID=tx-dyn-1-85;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001598	+	.	Parent=tx-dyn-1-85
+dyn-1	apc	exon	244	325	0.001598	+	.	Parent=tx-dyn-1-85
+dyn-1	apc	exon	395	550	0.001598	+	.	Parent=tx-dyn-1-85
+dyn-1	apc	exon	607	751	0.001598	+	.	Parent=tx-dyn-1-85
+dyn-1	apc	intron	71	243	0.001598	+	.	Parent=tx-dyn-1-85
+dyn-1	apc	intron	326	394	0.001598	+	.	Parent=tx-dyn-1-85
+dyn-1	apc	intron	551	606	0.001598	+	.	Parent=tx-dyn-1-85
+
+dyn-1	apc	mRNA	1	751	0.001594	+	.	ID=tx-dyn-1-86;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001594	+	.	Parent=tx-dyn-1-86
+dyn-1	apc	exon	181	299	0.001594	+	.	Parent=tx-dyn-1-86
+dyn-1	apc	exon	354	412	0.001594	+	.	Parent=tx-dyn-1-86
+dyn-1	apc	exon	479	553	0.001594	+	.	Parent=tx-dyn-1-86
+dyn-1	apc	exon	607	751	0.001594	+	.	Parent=tx-dyn-1-86
+dyn-1	apc	intron	71	180	0.001594	+	.	Parent=tx-dyn-1-86
+dyn-1	apc	intron	300	353	0.001594	+	.	Parent=tx-dyn-1-86
+dyn-1	apc	intron	413	478	0.001594	+	.	Parent=tx-dyn-1-86
+dyn-1	apc	intron	554	606	0.001594	+	.	Parent=tx-dyn-1-86
+
+dyn-1	apc	mRNA	1	751	0.001588	+	.	ID=tx-dyn-1-87;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	49	0.001588	+	.	Parent=tx-dyn-1-87
+dyn-1	apc	exon	109	201	0.001588	+	.	Parent=tx-dyn-1-87
+dyn-1	apc	exon	244	367	0.001588	+	.	Parent=tx-dyn-1-87
+dyn-1	apc	exon	409	550	0.001588	+	.	Parent=tx-dyn-1-87
+dyn-1	apc	exon	607	751	0.001588	+	.	Parent=tx-dyn-1-87
+dyn-1	apc	intron	50	108	0.001588	+	.	Parent=tx-dyn-1-87
+dyn-1	apc	intron	202	243	0.001588	+	.	Parent=tx-dyn-1-87
+dyn-1	apc	intron	368	408	0.001588	+	.	Parent=tx-dyn-1-87
+dyn-1	apc	intron	551	606	0.001588	+	.	Parent=tx-dyn-1-87
+
+dyn-1	apc	mRNA	1	751	0.001552	+	.	ID=tx-dyn-1-88;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001552	+	.	Parent=tx-dyn-1-88
+dyn-1	apc	exon	244	299	0.001552	+	.	Parent=tx-dyn-1-88
+dyn-1	apc	exon	354	407	0.001552	+	.	Parent=tx-dyn-1-88
+dyn-1	apc	exon	479	565	0.001552	+	.	Parent=tx-dyn-1-88
+dyn-1	apc	exon	607	751	0.001552	+	.	Parent=tx-dyn-1-88
+dyn-1	apc	intron	71	243	0.001552	+	.	Parent=tx-dyn-1-88
+dyn-1	apc	intron	300	353	0.001552	+	.	Parent=tx-dyn-1-88
+dyn-1	apc	intron	408	478	0.001552	+	.	Parent=tx-dyn-1-88
+dyn-1	apc	intron	566	606	0.001552	+	.	Parent=tx-dyn-1-88
+
+dyn-1	apc	mRNA	1	751	0.00155	+	.	ID=tx-dyn-1-89;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.00155	+	.	Parent=tx-dyn-1-89
+dyn-1	apc	exon	244	387	0.00155	+	.	Parent=tx-dyn-1-89
+dyn-1	apc	exon	479	553	0.00155	+	.	Parent=tx-dyn-1-89
+dyn-1	apc	exon	607	751	0.00155	+	.	Parent=tx-dyn-1-89
+dyn-1	apc	intron	71	243	0.00155	+	.	Parent=tx-dyn-1-89
+dyn-1	apc	intron	388	478	0.00155	+	.	Parent=tx-dyn-1-89
+dyn-1	apc	intron	554	606	0.00155	+	.	Parent=tx-dyn-1-89
+
+dyn-1	apc	mRNA	1	751	0.001515	+	.	ID=tx-dyn-1-90;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001515	+	.	Parent=tx-dyn-1-90
+dyn-1	apc	exon	244	367	0.001515	+	.	Parent=tx-dyn-1-90
+dyn-1	apc	exon	409	550	0.001515	+	.	Parent=tx-dyn-1-90
+dyn-1	apc	exon	607	658	0.001515	+	.	Parent=tx-dyn-1-90
+dyn-1	apc	exon	703	751	0.001515	+	.	Parent=tx-dyn-1-90
+dyn-1	apc	intron	71	243	0.001515	+	.	Parent=tx-dyn-1-90
+dyn-1	apc	intron	368	408	0.001515	+	.	Parent=tx-dyn-1-90
+dyn-1	apc	intron	551	606	0.001515	+	.	Parent=tx-dyn-1-90
+dyn-1	apc	intron	659	702	0.001515	+	.	Parent=tx-dyn-1-90
+
+dyn-1	apc	mRNA	1	751	0.001515	+	.	ID=tx-dyn-1-91;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001515	+	.	Parent=tx-dyn-1-91
+dyn-1	apc	exon	244	299	0.001515	+	.	Parent=tx-dyn-1-91
+dyn-1	apc	exon	354	387	0.001515	+	.	Parent=tx-dyn-1-91
+dyn-1	apc	exon	479	550	0.001515	+	.	Parent=tx-dyn-1-91
+dyn-1	apc	exon	607	751	0.001515	+	.	Parent=tx-dyn-1-91
+dyn-1	apc	intron	71	243	0.001515	+	.	Parent=tx-dyn-1-91
+dyn-1	apc	intron	300	353	0.001515	+	.	Parent=tx-dyn-1-91
+dyn-1	apc	intron	388	478	0.001515	+	.	Parent=tx-dyn-1-91
+dyn-1	apc	intron	551	606	0.001515	+	.	Parent=tx-dyn-1-91
+
+dyn-1	apc	mRNA	1	751	0.001513	+	.	ID=tx-dyn-1-92;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.001513	+	.	Parent=tx-dyn-1-92
+dyn-1	apc	exon	244	367	0.001513	+	.	Parent=tx-dyn-1-92
+dyn-1	apc	exon	409	565	0.001513	+	.	Parent=tx-dyn-1-92
+dyn-1	apc	exon	607	751	0.001513	+	.	Parent=tx-dyn-1-92
+dyn-1	apc	intron	202	243	0.001513	+	.	Parent=tx-dyn-1-92
+dyn-1	apc	intron	368	408	0.001513	+	.	Parent=tx-dyn-1-92
+dyn-1	apc	intron	566	606	0.001513	+	.	Parent=tx-dyn-1-92
+
+dyn-1	apc	mRNA	1	751	0.001501	+	.	ID=tx-dyn-1-93;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001501	+	.	Parent=tx-dyn-1-93
+dyn-1	apc	exon	181	347	0.001501	+	.	Parent=tx-dyn-1-93
+dyn-1	apc	exon	395	550	0.001501	+	.	Parent=tx-dyn-1-93
+dyn-1	apc	exon	607	751	0.001501	+	.	Parent=tx-dyn-1-93
+dyn-1	apc	intron	71	180	0.001501	+	.	Parent=tx-dyn-1-93
+dyn-1	apc	intron	348	394	0.001501	+	.	Parent=tx-dyn-1-93
+dyn-1	apc	intron	551	606	0.001501	+	.	Parent=tx-dyn-1-93
+
+dyn-1	apc	mRNA	1	751	0.001475	+	.	ID=tx-dyn-1-94;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.001475	+	.	Parent=tx-dyn-1-94
+dyn-1	apc	exon	244	367	0.001475	+	.	Parent=tx-dyn-1-94
+dyn-1	apc	exon	409	553	0.001475	+	.	Parent=tx-dyn-1-94
+dyn-1	apc	exon	607	751	0.001475	+	.	Parent=tx-dyn-1-94
+dyn-1	apc	intron	202	243	0.001475	+	.	Parent=tx-dyn-1-94
+dyn-1	apc	intron	368	408	0.001475	+	.	Parent=tx-dyn-1-94
+dyn-1	apc	intron	554	606	0.001475	+	.	Parent=tx-dyn-1-94
+
+dyn-1	apc	mRNA	1	751	0.001468	+	.	ID=tx-dyn-1-95;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001468	+	.	Parent=tx-dyn-1-95
+dyn-1	apc	exon	181	412	0.001468	+	.	Parent=tx-dyn-1-95
+dyn-1	apc	exon	479	550	0.001468	+	.	Parent=tx-dyn-1-95
+dyn-1	apc	exon	607	751	0.001468	+	.	Parent=tx-dyn-1-95
+dyn-1	apc	intron	71	180	0.001468	+	.	Parent=tx-dyn-1-95
+dyn-1	apc	intron	413	478	0.001468	+	.	Parent=tx-dyn-1-95
+dyn-1	apc	intron	551	606	0.001468	+	.	Parent=tx-dyn-1-95
+
+dyn-1	apc	mRNA	1	751	0.00146	+	.	ID=tx-dyn-1-96;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.00146	+	.	Parent=tx-dyn-1-96
+dyn-1	apc	exon	244	374	0.00146	+	.	Parent=tx-dyn-1-96
+dyn-1	apc	exon	479	565	0.00146	+	.	Parent=tx-dyn-1-96
+dyn-1	apc	exon	607	751	0.00146	+	.	Parent=tx-dyn-1-96
+dyn-1	apc	intron	71	243	0.00146	+	.	Parent=tx-dyn-1-96
+dyn-1	apc	intron	375	478	0.00146	+	.	Parent=tx-dyn-1-96
+dyn-1	apc	intron	566	606	0.00146	+	.	Parent=tx-dyn-1-96
+
+dyn-1	apc	mRNA	1	751	0.001448	+	.	ID=tx-dyn-1-97;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	70	0.001448	+	.	Parent=tx-dyn-1-97
+dyn-1	apc	exon	244	407	0.001448	+	.	Parent=tx-dyn-1-97
+dyn-1	apc	exon	479	553	0.001448	+	.	Parent=tx-dyn-1-97
+dyn-1	apc	exon	607	751	0.001448	+	.	Parent=tx-dyn-1-97
+dyn-1	apc	intron	71	243	0.001448	+	.	Parent=tx-dyn-1-97
+dyn-1	apc	intron	408	478	0.001448	+	.	Parent=tx-dyn-1-97
+dyn-1	apc	intron	554	606	0.001448	+	.	Parent=tx-dyn-1-97
+
+dyn-1	apc	mRNA	1	751	0.001435	+	.	ID=tx-dyn-1-98;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	137	0.001435	+	.	Parent=tx-dyn-1-98
+dyn-1	apc	exon	244	367	0.001435	+	.	Parent=tx-dyn-1-98
+dyn-1	apc	exon	409	565	0.001435	+	.	Parent=tx-dyn-1-98
+dyn-1	apc	exon	607	751	0.001435	+	.	Parent=tx-dyn-1-98
+dyn-1	apc	intron	138	243	0.001435	+	.	Parent=tx-dyn-1-98
+dyn-1	apc	intron	368	408	0.001435	+	.	Parent=tx-dyn-1-98
+dyn-1	apc	intron	566	606	0.001435	+	.	Parent=tx-dyn-1-98
+
+dyn-1	apc	mRNA	1	751	0.001425	+	.	ID=tx-dyn-1-99;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.001425	+	.	Parent=tx-dyn-1-99
+dyn-1	apc	exon	244	299	0.001425	+	.	Parent=tx-dyn-1-99
+dyn-1	apc	exon	354	412	0.001425	+	.	Parent=tx-dyn-1-99
+dyn-1	apc	exon	479	553	0.001425	+	.	Parent=tx-dyn-1-99
+dyn-1	apc	exon	607	751	0.001425	+	.	Parent=tx-dyn-1-99
+dyn-1	apc	intron	202	243	0.001425	+	.	Parent=tx-dyn-1-99
+dyn-1	apc	intron	300	353	0.001425	+	.	Parent=tx-dyn-1-99
+dyn-1	apc	intron	413	478	0.001425	+	.	Parent=tx-dyn-1-99
+dyn-1	apc	intron	554	606	0.001425	+	.	Parent=tx-dyn-1-99
+
+dyn-1	apc	mRNA	1	751	0.001419	+	.	ID=tx-dyn-1-100;Parent=Gene-dyn-1
+dyn-1	apc	exon	1	201	0.001419	+	.	Parent=tx-dyn-1-100
+dyn-1	apc	exon	244	412	0.001419	+	.	Parent=tx-dyn-1-100
+dyn-1	apc	exon	479	553	0.001419	+	.	Parent=tx-dyn-1-100
+dyn-1	apc	exon	607	751	0.001419	+	.	Parent=tx-dyn-1-100
+dyn-1	apc	intron	202	243	0.001419	+	.	Parent=tx-dyn-1-100
+dyn-1	apc	intron	413	478	0.001419	+	.	Parent=tx-dyn-1-100
+dyn-1	apc	intron	554	606	0.001419	+	.	Parent=tx-dyn-1-100
+

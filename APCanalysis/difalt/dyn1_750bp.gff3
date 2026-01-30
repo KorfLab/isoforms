@@ -1,0 +1,22 @@
+X	WormBase	CDS	-315	70	.	+	0	ID=CDS:C02C6.1b;Parent=Transcript:C02C6.1b.1;Name=C02C6.1b;prediction_status=Confirmed;wormpep=CE07832;protein_id=CAC42251.1;locus=dyn-1;uniprot_id=P39055
+X	WormBase	CDS	607	679	.	+	1	ID=CDS:C02C6.1b;Parent=Transcript:C02C6.1b.1;Name=C02C6.1b;prediction_status=Confirmed;wormpep=CE07832;protein_id=CAC42251.1;locus=dyn-1;uniprot_id=P39055
+X	WormBase	CDS	-315	70	.	+	0	ID=CDS:C02C6.1a;Parent=Transcript:C02C6.1a.1;Name=C02C6.1a;prediction_status=Confirmed;wormpep=CE07833;protein_id=CAB01857.1;locus=dyn-1;uniprot_id=P39055
+X	WormBase	CDS	244	292	.	+	1	ID=CDS:C02C6.1a;Parent=Transcript:C02C6.1a.1;Name=C02C6.1a;prediction_status=Confirmed;wormpep=CE07833;protein_id=CAB01857.1;locus=dyn-1;uniprot_id=P39055
+X	RNASeq_splice	intron	25	243	23	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	25	606	75	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	25	638	4	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	71	180	69	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	71	202	3	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	71	206	5	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	71	243	95180	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	71	606	158049	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	71	609	11	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	75	609	15	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	75	611	17	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	326	559	3	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	326	606	89852	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	326	609	3	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	330	611	3	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	358	606	40	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	360	606	55	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	551	606	10	+	.	Name=RNASeq intron

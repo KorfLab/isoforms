@@ -1,0 +1,7 @@
+V	WormBase	CDS	-60	50	.	-	0	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1;Name=K06C4.6a;prediction_status=Confirmed;wormpep=CE28590;protein_id=CCD72364.1;locus=mod-1;uniprot_id=Q9GQ00
+V	WormBase	CDS	642	683	.	-	0	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1;Name=K06C4.6a;prediction_status=Confirmed;wormpep=CE28590;protein_id=CCD72364.1;locus=mod-1;uniprot_id=Q9GQ00
+V	WormBase	CDS	-60	50	.	-	0	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1;Name=K06C4.6b;prediction_status=Confirmed;wormpep=CE30814;protein_id=CCD72365.1;locus=mod-1;uniprot_id=Q9GQ00
+V	RNASeq_splice	intron	51	136	5	-	.	Name=RNASeq intron
+V	RNASeq_splice	intron	51	641	6197	-	.	Name=RNASeq intron
+V	RNASeq_splice	intron	65	641	10	-	.	Name=RNASeq intron
+V	WormBase	CDS	618	683	.	-	0	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1;Name=K06C4.6c;prediction_status=Partially_confirmed;wormpep=CE38391;protein_id=CCD72366.1;locus=mod-1;uniprot_id=Q9GQ00

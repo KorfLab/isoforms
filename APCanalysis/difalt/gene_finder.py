@@ -9,8 +9,11 @@ parser.add_argument('coordinates', help='chromosome:loc i.e. X:99:999; '
 parser.add_argument('--seq_desc', required=True, help='add description for sequence '
 	'in first line of fasta file')
 parser.add_argument('--fname', required=True, help='add file name')
+parser.add_argument('--rev', required=False, action='store_true', 
+	help='is the sequence on the reverse strand?')
 
 args = parser.parse_args()
+
 
 '''
 dyn-1 whole gene sequence is X:15568921:15573021
@@ -62,6 +65,13 @@ with open_type(args.genome, 'rt') as fp:
 			if n_counts >= gen_coors[0] and n_counts <= gen_coors[1]:
 				#print(n_counts, n)
 				gen_seq.append(n)
+
+if args.rev:
+	rev_seq = []
+	comp = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+	for n in gen_seq:
+		rev_seq.append(comp[n])
+	gen_seq = rev_seq
 
 # organize sequences into 80 nt lines
 seq_lines = []

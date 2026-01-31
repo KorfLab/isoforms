@@ -3,18 +3,21 @@
 #include <string.h>
 #include <getopt.h>
 #include "model.h"
-#include "randomf.h"
+#include "decoder/randomf.h"
 
 int     DEBUG                   = 0;
 int     use_random_forest       = 0;
 int     n_isoforms              = 10000;
+int     model_in_log_space      = 0;
 
 void print_usage(const char *program_name) {
     printf("RFHMM - Random Forest Hidden Markov Model for gene prediction\n");
     printf("Usage: %s [OPTIONS]\n\n", program_name);
     printf("Required options:\n");
     printf("  -s, --sequence FILE           Input sequence file\n");
-    printf("\nOptional model files:\n");
+    printf("\nModel options (use ONE of the following):\n");
+    printf("  -M, --model FILE              JSON model file (.splicemodel)\n");
+    printf("  OR individual model files:\n");
     printf("  -d, --don_emission FILE       Donor emission file (default: ../models/don.pwm)\n");
     printf("  -a, --acc_emission FILE       Acceptor emission file (default: ../models/acc.pwm)\n");
     printf("  -e, --exon_emission FILE      Exon emission file (default: ../models/exon.mm)\n");
@@ -63,6 +66,7 @@ int main(int argc, char *argv[])
     char *Ped_exon              = default_Ped_exon;
     char *Ped_intron            = default_Ped_intron;
     char *seq_input             = NULL;
+    char *model_file            = NULL;
     int print_splice_detailed   = 0;
     int output_json             = 0;
     int flank_size              = DEFAULT_FLANK;
@@ -71,6 +75,7 @@ int main(int argc, char *argv[])
 
     static struct option long_options[] = {
         {"sequence",        required_argument, 0, 's'},
+        {"model",           required_argument, 0, 'M'},
         {"don_emission",    required_argument, 0, 'd'},
         {"acc_emission",    required_argument, 0, 'a'},
         {"exon_emission",   required_argument, 0, 'e'},
@@ -92,10 +97,13 @@ int main(int argc, char *argv[])
     int option_index = 0;
     int c;
 
-    while ((c = getopt_long(argc, argv, "s:d:a:e:i:x:n:f:N:m:z:jSpvh", long_options, &option_index)) != -1) {
+    while ((c = getopt_long(argc, argv, "s:M:d:a:e:i:x:n:f:N:m:z:jSpvh", long_options, &option_index)) != -1) {
         switch (c) {
             case 's':
                 seq_input = optarg;
+                break;
+            case 'M':
+                model_file = optarg;
                 break;
             case 'd':
                 don_emission = optarg;
@@ -217,19 +225,31 @@ int main(int argc, char *argv[])
 
     /* --------------- Parse HMM Model Input --------------- */
     if (DEBUG) printf("\n--- Phase 2: Parsing Model Files ---\n");
-    
-    // Parse emission matrices (PWMs and Markov models)
-    donor_parser(&l, don_emission);
-    acceptor_parser(&l, acc_emission);
-    exon_intron_parser(&l, exon_emission, 0);
-    exon_intron_parser(&l, intron_emission, 1);
-    
-    // Parse duration probabilities
-    explicit_duration_probability(&ed, Ped_exon, 0);
-    explicit_duration_probability(&ed, Ped_intron, 1);
+
+    if (model_file) {
+        // Use unified JSON model file (values already in log-space)
+        if (parse_json_model(model_file, &l, &ed) != 0) {
+            fprintf(stderr, "Error: Failed to parse model file %s\n", model_file);
+            return 1;
+        }
+        model_in_log_space = 1;
+    } else {
+        // Parse individual model files
+        donor_parser(&l, don_emission);
+        acceptor_parser(&l, acc_emission);
+        exon_intron_parser(&l, exon_emission, 0);
+        exon_intron_parser(&l, intron_emission, 1);
+
+        explicit_duration_probability(&ed, Ped_exon, 0);
+        explicit_duration_probability(&ed, Ped_intron, 1);
+    }
 
     if (DEBUG) printf("\n--- Phase 3: Computing Transition Matrices ---\n");
-    compute_transition_matrices(&l);
+    if (model_in_log_space) {
+        compute_transition_matrices_log(&l);
+    } else {
+        compute_transition_matrices(&l);
+    }
     
     l.log_values_len = (ed.max_len_exon > ed.max_len_intron) ? ed.max_len_exon : ed.max_len_intron;
     l.log_values     = calloc(l.log_values_len, sizeof(double));
@@ -250,26 +270,31 @@ int main(int argc, char *argv[])
     }
 
     /* --------------- Log Space Conversion --------------- */
-    if (DEBUG) printf("\n--- Phase 5: Converting to Log Space ---\n");
-    
     int don_size    = power(4, l.B.don_kmer_len);
     int acc_size    = power(4, l.B.acc_kmer_len);
     int exon_size   = power(4, l.B.exon_kmer_len);
     int intron_size = power(4, l.B.intron_kmer_len);
-    
-    // Check for numerical issues
-    tolerance_checker(ed.exon, ed.exon_len, 1e-15);
-    tolerance_checker(ed.intron, ed.intron_len, 1e-15);
-    tolerance_checker(l.A.dons, don_size, 1e-15);
-    tolerance_checker(l.A.accs, acc_size, 1e-15);
 
-    // Convert to log space for numerical stability
-    log_space_converter(ed.exon, ed.exon_len);
-    log_space_converter(ed.intron, ed.intron_len);
-    log_space_converter(l.A.dons, don_size);
-    log_space_converter(l.A.accs, acc_size);
-    log_space_converter(l.B.exon, exon_size);
-    log_space_converter(l.B.intron, intron_size);
+    if (model_in_log_space) {
+        // JSON model already in log-space, skip conversion
+        if (DEBUG) printf("\n--- Phase 5: Model already in log space ---\n");
+    } else {
+        if (DEBUG) printf("\n--- Phase 5: Converting to Log Space ---\n");
+
+        // Check for numerical issues
+        tolerance_checker(ed.exon, ed.exon_len, 1e-15);
+        tolerance_checker(ed.intron, ed.intron_len, 1e-15);
+        tolerance_checker(l.A.dons, don_size, 1e-15);
+        tolerance_checker(l.A.accs, acc_size, 1e-15);
+
+        // Convert to log space for numerical stability
+        log_space_converter(ed.exon, ed.exon_len);
+        log_space_converter(ed.intron, ed.intron_len);
+        log_space_converter(l.A.dons, don_size);
+        log_space_converter(l.A.accs, acc_size);
+        log_space_converter(l.B.exon, exon_size);
+        log_space_converter(l.B.intron, intron_size);
+    }
 
     /* --------------- Exe Forward Backward Algorithm --------------- */
     if (DEBUG) printf("\n--- Phase 6: Forward-Backward Algorithm ---\n");

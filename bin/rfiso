@@ -40,8 +40,6 @@ parser.add_argument('--winl', type=float, default=1.0,
     metavar='<float>', help='intron length weight [%(default).2f]')
 parser.add_argument('--winf', type=float, default=1.0,
     metavar='<float>', help='intron frequency weight [%(default).2f]')
-
-# hmm & rf parameter
 parser.add_argument('--locus_size', type=int, default=100000,
     metavar='<int>', help='isoform capacity for a locus')
 parser.add_argument('--mtry', type=float, default=0.5,  
@@ -74,13 +72,16 @@ constraints = {
 if arg.out: fp = open(arg.out, 'w')
 else: fp = sys.stdout
 
-name, seq = next(isoform.read_fasta(arg.fasta))
+name, seq = next(isoform.read_fasta(arg.sequence))
 
 # capture and parse locus from HMM
-locus = util.get_locus_fhmm(arg.hmm, arg.seq, arg.hmm_model, arg.flank, 
+locus = util.get_locus_fhmm(arg.hmm, arg.sequence, arg.hmm_model, arg.flank,
                             arg.locus_size, arg.mtry, arg.node_size)
 locus = isoform.load_locus(locus)
 
 # send to the scoring system
 locus = Locus(name, seq, model, constraints=constraints, weights=weights,
-        limit=arg.limit, locus=locus)
+        limit=arg.limit, memoize=arg.memoize, locus=locus)
+
+locus.write_gff(fp)
+if arg.out: fp.close()

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "model.h"
-#include "randomf.h"
+#include "decoder/randomf.h"
 
 /* --------------- HMM Hints Output --------------- */
 
@@ -11,13 +11,13 @@ void print_splice_sites(Pos_prob *pos, Observed_events *info) {
     int FLANK = (info->flank != 0) ? info->flank : DEFAULT_FLANK;
     printf("DONS\n");
     for (int i = FLANK; i < info->T-FLANK; i++) {
-        if (pos->xi[i][0] != 0.0) {
+        if (!IS_LOG_ZERO(pos->xi[i][0])) {
             printf("%d\t%.10f\n", i, pos->xi[i][0]);
         }
     }
     printf("ACCS\n");
     for (int i = FLANK; i < info->T-FLANK; i++) {
-        if (pos->xi[i][1] != 0.0) {  
+        if (!IS_LOG_ZERO(pos->xi[i][1])) {
             printf("%d\t%.10f\n", i, pos->xi[i][1]);
         }
     }

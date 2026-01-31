@@ -9,14 +9,28 @@
 /* --------------- Auxilary Function --------------- */
 
 static double log_sum_sub(double val, double add, double sub) {
-    double max          = (val > add) ? val : add;
-    double sum          = exp(val - max) + exp(add - max);
-    double log_sum      = max + log(sum);
-    double max_val      = (log_sum > sub) ? log_sum : sub; 
-    double diff         = exp(log_sum - max_val) - exp(sub - max_val);
+    // Handle LOG_ZERO cases
+    if (IS_LOG_ZERO(val) && IS_LOG_ZERO(add)) {
+        return IS_LOG_ZERO(sub) ? LOG_ZERO : sub;  // 0 + 0 - sub
+    }
+
+    double max     = IS_LOG_ZERO(val) ? add : (IS_LOG_ZERO(add) ? val : ((val > add) ? val : add));
+    double sum     = 0.0;
+
+    if (!IS_LOG_ZERO(val)) sum += exp(val - max);
+    if (!IS_LOG_ZERO(add)) sum += exp(add - max);
+
+    double log_sum = max + log(sum);
+
+    if (IS_LOG_ZERO(sub)) {
+        return log_sum;
+    }
+
+    double max_val = (log_sum > sub) ? log_sum : sub;
+    double diff    = exp(log_sum - max_val) - exp(sub - max_val);
 
     if (diff <= 0) {
-        return NAN;
+        return LOG_ZERO;  // Result is zero or negative (invalid in probability)
     }
 
     return max_val + log(diff);
@@ -37,15 +51,19 @@ void allocate_vit(Vitbi_algo *vit, Observed_events *info) {
     }
 
     for (int state = 0; state < HS; state++) {
-        vit->v[state] = calloc(info->T, sizeof(double));
+        vit->v[state] = malloc(info->T * sizeof(double));
         if (!vit->v[state]) {
             fprintf(stderr, "Failed to allocate Viterbi state rows.\n");
             exit(EXIT_FAILURE);
         }
+        // Initialize to LOG_ZERO
+        for (int t = 0; t < info->T; t++) {
+            vit->v[state][t] = LOG_ZERO;
+        }
     }
 
-    vit->exon = 0.0;
-    vit->intron = 0.0;
+    vit->exon   = LOG_ZERO;
+    vit->intron = LOG_ZERO;
 }
 
 void free_vit(Vitbi_algo *vit, Observed_events *info) {
@@ -62,8 +80,8 @@ void free_vit(Vitbi_algo *vit, Observed_events *info) {
     free(vit->v);
     vit->v = NULL;
 
-    vit->exon = 0.0;
-    vit->intron = 0.0;
+    vit->exon   = LOG_ZERO;
+    vit->intron = LOG_ZERO;
 }
 
 void reset_viterbi(Vitbi_algo *vit, Observed_events *info) {
@@ -72,11 +90,13 @@ void reset_viterbi(Vitbi_algo *vit, Observed_events *info) {
     }
 
     for (int state = 0; state < HS; state++) {
-        memset(vit->v[state], 0, sizeof(double) * info->T);
+        for (int t = 0; t < info->T; t++) {
+            vit->v[state][t] = LOG_ZERO;
+        }
     }
 
-    vit->exon = 0.0;
-    vit->intron = 0.0;
+    vit->exon   = LOG_ZERO;
+    vit->intron = LOG_ZERO;
 }
 
 void initialize_viterbi_from_posterior(Vitbi_algo *vit, Pos_prob *pos, Observed_events *info) {
@@ -223,23 +243,23 @@ void single_viterbi_algo(Pos_prob *pos, Observed_events *info, Explicit_duration
     double exon_val, intron_val;
     
     for (int t = first_dons + 1; t < info->T - FLANK; t++) {
-        exon_val    = vit->v[0][t];
-        intron_val  = vit->v[1][t];
-        
-        if (pos->xi[t][0] != 0.0) {
-            vit->v[0][t] = log_sum_sub(exon_val, 0.0, pos->xi[t][0]);
-            vit->v[1][t] = log_sum_sub(intron_val, pos->xi[t][0], 0.0);
+        exon_val   = vit->v[0][t];
+        intron_val = vit->v[1][t];
+
+        if (!IS_LOG_ZERO(pos->xi[t][0])) {
+            vit->v[0][t] = log_sum_sub(exon_val, LOG_ZERO, pos->xi[t][0]);
+            vit->v[1][t] = log_sum_sub(intron_val, pos->xi[t][0], LOG_ZERO);
         }
-        else if (pos->xi[t][1] != 0.0) {
-            vit->v[0][t] = log_sum_sub(exon_val, pos->xi[t][1], 0.0);
-            vit->v[1][t] = log_sum_sub(intron_val, 0.0, pos->xi[t][1]);
+        else if (!IS_LOG_ZERO(pos->xi[t][1])) {
+            vit->v[0][t] = log_sum_sub(exon_val, pos->xi[t][1], LOG_ZERO);
+            vit->v[1][t] = log_sum_sub(intron_val, LOG_ZERO, pos->xi[t][1]);
         }
-        
+
         if (vit->v[0][t] > vit->v[1][t]) {
-            path[t] = 0;
+            path[t]     = 0;
             path_val[t] = vit->v[0][t];
         } else {
-            path[t] = 1;
+            path[t]     = 1;
             path_val[t] = vit->v[1][t];
         }
     }
@@ -598,14 +618,4 @@ void extract_isoform_from_path(int *path, Observed_events *info, Isoform *iso) {
     
     free(temp_dons);
     free(temp_accs);
-}
-
-
-/* --------------- Memory Management --------------- */
-
-void free_splice_sites(Pos_prob *pos) {
-    free(pos->dons_val);
-    free(pos->dons_bps);
-    free(pos->accs_val);
-    free(pos->accs_bps);
 }

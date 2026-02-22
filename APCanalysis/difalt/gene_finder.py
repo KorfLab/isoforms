@@ -67,10 +67,16 @@ with open_type(args.genome, 'rt') as fp:
 				gen_seq.append(n)
 
 if args.rev:
-	rev_seq = []
+	comp_seq = []
 	comp = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
 	for n in gen_seq:
-		rev_seq.append(comp[n])
+		comp_seq.append(comp[n])
+		
+	rev_seq = []
+	for i in range(len(comp_seq)):
+		i = i+1
+		rev_seq.append(comp_seq[-i])
+		
 	gen_seq = rev_seq
 
 # organize sequences into 80 nt lines

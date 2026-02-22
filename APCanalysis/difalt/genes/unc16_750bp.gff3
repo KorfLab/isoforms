@@ -1,0 +1,46 @@
+III	WormBase	CDS	1	148	.	+	2	ID=CDS:ZK1098.10b;Parent=Transcript:ZK1098.10b.1;Name=ZK1098.10b;prediction_status=Confirmed;wormpep=CE31846;protein_id=CAD45611.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	196	276	.	+	1	ID=CDS:ZK1098.10b;Parent=Transcript:ZK1098.10b.1;Name=ZK1098.10b;prediction_status=Confirmed;wormpep=CE31846;protein_id=CAD45611.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	327	394	.	+	1	ID=CDS:ZK1098.10b;Parent=Transcript:ZK1098.10b.1;Name=ZK1098.10b;prediction_status=Confirmed;wormpep=CE31846;protein_id=CAD45611.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	680	828	.	+	2	ID=CDS:ZK1098.10b;Parent=Transcript:ZK1098.10b.1;Name=ZK1098.10b;prediction_status=Confirmed;wormpep=CE31846;protein_id=CAD45611.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	1	148	.	+	2	ID=CDS:ZK1098.10d;Parent=Transcript:ZK1098.10d.1;Name=ZK1098.10d;prediction_status=Confirmed;wormpep=CE41491;protein_id=CAO82058.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	196	276	.	+	1	ID=CDS:ZK1098.10d;Parent=Transcript:ZK1098.10d.1;Name=ZK1098.10d;prediction_status=Confirmed;wormpep=CE41491;protein_id=CAO82058.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	327	394	.	+	1	ID=CDS:ZK1098.10d;Parent=Transcript:ZK1098.10d.1;Name=ZK1098.10d;prediction_status=Confirmed;wormpep=CE41491;protein_id=CAO82058.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	680	828	.	+	2	ID=CDS:ZK1098.10d;Parent=Transcript:ZK1098.10d.1;Name=ZK1098.10d;prediction_status=Confirmed;wormpep=CE41491;protein_id=CAO82058.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	1	148	.	+	2	ID=CDS:ZK1098.10e;Parent=Transcript:ZK1098.10e.1;Name=ZK1098.10e;prediction_status=Confirmed;wormpep=CE43483;protein_id=CAX51690.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	196	276	.	+	1	ID=CDS:ZK1098.10e;Parent=Transcript:ZK1098.10e.1;Name=ZK1098.10e;prediction_status=Confirmed;wormpep=CE43483;protein_id=CAX51690.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	327	394	.	+	1	ID=CDS:ZK1098.10e;Parent=Transcript:ZK1098.10e.1;Name=ZK1098.10e;prediction_status=Confirmed;wormpep=CE43483;protein_id=CAX51690.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	680	828	.	+	2	ID=CDS:ZK1098.10e;Parent=Transcript:ZK1098.10e.1;Name=ZK1098.10e;prediction_status=Confirmed;wormpep=CE43483;protein_id=CAX51690.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	1	148	.	+	2	ID=CDS:ZK1098.10a;Parent=Transcript:ZK1098.10a.1,Transcript:ZK1098.10a.2;Name=ZK1098.10a;prediction_status=Confirmed;wormpep=CE00363;protein_id=CAA80140.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	196	276	.	+	1	ID=CDS:ZK1098.10a;Parent=Transcript:ZK1098.10a.1,Transcript:ZK1098.10a.2;Name=ZK1098.10a;prediction_status=Confirmed;wormpep=CE00363;protein_id=CAA80140.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	327	394	.	+	1	ID=CDS:ZK1098.10a;Parent=Transcript:ZK1098.10a.1,Transcript:ZK1098.10a.2;Name=ZK1098.10a;prediction_status=Confirmed;wormpep=CE00363;protein_id=CAA80140.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	680	828	.	+	2	ID=CDS:ZK1098.10a;Parent=Transcript:ZK1098.10a.1,Transcript:ZK1098.10a.2;Name=ZK1098.10a;prediction_status=Confirmed;wormpep=CE00363;protein_id=CAA80140.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	1	148	.	+	2	ID=CDS:ZK1098.10f;Parent=Transcript:ZK1098.10f.1;Name=ZK1098.10f;prediction_status=Confirmed;wormpep=CE44092;protein_id=CBA11621.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	196	276	.	+	1	ID=CDS:ZK1098.10f;Parent=Transcript:ZK1098.10f.1;Name=ZK1098.10f;prediction_status=Confirmed;wormpep=CE44092;protein_id=CBA11621.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	327	394	.	+	1	ID=CDS:ZK1098.10f;Parent=Transcript:ZK1098.10f.1;Name=ZK1098.10f;prediction_status=Confirmed;wormpep=CE44092;protein_id=CBA11621.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	680	828	.	+	2	ID=CDS:ZK1098.10f;Parent=Transcript:ZK1098.10f.1;Name=ZK1098.10f;prediction_status=Confirmed;wormpep=CE44092;protein_id=CBA11621.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	1	148	.	+	2	ID=CDS:ZK1098.10g;Parent=Transcript:ZK1098.10g.1;Name=ZK1098.10g;prediction_status=Confirmed;wormpep=CE48500;protein_id=CDG24108.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	196	276	.	+	1	ID=CDS:ZK1098.10g;Parent=Transcript:ZK1098.10g.1;Name=ZK1098.10g;prediction_status=Confirmed;wormpep=CE48500;protein_id=CDG24108.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	327	394	.	+	1	ID=CDS:ZK1098.10g;Parent=Transcript:ZK1098.10g.1;Name=ZK1098.10g;prediction_status=Confirmed;wormpep=CE48500;protein_id=CDG24108.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	680	828	.	+	2	ID=CDS:ZK1098.10g;Parent=Transcript:ZK1098.10g.1;Name=ZK1098.10g;prediction_status=Confirmed;wormpep=CE48500;protein_id=CDG24108.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	1	148	.	+	2	ID=CDS:ZK1098.10o;Parent=Transcript:ZK1098.10o.1;Name=ZK1098.10o;prediction_status=Confirmed;wormpep=CE48464;protein_id=CDG24116.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	196	276	.	+	1	ID=CDS:ZK1098.10o;Parent=Transcript:ZK1098.10o.1;Name=ZK1098.10o;prediction_status=Confirmed;wormpep=CE48464;protein_id=CDG24116.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	327	394	.	+	1	ID=CDS:ZK1098.10o;Parent=Transcript:ZK1098.10o.1;Name=ZK1098.10o;prediction_status=Confirmed;wormpep=CE48464;protein_id=CDG24116.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	680	828	.	+	2	ID=CDS:ZK1098.10o;Parent=Transcript:ZK1098.10o.1;Name=ZK1098.10o;prediction_status=Confirmed;wormpep=CE48464;protein_id=CDG24116.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	1	148	.	+	2	ID=CDS:ZK1098.10c;Parent=Transcript:ZK1098.10c.1;Name=ZK1098.10c;prediction_status=Confirmed;wormpep=CE41490;protein_id=CAO82057.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	196	276	.	+	1	ID=CDS:ZK1098.10c;Parent=Transcript:ZK1098.10c.1;Name=ZK1098.10c;prediction_status=Confirmed;wormpep=CE41490;protein_id=CAO82057.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	327	394	.	+	1	ID=CDS:ZK1098.10c;Parent=Transcript:ZK1098.10c.1;Name=ZK1098.10c;prediction_status=Confirmed;wormpep=CE41490;protein_id=CAO82057.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	680	828	.	+	2	ID=CDS:ZK1098.10c;Parent=Transcript:ZK1098.10c.1;Name=ZK1098.10c;prediction_status=Confirmed;wormpep=CE41490;protein_id=CAO82057.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	1	148	.	+	2	ID=CDS:ZK1098.10p;Parent=Transcript:ZK1098.10p.1;Name=ZK1098.10p;prediction_status=Confirmed;wormpep=CE48473;protein_id=CDG24117.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	196	276	.	+	1	ID=CDS:ZK1098.10p;Parent=Transcript:ZK1098.10p.1;Name=ZK1098.10p;prediction_status=Confirmed;wormpep=CE48473;protein_id=CDG24117.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	327	394	.	+	1	ID=CDS:ZK1098.10p;Parent=Transcript:ZK1098.10p.1;Name=ZK1098.10p;prediction_status=Confirmed;wormpep=CE48473;protein_id=CDG24117.1;locus=unc-16;uniprot_id=P34609
+III	WormBase	CDS	680	828	.	+	2	ID=CDS:ZK1098.10p;Parent=Transcript:ZK1098.10p.1;Name=ZK1098.10p;prediction_status=Confirmed;wormpep=CE48473;protein_id=CDG24117.1;locus=unc-16;uniprot_id=P34609
+III	RNASeq_splice	intron	59	733	13	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	149	182	6	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	149	195	145138	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	270	326	4	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	275	326	13	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	277	326	204544	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	277	679	13	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	395	679	169199	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	399	679	3	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	449	679	12	+	.	Name=RNASeq intron

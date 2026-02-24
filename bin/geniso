@@ -78,6 +78,8 @@ locus = Locus(name, seq, model, constraints=constraints, weights=weights,
 if arg.translate:
 	reader = Reader(fasta=arg.fasta, gff=arg.translate)
 	region = next(reader)
+	print(region)
+	print(region.ftable.build_genes()[0])
 
 	# find the canonical start codon (5' atg if there are more than one listed)
 	gene = region.ftable.build_genes()[0]
@@ -88,6 +90,7 @@ if arg.translate:
 		atgs.add(cdss[0].beg -1)
 	cds_beg = sorted(list(atgs))[0]
 
+	print(cds_beg, 'wow')
 	# examine the isoforms to determine if they are NMD targets
 	prevs = [iso.prob for iso in locus.isoforms]
 	posts = []

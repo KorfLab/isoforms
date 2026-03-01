@@ -1,0 +1,1877 @@
+ch.14578	Million_mutation	point_mutation	4505	4505	.	-	.	
+ch.14578	c_brenneri_LASTZ_NET	conserved_region	4355	4483	.	-	.	
+ch.14578	Million_mutation	point_mutation	4470	4470	.	-	.	
+ch.14578	mSplicer_transcript	CDS	4190	4438	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	4190	4438	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4438	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	c_briggsae_LASTZ_NET	conserved_region	4143	4438	.	-	.	
+ch.14578	WormBase	three_prime_UTR	4222	4437	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4437	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	WormBase	exon	4168	4437	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	mRNA	108	4437	.	+	.	ID=Transcript:K06C4.6a.1;Parent=Gene:WBGene00003386
+ch.14578	absolute_pmap_position	gene	101	4437	.	.	.	ID=gmap:mod-1
+ch.14578	WormBase	gene	101	4437	.	+	.	ID=Gene:WBGene00003386
+ch.14578	WormBase	three_prime_UTR	4222	4436	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4436	100.0	+	.	ID=L1_Nanopore_Li_257802.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4436	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	WormBase	exon	4168	4436	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	mRNA	101	4436	.	+	.	ID=Transcript:K06C4.6b.1;Parent=Gene:WBGene00003386
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4435	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4435	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4435	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4435	100.0	+	.	ID=YA_Nanopore_Li_230506.1
+ch.14578	polyA_site	polyA_site	4434	4434	.	+	.	
+ch.14578	UTRome	three_prime_UTR	4222	4432	.	+	.	
+ch.14578	UTRome	three_prime_UTR	3435	4432	.	+	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4431	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4431	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4431	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4431	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4221	4430	100.0	+	.	ID=L1_Nanopore_Li_339479.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4428	100.0	+	.	ID=L1_Nanopore_Roach_6409.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4426	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4421	4424	99.7	-	.	ID=yk1649a11.3.1
+ch.14578	RNASeq_reads	transcript_region	4376	4421	1.0	.	.	
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	3665	4419	99.7	-	.	ID=yk1649a11.3.1
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4417	10.673	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4417	9.97	.	.	
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4398	4416	100.0	-	.	ID=yk1323f12.3.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4398	4416	99.9	-	.	ID=yk1233a06.3.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4415	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4415	100.0	+	.	ID=L1_Nanopore_Li_123001.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4415	100.0	+	.	ID=L1_Nanopore_Li_269182.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4398	4411	99.9	-	.	ID=yk808c07.3.1
+ch.14578	UTRome	three_prime_UTR	4222	4410	.	+	.	
+ch.14578	UTRome	three_prime_UTR	3435	4410	.	+	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4409	100.0	+	.	ID=L1_Nanopore_Li_121732.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4409	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	Million_mutation	point_mutation	4408	4408	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	4360	4408	1.0	+	.	
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4168	4396	100.0	-	.	ID=yk1323f12.3.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4168	4396	99.9	-	.	ID=yk1233a06.3.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4168	4396	99.9	-	.	ID=yk808c07.3.1
+ch.14578	polyA_site	polyA_site	4389	4389	.	+	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4168	4385	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	c_japonica_LASTZ_NET	conserved_region	4148	4384	.	-	.	
+ch.14578	RNASeq_reads	transcript_region	4308	4375	2.0	.	.	
+ch.14578	RNASeq_stranded	transcript_region	4297	4359	2.0	+	.	
+ch.14578	c_remanei_LASTZ_NET	conserved_region	3576	4358	.	-	.	
+ch.14578	Oligo_set	reagent	4293	4352	.	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4244	4343	8.15	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4244	4343	8.23	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4343	10.46	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4343	8.95	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4343	9.01	.	.	
+ch.14578	PicTar	binding_site	4326	4333	113.0	+	.	
+ch.14578	miRanda	binding_site	4312	4333	0.0166408	+	.	
+ch.14578	miRanda	binding_site	4312	4333	0.00469735	+	.	
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4168	4330	99.8	-	.	ID=yk1206g03.3.1
+ch.14578	Million_mutation	point_mutation	4327	4327	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	4226	4327	.	+	.	ID=CDS:RNASEQ_dauer_exit_daf-2_25dC_91hrs_15dC_12hrs_post-L1_g49_x18_V_m
+ch.14578	c_brenneri_LASTZ_NET	conserved_region	3780	4327	.	-	.	
+ch.14578	Million_mutation	point_mutation	4320	4320	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4244	4317	7.96	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4244	4317	8.79	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4317	8.63	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4317	8.74807	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4317	9.98	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4317	9.0	.	.	
+ch.14578	RNASeq_reads	transcript_region	4168	4307	4.0	.	.	
+ch.14578	miRanda	binding_site	4277	4297	0.0437539	+	.	
+ch.14578	miRanda	binding_site	4277	4297	0.0447889	+	.	
+ch.14578	miRanda	binding_site	4274	4297	0.0493975	+	.	
+ch.14578	RNASeq_F_asymmetry	transcript_region	4287	4296	17579.0	.	.	
+ch.14578	RNASeq_stranded	transcript_region	4282	4296	1.0	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4244	4294	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	4163	4294	8.53	.	.	
+ch.14578	Oligo_set	reagent	4237	4288	.	+	.	
+ch.14578	Oligo_set	reagent	4237	4288	.	+	.	
+ch.14578	RNASeq_stranded	transcript_region	4247	4281	3.0	+	.	
+ch.14578	RNASeq	transcription_end_site	4270	4270	.	-	.	
+ch.14578	RNASeq	transcription_end_site	4270	4270	.	-	.	
+ch.14578	Oligo_set	reagent	4244	4268	.	-	.	
+ch.14578	Million_mutation	point_mutation	4264	4264	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	4246	4246	1.0	-	.	
+ch.14578	GeneMarkHMM	CDS	4190	4243	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	4190	4243	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	4190	4243	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	RNASEQ.Hillier	CDS	4168	4238	.	+	.	ID=CDS:RNASEQ_early_embryo_g106_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4238	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g103_x18_V_m
+ch.14578	RNASeq_stranded	transcript_region	4227	4228	1.0	+	.	
+ch.14578	RNASeq_stranded	transcript_region	4173	4225	1.0	+	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	4168	4221	45.3	-	.	ID=japonica_GG5611|c0_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	4168	4221	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	4168	4221	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	4168	4221	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	4168	4221	100.0	+	.	ID=AF303088.1
+ch.14578	BLAT_OST_BEST	expressed_sequence_match	4168	4221	97.1	-	.	ID=OSTR181F4_1.1
+ch.14578	WormBase	CDS	4168	4221	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	4168	4221	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	4168	4221	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	4168	4221	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	4168	4221	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	4168	4221	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	twinscan	CDS	4168	4221	.	+	.	ID=CDS:chrV.9.242.tw
+ch.14578	Orfeome	PCR_product	363	4219	.	-	.	
+ch.14578	RNAi_primary	RNAi_reagent	363	4219	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	4168	4218	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g154_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4218	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g86s8k70_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4218	.	+	.	ID=CDS:RNASEQ_L4_soma_JK1107_no_DNaseI_g112_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4218	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g109_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4218	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g88_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4218	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g46n11s8k96_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4218	.	+	.	ID=CDS:RNASEQ_mid-L2_25dC_14hrs_post-L1_g90_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4218	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g102_x18_V_m
+ch.14578	cremanei_proteins-BLASTX	protein_match	4162	4218	22.046	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	4162	4212	4.523	+	.	
+ch.14578	Million_mutation	point_mutation	4208	4208	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	4208	4208	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	4168	4207	.	+	.	ID=CDS:RNASEQ_mid-L4_25dC_36hrs_post-L1_g130_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4206	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g95_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4168	4203	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g94_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	4168	4203	.	+	.	ID=motif:mod-1-superfamily.18
+ch.14578	translated_feature	polypeptide_motif	4168	4203	.	+	.	ID=motif:mod-1-superfamily.1
+ch.14578	Oligo_set	reagent	4171	4197	.	-	.	
+ch.14578	Million_mutation	point_mutation	4195	4195	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	4195	4195	.	-	.	
+ch.14578	translated_feature	polypeptide_motif	4168	4194	.	+	.	ID=motif:mod-1-tmhmm.12
+ch.14578	Oligo_set	reagent	4168	4188	.	+	.	
+ch.14578	translated_feature	polypeptide_motif	4168	4188	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	4168	4188	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	translated_feature	polypeptide_motif	4168	4179	.	+	.	ID=motif:mod-1-pfam.20
+ch.14578	translated_feature	polypeptide_motif	4168	4179	.	+	.	ID=motif:mod-1-pfam.7
+ch.14578	WormBase	intron	4113	4167	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	4113	4167	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	RNASeq_splice	intron	4113	4167	17719.0	+	.	
+ch.14578	RNASeq_splice	intron	3240	4167	60.0	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	3999	4163	22.046	+	.	
+ch.14578	c_briggsae_LASTZ_NET	conserved_region	3146	4142	.	-	.	
+ch.14578	mSplicer_transcript	CDS	4024	4134	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	4024	4134	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	GeneMarkHMM	CDS	4024	4134	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	4024	4134	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	4024	4134	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	c_japonica_LASTZ_NET	conserved_region	3994	4118	.	-	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	4044	4115	4.523	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	4008	4115	5.0	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	4002	4115	7.699	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	3999	4115	6.699	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	3981	4115	7.398	+	.	
+ch.14578	RNASEQ.Hillier	CDS	4112	4112	.	+	.	ID=CDS:RNASEQ_early_embryo_g106_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4112	4112	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g103_x18_V_m
+ch.14578	Oligo_set	reagent	4109	4112	.	+	.	
+ch.14578	RNASEQ.Hillier	CDS	4104	4112	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g154_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4104	4112	.	+	.	ID=CDS:RNASEQ_L4_soma_JK1107_no_DNaseI_g112_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4084	4112	.	+	.	ID=CDS:RNASEQ_mid-L4_25dC_36hrs_post-L1_g130_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	4071	4112	.	+	.	ID=motif:mod-1-tmhmm.12
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	4053	4112	8.9	-	.	ID=JI466929.1.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	4053	4112	9.1	-	.	ID=JI468889.1.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L1_Nanopore_Li_257802.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=YA_Nanopore_Li_230506.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4002	4112	100.0	-	.	ID=yk1323f12.3.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4002	4112	99.9	-	.	ID=yk1233a06.3.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L1_Nanopore_Li_121732.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	4002	4112	99.8	-	.	ID=yk1206g03.3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	4002	4112	45.3	-	.	ID=japonica_GG5611|c0_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	4002	4112	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	4002	4112	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	4002	4112	100.0	+	.	ID=AF303088.1
+ch.14578	BLAT_OST_BEST	expressed_sequence_match	4002	4112	97.1	-	.	ID=OSTR181F4_1.1
+ch.14578	WormBase	CDS	4002	4112	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	4002	4112	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	4002	4112	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	4002	4112	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	4002	4112	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	4002	4112	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	twinscan	CDS	4002	4112	.	+	.	ID=CDS:chrV.9.242.tw
+ch.14578	RNASEQ.Hillier	CDS	4002	4112	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g86s8k70_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4002	4112	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g109_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4002	4112	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g88_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4002	4112	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g46n11s8k96_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4002	4112	.	+	.	ID=CDS:RNASEQ_mid-L2_25dC_14hrs_post-L1_g90_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4002	4112	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g102_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	4002	4112	.	+	.	ID=motif:mod-1-superfamily.18
+ch.14578	translated_feature	polypeptide_motif	4002	4112	.	+	.	ID=motif:mod-1-superfamily.1
+ch.14578	translated_feature	polypeptide_motif	4002	4112	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	4002	4112	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	translated_feature	polypeptide_motif	4002	4112	.	+	.	ID=motif:mod-1-pfam.20
+ch.14578	translated_feature	polypeptide_motif	4002	4112	.	+	.	ID=motif:mod-1-pfam.7
+ch.14578	WormBase	exon	4002	4112	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	4002	4112	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	RNASeq_reads	transcript_region	4002	4112	4.0	.	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3999	4112	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3998	4112	100.0	+	.	ID=L1_Nanopore_Li_123001.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	3570	4112	99.9	-	.	ID=yk808c07.3.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3366	4112	100.0	+	.	ID=L1_Nanopore_Li_269182.1
+ch.14578	RNASeq_stranded	transcript_region	4105	4106	1.0	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	10.03	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	10.11	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	8.16	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	8.31	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	8.3	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	8.86	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	8.88	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	8.9	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	9.17	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4104	9.58	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3893	4104	7.95	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3893	4104	9.51172	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3841	4104	7.81706	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3841	4104	7.82	.	.	
+ch.14578	RNASEQ.Hillier	CDS	4034	4102	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g83_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	4002	4100	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g82_x18_V_m
+ch.14578	RNASeq_stranded	transcript_region	4065	4098	1.0	+	.	
+ch.14578	Oligo_set	reagent	4069	4093	.	+	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	4002	4078	100.0	+	.	ID=EM_Nanopore_Li_161849.1
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3997	4076	8.51	.	.	
+ch.14578	Oligo_set	reagent	4049	4073	.	-	.	
+ch.14578	Million_mutation	point_mutation	4065	4065	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	4065	4065	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	4002	4064	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g58_x18_V_m
+ch.14578	RNASeq_stranded	transcript_region	4049	4063	1.0	+	.	
+ch.14578	RNASEQ.Hillier	CDS	4002	4061	.	+	.	ID=CDS:RNASEQ_Young_Adult_25dC_46hrs_post-L1_g117_x18_V_m
+ch.14578	Oligo_set	reagent	4032	4056	.	+	.	
+ch.14578	Million_mutation	point_mutation	4049	4049	.	-	.	
+ch.14578	Oligo_set	reagent	4022	4046	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	4002	4043	.	+	.	ID=CDS:RNASEQ_L4_soma_JK1107_no_DNaseI_g106_x18_V_m
+ch.14578	BLAT_Trinity_BEST	expressed_sequence_match	4002	4035	100.0	+	.	ID=elegans_PE_SS_GG1241|c3_g1_i1.1
+ch.14578	Million_mutation	point_mutation	4033	4033	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	4033	4033	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	4032	4032	1.0	-	.	
+ch.14578	RNASeq_stranded	transcript_region	4015	4028	1.0	+	.	
+ch.14578	Oligo_set	reagent	4002	4027	.	+	.	
+ch.14578	Oligo_set	reagent	4002	4027	.	+	.	
+ch.14578	RNASEQ.Hillier	CDS	4002	4025	.	+	.	ID=CDS:RNASEQ_dauer_exit_daf-2_25dC_91hrs_15dC_12hrs_post-L1_g37_x18_V_m
+ch.14578	Oligo_set	reagent	4002	4023	.	+	.	
+ch.14578	RNASeq_stranded	transcript_region	4011	4011	1.0	-	.	
+ch.14578	RNASeq_reads	transcript_region	3999	4001	1.0	.	.	
+ch.14578	RNASeq_splice	intron	3916	4001	5.0	+	.	
+ch.14578	WormBase	intron	3411	4001	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	RNASeq_splice	intron	3411	4001	6197.0	+	.	
+ch.14578	WormBase	intron	3240	4001	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	RNASeq_splice	intron	3240	4001	16821.0	+	.	
+ch.14578	SAGE_tag_genomic_unique	SAGE_tag	3967	3987	.	-	.	
+ch.14578	RNASeq_splice	intron	3411	3987	10.0	+	.	
+ch.14578	RNASeq_splice	intron	3240	3987	4.0	+	.	
+ch.14578	SAGE_tag	SAGE_tag	3967	3980	.	-	.	
+ch.14578	Variation_project_Polymorphism	SNP	3970	3970	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3893	3968	7.66	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3866	3968	8.01	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3866	3968	8.33	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3841	3968	8.84	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3841	3968	9.08	.	.	
+ch.14578	DNaseI_hypersensitive_site	DNaseI_hypersensitive_site	3809	3959	.	-	.	
+ch.14578	DNaseI_hypersensitive_site	DNaseI_hypersensitive_site	3809	3959	.	-	.	
+ch.14578	Variation_project	point_mutation	3862	3862	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3762	3812	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3762	3812	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3762	3812	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3762	3812	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3762	3812	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3762	3812	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3762	3812	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3762	3812	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3762	3812	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3740	3812	11.9448	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3715	3812	10.62	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3715	3812	9.3	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3715	3812	9.43	.	.	
+ch.14578	dust	low_complexity_region	3781	3798	.	.	.	
+ch.14578	RepeatMasker	repeat_region	3781	3798	16.0	-	.	
+ch.14578	Million_mutation	point_mutation	3789	3789	.	-	.	
+ch.14578	Million_mutation	point_mutation	3734	3734	.	-	.	
+ch.14578	c_brenneri_LASTZ_NET	conserved_region	2095	3650	.	-	.	
+ch.14578	Million_mutation	point_mutation	3630	3630	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3211	3588	9.4141	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3349	3559	7.79	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3211	3559	7.97	.	.	
+ch.14578	Million_mutation	point_mutation	3539	3539	.	-	.	
+ch.14578	c_remanei_LASTZ_NET	conserved_region	3126	3490	.	-	.	
+ch.14578	Million_mutation	point_mutation	3487	3487	.	-	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3463	3480	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	c_japonica_LASTZ_NET	conserved_region	3129	3480	.	-	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3453	3462	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	mSplicer_orf	CDS	3391	3456	.	+	.	ID=msp_orf-K06C4.6c.1
+ch.14578	mSplicer_orf	CDS	3391	3456	.	+	.	ID=msp_orf-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	3391	3456	.	+	.	ID=msp_trans-K06C4.6c.1
+ch.14578	mSplicer_transcript	CDS	3391	3456	.	+	.	ID=msp_trans-K06C4.6c.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3433	3445	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	Genefinder	CDS	3369	3434	.	+	.	ID=CDS:K06C4.gc15
+ch.14578	WormBase	CDS	3369	3434	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	WormBase	exon	3369	3434	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	WormBase	mRNA	149	3434	.	+	.	ID=Transcript:K06C4.6c.1;Parent=Gene:WBGene00003386
+ch.14578	GeneMarkHMM	CDS	3391	3432	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3421	3429	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3344	3417	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2862	3413	41.0	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2862	3413	40.097	+	.	
+ch.14578	Oligo_set	reagent	3408	3410	.	+	.	
+ch.14578	RNASEQ.Hillier	CDS	3381	3410	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g46n11s8k96_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	3381	3410	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g102_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	3381	3410	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g95_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	3381	3410	.	+	.	ID=CDS:RNASEQ_Young_Adult_25dC_46hrs_post-L1_g117_x18_V_m
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3369	3410	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3369	3410	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3369	3410	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3369	3410	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	3369	3410	99.9	-	.	ID=yk1233a06.3.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3369	3410	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3369	3410	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	3369	3410	100.0	+	.	ID=AF303088.1
+ch.14578	WormBase	CDS	3369	3410	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	jigsaw	CDS	3369	3410	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	3369	3410	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	3369	3410	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	RNASEQ.Hillier	CDS	3369	3410	.	+	.	ID=CDS:RNASEQ_mid-L2_25dC_14hrs_post-L1_g90_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	3369	3410	.	+	.	ID=motif:mod-1-superfamily.1
+ch.14578	translated_feature	polypeptide_motif	3369	3410	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	3369	3410	.	+	.	ID=motif:mod-1-pfam.7
+ch.14578	RNASEQ.Hillier	CDS	3369	3410	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g58_x18_V_m
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3369	3410	100.0	+	.	ID=L1_Nanopore_Li_268782.1
+ch.14578	WormBase	exon	3369	3410	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	RNASEQ.Hillier	CDS	3369	3410	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g76_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	3369	3410	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g55_x18_V_m
+ch.14578	RNASeq_reads	transcript_region	3369	3410	2.0	.	.	
+ch.14578	Oligo_set	reagent	3369	3396	.	+	.	
+ch.14578	Oligo_set	reagent	3369	3396	.	+	.	
+ch.14578	Oligo_set	reagent	3369	3395	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3284	3395	8.94	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3211	3395	8.37	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	3211	3395	8.76	.	.	
+ch.14578	Oligo_set	reagent	3369	3387	.	+	.	
+ch.14578	RNASeq_splice	intron	3240	3375	3.0	+	.	
+ch.14578	RNASeq_reads	transcript_region	3366	3368	1.0	.	.	
+ch.14578	WormBase	intron	3240	3368	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	3240	3368	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_splice	intron	3240	3368	6385.0	+	.	
+ch.14578	Million_mutation	point_mutation	3339	3339	.	-	.	
+ch.14578	mSplicer_transcript	CDS	3174	3261	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	3174	3261	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	GeneMarkHMM	CDS	3174	3261	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	3174	3261	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	3174	3261	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	mSplicer_orf	CDS	3174	3261	.	+	.	ID=msp_orf-K06C4.6c.1
+ch.14578	mSplicer_orf	CDS	3174	3261	.	+	.	ID=msp_orf-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	3174	3261	.	+	.	ID=msp_trans-K06C4.6c.1
+ch.14578	mSplicer_transcript	CDS	3174	3261	.	+	.	ID=msp_trans-K06C4.6c.2
+ch.14578	Million_mutation	point_mutation	3246	3246	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	3246	3246	.	-	.	
+ch.14578	RNASeq_reads	transcript_region	3240	3242	1.0	.	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3152	3242	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2862	3242	38.523	+	.	
+ch.14578	Oligo_set	reagent	3216	3239	.	+	.	
+ch.14578	Oligo_set	reagent	3208	3239	.	+	.	
+ch.14578	Oligo_set	reagent	3208	3239	.	+	.	
+ch.14578	Oligo_set	reagent	3206	3239	.	+	.	
+ch.14578	Oligo_set	reagent	3206	3239	.	+	.	
+ch.14578	RNASEQ.Hillier	CDS	3198	3239	.	+	.	ID=CDS:RNASEQ_L4_soma_JK1107_no_DNaseI_g106_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	3198	3239	.	+	.	ID=CDS:RNASEQ_dauer_exit_daf-2_25dC_91hrs_15dC_12hrs_post-L1_g37_x18_V_m
+ch.14578	BLAT_OST_BEST	expressed_sequence_match	3195	3239	97.1	-	.	ID=OSTR181F4_1.1
+ch.14578	Oligo_set	reagent	3180	3239	.	+	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3171	3239	45.3	-	.	ID=japonica_GG5611|c0_g1_i1.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Li_257802.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=YA_Nanopore_Li_230506.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Roach_6409.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	3152	3239	100.0	-	.	ID=yk1323f12.3.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	3152	3239	99.9	-	.	ID=yk1233a06.3.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Li_123001.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Li_121732.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	3152	3239	99.8	-	.	ID=yk1206g03.3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3152	3239	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	3152	3239	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=AF303088.1
+ch.14578	WormBase	CDS	3152	3239	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	3152	3239	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	3152	3239	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	3152	3239	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	3152	3239	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	3152	3239	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	twinscan	CDS	3152	3239	.	+	.	ID=CDS:chrV.9.242.tw
+ch.14578	RNASEQ.Hillier	CDS	3152	3239	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g109_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	3152	3239	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g88_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	3152	3239	.	+	.	ID=CDS:RNASEQ_mid-L2_25dC_14hrs_post-L1_g90_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	3152	3239	.	+	.	ID=motif:mod-1-superfamily.18
+ch.14578	translated_feature	polypeptide_motif	3152	3239	.	+	.	ID=motif:mod-1-superfamily.1
+ch.14578	translated_feature	polypeptide_motif	3152	3239	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	3152	3239	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	translated_feature	polypeptide_motif	3152	3239	.	+	.	ID=motif:mod-1-pfam.20
+ch.14578	translated_feature	polypeptide_motif	3152	3239	.	+	.	ID=motif:mod-1-pfam.7
+ch.14578	RNASEQ.Hillier	CDS	3152	3239	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g58_x18_V_m
+ch.14578	BLAT_Trinity_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=elegans_PE_SS_GG1241|c3_g1_i1.1
+ch.14578	Genefinder	CDS	3152	3239	.	+	.	ID=CDS:K06C4.gc15
+ch.14578	WormBase	CDS	3152	3239	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3152	3239	100.0	+	.	ID=L1_Nanopore_Li_268782.1
+ch.14578	RNASEQ.Hillier	CDS	3152	3239	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g55_x18_V_m
+ch.14578	WormBase	exon	3152	3239	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	3152	3239	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	exon	3152	3239	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASEQ.Hillier	CDS	3152	3239	.	+	.	ID=CDS:RNASEQ_Adult_Harposporium_exposed_2_24hrs_g151_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	3152	3239	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g120_x18_V_m
+ch.14578	RNASeq_reads	transcript_region	3152	3239	5.0	.	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	3170	3234	100.0	+	.	ID=EM_Nanopore_Li_161849.1
+ch.14578	RNASeq_stranded	transcript_region	3229	3229	1.0	-	.	
+ch.14578	GenePair_STS	PCR_product	2143	3227	.	-	.	
+ch.14578	Million_mutation	point_mutation	3225	3225	.	-	.	
+ch.14578	Oligo_set	reagent	3201	3225	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	3184	3225	1.0	+	.	
+ch.14578	Million_mutation	point_mutation	3216	3216	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	3216	3216	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	3152	3194	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g98_x18_V_m
+ch.14578	Oligo_set	reagent	3164	3188	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	3152	3188	.	+	.	ID=CDS:RNASEQ_Adult_S_macescens_Db10_control_EcoliOP50_exposed_1_24hrs_g104_x18_V_m
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	3174	3187	90.5	+	.	ID=yk808c07.5.1
+ch.14578	RNASEQ.Hillier	CDS	3152	3185	.	+	.	ID=CDS:RNASEQ_early_embryo_g90_x18_V_m
+ch.14578	RNASeq_stranded	transcript_region	3179	3179	1.0	-	.	
+ch.14578	RNASEQ.Hillier	CDS	3152	3179	.	+	.	ID=CDS:RNASEQ_Adult_S_macescens_Db10_exposed_1_24hrs_g89_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	3152	3179	.	+	.	ID=motif:mod-1-mobidblite.24
+ch.14578	RNASeq_stranded	transcript_region	3164	3177	1.0	+	.	
+ch.14578	Oligo_set	reagent	3152	3177	.	+	.	
+ch.14578	RNASEQ.Hillier	CDS	3152	3176	.	+	.	ID=CDS:RNASEQ_dauer_exit_daf-2_25dC_91hrs_15dC_12hrs_post-L1_g59_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	3152	3176	.	+	.	ID=motif:mod-1-mobidblite.19
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	3152	3173	90.5	+	.	ID=yk808c07.5.1
+ch.14578	Million_mutation	point_mutation	3170	3170	.	-	.	
+ch.14578	translated_feature	polypeptide_motif	3152	3170	.	+	.	ID=motif:mod-1-mobidblite.5
+ch.14578	Million_mutation	point_mutation	3158	3158	.	-	.	
+ch.14578	RNASeq_reads	transcript_region	3150	3151	1.0	.	.	
+ch.14578	RNASeq_splice	intron	3093	3151	9.0	+	.	
+ch.14578	WormBase	intron	3032	3151	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	3032	3151	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	intron	3032	3151	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_splice	intron	3032	3151	31525.0	+	.	
+ch.14578	RNASeq_splice	intron	2936	3151	5.0	+	.	
+ch.14578	RNASeq_splice	intron	2736	3151	3.0	+	.	
+ch.14578	NemaGENETAG_consortium	transposable_element_insertion_site	3140	3140	.	-	.	
+ch.14578	RNASeq_splice	intron	3032	3138	10.0	+	.	
+ch.14578	RNASeq_splice	intron	3075	3124	3.0	-	.	
+ch.14578	Million_mutation	point_mutation	3120	3120	.	-	.	
+ch.14578	Million_mutation	point_mutation	3113	3113	.	-	.	
+ch.14578	c_briggsae_LASTZ_NET	conserved_region	611	3084	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2848	3059	8.58	.	.	
+ch.14578	mSplicer_transcript	CDS	2883	3053	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	2883	3053	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	GeneMarkHMM	CDS	2883	3053	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	2883	3053	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	2883	3053	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	mSplicer_orf	CDS	2883	3053	.	+	.	ID=msp_orf-K06C4.6c.1
+ch.14578	mSplicer_orf	CDS	2883	3053	.	+	.	ID=msp_orf-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	2883	3053	.	+	.	ID=msp_trans-K06C4.6c.1
+ch.14578	mSplicer_transcript	CDS	2883	3053	.	+	.	ID=msp_trans-K06C4.6c.2
+ch.14578	c_remanei_LASTZ_NET	conserved_region	2626	3036	.	-	.	
+ch.14578	c_japonica_LASTZ_NET	conserved_region	2555	3036	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2905	3034	0.0700339	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2905	3034	0.11707	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	3032	10.68	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	3032	8.55	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	3032	9.05	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	3032	9.10139	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	3032	9.1	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	3032	10.11	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	3032	11.621	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	3032	8.35	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	3032	8.48	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	3032	9.23	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	3032	9.66	.	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2999	3031	73.5	+	.	ID=japonica_GG4134|c0_g1_i1.3
+ch.14578	Oligo_set	reagent	2998	3031	.	+	.	
+ch.14578	RNASEQ.Hillier	CDS	2994	3031	.	+	.	ID=CDS:RNASEQ_Adult_S_macescens_Db10_control_EcoliOP50_exposed_1_24hrs_g104_x18_V_m
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2981	3031	100.0	+	.	ID=YA_Nanopore_Li_230506.1
+ch.14578	translated_feature	polypeptide_motif	2967	3031	.	+	.	ID=motif:mod-1-mobidblite.19
+ch.14578	translated_feature	polypeptide_motif	2949	3031	.	+	.	ID=motif:mod-1-mobidblite.24
+ch.14578	translated_feature	polypeptide_motif	2949	3031	.	+	.	ID=motif:mod-1-mobidblite.5
+ch.14578	RNASEQ.Hillier	CDS	2907	3031	.	+	.	ID=CDS:RNASEQ_early_embryo_g90_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2904	3031	.	+	.	ID=CDS:RNASEQ_Adult_S_macescens_Db10_exposed_1_24hrs_g89_x18_V_m
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2898	3031	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	RNASEQ.Hillier	CDS	2883	3031	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g58_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2883	3031	.	+	.	ID=CDS:RNASEQ_Adult_Harposporium_exposed_2_24hrs_g151_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2883	3031	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g120_x18_V_m
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2862	3031	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2862	3031	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2862	3031	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Li_257802.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Roach_6409.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2861	3031	100.0	-	.	ID=yk1323f12.3.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2861	3031	99.9	-	.	ID=yk1233a06.3.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Li_123001.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Li_121732.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2861	3031	99.8	-	.	ID=yk1206g03.3.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=AF303088.1
+ch.14578	WormBase	CDS	2861	3031	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	2861	3031	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	2861	3031	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	2861	3031	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	2861	3031	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	2861	3031	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	twinscan	CDS	2861	3031	.	+	.	ID=CDS:chrV.9.242.tw
+ch.14578	RNASEQ.Hillier	CDS	2861	3031	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g109_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2861	3031	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g88_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2861	3031	.	+	.	ID=CDS:RNASEQ_mid-L2_25dC_14hrs_post-L1_g90_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	2861	3031	.	+	.	ID=motif:mod-1-superfamily.18
+ch.14578	translated_feature	polypeptide_motif	2861	3031	.	+	.	ID=motif:mod-1-superfamily.1
+ch.14578	translated_feature	polypeptide_motif	2861	3031	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	2861	3031	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	translated_feature	polypeptide_motif	2861	3031	.	+	.	ID=motif:mod-1-pfam.20
+ch.14578	translated_feature	polypeptide_motif	2861	3031	.	+	.	ID=motif:mod-1-pfam.7
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=EM_Nanopore_Li_161849.1
+ch.14578	BLAT_Trinity_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=elegans_PE_SS_GG1241|c3_g1_i1.1
+ch.14578	Genefinder	CDS	2861	3031	.	+	.	ID=CDS:K06C4.gc15
+ch.14578	WormBase	CDS	2861	3031	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2861	3031	100.0	+	.	ID=L1_Nanopore_Li_268782.1
+ch.14578	RNASEQ.Hillier	CDS	2861	3031	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g55_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2861	3031	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g98_x18_V_m
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2861	3031	90.5	+	.	ID=yk808c07.5.1
+ch.14578	RNASEQ.Hillier	CDS	2861	3031	.	+	.	ID=CDS:RNASEQ_dauer_exit_daf-2_25dC_91hrs_15dC_12hrs_post-L1_g59_x18_V_m
+ch.14578	WormBase	exon	2861	3031	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	2861	3031	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	exon	2861	3031	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_reads	transcript_region	2861	3031	6.0	.	.	
+ch.14578	RNASeq_stranded	transcript_region	2946	3030	1.0	+	.	
+ch.14578	translated_feature	polypeptide_motif	2970	3029	.	+	.	ID=motif:mod-1-mobidblite.6
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2862	3029	22.222	+	.	
+ch.14578	SAGE_tag_genomic_unique	SAGE_tag	3006	3026	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	2861	3026	.	+	.	ID=CDS:RNASEQ_Adult_spe-9_23dC_8days_post-L4_molt_g114_x18_V_m
+ch.14578	SAGE_tag	SAGE_tag	2996	3009	.	-	.	
+ch.14578	Million_mutation	point_mutation	3007	3007	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	3007	3007	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2905	3007	0.109902	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2905	3007	0.12969	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2905	3007	0.153256	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2876	3007	0.100376	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2876	3007	0.16257	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	3005	8.5	.	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2861	2998	73.5	+	.	ID=japonica_GG4134|c0_g1_i1.3
+ch.14578	Oligo_set	reagent	2942	2989	.	+	.	
+ch.14578	Oligo_set	reagent	2942	2989	.	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2930	2981	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	2981	8.61885	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	2981	8.71	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	2981	9.57	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2903	2981	9.96	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	2981	9.48	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	2981	9.56	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	2981	9.69	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2874	2981	9.75	.	.	
+ch.14578	RNASEQ.Hillier	CDS	2861	2981	.	+	.	ID=CDS:RNASEQ_L4_soma_JK1107_no_DNaseI_g93_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2861	2975	.	+	.	ID=CDS:RNASEQ_Adult_S_macescens_Db10_control_EcoliOP50_exposed_1_24hrs_g177_x18_V_m
+ch.14578	Oligo_set	reagent	2947	2971	.	-	.	
+ch.14578	Million_mutation	point_mutation	2970	2970	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2970	2970	.	-	.	
+ch.14578	translated_feature	polypeptide_motif	2861	2969	.	+	.	ID=motif:mod-1-superfamily.23
+ch.14578	Oligo_set	reagent	2905	2964	.	+	.	
+ch.14578	Oligo_set	reagent	2905	2964	.	+	.	
+ch.14578	Million_mutation	point_mutation	2960	2960	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	2861	2951	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g98_x18_V_m
+ch.14578	Million_mutation	point_mutation	2948	2948	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	2928	2945	2.0	+	.	
+ch.14578	Oligo_set	reagent	2883	2942	.	+	.	
+ch.14578	RNASeq_stranded	transcript_region	2918	2927	1.0	+	.	
+ch.14578	translated_feature	polypeptide_motif	2861	2921	.	+	.	ID=motif:mod-1-pfam.25
+ch.14578	Million_mutation	point_mutation	2920	2920	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2920	2920	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	2901	2917	2.0	+	.	
+ch.14578	Oligo_set	reagent	2890	2914	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	2870	2900	1.0	+	.	
+ch.14578	RNASEQ.Hillier	CDS	2861	2897	.	+	.	ID=CDS:RNASEQ_Adult_S_macescens_Db10_exposed_1_24hrs_g114_x18_V_m
+ch.14578	RNASeq_splice	intron	2736	2897	16.0	+	.	
+ch.14578	RNASeq_splice	intron	2728	2897	234.0	+	.	
+ch.14578	RNASeq_splice	intron	2683	2897	4.0	+	.	
+ch.14578	translated_feature	polypeptide_motif	2861	2894	.	+	.	ID=motif:mod-1-ncoils.11
+ch.14578	translated_feature	polypeptide_motif	2861	2873	.	+	.	ID=motif:mod-1-hmmpanther.9
+ch.14578	translated_feature	polypeptide_motif	2861	2867	.	+	.	ID=motif:mod-1-hmmpanther.22
+ch.14578	WormBase	intron	2736	2860	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	2736	2860	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	intron	2736	2860	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_splice	intron	2736	2860	18488.0	+	.	
+ch.14578	RNASeq_splice	intron	2698	2860	8.0	+	.	
+ch.14578	RNASeq_splice	intron	2683	2860	4.0	+	.	
+ch.14578	RNASeq_splice	intron	2736	2846	66.0	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2672	2774	8.06	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2774	8.24	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2774	8.2	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2621	2774	9.75165	.	.	
+ch.14578	GenePair_STS	PCR_product	2143	2770	.	-	.	
+ch.14578	RNAi_primary	RNAi_reagent	2143	2770	.	-	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2623	2760	53.699	+	.	
+ch.14578	mSplicer_transcript	CDS	2655	2757	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	2655	2757	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	GeneMarkHMM	CDS	2655	2757	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	2655	2757	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	2655	2757	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	mSplicer_orf	CDS	2655	2757	.	+	.	ID=msp_orf-K06C4.6c.1
+ch.14578	mSplicer_orf	CDS	2655	2757	.	+	.	ID=msp_orf-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	2655	2757	.	+	.	ID=msp_trans-K06C4.6c.1
+ch.14578	mSplicer_transcript	CDS	2655	2757	.	+	.	ID=msp_trans-K06C4.6c.2
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2623	2754	55.0	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2623	2754	55.0	+	.	
+ch.14578	Million_mutation	point_mutation	2750	2750	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2748	7.44	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2748	7.89	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2748	8.01	.	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2623	2736	48.699	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2623	2736	56.301	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2623	2736	56.301	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2623	2736	48.523	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2623	2736	41.699	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2623	2736	56.0	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2623	2736	21.398	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2623	2736	21.523	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2623	2736	56.0	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2623	2736	55.398	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2623	2736	21.398	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2623	2736	21.523	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2623	2736	21.699	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2623	2736	24.398	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2623	2736	24.398	+	.	
+ch.14578	translated_feature	polypeptide_motif	2707	2735	.	+	.	ID=motif:mod-1-ncoils.11
+ch.14578	RNASEQ.Hillier	CDS	2680	2735	.	+	.	ID=CDS:RNASEQ_dauer_exit_daf-2_25dC_91hrs_15dC_12hrs_post-L1_g59_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2680	2735	.	+	.	ID=CDS:RNASEQ_Adult_spe-9_23dC_8days_post-L4_molt_g114_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2680	2735	.	+	.	ID=CDS:RNASEQ_Adult_S_macescens_Db10_exposed_1_24hrs_g114_x18_V_m
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2677	2735	100.0	-	.	ID=yk1323f12.3.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2676	2735	99.8	-	.	ID=yk1206g03.3.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2654	2735	100.0	+	.	ID=L1_Nanopore_Li_123001.1
+ch.14578	RNASEQ.Hillier	CDS	2647	2735	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g98_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2647	2735	.	+	.	ID=CDS:RNASEQ_Adult_S_macescens_Db10_control_EcoliOP50_exposed_1_24hrs_g177_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2635	2735	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g109_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2635	2735	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g88_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2635	2735	.	+	.	ID=CDS:RNASEQ_L4_soma_JK1107_no_DNaseI_g93_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2635	2735	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g98_x18_V_m
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L1_Nanopore_Li_257802.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L1_Nanopore_Roach_6409.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2633	2735	99.9	-	.	ID=yk1233a06.3.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L1_Nanopore_Li_121732.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2633	2735	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2633	2735	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2633	2735	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=AF303088.1
+ch.14578	WormBase	CDS	2633	2735	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	2633	2735	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	2633	2735	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	2633	2735	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	2633	2735	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	2633	2735	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	twinscan	CDS	2633	2735	.	+	.	ID=CDS:chrV.9.242.tw
+ch.14578	RNASEQ.Hillier	CDS	2633	2735	.	+	.	ID=CDS:RNASEQ_mid-L2_25dC_14hrs_post-L1_g90_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-superfamily.18
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-superfamily.1
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-pfam.20
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-pfam.7
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=EM_Nanopore_Li_161849.1
+ch.14578	BLAT_Trinity_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=elegans_PE_SS_GG1241|c3_g1_i1.1
+ch.14578	Genefinder	CDS	2633	2735	.	+	.	ID=CDS:K06C4.gc15
+ch.14578	WormBase	CDS	2633	2735	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2735	100.0	+	.	ID=L1_Nanopore_Li_268782.1
+ch.14578	RNASEQ.Hillier	CDS	2633	2735	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g55_x18_V_m
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2633	2735	73.5	+	.	ID=japonica_GG4134|c0_g1_i1.3
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-superfamily.23
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-pfam.25
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-hmmpanther.9
+ch.14578	translated_feature	polypeptide_motif	2633	2735	.	+	.	ID=motif:mod-1-hmmpanther.22
+ch.14578	WormBase	exon	2633	2735	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	2633	2735	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	exon	2633	2735	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_reads	transcript_region	2633	2735	4.0	.	.	
+ch.14578	Oligo_set	reagent	2674	2733	.	+	.	
+ch.14578	dmelanogaster_proteins-BLASTX	protein_match	2623	2733	20.699	+	.	
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2654	2732	90.5	+	.	ID=yk808c07.5.1
+ch.14578	Oligo_set	reagent	2706	2730	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	2635	2730	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g105_x18_V_m
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2623	2730	52.523	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2623	2730	55.699	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2623	2730	55.699	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2623	2730	55.523	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2623	2730	55.046	+	.	
+ch.14578	RNASeq_stranded	transcript_region	2690	2728	1.0	+	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2633	2727	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2633	2727	31.2	+	.	ID=JI169197.1.1
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2623	2727	54.398	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2623	2727	45.523	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2623	2727	45.523	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2623	2727	45.523	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2623	2727	54.523	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2623	2727	25.0	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2623	2727	57.155	+	.	
+ch.14578	Oligo_set	reagent	2698	2722	.	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2722	7.62	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2722	8.23	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2722	8.35	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2722	9.13	.	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2623	2721	47.523	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2623	2721	56.0	+	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2633	2718	24.3	+	.	ID=ovolvulus_GG936|c30_g2_i4.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2633	2718	25.0	+	.	ID=ovolvulus_GG936|c30_g2_i9.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2633	2718	31.3	+	.	ID=ovolvulus_GG936|c30_g2_i8.4
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2633	2718	42.1	+	.	ID=ovolvulus_GG936|c30_g2_i5.2
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2623	2718	72.0	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2623	2718	45.0	+	.	
+ch.14578	RNASEQ.Hillier	CDS	2635	2715	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g142_x18_V_m
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	11.7	+	.	ID=briggsae_GG5200|c1_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	11.9	+	.	ID=briggsae_GG5200|c1_g3_i1.5
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	1.5	-	.	ID=ovolvulus_GG367|c270_g2_i15.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	1.6	-	.	ID=ovolvulus_GG367|c270_g2_i17.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	1.6	-	.	ID=ovolvulus_GG367|c270_g2_i4.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	1.6	-	.	ID=ovolvulus_GG367|c270_g2_i6.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	1.7	-	.	ID=ovolvulus_GG367|c270_g2_i3.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	1.7	-	.	ID=ovolvulus_GG367|c270_g2_i8.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	1.8	-	.	ID=ovolvulus_GG367|c270_g2_i7.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	1.9	-	.	ID=ovolvulus_GG367|c270_g2_i2.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	2.2	-	.	ID=ovolvulus_GG367|c270_g2_i12.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	2.4	-	.	ID=ovolvulus_GG367|c270_g2_i18.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	3.8	-	.	ID=ovolvulus_GG367|c270_g2_i10.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	3.0	-	.	ID=ovolvulus_GG367|c270_g2_i11.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	4.3	-	.	ID=ovolvulus_GG367|c270_g2_i19.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	4.7	-	.	ID=ovolvulus_GG367|c270_g2_i13.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	4.0	-	.	ID=ovolvulus_GG367|c270_g2_i16.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2631	2715	4.0	-	.	ID=ovolvulus_GG367|c270_g2_i9.3
+ch.14578	celegans_proteins-BLASTX	protein_match	2623	2715	54.398	+	.	
+ch.14578	dmelanogaster_proteins-BLASTX	protein_match	2623	2715	26.699	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2623	2715	26.222	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2623	2715	26.398	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2623	2715	55.097	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	2623	2715	52.699	+	.	
+ch.14578	translated_feature	polypeptide_motif	2641	2709	.	+	.	ID=motif:mod-1-tmhmm.13
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2638	2709	4.6	-	.	ID=tmuris_GG260|c19_g1_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2706	8.8	-	.	ID=tmuris_GG2509|c51_g2_i3.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2706	9.1	-	.	ID=tmuris_GG2509|c51_g2_i1.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2706	9.3	-	.	ID=tmuris_GG2509|c51_g2_i2.6
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2706	19.0	-	.	ID=Acan_isotig15084.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2633	2706	28.1	+	.	ID=ACC05021_1.3
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2700	37.8	+	.	ID=Oden_isotig24235.1
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2672	2696	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2696	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2696	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2696	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2646	2696	0.0	.	.	
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2638	2694	14.3	-	.	ID=tmuris_GG167|c30_g1_i7.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2638	2694	18.6	-	.	ID=tmuris_GG167|c30_g1_i5.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2637	2694	10.9	+	.	ID=briggsae_GG467|c0_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2637	2694	11.2	+	.	ID=briggsae_GG467|c0_g2_i1.2
+ch.14578	BLAT_Caen_IsoSeq_OTHER	expressed_sequence_match	2633	2694	19.1	+	.	ID=IsoSeq_brugia_PB_44_5.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	11.3	-	.	ID=japonica_GG6759|c1_g3_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	15.4	+	.	ID=brugia_GG4507|c0_g1_i1.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	18.8	-	.	ID=japonica_GG1832|c4_g1_i1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	20.3	+	.	ID=japonica_GG6745|c0_g1_i1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	23.5	-	.	ID=japonica_GG6759|c1_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	2.5	-	.	ID=ovolvulus_GG510|c33_g3_i12.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	2.7	-	.	ID=ovolvulus_GG510|c33_g3_i3.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	2.8	-	.	ID=ovolvulus_GG510|c33_g3_i15.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	2.9	-	.	ID=ovolvulus_GG510|c33_g3_i11.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	31.6	+	.	ID=japonica_GG6745|c0_g2_i1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	3.3	-	.	ID=ovolvulus_GG510|c33_g3_i14.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	3.4	-	.	ID=ovolvulus_GG510|c33_g3_i17.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	3.8	-	.	ID=ovolvulus_GG510|c33_g3_i8.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	3.0	-	.	ID=ovolvulus_GG510|c33_g3_i13.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	3.0	-	.	ID=ovolvulus_GG510|c33_g3_i18.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2694	9.6	+	.	ID=briggsae_GG234|c2_g1_i1.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2633	2694	38.0	-	.	ID=EX560156.1.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2694	14.1	+	.	ID=Acan_isotig10368.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2694	20.3	-	.	ID=Dviv_isotig28909.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2633	2694	32.1	-	.	ID=ACC07809_1.5
+ch.14578	Oligo_set	reagent	2663	2687	.	-	.	
+ch.14578	SAGE_tag	SAGE_tag	2669	2682	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	2637	2682	1.0	+	.	
+ch.14578	Oligo_set	reagent	2657	2681	.	+	.	
+ch.14578	dmelanogaster_proteins-BLASTX	protein_match	2072	2680	24.0	+	.	
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2633	2673	38.0	+	.	ID=FC541338.1.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2631	2673	40.0	-	.	ID=Oden_isotig25057.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2633	2658	68.5	+	.	ID=JI478000.1.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2631	2655	27.2	+	.	ID=GR12928.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2631	2655	20.8	+	.	ID=GRC01435_1.4
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2093	2653	53.301	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2093	2653	53.398	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2093	2653	53.523	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2093	2653	53.699	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2093	2653	81.523	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2093	2653	98.699	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2093	2653	97.222	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2093	2653	54.699	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2093	2653	46.0	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2087	2653	44.301	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2087	2653	79.0	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2087	2653	75.0	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2075	2653	39.0	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2075	2653	52.699	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2075	2653	49.0	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2057	2653	95.398	+	.	
+ch.14578	dmelanogaster_proteins-BLASTX	protein_match	2036	2653	18.0	+	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2633	2652	45.7	+	.	ID=ovolvulus_GG936|c30_g2_i3.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2652	10.3	+	.	ID=briggsae_GG3175|c1_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2652	10.0	+	.	ID=ovolvulus_GG1261|c27_g2_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2652	9.1	+	.	ID=briggsae_GG2502|c0_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2652	9.1	+	.	ID=ovolvulus_GG1261|c27_g2_i4.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2652	9.5	+	.	ID=briggsae_GG2502|c0_g2_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2652	9.7	+	.	ID=briggsae_GG7417|c1_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2633	2652	9.8	+	.	ID=briggsae_GG7417|c1_g1_i2.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2652	13.1	-	.	ID=Tcol_isotig15890.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2652	17.2	+	.	ID=Acan_isotig02118.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2652	17.4	-	.	ID=Dviv_isotig28764.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2652	20.1	+	.	ID=Acan_isotig02119.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2652	23.0	-	.	ID=Tcol_isotig05702.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2652	25.0	-	.	ID=Tcol_isotig05703.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2633	2652	32.3	+	.	ID=Oden_isotig23906.1
+ch.14578	RNASEQ.Hillier	CDS	2633	2634	.	+	.	ID=CDS:RNASEQ_early_embryo_g147_x18_V_m
+ch.14578	RNASeq_reads	transcript_region	2631	2632	1.0	.	.	
+ch.14578	WormBase	intron	2574	2632	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	2574	2632	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	intron	2574	2632	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_splice	intron	2574	2632	14556.0	+	.	
+ch.14578	RNASeq_splice	intron	1691	2632	7.0	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2087	2629	20.523	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2030	2629	20.0	+	.	
+ch.14578	Million_mutation	point_mutation	2613	2613	.	-	.	
+ch.14578	dust	low_complexity_region	2602	2610	.	.	.	
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2581	2610	6.7	-	.	ID=CR03657.7
+ch.14578	tmuris_proteins-BLASTX	protein_match	2093	2605	39.523	+	.	
+ch.14578	dmelanogaster_proteins-BLASTX	protein_match	2105	2602	16.523	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2075	2602	48.046	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2075	2602	48.046	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2057	2602	52.0	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2075	2596	44.222	+	.	
+ch.14578	mSplicer_transcript	CDS	2124	2595	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	2124	2595	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	GeneMarkHMM	CDS	2124	2595	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	2124	2595	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	2124	2595	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	mSplicer_orf	CDS	2124	2595	.	+	.	ID=msp_orf-K06C4.6c.1
+ch.14578	mSplicer_orf	CDS	2124	2595	.	+	.	ID=msp_orf-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	2124	2595	.	+	.	ID=msp_trans-K06C4.6c.1
+ch.14578	mSplicer_transcript	CDS	2124	2595	.	+	.	ID=msp_trans-K06C4.6c.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2513	2593	25.7	+	.	ID=MJ00223.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2513	2593	11.5	+	.	ID=MJC00877_1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2375	2593	4.9	-	.	ID=ovolvulus_GG1414|c243_g1_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2375	2593	5.1	-	.	ID=ovolvulus_GG1414|c243_g1_i5.3
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2318	2593	20.1	+	.	ID=FD514063.1.2
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2318	2593	20.1	+	.	ID=CSC02155_1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2282	2593	10.6	+	.	ID=briggsae_GG2181|c0_g2_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2282	2593	10.6	+	.	ID=japonica_GG9199|c5_g1_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2282	2593	10.0	-	.	ID=ovolvulus_GG1414|c243_g1_i4.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2282	2593	11.6	+	.	ID=briggsae_GG2181|c0_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2282	2593	13.0	-	.	ID=ovolvulus_GG1414|c243_g1_i6.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2282	2593	7.5	-	.	ID=ovolvulus_GG1414|c243_g1_i3.3
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2282	2593	14.8	+	.	ID=FJ817373.1.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2282	2593	11.8	+	.	ID=Acan_isotig08401.2
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2207	2593	37.699	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2102	2593	25.155	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2102	2593	25.301	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2102	2593	24.523	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2102	2593	24.523	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2093	2593	55.398	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2093	2593	45.523	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2093	2593	45.699	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2075	2593	49.155	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2075	2593	44.222	+	.	
+ch.14578	dmelanogaster_proteins-BLASTX	protein_match	2072	2593	21.0	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2057	2593	54.0	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2057	2593	48.0	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2057	2593	47.097	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2030	2593	22.398	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2030	2593	22.398	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2030	2593	21.523	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2030	2593	21.523	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2027	2593	48.0	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2009	2593	52.155	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2009	2593	51.222	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2009	2593	51.301	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2009	2593	51.155	+	.	
+ch.14578	dust	low_complexity_region	2579	2592	.	.	.	
+ch.14578	dmelanogaster_proteins-BLASTX	protein_match	2066	2590	18.0	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2036	2590	15.523	+	.	
+ch.14578	c_remanei_LASTZ_NET	conserved_region	2096	2589	.	-	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2036	2587	17.222	+	.	
+ch.14578	hsapiens_proteins-BLASTX	protein_match	2036	2587	17.0	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2036	2587	16.398	+	.	
+ch.14578	UniProt-BLASTX	protein_match	2036	2587	16.398	+	.	
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2489	2578	19.6	+	.	ID=brugia_GG6559|c65_g1_i1.1
+ch.14578	BLAT_Caen_EST_OTHER	expressed_sequence_match	2480	2578	31.2	+	.	ID=AW114729.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	10.6	+	.	ID=briggsae_GG4790|c0_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	10.8	+	.	ID=briggsae_GG4790|c0_g2_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.3	+	.	ID=ovolvulus_GG324|c159_g1_i15.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.3	+	.	ID=ovolvulus_GG324|c159_g1_i16.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.4	+	.	ID=ovolvulus_GG324|c159_g1_i11.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.4	+	.	ID=ovolvulus_GG324|c159_g1_i7.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.4	+	.	ID=ovolvulus_GG324|c159_g1_i8.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.5	+	.	ID=ovolvulus_GG324|c159_g1_i12.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.5	+	.	ID=ovolvulus_GG324|c159_g1_i17.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.6	+	.	ID=ovolvulus_GG324|c159_g1_i13.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.6	+	.	ID=ovolvulus_GG324|c159_g1_i6.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.7	+	.	ID=ovolvulus_GG324|c159_g1_i10.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.7	+	.	ID=ovolvulus_GG324|c159_g1_i14.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.7	+	.	ID=ovolvulus_GG324|c159_g1_i4.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.8	+	.	ID=ovolvulus_GG324|c159_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.8	+	.	ID=ovolvulus_GG324|c159_g1_i5.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	4.9	+	.	ID=ovolvulus_GG324|c159_g1_i9.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2480	2578	5.3	-	.	ID=japonica_GG8641|c0_g1_i1.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2480	2578	12.8	+	.	ID=Acan_isotig08221.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2480	2578	20.8	+	.	ID=Tcol_isotig16630.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2480	2578	25.4	+	.	ID=PP02051.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2480	2578	57.7	+	.	ID=MH07824.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2480	2578	31.2	+	.	ID=PPC02239_1.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2480	2578	57.6	+	.	ID=MHC03782_1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2468	2578	2.2	+	.	ID=ovolvulus_GG514|c309_g2_i2.5
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2468	2578	8.4	+	.	ID=briggsae_GG447|c0_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2468	2578	8.5	+	.	ID=briggsae_GG447|c0_g1_i2.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2468	2578	8.8	+	.	ID=briggsae_GG447|c0_g2_i1.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2468	2578	9.1	+	.	ID=EU879912.1.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2468	2578	12.7	+	.	ID=Dviv_isotig20263.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2468	2578	17.6	+	.	ID=Acan_isotig05489.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2468	2578	17.9	+	.	ID=Acan_isotig05490.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2333	2578	7.8	+	.	ID=JI169509.1.2
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2168	2578	45.523	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2168	2578	45.523	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2093	2578	55.222	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2093	2578	54.398	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2093	2578	54.523	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2093	2578	55.097	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	2093	2578	47.699	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2087	2578	43.523	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	2078	2578	40.699	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2036	2578	53.523	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2036	2578	54.046	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2036	2578	53.0	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2036	2578	41.699	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2036	2578	42.046	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2036	2578	55.0	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2036	2578	52.699	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2036	2578	53.155	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2036	2578	54.0	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2036	2578	51.398	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2036	2578	55.046	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2036	2578	55.0	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2030	2578	49.0	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2030	2578	48.699	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2030	2578	44.222	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2030	2578	48.523	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2030	2578	41.699	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2030	2578	45.699	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2021	2578	50.523	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2021	2578	50.699	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2021	2578	55.398	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2012	2578	55.0	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	2012	2578	55.0	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2012	2578	50.0	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	2012	2578	55.699	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	2012	2578	55.699	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2012	2578	50.301	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	2012	2578	54.523	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	2012	2578	56.0	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	2012	2578	55.523	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	2012	2578	53.699	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2012	2578	49.699	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2012	2578	51.398	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	2012	2578	57.155	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	2012	2578	47.523	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	2012	2578	52.699	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	2012	2578	54.301	+	.	
+ch.14578	dmelanogaster_proteins-BLASTX	protein_match	2006	2578	26.699	+	.	
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2577	10.9	+	.	ID=briggsae_GG467|c0_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2577	11.2	+	.	ID=briggsae_GG467|c0_g2_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2575	12.3	+	.	ID=briggsae_GG7543|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2575	13.3	+	.	ID=briggsae_GG7543|c2_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2575	9.5	+	.	ID=japonica_GG8135|c1_g1_i1.5
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2553	2573	99.9	-	.	ID=yk1233a06.3.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2525	2573	11.3	-	.	ID=japonica_GG6759|c1_g3_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2525	2573	23.5	-	.	ID=japonica_GG6759|c1_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2512	2573	73.5	+	.	ID=japonica_GG4134|c0_g1_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2504	2573	15.4	+	.	ID=brugia_GG4507|c0_g1_i1.6
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2477	2573	100.0	+	.	ID=L1_Nanopore_Li_121732.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2477	2573	2.5	-	.	ID=ovolvulus_GG510|c33_g3_i12.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2477	2573	2.7	-	.	ID=ovolvulus_GG510|c33_g3_i3.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2477	2573	3.0	-	.	ID=ovolvulus_GG510|c33_g3_i13.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2477	2573	3.0	-	.	ID=ovolvulus_GG510|c33_g3_i18.3
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2471	2573	19.0	-	.	ID=Acan_isotig15084.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2471	2573	13.1	-	.	ID=Tcol_isotig15890.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2444	2573	38.0	-	.	ID=EX560156.1.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2441	2573	17.4	-	.	ID=Dviv_isotig28764.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2426	2573	20.3	-	.	ID=Dviv_isotig28909.1
+ch.14578	translated_feature	polypeptide_motif	2411	2573	.	+	.	ID=motif:mod-1-pfam.20
+ch.14578	translated_feature	polypeptide_motif	2411	2573	.	+	.	ID=motif:mod-1-pfam.7
+ch.14578	translated_feature	polypeptide_motif	2411	2573	.	+	.	ID=motif:mod-1-pfam.25
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2399	2573	14.1	+	.	ID=Acan_isotig10368.1
+ch.14578	translated_feature	polypeptide_motif	2390	2573	.	+	.	ID=motif:mod-1-superfamily.18
+ch.14578	translated_feature	polypeptide_motif	2390	2573	.	+	.	ID=motif:mod-1-superfamily.1
+ch.14578	translated_feature	polypeptide_motif	2387	2573	.	+	.	ID=motif:mod-1-superfamily.23
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2384	2573	28.1	+	.	ID=ACC05021_1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2375	2573	18.8	-	.	ID=japonica_GG1832|c4_g1_i1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2342	2573	9.1	+	.	ID=briggsae_GG2502|c0_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2342	2573	9.5	+	.	ID=briggsae_GG2502|c0_g2_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	8.8	-	.	ID=tmuris_GG2509|c51_g2_i3.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	9.1	-	.	ID=tmuris_GG2509|c51_g2_i1.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	9.3	-	.	ID=tmuris_GG2509|c51_g2_i2.6
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2333	2573	37.8	+	.	ID=Oden_isotig24235.1
+ch.14578	BLAT_Caen_IsoSeq_OTHER	expressed_sequence_match	2333	2573	19.1	+	.	ID=IsoSeq_brugia_PB_44_5.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	2.8	-	.	ID=ovolvulus_GG510|c33_g3_i15.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	2.9	-	.	ID=ovolvulus_GG510|c33_g3_i11.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	3.3	-	.	ID=ovolvulus_GG510|c33_g3_i14.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	3.4	-	.	ID=ovolvulus_GG510|c33_g3_i17.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	3.8	-	.	ID=ovolvulus_GG510|c33_g3_i8.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	10.3	+	.	ID=briggsae_GG3175|c1_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	10.0	+	.	ID=ovolvulus_GG1261|c27_g2_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	9.1	+	.	ID=ovolvulus_GG1261|c27_g2_i4.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	9.7	+	.	ID=briggsae_GG7417|c1_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2573	9.8	+	.	ID=briggsae_GG7417|c1_g1_i2.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2333	2573	17.2	+	.	ID=Acan_isotig02118.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2333	2573	20.1	+	.	ID=Acan_isotig02119.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2333	2573	23.0	-	.	ID=Tcol_isotig05702.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2333	2573	25.0	-	.	ID=Tcol_isotig05703.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2333	2573	32.3	+	.	ID=Oden_isotig23906.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2330	2573	20.3	+	.	ID=japonica_GG6745|c0_g1_i1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2330	2573	31.6	+	.	ID=japonica_GG6745|c0_g2_i1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2330	2573	9.6	+	.	ID=briggsae_GG234|c2_g1_i1.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2321	2573	68.5	+	.	ID=JI478000.1.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2264	2573	32.1	-	.	ID=ACC07809_1.5
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2264	2573	38.0	+	.	ID=FC541338.1.2
+ch.14578	RNASEQ.Hillier	CDS	2246	2573	.	+	.	ID=CDS:RNASEQ_early_embryo_g147_x18_V_m
+ch.14578	RNASeq_reads	transcript_region	2191	2573	3.0	.	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=L1_Nanopore_Roach_6409.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2102	2573	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2102	2573	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2102	2573	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=AF303088.1
+ch.14578	WormBase	CDS	2102	2573	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	2102	2573	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	2102	2573	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	2102	2573	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	2102	2573	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	2102	2573	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	twinscan	CDS	2102	2573	.	+	.	ID=CDS:chrV.9.242.tw
+ch.14578	RNASEQ.Hillier	CDS	2102	2573	.	+	.	ID=CDS:RNASEQ_mid-L2_25dC_14hrs_post-L1_g90_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	2102	2573	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	2102	2573	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	BLAT_Trinity_BEST	expressed_sequence_match	2102	2573	100.0	+	.	ID=elegans_PE_SS_GG1241|c3_g1_i1.1
+ch.14578	Genefinder	CDS	2102	2573	.	+	.	ID=CDS:K06C4.gc15
+ch.14578	WormBase	CDS	2102	2573	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	RNASEQ.Hillier	CDS	2102	2573	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g55_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	2102	2573	.	+	.	ID=motif:mod-1-hmmpanther.9
+ch.14578	translated_feature	polypeptide_motif	2102	2573	.	+	.	ID=motif:mod-1-hmmpanther.22
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2102	2573	31.2	+	.	ID=JI169197.1.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2102	2573	24.3	+	.	ID=ovolvulus_GG936|c30_g2_i4.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2102	2573	25.0	+	.	ID=ovolvulus_GG936|c30_g2_i9.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2102	2573	31.3	+	.	ID=ovolvulus_GG936|c30_g2_i8.4
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2102	2573	42.1	+	.	ID=ovolvulus_GG936|c30_g2_i5.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	2102	2573	45.7	+	.	ID=ovolvulus_GG936|c30_g2_i3.2
+ch.14578	WormBase	exon	2102	2573	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	2102	2573	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	exon	2102	2573	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASEQ.Hillier	CDS	2510	2572	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g189_x18_V_m
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2507	2572	4.6	-	.	ID=tmuris_GG260|c19_g1_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2477	2572	16.8	-	.	ID=japonica_GG14226|c0_g2_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2477	2572	17.8	-	.	ID=japonica_GG14226|c0_g1_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2471	2572	10.1	+	.	ID=briggsae_GG5894|c0_g2_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2471	2572	10.2	+	.	ID=briggsae_GG5894|c0_g2_i2.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2471	2572	10.6	+	.	ID=EF202570.1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2468	2572	14.0	+	.	ID=briggsae_GG7235|c0_g2_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2468	2572	1.6	+	.	ID=ovolvulus_GG514|c309_g2_i1.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2447	2572	9.1	+	.	ID=japonica_GG7524|c0_g1_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2441	2572	11.3	-	.	ID=ovolvulus_GG1261|c27_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2420	2572	26.1	+	.	ID=brugia_GG139|c7_g1_i1.5
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2417	2572	14.5	+	.	ID=brugia_GG6025|c1_g1_i1.7
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2411	2572	1.9	+	.	ID=ovolvulus_GG1351|c166_g1_i7.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2411	2572	2.4	+	.	ID=tmuris_GG2648|c17_g1_i4.5
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2411	2572	3.7	+	.	ID=ovolvulus_GG1351|c166_g1_i2.3
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2405	2572	13.8	+	.	ID=EY473682.1.3
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2405	2572	13.9	-	.	ID=EY466766.1.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2405	2572	6.6	+	.	ID=Acan_isotig08458.3
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2405	2572	8.5	-	.	ID=ACC09892_1.3
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2399	2572	14.9	-	.	ID=Acan_isotig13524.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2396	2572	14.3	-	.	ID=tmuris_GG167|c30_g1_i7.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2396	2572	18.6	-	.	ID=tmuris_GG167|c30_g1_i5.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2396	2572	11.3	-	.	ID=tmuris_GG167|c30_g1_i8.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2396	2572	14.9	-	.	ID=tmuris_GG167|c30_g1_i11.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2393	2572	21.9	+	.	ID=japonica_GG14638|c1_g1_i1.4
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2393	2572	18.4	-	.	ID=Oden_isotig23163.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2375	2572	17.3	-	.	ID=FC553063.1.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2375	2572	28.2	+	.	ID=GR12504.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2366	2572	20.4	+	.	ID=Acan_isotig13171.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2357	2572	9.3	+	.	ID=EU006789.1.3
+ch.14578	BLAT_Caen_EST_OTHER	expressed_sequence_match	2342	2572	21.3	+	.	ID=FF093668.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2342	2572	11.4	-	.	ID=briggsae_GG4017|c0_g2_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2342	2572	11.7	-	.	ID=briggsae_GG4017|c0_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2342	2572	21.3	+	.	ID=japonica_GG6294|c3_g1_i1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2342	2572	2.5	+	.	ID=ovolvulus_GG1351|c166_g1_i6.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2342	2572	2.8	+	.	ID=ovolvulus_GG1351|c166_g1_i8.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2342	2572	2.9	+	.	ID=ovolvulus_GG1351|c166_g1_i5.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2342	2572	4.8	+	.	ID=ovolvulus_GG1351|c166_g1_i3.3
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2342	2572	25.8	+	.	ID=JI215597.1.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2342	2572	27.5	-	.	ID=EX543816.1.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2342	2572	14.5	+	.	ID=Oden_isotig20558.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2342	2572	21.8	-	.	ID=Acan_isotig13759.2
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2342	2572	12.8	+	.	ID=ACC12847_1.5
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2342	2572	21.3	+	.	ID=CBC07593_1.4
+ch.14578	BLAT_Caen_IsoSeq_OTHER	expressed_sequence_match	2333	2572	9.0	+	.	ID=IsoSeq_tmuris_1835513.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2572	12.6	+	.	ID=japonica_GG5878|c0_g1_i1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2572	16.8	-	.	ID=japonica_GG7642|c10_g1_i1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2572	3.6	+	.	ID=tmuris_GG2648|c17_g1_i15.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2572	4.1	+	.	ID=tmuris_GG2648|c17_g1_i16.5
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2572	4.3	+	.	ID=tmuris_GG2648|c17_g1_i14.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2572	4.6	+	.	ID=tmuris_GG2648|c17_g1_i11.6
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2572	4.6	+	.	ID=tmuris_GG2648|c17_g1_i7.6
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2333	2572	17.5	+	.	ID=GO240499.1.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2333	2572	23.9	+	.	ID=EY469109.1.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2333	2572	38.1	+	.	ID=FC548292.1.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2333	2572	16.1	+	.	ID=Acan_isotig11861.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2333	2572	23.1	+	.	ID=ACC36027_1.4
+ch.14578	BLAT_Caen_EST_OTHER	expressed_sequence_match	2330	2572	20.3	+	.	ID=FF131657.4
+ch.14578	BLAT_Caen_EST_OTHER	expressed_sequence_match	2330	2572	20.9	+	.	ID=FF135033.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2330	2572	12.0	+	.	ID=briggsae_GG4928|c1_g2_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2330	2572	16.3	+	.	ID=japonica_GG2060|c0_g2_i1.3
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2330	2572	20.3	+	.	ID=CJC01577_1.3
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2114	2572	34.3	+	.	ID=EX556854.1.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2102	2572	37.5	+	.	ID=FC550473.1.2
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2102	2572	22.6	+	.	ID=ACC08552_1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2452	2571	4.9	+	.	ID=japonica_GG308|c0_g1_i1.4
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2351	2571	27.2	+	.	ID=GR12928.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2351	2571	20.8	+	.	ID=GRC01435_1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	11.7	+	.	ID=briggsae_GG5200|c1_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	11.9	+	.	ID=briggsae_GG5200|c1_g3_i1.5
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	1.5	-	.	ID=ovolvulus_GG367|c270_g2_i15.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	1.6	-	.	ID=ovolvulus_GG367|c270_g2_i17.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	1.6	-	.	ID=ovolvulus_GG367|c270_g2_i4.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	1.6	-	.	ID=ovolvulus_GG367|c270_g2_i6.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	1.7	-	.	ID=ovolvulus_GG367|c270_g2_i3.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	1.7	-	.	ID=ovolvulus_GG367|c270_g2_i8.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	1.8	-	.	ID=ovolvulus_GG367|c270_g2_i7.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	1.9	-	.	ID=ovolvulus_GG367|c270_g2_i2.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	2.2	-	.	ID=ovolvulus_GG367|c270_g2_i12.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	2.4	-	.	ID=ovolvulus_GG367|c270_g2_i18.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	3.8	-	.	ID=ovolvulus_GG367|c270_g2_i10.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	3.0	-	.	ID=ovolvulus_GG367|c270_g2_i11.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	4.3	-	.	ID=ovolvulus_GG367|c270_g2_i19.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	4.7	-	.	ID=ovolvulus_GG367|c270_g2_i13.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	4.0	-	.	ID=ovolvulus_GG367|c270_g2_i16.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2571	4.0	-	.	ID=ovolvulus_GG367|c270_g2_i9.3
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2333	2571	40.0	-	.	ID=Oden_isotig25057.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2534	2566	100.0	+	.	ID=L1_Nanopore_Li_257802.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2566	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2566	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2566	100.0	+	.	ID=EM_Nanopore_Li_161849.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	2102	2566	100.0	+	.	ID=L1_Nanopore_Li_268782.1
+ch.14578	WormBase	gene	2409	2558	.	-	.	ID=Gene:WBGene00197248
+ch.14578	WormBase	ncRNA	2409	2558	.	-	.	ID=Transcript:K06C4.20;Parent=Gene:WBGene00197248
+ch.14578	WormBase	exon	2409	2558	.	-	.	Parent=Transcript:K06C4.20
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2471	2557	13.5	+	.	ID=JI177428.1.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2375	2557	50.9	-	.	ID=Oden_isotig29690.2
+ch.14578	Million_mutation	point_mutation	2552	2552	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2552	2552	.	-	.	
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2480	2542	33.7	+	.	ID=MA02726.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2480	2542	34.8	+	.	ID=MAC02297_1.2
+ch.14578	RNASEQ.Hillier	CDS	2102	2542	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g98_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	2471	2539	.	+	.	ID=motif:mod-1-tmhmm.14
+ch.14578	Oligo_set	reagent	2485	2533	.	+	.	
+ch.14578	Oligo_set	reagent	2438	2533	.	+	.	
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2330	2533	45.8	-	.	ID=JI240542.1.1
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2453	2528	8.14	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2453	2528	8.79	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2347	2528	7.12	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2528	7.77	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2528	9.87	.	.	
+ch.14578	RNASeq_splice	intron	2480	2527	4.0	+	.	
+ch.14578	RNASeq_stranded	transcript_region	2474	2524	1.0	+	.	
+ch.14578	Oligo_set	reagent	2462	2521	.	+	.	
+ch.14578	Allele	point_mutation	2514	2514	.	-	.	
+ch.14578	PCoF_Allele	point_mutation	2514	2514	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2347	2502	7.35	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2347	2502	7.63	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2325	2502	7.59	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2139	2502	8.28	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2502	10.0981	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2502	7.73	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2502	7.83	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2502	8.84	.	.	
+ch.14578	Oligo_set	reagent	2471	2495	.	-	.	
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2342	2491	15.2	+	.	ID=EW743304.1.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2342	2491	15.2	+	.	ID=ACC24068_1.3
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2354	2485	25.7	+	.	ID=MJ00223.1
+ch.14578	Allele	complex_substitution	1258	2464	.	+	.	
+ch.14578	PCoF_Allele	complex_substitution	1258	2464	.	+	.	
+ch.14578	Oligo_set	reagent	2417	2463	.	-	.	
+ch.14578	Oligo_set	reagent	2438	2462	.	+	.	
+ch.14578	SAGE_tag	SAGE_tag	2448	2461	.	-	.	
+ch.14578	translated_feature	polypeptide_motif	2396	2458	.	+	.	ID=motif:mod-1-prints.3
+ch.14578	translated_feature	polypeptide_motif	2390	2458	.	+	.	ID=motif:mod-1-tmhmm.15
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2363	2455	20.8	+	.	ID=Tcol_isotig16630.1
+ch.14578	BLAT_Caen_EST_OTHER	expressed_sequence_match	2348	2455	31.2	+	.	ID=AW114729.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2348	2455	25.4	+	.	ID=PP02051.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2348	2455	31.2	+	.	ID=PPC02239_1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2455	19.6	+	.	ID=brugia_GG6559|c65_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2327	2455	10.6	+	.	ID=briggsae_GG4790|c0_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2327	2455	10.8	+	.	ID=briggsae_GG4790|c0_g2_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2327	2455	5.3	-	.	ID=japonica_GG8641|c0_g1_i1.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2327	2455	12.8	+	.	ID=Acan_isotig08221.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2282	2455	33.7	+	.	ID=MA02726.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2282	2455	34.8	+	.	ID=MAC02297_1.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2105	2455	57.7	+	.	ID=MH07824.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2105	2455	57.6	+	.	ID=MHC03782_1.1
+ch.14578	RNASeq_stranded	transcript_region	2341	2450	1.0	+	.	
+ch.14578	c_brenneri_LASTZ_NET	conserved_region	2097	2448	.	-	.	
+ch.14578	Million_mutation	point_mutation	2447	2447	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2447	2447	.	-	.	
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2333	2446	4.7	+	.	ID=JI171060.1.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2333	2446	8.5	-	.	ID=JO469018.1.2
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2333	2446	14.0	+	.	ID=TX00066.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2333	2446	14.0	+	.	ID=TCC01078_1.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.3	+	.	ID=ovolvulus_GG324|c159_g1_i15.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.3	+	.	ID=ovolvulus_GG324|c159_g1_i16.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.4	+	.	ID=ovolvulus_GG324|c159_g1_i11.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.4	+	.	ID=ovolvulus_GG324|c159_g1_i7.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.4	+	.	ID=ovolvulus_GG324|c159_g1_i8.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.5	+	.	ID=ovolvulus_GG324|c159_g1_i12.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.5	+	.	ID=ovolvulus_GG324|c159_g1_i17.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.6	+	.	ID=ovolvulus_GG324|c159_g1_i13.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.6	+	.	ID=ovolvulus_GG324|c159_g1_i6.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.7	+	.	ID=ovolvulus_GG324|c159_g1_i10.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.7	+	.	ID=ovolvulus_GG324|c159_g1_i14.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.7	+	.	ID=ovolvulus_GG324|c159_g1_i4.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.8	+	.	ID=ovolvulus_GG324|c159_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.8	+	.	ID=ovolvulus_GG324|c159_g1_i5.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	4.9	+	.	ID=ovolvulus_GG324|c159_g1_i9.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	13.7	+	.	ID=ovolvulus_GG324|c159_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2321	2446	13.0	+	.	ID=ovolvulus_GG324|c159_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2434	2.5	-	.	ID=ovolvulus_GG510|c33_g3_i12.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2434	2.7	-	.	ID=ovolvulus_GG510|c33_g3_i3.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2434	3.0	-	.	ID=ovolvulus_GG510|c33_g3_i13.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2434	3.0	-	.	ID=ovolvulus_GG510|c33_g3_i18.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2434	13.8	-	.	ID=ovolvulus_GG1261|c27_g2_i2.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2333	2434	25.1	-	.	ID=ovolvulus_GG510|c33_g3_i6.1
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2245	2426	7.77	.	.	
+ch.14578	Oligo_set	reagent	2342	2401	.	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2347	2399	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2399	7.79	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2399	8.18	.	.	
+ch.14578	translated_feature	polypeptide_motif	2102	2386	.	+	.	ID=motif:mod-1-pfam.8
+ch.14578	translated_feature	polypeptide_motif	2102	2386	.	+	.	ID=motif:mod-1-superfamily.2
+ch.14578	RNASEQ.Hillier	CDS	2102	2383	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g94_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	2102	2365	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g126_x18_V_m
+ch.14578	Oligo_set	reagent	2336	2360	.	-	.	
+ch.14578	Million_mutation	point_mutation	2350	2350	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2350	2350	.	-	.	
+ch.14578	Million_mutation	point_mutation	2343	2343	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2343	2343	.	-	.	
+ch.14578	BLAT_OST_BEST	expressed_sequence_match	2102	2297	100.0	+	.	ID=OSTF181F4_1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2285	2296	12.3	+	.	ID=briggsae_GG7543|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2285	2296	13.3	+	.	ID=briggsae_GG7543|c2_g1_i1.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2195	2296	68.5	+	.	ID=JI478000.1.1
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2245	2295	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2245	2295	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2245	2295	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2245	2295	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2245	2295	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2245	2295	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2245	2295	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2295	7.56743	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2295	8.58	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2295	8.71	.	.	
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2258	2293	17.2	+	.	ID=Acan_isotig02118.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2258	2293	20.1	+	.	ID=Acan_isotig02119.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	2105	2263	33.7	+	.	ID=MA02726.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2105	2263	34.8	+	.	ID=MAC02297_1.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2102	2257	10.6	+	.	ID=EF202570.1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2144	2251	21.3	+	.	ID=japonica_GG6294|c3_g1_i1.4
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.3	+	.	ID=ovolvulus_GG324|c159_g1_i15.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.3	+	.	ID=ovolvulus_GG324|c159_g1_i16.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.4	+	.	ID=ovolvulus_GG324|c159_g1_i11.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.4	+	.	ID=ovolvulus_GG324|c159_g1_i7.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.4	+	.	ID=ovolvulus_GG324|c159_g1_i8.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.5	+	.	ID=ovolvulus_GG324|c159_g1_i12.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.5	+	.	ID=ovolvulus_GG324|c159_g1_i17.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.6	+	.	ID=ovolvulus_GG324|c159_g1_i13.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.6	+	.	ID=ovolvulus_GG324|c159_g1_i6.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.7	+	.	ID=ovolvulus_GG324|c159_g1_i10.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.7	+	.	ID=ovolvulus_GG324|c159_g1_i14.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.7	+	.	ID=ovolvulus_GG324|c159_g1_i4.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.8	+	.	ID=ovolvulus_GG324|c159_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.8	+	.	ID=ovolvulus_GG324|c159_g1_i5.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	4.9	+	.	ID=ovolvulus_GG324|c159_g1_i9.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	13.7	+	.	ID=ovolvulus_GG324|c159_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2105	2251	13.0	+	.	ID=ovolvulus_GG324|c159_g1_i3.1
+ch.14578	Million_mutation	point_mutation	2248	2248	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2248	2248	.	-	.	
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2102	2245	10.0	-	.	ID=ovolvulus_GG1414|c243_g1_i4.3
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2102	2245	13.0	-	.	ID=ovolvulus_GG1414|c243_g1_i6.3
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2102	2245	13.5	+	.	ID=JI177428.1.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2102	2245	6.9	+	.	ID=JI173495.1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2098	2245	10.1	+	.	ID=briggsae_GG5894|c0_g2_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2098	2245	10.2	+	.	ID=briggsae_GG5894|c0_g2_i2.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2096	2245	14.8	+	.	ID=FJ817373.1.2
+ch.14578	RNASEQ.Hillier	CDS	2102	2239	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g116_x18_V_m
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2096	2233	8.4	+	.	ID=briggsae_GG447|c0_g1_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2096	2233	8.5	+	.	ID=briggsae_GG447|c0_g1_i2.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2093	2233	9.1	+	.	ID=EU879912.1.2
+ch.14578	RNASeq_stranded	transcript_region	2187	2226	1.0	+	.	
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2102	2221	11.4	-	.	ID=briggsae_GG4017|c0_g2_i1.2
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2102	2221	11.7	-	.	ID=briggsae_GG4017|c0_g1_i1.2
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	2102	2221	13.9	+	.	ID=ES742712.1.2
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	2102	2221	13.9	+	.	ID=HBC05291_1.3
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2102	2218	96.2	+	.	ID=yk1649a11.5.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2102	2211	97.0	+	.	ID=yk1233a06.5.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	2102	2207	96.0	+	.	ID=yk1323f12.5.1
+ch.14578	translated_feature	polypeptide_motif	2147	2191	.	+	.	ID=motif:mod-1-scanprosite.10
+ch.14578	RNASeq_reads	transcript_region	2183	2190	5.0	.	.	
+ch.14578	RNASEQ.Hillier	CDS	2102	2188	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g101_x18_V_m
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2185	7.43	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2185	8.04	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2185	8.21	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2185	8.55	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2185	8.61226	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2185	8.61	.	.	
+ch.14578	RNASeq_reads	transcript_region	2102	2182	3.0	.	.	
+ch.14578	Million_mutation	point_mutation	2172	2172	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2172	2172	.	-	.	
+ch.14578	Million_mutation	point_mutation	2163	2163	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2163	2163	.	-	.	
+ch.14578	Oligo_set	reagent	2103	2162	.	+	.	
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2143	2160	12.3	+	.	ID=briggsae_GG7543|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	2143	2160	13.3	+	.	ID=briggsae_GG7543|c2_g1_i1.1
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	2113	2137	0.0	.	.	
+ch.14578	Million_mutation	point_mutation	2133	2133	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	2133	2133	.	-	.	
+ch.14578	RNASeq_splice	intron	2044	2101	81.0	+	.	
+ch.14578	WormBase	intron	1691	2101	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	1691	2101	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	intron	1691	2101	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_splice	intron	1691	2101	17003.0	+	.	
+ch.14578	RNASeq_splice	intron	1691	2093	17.0	+	.	
+ch.14578	RNASeq_splice	intron	1691	2070	11.0	+	.	
+ch.14578	Million_mutation	point_mutation	2020	2020	.	-	.	
+ch.14578	Million_mutation	point_mutation	1981	1981	.	-	.	
+ch.14578	SAGE_tag	SAGE_tag	1917	1930	.	-	.	
+ch.14578	c_remanei_LASTZ_NET	conserved_region	638	1902	.	-	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	1568	1864	20.398	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	1565	1864	7.523	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	1565	1864	6.699	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	1565	1864	6.699	+	.	
+ch.14578	Million_mutation	point_mutation	1794	1794	.	-	.	
+ch.14578	Million_mutation	point_mutation	1761	1761	.	-	.	
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	1726	1728	57.7	+	.	ID=MH07824.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	1726	1728	57.6	+	.	ID=MHC03782_1.1
+ch.14578	mSplicer_transcript	CDS	1589	1712	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	1589	1712	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	GeneMarkHMM	CDS	1589	1712	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	1589	1712	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	1589	1712	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	mSplicer_orf	CDS	1589	1712	.	+	.	ID=msp_orf-K06C4.6c.1
+ch.14578	mSplicer_orf	CDS	1589	1712	.	+	.	ID=msp_orf-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	1589	1712	.	+	.	ID=msp_trans-K06C4.6c.1
+ch.14578	mSplicer_transcript	CDS	1589	1712	.	+	.	ID=msp_trans-K06C4.6c.2
+ch.14578	RNASEQ.Hillier	CDS	1673	1690	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g126_x18_V_m
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	1625	1690	57.7	+	.	ID=MH07824.1
+ch.14578	NEMBASE_cDNAs-BLAT	expressed_sequence_match	1625	1690	57.6	+	.	ID=MHC03782_1.1
+ch.14578	RNASEQ.Hillier	CDS	1622	1690	.	+	.	ID=CDS:RNASEQ_Adult_Harposporium_exposed_2_24hrs_g148_x18_V_m
+ch.14578	BLAT_Trinity_BEST	expressed_sequence_match	1601	1690	100.0	+	.	ID=elegans_PE_SS_GG1241|c3_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	1598	1690	10.6	+	.	ID=briggsae_GG4790|c0_g1_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	1598	1690	10.8	+	.	ID=briggsae_GG4790|c0_g2_i1.1
+ch.14578	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	1598	1690	5.3	-	.	ID=japonica_GG8641|c0_g1_i1.1
+ch.14578	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	1598	1690	12.8	+	.	ID=Acan_isotig08221.1
+ch.14578	celegans_proteins-BLASTX	protein_match	1589	1690	6.222	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	1589	1690	8.0	+	.	
+ch.14578	RNASEQ.Hillier	CDS	1577	1690	.	+	.	ID=CDS:RNASEQ_mid-L2_25dC_14hrs_post-L1_g90_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	1577	1690	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g98_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	1577	1690	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g94_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	1577	1690	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g116_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	1577	1690	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g101_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	1577	1690	.	+	.	ID=CDS:RNASEQ_early_embryo_g121_x18_V_m
+ch.14578	celegans_proteins-BLASTX	protein_match	1568	1690	5.398	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1568	1690	9.0	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	1568	1690	13.0	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	1568	1690	8.699	+	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L1_Nanopore_Roach_6409.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1567	1690	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1567	1690	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1567	1690	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=AF303088.1
+ch.14578	WormBase	CDS	1567	1690	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	1567	1690	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	1567	1690	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	1567	1690	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	1567	1690	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	1567	1690	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	twinscan	CDS	1567	1690	.	+	.	ID=CDS:chrV.9.242.tw
+ch.14578	translated_feature	polypeptide_motif	1567	1690	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	1567	1690	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=EM_Nanopore_Li_161849.1
+ch.14578	Genefinder	CDS	1567	1690	.	+	.	ID=CDS:K06C4.gc15
+ch.14578	WormBase	CDS	1567	1690	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=L1_Nanopore_Li_268782.1
+ch.14578	RNASEQ.Hillier	CDS	1567	1690	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g55_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	1567	1690	.	+	.	ID=motif:mod-1-hmmpanther.9
+ch.14578	translated_feature	polypeptide_motif	1567	1690	.	+	.	ID=motif:mod-1-hmmpanther.22
+ch.14578	translated_feature	polypeptide_motif	1567	1690	.	+	.	ID=motif:mod-1-pfam.8
+ch.14578	translated_feature	polypeptide_motif	1567	1690	.	+	.	ID=motif:mod-1-superfamily.2
+ch.14578	BLAT_OST_BEST	expressed_sequence_match	1567	1690	100.0	+	.	ID=OSTF181F4_1.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	1567	1690	96.2	+	.	ID=yk1649a11.5.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	1567	1690	97.0	+	.	ID=yk1233a06.5.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	1567	1690	96.0	+	.	ID=yk1323f12.5.1
+ch.14578	WormBase	exon	1567	1690	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	1567	1690	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	exon	1567	1690	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_reads	transcript_region	1567	1690	4.0	.	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1565	1690	24.3	+	.	ID=ovolvulus_GG936|c30_g2_i4.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1565	1690	25.0	+	.	ID=ovolvulus_GG936|c30_g2_i9.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1565	1690	31.3	+	.	ID=ovolvulus_GG936|c30_g2_i8.4
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1565	1690	42.1	+	.	ID=ovolvulus_GG936|c30_g2_i5.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1565	1690	45.7	+	.	ID=ovolvulus_GG936|c30_g2_i3.2
+ch.14578	bmalayi_proteins-BLASTX	protein_match	1565	1690	21.0	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	1565	1690	21.0	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	1565	1690	35.0	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	1565	1690	34.155	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	1565	1690	34.222	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1565	1690	9.0	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	1565	1690	33.699	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	1565	1690	20.301	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	1565	1690	26.699	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	1565	1690	9.0	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	1568	1687	10.699	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	1568	1687	10.699	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1568	1687	6.523	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1568	1687	8.699	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	1568	1687	11.0	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	1568	1687	11.0	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	1568	1687	10.699	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	1565	1687	9.0	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1565	1687	9.0	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	1565	1687	8.699	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1434	1684	0.0873758	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1434	1684	0.0918598	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1410	1684	0.00640799	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1632	1682	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	10.37	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	10.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	11.2971	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	11.57	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	8.3846	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	8.95501	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	8.96	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	9.13	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	9.18	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	9.38	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	9.5	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1682	9.78	.	.	
+ch.14578	Oligo_set	reagent	1646	1670	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	1582	1660	1.0	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1656	8.37	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1656	9.39	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1656	9.58	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1573	1656	9.71	.	.	
+ch.14578	RNASEQ.Hillier	CDS	1577	1645	.	+	.	ID=CDS:RNASEQ_Adult_S_macescens_Db10_exposed_1_24hrs_g168_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	1567	1636	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g135_x18_V_m
+ch.14578	Oligo_set	reagent	1604	1628	.	-	.	
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	1568	1616	31.2	+	.	ID=JI169197.1.1
+ch.14578	RNASEQ.Hillier	CDS	1567	1567	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g106_x18_V_m
+ch.14578	RNASeq_reads	transcript_region	1566	1566	1.0	.	.	
+ch.14578	WormBase	intron	1514	1566	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	1514	1566	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	intron	1514	1566	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_splice	intron	1514	1566	18961.0	+	.	
+ch.14578	RNASeq_splice	intron	1507	1566	3.0	+	.	
+ch.14578	RNASeq_splice	intron	446	1566	14.0	+	.	
+ch.14578	Million_mutation	point_mutation	1557	1557	.	-	.	
+ch.14578	Million_mutation	point_mutation	1545	1545	.	-	.	
+ch.14578	mSplicer_transcript	CDS	1426	1535	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	1426	1535	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	GeneMarkHMM	CDS	1426	1535	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	1426	1535	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	1426	1535	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	mSplicer_orf	CDS	1426	1535	.	+	.	ID=msp_orf-K06C4.6c.1
+ch.14578	mSplicer_orf	CDS	1426	1535	.	+	.	ID=msp_orf-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	1426	1535	.	+	.	ID=msp_trans-K06C4.6c.1
+ch.14578	mSplicer_transcript	CDS	1426	1535	.	+	.	ID=msp_trans-K06C4.6c.2
+ch.14578	celegans_proteins-BLASTX	protein_match	1401	1514	6.699	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	1401	1514	6.699	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	1395	1514	21.0	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	1395	1514	21.0	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	1395	1514	9.0	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1395	1514	9.0	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1395	1514	9.0	+	.	
+ch.14578	ppacificus_proteins-BLASTX	protein_match	1395	1514	26.699	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	1395	1514	8.699	+	.	
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	1392	1514	35.0	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	1392	1514	34.155	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	1392	1514	34.222	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	1392	1514	33.699	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	1392	1514	20.301	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	1392	1514	9.0	+	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1448	1513	100.0	+	.	ID=L1_Nanopore_Li_268782.1
+ch.14578	Genefinder	CDS	1407	1513	.	+	.	ID=CDS:K06C4.gc15
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L1_Nanopore_Roach_6409.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=AF303088.1
+ch.14578	WormBase	CDS	1404	1513	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	1404	1513	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	1404	1513	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	1404	1513	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	1404	1513	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	1404	1513	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	twinscan	CDS	1404	1513	.	+	.	ID=CDS:chrV.9.242.tw
+ch.14578	translated_feature	polypeptide_motif	1404	1513	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	1404	1513	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=EM_Nanopore_Li_161849.1
+ch.14578	WormBase	CDS	1404	1513	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	RNASEQ.Hillier	CDS	1404	1513	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g55_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	1404	1513	.	+	.	ID=motif:mod-1-hmmpanther.9
+ch.14578	translated_feature	polypeptide_motif	1404	1513	.	+	.	ID=motif:mod-1-hmmpanther.22
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	1404	1513	31.2	+	.	ID=JI169197.1.1
+ch.14578	translated_feature	polypeptide_motif	1404	1513	.	+	.	ID=motif:mod-1-pfam.8
+ch.14578	translated_feature	polypeptide_motif	1404	1513	.	+	.	ID=motif:mod-1-superfamily.2
+ch.14578	BLAT_OST_BEST	expressed_sequence_match	1404	1513	100.0	+	.	ID=OSTF181F4_1.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	1404	1513	96.2	+	.	ID=yk1649a11.5.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	1404	1513	97.0	+	.	ID=yk1233a06.5.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	1404	1513	96.0	+	.	ID=yk1323f12.5.1
+ch.14578	RNASEQ.Hillier	CDS	1404	1513	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g135_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	1404	1513	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g106_x18_V_m
+ch.14578	WormBase	exon	1404	1513	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	1404	1513	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	exon	1404	1513	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_reads	transcript_region	1404	1513	4.0	.	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1399	1513	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1399	1513	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1399	1513	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	Oligo_set	reagent	1464	1512	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1462	1512	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1462	1512	0.0	.	.	
+ch.14578	RNASeq_stranded	transcript_region	1454	1512	1.0	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	10.19	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	10.63	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	10.64	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	10.94	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	10.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	11.7	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	12.3278	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	8.73356	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	8.92	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	8.98927	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	8.99	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	9.1	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	9.32	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	9.42	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1408	1512	9.76	.	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	1401	1511	10.699	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	1395	1511	6.222	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1395	1511	8.699	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	1395	1511	8.699	+	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1392	1511	9.0	+	.	
+ch.14578	tmuris_proteins-BLASTX	protein_match	1386	1511	8.0	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	1401	1508	10.699	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	1401	1508	10.699	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	1401	1508	11.0	+	.	
+ch.14578	celegans_proteins-BLASTX	protein_match	1392	1508	5.398	+	.	
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	1392	1508	11.0	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	1392	1508	13.0	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	1392	1508	20.398	+	.	
+ch.14578	Million_mutation	point_mutation	1497	1497	.	-	.	
+ch.14578	PCoF_Million_mutation	point_mutation	1497	1497	.	-	.	
+ch.14578	cjaponica_proteins-BLASTX	protein_match	1401	1496	6.523	+	.	
+ch.14578	c_remanei_LASTZ_NET	conserved_region	636	1494	.	-	.	
+ch.14578	translated_feature	polypeptide_motif	1440	1490	.	+	.	ID=motif:mod-1-prints.4
+ch.14578	RNASEQ.Hillier	CDS	1407	1460	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g167_x18_V_m
+ch.14578	RNASeq_stranded	transcript_region	1448	1448	1.0	-	.	
+ch.14578	RNASEQ.Hillier	CDS	1404	1448	.	+	.	ID=CDS:RNASEQ_dauer_exit_daf-2_25dC_91hrs_15dC_12hrs_post-L1_g112_x18_V_m
+ch.14578	RNASeq_reads	transcript_region	1403	1403	1.0	.	.	
+ch.14578	RNASeq_splice	intron	1360	1403	85.0	+	.	
+ch.14578	WormBase	intron	446	1403	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	446	1403	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	intron	446	1403	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_splice	intron	446	1403	17919.0	+	.	
+ch.14578	PCoF_Variation_project_Polymorphism	SNP	1396	1396	.	-	.	
+ch.14578	Variation_project_Polymorphism	SNP	1396	1396	.	-	.	
+ch.14578	NemaGENETAG_consortium	transposable_element_insertion_site	1358	1358	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1248	1335	8.12	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1220	1335	8.02	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1195	1335	8.90957	.	.	
+ch.14578	TSS_region	TSS_region	1313	1313	.	-	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	1248	1272	0.0	.	.	
+ch.14578	Million_mutation	point_mutation	1242	1242	.	-	.	
+ch.14578	Million_mutation	point_mutation	1241	1241	.	-	.	
+ch.14578	Million_mutation	point_mutation	1213	1213	.	-	.	
+ch.14578	Million_mutation	point_mutation	1189	1189	.	-	.	
+ch.14578	Million_mutation	deletion	489	1182	.	-	.	
+ch.14578	RNASeq_splice	intron	446	1173	10.0	+	.	
+ch.14578	Million_mutation	point_mutation	973	973	.	-	.	
+ch.14578	Million_mutation	point_mutation	973	973	.	-	.	
+ch.14578	Variation_project_Polymorphism	SNP	933	933	.	-	.	
+ch.14578	DNaseI_hypersensitive_site	DNaseI_hypersensitive_site	749	899	.	-	.	
+ch.14578	DNaseI_hypersensitive_site	DNaseI_hypersensitive_site	729	879	.	-	.	
+ch.14578	Million_mutation	point_mutation	860	860	.	-	.	
+ch.14578	RNASeq_splice	intron	446	800	11.0	+	.	
+ch.14578	RNASeq_splice	intron	446	794	4.0	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	687	767	7.61	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	339	711	8.28	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	544	649	7.73	.	.	
+ch.14578	mSplicer_transcript	CDS	330	467	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	330	467	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	GeneMarkHMM	CDS	330	467	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	330	467	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	330	467	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	mSplicer_orf	CDS	330	467	.	+	.	ID=msp_orf-K06C4.6c.1
+ch.14578	mSplicer_orf	CDS	330	467	.	+	.	ID=msp_orf-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	330	467	.	+	.	ID=msp_trans-K06C4.6c.1
+ch.14578	mSplicer_transcript	CDS	330	467	.	+	.	ID=msp_trans-K06C4.6c.2
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	339	466	9.22	.	.	
+ch.14578	c_remanei_LASTZ_NET	conserved_region	135	453	.	-	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	449	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	374	448	11.7	+	.	ID=ovolvulus_GG936|c30_g1_i1.1
+ch.14578	RNASeq_reads	transcript_region	446	446	1.0	.	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	397	445	100.0	+	.	ID=L1_Nanopore_Li_191215.1
+ch.14578	RNASEQ.Hillier	CDS	392	445	.	+	.	ID=CDS:RNASEQ_dauer_exit_daf-2_25dC_91hrs_15dC_12hrs_post-L1_g112_x18_V_m
+ch.14578	BLAT_OST_BEST	expressed_sequence_match	383	445	100.0	+	.	ID=OSTF181F4_1.1
+ch.14578	twinscan	CDS	374	445	.	+	.	ID=CDS:chrV.9.242.tw
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	374	445	24.3	+	.	ID=ovolvulus_GG936|c30_g2_i4.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	374	445	25.0	+	.	ID=ovolvulus_GG936|c30_g2_i9.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	374	445	31.3	+	.	ID=ovolvulus_GG936|c30_g2_i8.4
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	374	445	42.1	+	.	ID=ovolvulus_GG936|c30_g2_i5.2
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	374	445	45.7	+	.	ID=ovolvulus_GG936|c30_g2_i3.2
+ch.14578	translated_feature	polypeptide_motif	368	445	.	+	.	ID=motif:mod-1-hmmpanther.9
+ch.14578	translated_feature	polypeptide_motif	368	445	.	+	.	ID=motif:mod-1-hmmpanther.22
+ch.14578	RNASEQ.Hillier	CDS	362	445	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g55_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	362	445	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g106_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	362	445	.	+	.	ID=CDS:RNASEQ_Adult_spe-9_23dC_8days_post-L4_molt_g168_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	362	445	.	+	.	ID=CDS:RNASEQ_mid-L2_25dC_14hrs_post-L1_g146_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	353	445	.	+	.	ID=motif:mod-1-pfam.8
+ch.14578	translated_feature	polypeptide_motif	347	445	.	+	.	ID=motif:mod-1-superfamily.2
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	326	445	96.0	+	.	ID=yk1323f12.5.1
+ch.14578	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	317	445	31.2	+	.	ID=JI169197.1.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	315	445	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	315	445	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	315	445	100.0	+	.	ID=EM_Nanopore_Li_161849.1
+ch.14578	ovolvulus_proteins-BLASTX	protein_match	314	445	8.0	+	.	
+ch.14578	sratti_proteins-BLASTX	protein_match	314	445	7.523	+	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=L1_Nanopore_Roach_6409.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	308	445	100.0	+	.	ID=AF303088.1
+ch.14578	WormBase	CDS	308	445	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	308	445	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	308	445	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	308	445	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	308	445	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	308	445	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	translated_feature	polypeptide_motif	308	445	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	308	445	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	WormBase	CDS	308	445	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	308	445	96.2	+	.	ID=yk1649a11.5.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	308	445	97.0	+	.	ID=yk1233a06.5.1
+ch.14578	RNASEQ.Hillier	CDS	308	445	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g135_x18_V_m
+ch.14578	bmalayi_proteins-BLASTX	protein_match	308	445	9.301	+	.	
+ch.14578	bmalayi_proteins-BLASTX	protein_match	308	445	9.398	+	.	
+ch.14578	WormBase	exon	308	445	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	308	445	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	exon	308	445	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	ppacificus_proteins-BLASTX	protein_match	308	445	8.699	+	.	
+ch.14578	RNASeq_reads	transcript_region	308	445	4.0	.	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	294	445	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	cbrenneri_proteins-BLASTX	protein_match	149	445	21.155	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	149	445	19.0	+	.	
+ch.14578	cbriggsae_proteins-BLASTX	protein_match	149	445	19.0	+	.	
+ch.14578	cremanei_proteins-BLASTX	protein_match	149	445	19.301	+	.	
+ch.14578	Oligo_set	reagent	383	442	.	+	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	308	440	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	308	440	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	308	440	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	292	440	0.0501839	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	292	440	0.120484	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	339	438	10.4	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	339	438	11.8879	.	.	
+ch.14578	Oligo_set	reagent	384	428	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	418	425	1.0	+	.	
+ch.14578	RNASeq_stranded	transcript_region	411	415	1.0	+	.	
+ch.14578	RNASeq_stranded	transcript_region	409	409	1.0	-	.	
+ch.14578	RNASEQ.Hillier	CDS	308	409	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g158n11_x18_V_m
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	360	408	0.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	339	408	10.27	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	339	408	10.57	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	339	408	9.50457	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	339	408	9.5	.	.	
+ch.14578	RNASeq_stranded	transcript_region	306	387	1.0	+	.	
+ch.14578	SAGE_tag_genomic_unique	SAGE_tag	363	376	.	-	.	
+ch.14578	RNASEQ.Hillier	CDS	308	340	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g83n11_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	308	334	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g103n11_x18_V_m
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	308	325	96.0	+	.	ID=yk1323f12.5.1
+ch.14578	RNASEQ.Hillier	CDS	308	325	.	+	.	ID=CDS:RNASEQ_L4_soma_JK1107_no_DNaseI_g83n11_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	308	325	.	+	.	ID=CDS:RNASEQ_mid-L4_25dC_36hrs_post-L1_g141_x18_V_m
+ch.14578	RNASeq_splice	intron	206	314	4.0	+	.	
+ch.14578	translated_feature	polypeptide_motif	308	310	.	+	.	ID=motif:mod-1-signalp.17
+ch.14578	RNASeq_reads	transcript_region	306	307	1.0	.	.	
+ch.14578	WormBase	intron	206	307	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	206	307	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	intron	206	307	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASeq_splice	intron	206	307	14650.0	+	.	
+ch.14578	RNASeq_splice	intron	206	293	3.0	+	.	
+ch.14578	RNASeq_splice	intron	206	274	5.0	+	.	
+ch.14578	Million_mutation	point_mutation	266	266	.	-	.	
+ch.14578	Million_mutation	point_mutation	227	227	.	-	.	
+ch.14578	GeneMarkHMM	CDS	171	227	.	+	.	ID=CDS:GeneMark.chr_V.2371
+ch.14578	mSplicer_orf	CDS	171	227	.	+	.	ID=msp_orf-K06C4.6a
+ch.14578	mSplicer_orf	CDS	171	227	.	+	.	ID=msp_orf-K06C4.6b
+ch.14578	mSplicer_orf	CDS	171	227	.	+	.	ID=msp_orf-K06C4.6c.1
+ch.14578	mSplicer_orf	CDS	171	227	.	+	.	ID=msp_orf-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	130	227	.	+	.	ID=msp_trans-K06C4.6a
+ch.14578	mSplicer_transcript	CDS	130	227	.	+	.	ID=msp_trans-K06C4.6b
+ch.14578	mSplicer_transcript	CDS	130	227	.	+	.	ID=msp_trans-K06C4.6c.2
+ch.14578	mSplicer_transcript	CDS	128	227	.	+	.	ID=msp_trans-K06C4.6c.1
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	103	206	9.51146	.	.	
+ch.14578	translated_feature	polypeptide_motif	176	205	.	+	.	ID=motif:mod-1-ncbifam.16
+ch.14578	translated_feature	polypeptide_motif	176	205	.	+	.	ID=motif:mod-1-ncbifam.21
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	173	205	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	173	205	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	173	205	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	RNASEQ.Hillier	CDS	173	205	.	+	.	ID=CDS:RNASEQ_mid-L4_25dC_36hrs_post-L1_g141_x18_V_m
+ch.14578	BLAT_mRNA_BEST	expressed_sequence_match	149	205	100.0	+	.	ID=AF303088.1
+ch.14578	WormBase	CDS	149	205	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	149	205	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	jigsaw	CDS	149	205	.	+	.	ID=CDS:ContigV.elegans.jigsaw.2201.mRNA2201
+ch.14578	mGene	CDS	149	205	.	+	.	ID=CDS:mGene_pred_17336
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	149	205	.	+	.	ID=CDS:AG1201_K06C4.6.T1
+ch.14578	RNASEQ.Hillier.Aggregate	CDS	149	205	.	+	.	ID=CDS:AG1201_K06C4.6.T4
+ch.14578	WormBase	CDS	149	205	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	RNASEQ.Hillier	CDS	149	205	.	+	.	ID=CDS:RNASEQ_dauer_entry_daf-2_25dC_48hrs_post-L1_g135_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	149	205	.	+	.	ID=CDS:RNASEQ_dauer_daf-2_25dC_91hrs_post-L1_g158n11_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	149	205	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g83n11_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	149	205	.	+	.	ID=CDS:RNASEQ_lin-35_n745_mid-L1_25dC_4.0hrs_post-L1_g103n11_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	149	205	.	+	.	ID=CDS:RNASEQ_L4_soma_JK1107_no_DNaseI_g83n11_x18_V_m
+ch.14578	translated_feature	polypeptide_motif	149	205	.	+	.	ID=motif:mod-1-signalp.17
+ch.14578	WormBase	exon	149	205	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	RNASEQ.Hillier	CDS	149	205	.	+	.	ID=CDS:RNASEQ_late_embryo_20dC_4.5hrs_post-early_embryo_g125_x18_V_m
+ch.14578	RNASEQ.Hillier	CDS	149	205	.	+	.	ID=CDS:RNASEQ_mid-L1_20dC_4hrs_post-L1_g47n11_x18_V_m
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	148	205	97.0	+	.	ID=yk1233a06.5.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	141	205	100.0	+	.	ID=EM_Nanopore_Li_139664.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	135	205	100.0	+	.	ID=EM_Nanopore_Li_105690.1
+ch.14578	RNASeq_reads	transcript_region	113	205	3.0	.	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	109	205	100.0	+	.	ID=L1_Nanopore_Li_212806.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	109	205	100.0	+	.	ID=EM_Nanopore_Li_161849.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	108	205	96.2	+	.	ID=yk1649a11.5.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	108	205	96.0	+	.	ID=yk1323f12.5.1
+ch.14578	WormBase	exon	108	205	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	106	205	100.0	+	.	ID=L1_Nanopore_Li_134853.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	106	205	100.0	+	.	ID=L1_Nanopore_Li_32920.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	106	205	100.0	+	.	ID=L1_Nanopore_Roach_93749.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	105	205	100.0	+	.	ID=L1_Nanopore_Li_266141.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	105	205	100.0	+	.	ID=young_adult_Nanopore_Roach_86198.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	102	205	100.0	+	.	ID=L2_Nanopore_Roach_68149.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	102	205	100.0	+	.	ID=YA_Nanopore_Li_291593.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	101	205	100.0	+	.	ID=L2_Nanopore_Roach_33623.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	101	205	100.0	+	.	ID=L3_Nanopore_Roach_64073.1
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	101	205	100.0	+	.	ID=L1_Nanopore_Roach_6409.1
+ch.14578	WormBase	exon	101	205	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	RNASeq_stranded	transcript_region	191	202	1.0	+	.	
+ch.14578	Oligo_set	reagent	151	200	.	-	.	
+ch.14578	NBP_knockout	deletion	83	198	.	-	.	
+ch.14578	BLAT_Nanopore_BEST	expressed_sequence_match	112	190	100.0	+	.	ID=EM_Nanopore_Li_68511.1
+ch.14578	RNASeq_stranded	transcript_region	172	185	1.0	+	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	103	181	8.75	.	.	
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	146	172	59.4	+	.	ID=briggsae_GG1968|c2_g1_i3.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	146	172	73.6	+	.	ID=briggsae_GG1968|c2_g1_i2.1
+ch.14578	BLAT_Caen_Trinity_BEST	expressed_sequence_match	146	172	74.2	+	.	ID=briggsae_GG1968|c2_g1_i1.1
+ch.14578	RNASeq_stranded	transcript_region	121	171	2.0	+	.	
+ch.14578	RNASeq_R_asymmetry	transcript_region	120	168	14387.0	.	.	
+ch.14578	WormBase	five_prime_UTR	108	148	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	five_prime_UTR	101	148	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	115	146	97.0	+	.	ID=yk1233a06.5.1
+ch.14578	Oligo_set	reagent	119	143	.	-	.	
+ch.14578	RNASeq_stranded	transcript_region	118	120	1.0	+	.	
+ch.14578	RNASeq_R_asymmetry	transcript_region	113	119	9457.0	.	.	
+ch.14578	BLAT_EST_BEST	expressed_sequence_match	106	113	97.0	+	.	ID=yk1233a06.5.1
+ch.14578	RNASeq_R_asymmetry	transcript_region	107	112	5400.0	.	.	
+ch.14578	RNASeq_reads	transcript_region	106	112	1.0	.	.	
+ch.14578	SL1	SL1_acceptor_site	107	108	.	+	.	
+ch.14578	RNASeq_R_asymmetry	transcript_region	106	106	3417.0	.	.	
+ch.14578	RNASeq_R_asymmetry	transcript_region	102	105	1728.0	.	.	
+ch.14578	TranscriptionallyActiveRegion	transcribed_fragment	27	72	0.0	.	.	
+ch.14578	Variation_project_Polymorphism	deletion	5	5	.	-	.	

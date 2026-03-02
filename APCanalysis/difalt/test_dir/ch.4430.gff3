@@ -1,0 +1,738 @@
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	2	6	77.5	-	.	ID=L4_Nanopore_Roach_33593.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	2	6	85.4	-	.	ID=male_Nanopore_Roach_54931.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	2	8	77.7	-	.	ID=male_Nanopore_Roach_85911.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	41	47	82.4	-	.	ID=male_Nanopore_Roach_36568.40
+ch.4430	Variation_project_Polymorphism	SNP	47	47	.	+	.	
+ch.4430	BLAT_Trinity_BEST	expressed_sequence_match	49	239	98.6	+	.	ID=elegans_PE_SS_GG7515|c5_g1_i1.1
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	53	77	0.0	.	.	
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	81.8	-	.	ID=male_Nanopore_Roach_67909.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	81.8	-	.	ID=young_adult_Nanopore_Roach_60149.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	82.2	-	.	ID=male_Nanopore_Roach_79602.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	82.4	-	.	ID=male_Nanopore_Roach_59958.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	82.9	-	.	ID=YA_Nanopore_Li_71011.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	82.9	-	.	ID=YA_Nanopore_Li_85861.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	82.9	-	.	ID=YA_Nanopore_Li_95895.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	82.9	-	.	ID=YA_Nanopore_Li_99406.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	82.9	-	.	ID=young_adult_Nanopore_Roach_62679.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	82.0	-	.	ID=YA_Nanopore_Li_72431.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	82.0	-	.	ID=YA_Nanopore_Li_88266.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.1	-	.	ID=male_Nanopore_Roach_55314.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.1	-	.	ID=male_Nanopore_Roach_58948.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.1	-	.	ID=YA_Nanopore_Li_83091.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.1	-	.	ID=YA_Nanopore_Li_88835.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.1	-	.	ID=YA_Nanopore_Li_91214.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.1	-	.	ID=young_adult_Nanopore_Roach_63475.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.3	-	.	ID=male_Nanopore_Roach_62094.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.3	-	.	ID=male_Nanopore_Roach_73576.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.3	-	.	ID=male_Nanopore_Roach_82815.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.5	-	.	ID=male_Nanopore_Roach_72066.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.5	-	.	ID=YA_Nanopore_Li_103736.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_56336.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_58909.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_62395.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_63216.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_71961.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_73998.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_76380.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_81076.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_81108.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=male_Nanopore_Roach_85557.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=YA_Nanopore_Li_101125.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=YA_Nanopore_Li_102461.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=YA_Nanopore_Li_102932.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=YA_Nanopore_Li_83694.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=YA_Nanopore_Li_84912.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=YA_Nanopore_Li_85222.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=YA_Nanopore_Li_89813.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=YA_Nanopore_Li_93902.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	83.9	-	.	ID=young_adult_Nanopore_Roach_60739.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	84.1	-	.	ID=male_Nanopore_Roach_63535.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	84.1	-	.	ID=YA_Nanopore_Li_104497.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	84.1	-	.	ID=young_adult_Nanopore_Roach_63577.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	86.7	-	.	ID=male_Nanopore_Roach_64946.37
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	87.4	-	.	ID=YA_Nanopore_Li_70791.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	87.0	-	.	ID=L4_Nanopore_Roach_31736.37
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	87.0	-	.	ID=male_Nanopore_Roach_67099.37
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	87.0	-	.	ID=YA_Nanopore_Li_84193.37
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	89.1	-	.	ID=male_Nanopore_Roach_66704.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	90.6	-	.	ID=male_Nanopore_Roach_79802.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	90.6	-	.	ID=YA_Nanopore_Li_107547.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	90.5	-	.	ID=YA_Nanopore_Li_87984.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	90.7	-	.	ID=male_Nanopore_Roach_68088.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	56	60	90.7	-	.	ID=L4_Nanopore_Roach_31178.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	90.9	-	.	ID=YA_Nanopore_Li_67808.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	82.4	-	.	ID=male_Nanopore_Roach_110977.40
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	82.9	-	.	ID=male_Nanopore_Roach_65317.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	82.9	-	.	ID=YA_Nanopore_Li_106814.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	82.9	-	.	ID=YA_Nanopore_Li_76795.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	83.1	-	.	ID=male_Nanopore_Roach_85387.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	83.9	-	.	ID=male_Nanopore_Roach_77390.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	83.9	-	.	ID=YA_Nanopore_Li_94780.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	84.1	-	.	ID=male_Nanopore_Roach_65291.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	84.3	-	.	ID=male_Nanopore_Roach_80890.38
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	87.1	-	.	ID=male_Nanopore_Roach_84416.39
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	87.1	-	.	ID=YA_Nanopore_Li_80053.39
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	87.8	-	.	ID=male_Nanopore_Roach_64083.39
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	87.8	-	.	ID=YA_Nanopore_Li_90311.39
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	89.1	-	.	ID=male_Nanopore_Roach_62309.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	89.1	-	.	ID=male_Nanopore_Roach_84386.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	90.7	-	.	ID=male_Nanopore_Roach_79899.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	90.0	-	.	ID=male_Nanopore_Roach_55148.39
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	90.0	-	.	ID=male_Nanopore_Roach_59741.39
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	90.8	-	.	ID=YA_Nanopore_Li_99581.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	90.7	-	.	ID=male_Nanopore_Roach_76739.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	90.9	-	.	ID=male_Nanopore_Roach_64210.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	90.7	-	.	ID=male_Nanopore_Roach_63254.39
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	63	68	90.8	-	.	ID=YA_Nanopore_Li_69111.41
+ch.4430	RNASeq_F_asymmetry	transcript_region	67	75	256.0	.	.	
+ch.4430	c_briggsae_LASTZ_NET	conserved_region	73	1277	.	+	.	
+ch.4430	Variation_project_Polymorphism	SNP	76	76	.	+	.	
+ch.4430	RNASeq_F_asymmetry	transcript_region	76	83	390.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	80	157	7.45	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	80	157	8.31	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	82	726	0.00536999	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	82	1299	2e-06	.	.	
+ch.4430	RNASeq_F_asymmetry	transcript_region	84	89	590.0	.	.	
+ch.4430	Expr_profile	experimental_result_region	88	1206	.	+	.	
+ch.4430	GenePair_STS	PCR_product	88	1206	.	+	.	ID=II-4N02
+ch.4430	RNAi_primary	RNAi_reagent	88	1206	.	+	.	
+ch.4430	c_remanei_LASTZ_NET	conserved_region	88	1262	.	+	.	
+ch.4430	RNASeq_F_asymmetry	transcript_region	90	97	1103.0	.	.	
+ch.4430	GeneMarkHMM	CDS	94	219	.	+	.	ID=CDS:GeneMark.chr_II.1777
+ch.4430	mSplicer_orf	CDS	94	219	.	+	.	ID=msp_orf-ZK1248.5
+ch.4430	mSplicer_transcript	CDS	94	219	.	+	.	ID=msp_trans-ZK1248.5
+ch.4430	RNASeq_F_asymmetry	transcript_region	98	102	1781.0	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	99	239	100.0	+	.	ID=L1_Nanopore_Roach_78008.1
+ch.4430	RNASeq_reads	transcript_region	101	106	1.0	.	.	
+ch.4430	WormBase	five_prime_UTR	101	113	.	+	.	Parent=Transcript:ZK1248.5.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	101	239	100.0	+	.	ID=L4_Nanopore_Roach_50725.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	101	239	100.0	+	.	ID=male_Nanopore_Roach_120063.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	101	239	100.0	+	.	ID=YA_Nanopore_Li_299609.1
+ch.4430	WormBase	exon	101	239	.	+	.	Parent=Transcript:ZK1248.5.1
+ch.4430	WormBase	gene	101	1284	.	+	.	ID=Gene:WBGene00022876
+ch.4430	WormBase	mRNA	101	1284	.	+	.	ID=Transcript:ZK1248.5.1;Parent=Gene:WBGene00022876
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	102	239	100.0	+	.	ID=L1_Nanopore_Li_273513.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	102	239	100.0	+	.	ID=YA_Nanopore_Li_216984.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	102	239	100.0	+	.	ID=YA_Nanopore_Li_290474.1
+ch.4430	RNASeq_F_asymmetry	transcript_region	103	103	2809.0	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	103	239	100.0	+	.	ID=young_adult_Nanopore_Roach_98705.1
+ch.4430	RNASeq_F_asymmetry	transcript_region	104	106	4656.0	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	104	239	100.0	+	.	ID=male_Nanopore_Roach_102965.1
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	106	157	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	106	157	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	106	236	7.53	.	.	
+ch.4430	Million_mutation	point_mutation	107	107	.	+	.	
+ch.4430	RNASeq_F_asymmetry	transcript_region	107	108	7974.0	.	.	
+ch.4430	RNASeq_reads	transcript_region	107	115	2.0	.	.	
+ch.4430	Million_mutation	point_mutation	108	108	.	+	.	
+ch.4430	RNASeq_F_asymmetry	transcript_region	109	117	13214.0	.	.	
+ch.4430	WormBase	CDS	114	239	.	+	.	ID=CDS:ZK1248.5;Parent=Transcript:ZK1248.5.1
+ch.4430	Genefinder	CDS	114	239	.	+	.	ID=CDS:ZK1248.gc2
+ch.4430	jigsaw	CDS	114	239	.	+	.	ID=CDS:ContigII.elegans.jigsaw.1554.mRNA1554
+ch.4430	mGene	CDS	114	239	.	+	.	ID=CDS:mGene_pred_3899
+ch.4430	RNASEQ.Hillier.Aggregate	CDS	114	239	.	+	.	ID=CDS:AG1201_ZK1248.5.T1
+ch.4430	RNASEQ.Hillier	CDS	114	239	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g17_x12_II_p
+ch.4430	RNASEQ.Hillier	CDS	114	239	.	+	.	ID=CDS:RNASEQ_mid-L4_25dC_36hrs_post-L1_g50_x12_II_p
+ch.4430	cbriggsae_proteins-BLASTX	protein_match	114	719	126.523	+	.	
+ch.4430	cremanei_proteins-BLASTX	protein_match	114	719	125.155	+	.	
+ch.4430	Oligo_set	reagent	115	165	.	-	.	
+ch.4430	Orfeome	PCR_product	115	1257	.	+	.	
+ch.4430	RNAi_primary	RNAi_reagent	115	1257	.	+	.	
+ch.4430	RNASeq_reads	transcript_region	116	153	4.0	.	.	
+ch.4430	RNASeq_F_asymmetry	transcript_region	118	166	20005.0	.	.	
+ch.4430	RNASeq_stranded	transcript_region	123	165	1.0	+	.	
+ch.4430	cbrenneri_proteins-BLASTX	protein_match	123	719	130.699	+	.	
+ch.4430	cbrenneri_proteins-BLASTX	protein_match	123	719	131.0	+	.	
+ch.4430	c_brenneri_LASTZ_NET	conserved_region	123	1284	.	+	.	
+ch.4430	c_brenneri_LASTZ_NET	conserved_region	123	1333	.	+	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	125	239	100.0	+	.	ID=YA_Nanopore_Li_57274.1
+ch.4430	BLAT_Caen_Trinity_BEST	expressed_sequence_match	129	242	58.5	+	.	ID=briggsae_GG6537|c0_g1_i1.4
+ch.4430	translated_feature	polypeptide_motif	132	239	.	+	.	ID=motif:ZK1248.5-hmmpanther.2
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	133	157	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	133	157	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	133	157	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	133	184	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	133	236	7.1	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	133	236	9.41	.	.	
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	136	140	97.9	-	.	ID=male_Nanopore_Roach_137571.28
+ch.4430	BLAT_OST_BEST	expressed_sequence_match	136	239	100.0	+	.	ID=OSTF105D3_1.1
+ch.4430	Million_mutation	point_mutation	154	154	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	154	154	.	+	.	
+ch.4430	RNASeq_reads	transcript_region	154	239	7.0	.	.	
+ch.4430	mass_spec_genome	translated_nucleotide_match	162	215	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	166	174	2.0	+	.	
+ch.4430	Oligo_set	reagent	170	194	.	-	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	174	239	100.0	+	.	ID=L4_Nanopore_Roach_27050.1
+ch.4430	RNASeq_stranded	transcript_region	175	179	1.0	+	.	
+ch.4430	RNASeq_stranded	transcript_region	180	191	2.0	+	.	
+ch.4430	translated_feature	polypeptide_motif	180	239	.	+	.	ID=motif:ZK1248.5-pfam.1
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	181	186	91.8	-	.	ID=YA_Nanopore_Li_107020.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	181	186	91.6	-	.	ID=male_Nanopore_Roach_60645.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	181	186	59.7	-	.	ID=male_Nanopore_Roach_79371.41
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	186	189	96.8	+	.	ID=FN877832.1
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	187	236	0.0	.	.	
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	191	197	96.8	+	.	ID=FN877832.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	191	228	100.0	+	.	ID=male_Nanopore_Roach_88774.1
+ch.4430	RNASeq_stranded	transcript_region	192	239	1.0	+	.	
+ch.4430	RNASEQ.Hillier	CDS	198	239	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g150_x12_II_p
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	199	204	96.8	+	.	ID=FN877832.1
+ch.4430	NBP_knockout	deletion	204	426	.	+	.	
+ch.4430	PCoF_NBP_knockout	deletion	204	426	.	+	.	
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	206	239	96.8	+	.	ID=FN877832.1
+ch.4430	Oligo_set	reagent	212	236	.	-	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	212	236	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	212	236	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	212	236	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	212	236	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	212	236	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	212	236	0.0	.	.	
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	221	225	89.8	-	.	ID=YA_Nanopore_Li_324932.40
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	230	234	83.2	-	.	ID=young_adult_Nanopore_Roach_57855.40
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	230	234	89.2	-	.	ID=male_Nanopore_Roach_71633.40
+ch.4430	cjaponica_proteins-BLASTX	protein_match	234	719	37.699	+	.	
+ch.4430	WormBase	intron	240	290	.	+	.	Parent=Transcript:ZK1248.5.1
+ch.4430	RNASeq_splice	intron	240	290	38437.0	+	.	
+ch.4430	Million_mutation	point_mutation	259	259	.	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	264	719	25.699	+	.	
+ch.4430	GeneMarkHMM	CDS	271	699	.	+	.	ID=CDS:GeneMark.chr_II.1777
+ch.4430	mSplicer_orf	CDS	271	699	.	+	.	ID=msp_orf-ZK1248.5
+ch.4430	mSplicer_transcript	CDS	271	699	.	+	.	ID=msp_trans-ZK1248.5
+ch.4430	RNASeq_reads	transcript_region	290	290	1.0	.	.	
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	92.3	-	.	ID=YA_Nanopore_Li_324675.44
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	81.3	-	.	ID=L4_Nanopore_Roach_51017.40
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	82.2	-	.	ID=YA_Nanopore_Li_118527.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	80.8	-	.	ID=YA_Nanopore_Li_282379.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.9	-	.	ID=male_Nanopore_Roach_24967.40
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	82.2	-	.	ID=YA_Nanopore_Li_349366.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.2	-	.	ID=L4_Nanopore_Roach_66400.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.0	-	.	ID=YA_Nanopore_Li_39668.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.4	-	.	ID=YA_Nanopore_Li_322095.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.4	-	.	ID=YA_Nanopore_Li_329561.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=L1_Nanopore_Li_299002.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=L1_Nanopore_Li_299093.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=L1_Nanopore_Li_300672.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_132694.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_133163.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_134079.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_134127.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_134562.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_134671.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_135087.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_135112.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_135362.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_135445.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_137286.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_137535.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_137958.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_138088.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_138558.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_139809.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_140578.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_140826.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_140870.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_141880.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=male_Nanopore_Roach_142426.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_319075.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_321118.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_321131.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_322455.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_325099.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_325315.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_326334.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_326398.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_326875.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_326899.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_328496.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_329525.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_330487.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_334168.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_335302.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=YA_Nanopore_Li_335387.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=young_adult_Nanopore_Roach_111451.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.8	-	.	ID=young_adult_Nanopore_Roach_113041.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.0	-	.	ID=YA_Nanopore_Li_321691.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.0	-	.	ID=YA_Nanopore_Li_324731.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	83.0	-	.	ID=YA_Nanopore_Li_332474.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.4	-	.	ID=male_Nanopore_Roach_133143.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.4	-	.	ID=male_Nanopore_Roach_135033.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.4	-	.	ID=male_Nanopore_Roach_140433.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.4	-	.	ID=male_Nanopore_Roach_143080.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.4	-	.	ID=YA_Nanopore_Li_324730.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.4	-	.	ID=YA_Nanopore_Li_324785.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.7	-	.	ID=male_Nanopore_Roach_133337.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.7	-	.	ID=male_Nanopore_Roach_141630.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.7	-	.	ID=YA_Nanopore_Li_330132.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_132967.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_132983.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_133721.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_134747.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_135109.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_136034.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_136585.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_137537.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_138337.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_138386.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_138493.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_138624.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_139011.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_139232.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_139285.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_139633.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_139784.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_140914.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_141656.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_142211.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_142519.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=male_Nanopore_Roach_142789.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_318511.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_318781.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_319444.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_319648.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_322613.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_326411.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_329621.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_331979.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_333183.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_334341.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=YA_Nanopore_Li_335451.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=young_adult_Nanopore_Roach_112694.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=young_adult_Nanopore_Roach_113711.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	84.9	-	.	ID=young_adult_Nanopore_Roach_116148.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.1	-	.	ID=male_Nanopore_Roach_136673.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.1	-	.	ID=YA_Nanopore_Li_334256.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.3	-	.	ID=male_Nanopore_Roach_134354.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.3	-	.	ID=male_Nanopore_Roach_134523.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.3	-	.	ID=male_Nanopore_Roach_136031.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.3	-	.	ID=male_Nanopore_Roach_136499.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.3	-	.	ID=YA_Nanopore_Li_330417.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.5	-	.	ID=male_Nanopore_Roach_137607.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.5	-	.	ID=YA_Nanopore_Li_327632.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.5	-	.	ID=YA_Nanopore_Li_328050.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.5	-	.	ID=YA_Nanopore_Li_331993.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.5	-	.	ID=YA_Nanopore_Li_333983.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.5	-	.	ID=YA_Nanopore_Li_335115.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.7	-	.	ID=male_Nanopore_Roach_132449.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.7	-	.	ID=male_Nanopore_Roach_135575.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.7	-	.	ID=YA_Nanopore_Li_318432.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	85.7	-	.	ID=YA_Nanopore_Li_324354.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	86.1	-	.	ID=YA_Nanopore_Li_329592.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	86.5	-	.	ID=L1_Nanopore_Li_300112.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	86.5	-	.	ID=male_Nanopore_Roach_137746.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	86.5	-	.	ID=YA_Nanopore_Li_319790.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	86.5	-	.	ID=YA_Nanopore_Li_332554.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	86.9	-	.	ID=YA_Nanopore_Li_331122.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	87.1	-	.	ID=male_Nanopore_Roach_137827.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	87.1	-	.	ID=YA_Nanopore_Li_319661.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	87.1	-	.	ID=young_adult_Nanopore_Roach_114341.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	88.6	-	.	ID=male_Nanopore_Roach_142655.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	89.2	-	.	ID=male_Nanopore_Roach_135540.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	89.9	-	.	ID=male_Nanopore_Roach_138177.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	89.9	-	.	ID=male_Nanopore_Roach_142334.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	90.1	-	.	ID=male_Nanopore_Roach_133022.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	91.2	-	.	ID=YA_Nanopore_Li_332123.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	91.4	-	.	ID=YA_Nanopore_Li_328250.42
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	91.6	-	.	ID=YA_Nanopore_Li_329881.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	88.1	-	.	ID=male_Nanopore_Roach_6557.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	92.5	-	.	ID=male_Nanopore_Roach_139441.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	92.4	-	.	ID=male_Nanopore_Roach_141811.44
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	91.6	-	.	ID=YA_Nanopore_Li_242239.44
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	92.6	-	.	ID=male_Nanopore_Roach_138094.44
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	92.6	-	.	ID=male_Nanopore_Roach_133308.44
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	92.5	-	.	ID=adult_Nanopore_Roach_95101.43
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	94.7	-	.	ID=YA_Nanopore_Li_322865.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	94.6	-	.	ID=YA_Nanopore_Li_326049.41
+ch.4430	BLAT_Nanopore_OTHER	expressed_sequence_match	290	295	72.6	-	.	ID=male_Nanopore_Roach_128818.36
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	314	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	290	703	8.91	.	.	
+ch.4430	RNASeq_stranded	transcript_region	291	313	1.0	+	.	
+ch.4430	Oligo_set	reagent	291	315	.	-	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	369	100.0	+	.	ID=YA_Nanopore_Li_290474.1
+ch.4430	RNASEQ.Hillier	CDS	291	452	.	+	.	ID=CDS:RNASEQ_mid-L3_25dC_25hrs_post-L1_g150_x12_II_p
+ch.4430	RNASeq_reads	transcript_region	291	509	7.0	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	621	100.0	+	.	ID=YA_Nanopore_Li_57274.1
+ch.4430	BLAT_OST_BEST	expressed_sequence_match	291	680	100.0	+	.	ID=OSTF105D3_1.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	713	100.0	+	.	ID=male_Nanopore_Roach_102965.1
+ch.4430	BLAT_Trinity_BEST	expressed_sequence_match	291	719	98.6	+	.	ID=elegans_PE_SS_GG7515|c5_g1_i1.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	719	100.0	+	.	ID=L1_Nanopore_Roach_78008.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	719	100.0	+	.	ID=L4_Nanopore_Roach_50725.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	719	100.0	+	.	ID=male_Nanopore_Roach_120063.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	719	100.0	+	.	ID=YA_Nanopore_Li_299609.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	719	100.0	+	.	ID=L1_Nanopore_Li_273513.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	719	100.0	+	.	ID=YA_Nanopore_Li_216984.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	719	100.0	+	.	ID=young_adult_Nanopore_Roach_98705.1
+ch.4430	WormBase	CDS	291	719	.	+	.	ID=CDS:ZK1248.5;Parent=Transcript:ZK1248.5.1
+ch.4430	Genefinder	CDS	291	719	.	+	.	ID=CDS:ZK1248.gc2
+ch.4430	jigsaw	CDS	291	719	.	+	.	ID=CDS:ContigII.elegans.jigsaw.1554.mRNA1554
+ch.4430	mGene	CDS	291	719	.	+	.	ID=CDS:mGene_pred_3899
+ch.4430	RNASEQ.Hillier.Aggregate	CDS	291	719	.	+	.	ID=CDS:AG1201_ZK1248.5.T1
+ch.4430	RNASEQ.Hillier	CDS	291	719	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g17_x12_II_p
+ch.4430	RNASEQ.Hillier	CDS	291	719	.	+	.	ID=CDS:RNASEQ_mid-L4_25dC_36hrs_post-L1_g50_x12_II_p
+ch.4430	translated_feature	polypeptide_motif	291	719	.	+	.	ID=motif:ZK1248.5-hmmpanther.2
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	291	719	100.0	+	.	ID=L4_Nanopore_Roach_27050.1
+ch.4430	translated_feature	polypeptide_motif	291	719	.	+	.	ID=motif:ZK1248.5-pfam.1
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	291	719	96.8	+	.	ID=FN877832.1
+ch.4430	WormBase	exon	291	719	.	+	.	Parent=Transcript:ZK1248.5.1
+ch.4430	celegans_proteins-BLASTX	protein_match	294	719	21.398	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	294	719	24.155	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	294	719	30.699	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	294	719	35.398	+	.	
+ch.4430	BLAT_Caen_Trinity_BEST	expressed_sequence_match	303	575	58.5	+	.	ID=briggsae_GG6537|c0_g1_i1.4
+ch.4430	RNASeq_stranded	transcript_region	314	321	2.0	+	.	
+ch.4430	Million_mutation	point_mutation	322	322	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	322	322	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	322	364	1.0	+	.	
+ch.4430	BLAT_Caen_EST_BEST	expressed_sequence_match	330	611	60.4	+	.	ID=DR782309.1
+ch.4430	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	330	611	57.9	+	.	ID=CR05756.1
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	330	611	60.4	+	.	ID=CRC01433_1.1
+ch.4430	Oligo_set	reagent	342	366	.	-	.	
+ch.4430	Polysome_profiling	mRNA_region	342	377	1.0	.	.	
+ch.4430	GenePair_STS	PCR_product	342	915	.	+	.	
+ch.4430	RNAi_primary	RNAi_reagent	342	915	.	+	.	
+ch.4430	GenePair_STS	PCR_product	342	917	.	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	343	367	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	343	367	0.0	.	.	
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	365	469	91.1	-	.	ID=FN877833.1
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	370	394	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	370	703	7.4	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	370	703	7.97	.	.	
+ch.4430	RNASeq_stranded	transcript_region	374	432	1.0	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	396	420	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	396	420	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	396	420	0.0	.	.	
+ch.4430	mass_spec_genome	translated_nucleotide_match	399	440	.	+	.	
+ch.4430	Oligo_set	reagent	401	460	.	+	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	401	719	100.0	+	.	ID=L1_Nanopore_Li_159671.1
+ch.4430	SAGE_tag	SAGE_tag	407	420	.	+	.	
+ch.4430	Oligo_set	reagent	416	440	.	-	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	422	446	0.0	.	.	
+ch.4430	Million_mutation	point_mutation	433	433	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	433	433	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	434	443	1.0	+	.	
+ch.4430	RNASeq_stranded	transcript_region	444	492	2.0	+	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	446	719	100.0	+	.	ID=YA_Nanopore_Li_290474.1
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	471	475	91.1	-	.	ID=FN877833.1
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	476	547	91.1	-	.	ID=FN877833.1
+ch.4430	cjaponica_proteins-BLASTX	protein_match	483	719	19.301	+	.	
+ch.4430	Oligo_set	reagent	492	516	.	-	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	516	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	516	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	516	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	516	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	516	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	516	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	516	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	542	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	542	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	542	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	567	8.66	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	567	8.99	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	649	8.38	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	703	7.69	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	492	703	8.36	.	.	
+ch.4430	RNASeq_stranded	transcript_region	493	501	1.0	+	.	
+ch.4430	RNASeq_stranded	transcript_region	502	616	2.0	+	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	505	719	100.0	+	.	ID=YA_Nanopore_Li_188264.1
+ch.4430	RNASeq_reads	transcript_region	510	719	11.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	543	567	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	543	567	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	543	567	0.0	.	.	
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	549	558	91.1	-	.	ID=FN877833.1
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	560	719	91.1	-	.	ID=FN877833.1
+ch.4430	Oligo_set	reagent	570	1259	.	+	.	
+ch.4430	Million_mutation	point_mutation	574	574	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	574	574	.	+	.	
+ch.4430	BLAT_Caen_Trinity_BEST	expressed_sequence_match	591	709	58.5	+	.	ID=briggsae_GG6537|c0_g1_i1.4
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	599	623	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	599	623	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	599	623	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	599	649	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	599	703	7.81	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	603	719	100.0	+	.	ID=male_Nanopore_Roach_3123.1
+ch.4430	mass_spec_genome	translated_nucleotide_match	612	644	.	+	.	
+ch.4430	Oligo_set	reagent	614	638	.	-	.	
+ch.4430	Oligo_set	reagent	617	655	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	617	660	6.0	+	.	
+ch.4430	BLAT_Caen_EST_BEST	expressed_sequence_match	621	709	60.4	+	.	ID=DR782309.1
+ch.4430	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	621	709	57.9	+	.	ID=CR05756.1
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	621	709	60.4	+	.	ID=CRC01433_1.1
+ch.4430	BLAT_OST_BEST	expressed_sequence_match	621	719	99.4	-	.	ID=OSTR105D3_1.1
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	652	676	0.0	.	.	
+ch.4430	Oligo_set	reagent	653	677	.	-	.	
+ch.4430	mGene	CDS	659	702	.	-	.	ID=CDS:mGene_pred_6020
+ch.4430	RNASeq_stranded	transcript_region	661	675	11.0	+	.	
+ch.4430	Oligo_set	reagent	663	687	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	676	711	7.0	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	679	703	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	679	703	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	679	703	0.0	.	.	
+ch.4430	Oligo_set	reagent	702	719	.	+	.	
+ch.4430	RNASeq_splice	intron	703	779	5.0	-	.	
+ch.4430	RNASeq_splice	intron	711	763	5.0	+	.	
+ch.4430	RNASeq_stranded	transcript_region	712	719	3.0	+	.	
+ch.4430	Oligo_set	reagent	718	719	.	+	.	
+ch.4430	WormBase	intron	720	763	.	+	.	Parent=Transcript:ZK1248.5.1
+ch.4430	RNASeq_splice	intron	720	763	51784.0	+	.	
+ch.4430	BLAT_Caen_EST_BEST	expressed_sequence_match	721	724	60.4	+	.	ID=DR782309.1
+ch.4430	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	721	724	57.9	+	.	ID=CR05756.1
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	721	724	60.4	+	.	ID=CRC01433_1.1
+ch.4430	GeneMarkHMM	CDS	744	1060	.	+	.	ID=CDS:GeneMark.chr_II.1777
+ch.4430	mSplicer_orf	CDS	744	1060	.	+	.	ID=msp_orf-ZK1248.5
+ch.4430	mSplicer_transcript	CDS	744	1060	.	+	.	ID=msp_trans-ZK1248.5
+ch.4430	BLAT_Caen_Trinity_BEST	expressed_sequence_match	754	1080	58.5	+	.	ID=briggsae_GG6537|c0_g1_i1.4
+ch.4430	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	755	844	25.1	+	.	ID=FD514155.1.6
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	755	844	25.1	+	.	ID=CSC01706_1.6
+ch.4430	celegans_proteins-BLASTX	protein_match	755	1078	28.0	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	755	1078	35.398	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	755	1078	37.046	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	755	1078	37.699	+	.	
+ch.4430	cbriggsae_proteins-BLASTX	protein_match	755	1081	126.523	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	756	780	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	756	780	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	756	808	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	756	808	0.0	.	.	
+ch.4430	BLAT_Caen_EST_OTHER	expressed_sequence_match	758	844	13.4	+	.	ID=FD511204.5
+ch.4430	BLAT_Caen_EST_OTHER	expressed_sequence_match	758	844	9.5	+	.	ID=DR776056.5
+ch.4430	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	758	844	15.3	-	.	ID=briggsae_GG7866|c3_g1_i1.6
+ch.4430	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	758	844	9.1	+	.	ID=CR03140.1
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	758	844	13.4	+	.	ID=CBC16135_1.5
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	758	844	9.5	+	.	ID=CRC10219_1.5
+ch.4430	BLAT_Caen_EST_BEST	expressed_sequence_match	758	1081	60.4	+	.	ID=DR782309.1
+ch.4430	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	758	1081	57.9	+	.	ID=CR05756.1
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	758	1081	60.4	+	.	ID=CRC01433_1.1
+ch.4430	RNASeq_reads	transcript_region	759	763	1.0	.	.	
+ch.4430	Oligo_set	reagent	762	786	.	+	.	
+ch.4430	Million_mutation	point_mutation	763	763	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	763	763	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	764	777	2.0	+	.	
+ch.4430	Oligo_set	reagent	764	805	.	+	.	
+ch.4430	translated_feature	polypeptide_motif	764	814	.	+	.	ID=motif:ZK1248.5-pfam.1
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	764	851	96.8	+	.	ID=FN877832.1
+ch.4430	RNASeq_reads	transcript_region	764	971	10.0	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1050	100.0	+	.	ID=L4_Nanopore_Roach_27050.1
+ch.4430	celegans_proteins-BLASTX	protein_match	764	1063	25.222	+	.	
+ch.4430	cjaponica_proteins-BLASTX	protein_match	764	1072	37.699	+	.	
+ch.4430	BLAT_Trinity_BEST	expressed_sequence_match	764	1080	98.6	+	.	ID=elegans_PE_SS_GG7515|c5_g1_i1.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=L1_Nanopore_Roach_78008.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=L4_Nanopore_Roach_50725.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=male_Nanopore_Roach_120063.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=YA_Nanopore_Li_299609.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=L1_Nanopore_Li_273513.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=YA_Nanopore_Li_290474.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=young_adult_Nanopore_Roach_98705.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=male_Nanopore_Roach_102965.1
+ch.4430	WormBase	CDS	764	1080	.	+	.	ID=CDS:ZK1248.5;Parent=Transcript:ZK1248.5.1
+ch.4430	Genefinder	CDS	764	1080	.	+	.	ID=CDS:ZK1248.gc2
+ch.4430	jigsaw	CDS	764	1080	.	+	.	ID=CDS:ContigII.elegans.jigsaw.1554.mRNA1554
+ch.4430	mGene	CDS	764	1080	.	+	.	ID=CDS:mGene_pred_3899
+ch.4430	RNASEQ.Hillier.Aggregate	CDS	764	1080	.	+	.	ID=CDS:AG1201_ZK1248.5.T1
+ch.4430	RNASEQ.Hillier	CDS	764	1080	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g17_x12_II_p
+ch.4430	RNASEQ.Hillier	CDS	764	1080	.	+	.	ID=CDS:RNASEQ_mid-L4_25dC_36hrs_post-L1_g50_x12_II_p
+ch.4430	translated_feature	polypeptide_motif	764	1080	.	+	.	ID=motif:ZK1248.5-hmmpanther.2
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	764	1080	91.1	-	.	ID=FN877833.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=L1_Nanopore_Li_159671.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=YA_Nanopore_Li_188264.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	764	1080	100.0	+	.	ID=male_Nanopore_Roach_3123.1
+ch.4430	BLAT_OST_BEST	expressed_sequence_match	764	1080	99.4	-	.	ID=OSTR105D3_1.1
+ch.4430	WormBase	exon	764	1080	.	+	.	Parent=Transcript:ZK1248.5.1
+ch.4430	cbrenneri_proteins-BLASTX	protein_match	764	1081	130.699	+	.	
+ch.4430	cbrenneri_proteins-BLASTX	protein_match	764	1081	131.0	+	.	
+ch.4430	cremanei_proteins-BLASTX	protein_match	764	1081	125.155	+	.	
+ch.4430	Oligo_set	reagent	767	791	.	-	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	772	1080	100.0	+	.	ID=male_Nanopore_Roach_37069.1
+ch.4430	RNASeq_stranded	transcript_region	778	830	4.0	+	.	
+ch.4430	mGene	CDS	780	988	.	-	.	ID=CDS:mGene_pred_6020
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	784	1071	7.77	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	784	1071	8.74	.	.	
+ch.4430	cjaponica_proteins-BLASTX	protein_match	785	1012	19.301	+	.	
+ch.4430	Million_mutation	point_mutation	786	786	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	786	786	.	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	786	1270	0.013438	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	829	1080	100.0	+	.	ID=male_Nanopore_Roach_88774.1
+ch.4430	mass_spec_genome	translated_nucleotide_match	830	856	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	831	843	2.0	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	865	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	865	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	967	6.75	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	1021	7.93	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	1071	7.92	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	1071	7.93	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	1215	7.39	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	1215	7.62877	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	1215	7.63	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	841	1215	8.33	.	.	
+ch.4430	RNASeq_stranded	transcript_region	844	894	4.0	+	.	
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	852	1014	96.8	+	.	ID=FN877832.1
+ch.4430	BLAT_Caen_EST_OTHER	expressed_sequence_match	857	941	13.4	+	.	ID=FD511204.5
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	857	941	13.4	+	.	ID=CBC16135_1.5
+ch.4430	Oligo_set	reagent	860	884	.	-	.	
+ch.4430	EMBL_nematode_cDNAs-BLAT	expressed_sequence_match	863	1060	25.1	+	.	ID=FD514155.1.6
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	863	1060	25.1	+	.	ID=CSC01706_1.6
+ch.4430	BLAT_Caen_Trinity_OTHER	expressed_sequence_match	863	1060	15.3	-	.	ID=briggsae_GG7866|c3_g1_i1.6
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	867	967	8.57	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	867	1021	8.21	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	880	1080	100.0	+	.	ID=YA_Nanopore_Li_42854.1
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	892	916	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	892	942	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	892	942	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	892	942	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	892	942	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	892	942	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	892	942	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	892	1021	8.71	.	.	
+ch.4430	RNASeq_stranded	transcript_region	895	911	2.0	+	.	
+ch.4430	PCoF_Variation_project_Polymorphism	SNP	906	906	.	+	.	
+ch.4430	Variation_project_Polymorphism	SNP	906	906	.	+	.	
+ch.4430	Oligo_set	reagent	909	982	.	-	.	
+ch.4430	Oligo_set	reagent	911	957	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	912	919	1.0	+	.	
+ch.4430	RNASeq_stranded	transcript_region	920	1021	2.0	+	.	
+ch.4430	BLAT_Caen_EST_OTHER	expressed_sequence_match	923	947	9.5	+	.	ID=DR776056.5
+ch.4430	NEMATODE.NET_cDNAs-BLAT	expressed_sequence_match	923	947	9.1	+	.	ID=CR03140.1
+ch.4430	NEMBASE_cDNAs-BLAT	expressed_sequence_match	923	947	9.5	+	.	ID=CRC10219_1.5
+ch.4430	Oligo_set	reagent	962	986	.	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	969	1021	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	969	1021	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	969	1021	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	969	1021	0.0	.	.	
+ch.4430	Oligo_set	reagent	970	1029	.	+	.	
+ch.4430	Oligo_set	reagent	970	1029	.	+	.	
+ch.4430	RNASeq_reads	transcript_region	972	1080	16.0	.	.	
+ch.4430	PCoF_Variation_project_Polymorphism	SNP	984	984	.	+	.	
+ch.4430	Variation_project_Polymorphism	SNP	984	984	.	+	.	
+ch.4430	Oligo_set	reagent	989	1058	.	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	997	1021	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	997	1021	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	997	1021	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	997	1021	0.0	.	.	
+ch.4430	Oligo_set	reagent	1000	1024	.	+	.	
+ch.4430	Variation_project_Polymorphism	SNP	1006	1006	.	+	.	
+ch.4430	Million_mutation	point_mutation	1007	1007	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	1007	1007	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	1022	1027	1.0	+	.	
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	1023	1034	96.8	+	.	ID=FN877832.1
+ch.4430	RNASeq_stranded	transcript_region	1028	1029	2.0	+	.	
+ch.4430	RNASeq_stranded	transcript_region	1030	1066	1.0	+	.	
+ch.4430	Oligo_set	reagent	1032	1080	.	+	.	
+ch.4430	Oligo_set	reagent	1039	1063	.	+	.	
+ch.4430	Oligo_set	reagent	1040	1064	.	-	.	
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	1041	1056	96.8	+	.	ID=FN877832.1
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1047	1071	0.0	.	.	
+ch.4430	RNASeq_stranded	transcript_region	1067	1068	2.0	+	.	
+ch.4430	RNASeq_stranded	transcript_region	1069	1080	1.0	+	.	
+ch.4430	mGene	CDS	1069	1160	.	-	.	ID=CDS:mGene_pred_6020
+ch.4430	WormBase	intron	1081	1126	.	+	.	Parent=Transcript:ZK1248.5.1
+ch.4430	RNASeq_splice	intron	1081	1126	63792.0	+	.	
+ch.4430	RNASeq_splice	intron	1081	1167	9.0	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1092	1139	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1092	1139	0.0	.	.	
+ch.4430	GeneMarkHMM	CDS	1107	1239	.	+	.	ID=CDS:GeneMark.chr_II.1777
+ch.4430	mSplicer_orf	CDS	1107	1239	.	+	.	ID=msp_orf-ZK1248.5
+ch.4430	mSplicer_transcript	CDS	1107	1239	.	+	.	ID=msp_trans-ZK1248.5
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1115	1139	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1115	1139	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1115	1191	7.67	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1115	1215	7.15	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1115	1215	7.63	.	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	1122	1226	24.155	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	1122	1232	25.222	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	1122	1232	25.0	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	1122	1241	25.699	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	1122	1253	30.699	+	.	
+ch.4430	cbrenneri_proteins-BLASTX	protein_match	1122	1256	130.699	+	.	
+ch.4430	cbrenneri_proteins-BLASTX	protein_match	1122	1256	131.0	+	.	
+ch.4430	cbriggsae_proteins-BLASTX	protein_match	1122	1256	126.523	+	.	
+ch.4430	celegans_proteins-BLASTX	protein_match	1122	1256	28.0	+	.	
+ch.4430	cremanei_proteins-BLASTX	protein_match	1122	1256	125.155	+	.	
+ch.4430	Million_mutation	point_mutation	1126	1126	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	1126	1126	.	+	.	
+ch.4430	RNASeq_reads	transcript_region	1126	1126	1.0	.	.	
+ch.4430	Oligo_set	reagent	1127	1137	.	+	.	
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	1127	1163	91.1	-	.	ID=FN877833.1
+ch.4430	Oligo_set	reagent	1127	1168	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	1127	1187	1.0	+	.	
+ch.4430	BLAT_OST_BEST	expressed_sequence_match	1127	1234	99.4	-	.	ID=OSTR105D3_1.1
+ch.4430	RNASeq_reads	transcript_region	1127	1249	11.0	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1253	100.0	+	.	ID=L1_Nanopore_Li_273513.1
+ch.4430	RNASEQ.Hillier	CDS	1127	1256	.	+	.	ID=CDS:RNASEQ_male_mid-L4_25dC_30hrs_post-L1_g17_x12_II_p
+ch.4430	RNASEQ.Hillier	CDS	1127	1256	.	+	.	ID=CDS:RNASEQ_mid-L4_25dC_36hrs_post-L1_g50_x12_II_p
+ch.4430	translated_feature	polypeptide_motif	1127	1256	.	+	.	ID=motif:ZK1248.5-hmmpanther.2
+ch.4430	WormBase	CDS	1127	1259	.	+	.	ID=CDS:ZK1248.5;Parent=Transcript:ZK1248.5.1
+ch.4430	Genefinder	CDS	1127	1259	.	+	.	ID=CDS:ZK1248.gc2
+ch.4430	jigsaw	CDS	1127	1259	.	+	.	ID=CDS:ContigII.elegans.jigsaw.1554.mRNA1554
+ch.4430	mGene	CDS	1127	1259	.	+	.	ID=CDS:mGene_pred_3899
+ch.4430	RNASEQ.Hillier.Aggregate	CDS	1127	1259	.	+	.	ID=CDS:AG1201_ZK1248.5.T1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1262	100.0	+	.	ID=YA_Nanopore_Li_216984.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1273	100.0	+	.	ID=L1_Nanopore_Li_159671.1
+ch.4430	BLAT_Caen_Trinity_BEST	expressed_sequence_match	1127	1277	58.5	+	.	ID=briggsae_GG6537|c0_g1_i1.4
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1277	100.0	+	.	ID=male_Nanopore_Roach_88774.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1277	100.0	+	.	ID=male_Nanopore_Roach_3123.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1281	100.0	+	.	ID=L4_Nanopore_Roach_27050.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1281	100.0	+	.	ID=male_Nanopore_Roach_37069.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1282	100.0	+	.	ID=L4_Nanopore_Roach_50725.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1282	100.0	+	.	ID=male_Nanopore_Roach_120063.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1282	100.0	+	.	ID=male_Nanopore_Roach_102965.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1282	100.0	+	.	ID=YA_Nanopore_Li_188264.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1283	100.0	+	.	ID=YA_Nanopore_Li_290474.1
+ch.4430	BLAT_Trinity_BEST	expressed_sequence_match	1127	1284	98.6	+	.	ID=elegans_PE_SS_GG7515|c5_g1_i1.1
+ch.4430	WormBase	exon	1127	1284	.	+	.	Parent=Transcript:ZK1248.5.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1286	100.0	+	.	ID=L1_Nanopore_Roach_78008.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1286	100.0	+	.	ID=YA_Nanopore_Li_299609.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1286	100.0	+	.	ID=young_adult_Nanopore_Roach_98705.1
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1127	1288	100.0	+	.	ID=YA_Nanopore_Li_42854.1
+ch.4430	Oligo_set	reagent	1128	1201	.	-	.	
+ch.4430	cjaponica_proteins-BLASTX	protein_match	1128	1256	37.699	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1141	1243	8.19	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1141	1243	8.33	.	.	
+ch.4430	RNASEQ.Hillier	CDS	1152	1199	.	+	.	ID=CDS:RNASEQ_L4_soma_JK1107_no_DNaseI_g197_x12_II_p
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	1165	1179	91.1	-	.	ID=FN877833.1
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1167	1191	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1167	1215	0.0	.	.	
+ch.4430	BLAT_Nanopore_BEST	expressed_sequence_match	1175	1287	100.0	+	.	ID=male_Nanopore_Roach_157535.1
+ch.4430	Oligo_set	reagent	1177	1236	.	+	.	
+ch.4430	RNASeq_R_asymmetry	transcript_region	1184	1251	43333.0	.	.	
+ch.4430	Oligo_set	reagent	1185	1244	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	1188	1200	2.0	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1191	1215	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1191	1215	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1191	1215	0.0	.	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1191	1215	0.0	.	.	
+ch.4430	Oligo_set	reagent	1200	1259	.	+	.	
+ch.4430	Oligo_set	reagent	1200	1259	.	+	.	
+ch.4430	RNASeq	transcription_end_site	1201	1201	.	+	.	
+ch.4430	RNASeq_stranded	transcript_region	1201	1286	1.0	+	.	
+ch.4430	Oligo_set	reagent	1203	1252	.	-	.	
+ch.4430	Million_mutation	point_mutation	1208	1208	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	1208	1208	.	+	.	
+ch.4430	Oligo_set	reagent	1218	1262	.	+	.	
+ch.4430	Oligo_set	reagent	1218	1262	.	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1219	1243	0.0	.	.	
+ch.4430	Oligo_set	reagent	1232	1291	.	+	.	
+ch.4430	BLAT_EST_BEST	expressed_sequence_match	1233	1284	100.0	+	.	ID=GH332389.1
+ch.4430	Million_mutation	point_mutation	1236	1236	.	+	.	
+ch.4430	PCoF_Million_mutation	point_mutation	1236	1236	.	+	.	
+ch.4430	SAGE_tag_genomic_unique	SAGE_tag	1236	1249	.	+	.	
+ch.4430	SAGE_tag_genomic_unique	SAGE_tag	1236	1256	.	+	.	
+ch.4430	RNASeq_reads	transcript_region	1250	1252	7.0	.	.	
+ch.4430	RNASeq_R_asymmetry	transcript_region	1252	1253	21368.0	.	.	
+ch.4430	RNASeq_reads	transcript_region	1253	1266	4.0	.	.	
+ch.4430	RNASeq_R_asymmetry	transcript_region	1254	1283	12687.0	.	.	
+ch.4430	UTRome	three_prime_UTR	1260	1283	.	+	.	
+ch.4430	WormBase	three_prime_UTR	1260	1284	.	+	.	Parent=Transcript:ZK1248.5.1
+ch.4430	RNASeq_reads	transcript_region	1267	1284	2.0	.	.	
+ch.4430	RNASeq_R_asymmetry	transcript_region	1284	1284	8324.0	.	.	
+ch.4430	polyA_site	polyA_site	1284	1284	.	+	.	
+ch.4430	RNASeq_reads	transcript_region	1285	1286	1.0	.	.	
+ch.4430	RNASeq	transcription_end_site	1287	1287	.	+	.	
+ch.4430	TranscriptionallyActiveRegion	transcribed_fragment	1349	1373	0.0	.	.	

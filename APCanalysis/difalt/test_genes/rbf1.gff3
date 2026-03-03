@@ -1,0 +1,53 @@
+ch.7709	WormBase	intron	-104	61	.	+	.	Parent=Transcript:F37A4.7a.1
+ch.7709	WormBase	intron	-104	61	.	+	.	Parent=Transcript:F37A4.7a.2
+ch.7709	WormBase	intron	-104	61	.	+	.	Parent=Transcript:F37A4.7a.3
+ch.7709	WormBase	intron	-104	61	.	+	.	Parent=Transcript:F37A4.7b.1
+ch.7709	WormBase	intron	-104	61	.	+	.	Parent=Transcript:F37A4.7c.1
+ch.7709	WormBase	intron	-104	61	.	+	.	Parent=Transcript:F37A4.7d.1
+ch.7709	WormBase	CDS	62	115	.	+	.	ID=CDS:F37A4.7d;Parent=Transcript:F37A4.7d.1
+ch.7709	WormBase	CDS	62	115	.	+	.	ID=CDS:F37A4.7c;Parent=Transcript:F37A4.7c.1
+ch.7709	WormBase	CDS	62	115	.	+	.	ID=CDS:F37A4.7b;Parent=Transcript:F37A4.7b.1
+ch.7709	WormBase	CDS	62	115	.	+	.	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3
+ch.7709	WormBase	exon	62	115	.	+	.	Parent=Transcript:F37A4.7a.1
+ch.7709	WormBase	exon	62	115	.	+	.	Parent=Transcript:F37A4.7a.2
+ch.7709	WormBase	exon	62	115	.	+	.	Parent=Transcript:F37A4.7a.3
+ch.7709	WormBase	exon	62	115	.	+	.	Parent=Transcript:F37A4.7b.1
+ch.7709	WormBase	exon	62	115	.	+	.	Parent=Transcript:F37A4.7c.1
+ch.7709	WormBase	exon	62	115	.	+	.	Parent=Transcript:F37A4.7d.1
+ch.7709	WormBase	intron	116	228	.	+	.	Parent=Transcript:F37A4.7a.1
+ch.7709	WormBase	intron	116	228	.	+	.	Parent=Transcript:F37A4.7a.2
+ch.7709	WormBase	intron	116	228	.	+	.	Parent=Transcript:F37A4.7a.3
+ch.7709	WormBase	intron	116	228	.	+	.	Parent=Transcript:F37A4.7b.1
+ch.7709	WormBase	intron	116	228	.	+	.	Parent=Transcript:F37A4.7c.1
+ch.7709	WormBase	intron	116	228	.	+	.	Parent=Transcript:F37A4.7d.1
+ch.7709	RNASeq_splice	intron	116	228	18282.0	+	.
+ch.7709	WormBase	CDS	229	318	.	+	.	ID=CDS:F37A4.7d;Parent=Transcript:F37A4.7d.1
+ch.7709	WormBase	CDS	229	318	.	+	.	ID=CDS:F37A4.7c;Parent=Transcript:F37A4.7c.1
+ch.7709	WormBase	CDS	229	318	.	+	.	ID=CDS:F37A4.7b;Parent=Transcript:F37A4.7b.1
+ch.7709	WormBase	CDS	229	318	.	+	.	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3
+ch.7709	WormBase	exon	229	318	.	+	.	Parent=Transcript:F37A4.7a.1
+ch.7709	WormBase	exon	229	318	.	+	.	Parent=Transcript:F37A4.7a.2
+ch.7709	WormBase	exon	229	318	.	+	.	Parent=Transcript:F37A4.7a.3
+ch.7709	WormBase	exon	229	318	.	+	.	Parent=Transcript:F37A4.7b.1
+ch.7709	WormBase	exon	229	318	.	+	.	Parent=Transcript:F37A4.7c.1
+ch.7709	WormBase	exon	229	318	.	+	.	Parent=Transcript:F37A4.7d.1
+ch.7709	WormBase	intron	319	569	.	+	.	Parent=Transcript:F37A4.7a.1
+ch.7709	WormBase	intron	319	569	.	+	.	Parent=Transcript:F37A4.7a.2
+ch.7709	WormBase	intron	319	569	.	+	.	Parent=Transcript:F37A4.7a.3
+ch.7709	WormBase	intron	319	569	.	+	.	Parent=Transcript:F37A4.7b.1
+ch.7709	WormBase	intron	319	569	.	+	.	Parent=Transcript:F37A4.7c.1
+ch.7709	WormBase	intron	319	569	.	+	.	Parent=Transcript:F37A4.7d.1
+ch.7709	RNASeq_splice	intron	319	569	50517.0	+	.
+ch.7709	RNASeq_splice	intron	319	572	17.0	+	.
+ch.7709	RNASeq_splice	intron	323	572	5.0	+	.
+ch.7709	WormBase	CDS	570	922	.	+	.	ID=CDS:F37A4.7d;Parent=Transcript:F37A4.7d.1
+ch.7709	WormBase	CDS	570	922	.	+	.	ID=CDS:F37A4.7c;Parent=Transcript:F37A4.7c.1
+ch.7709	WormBase	CDS	570	922	.	+	.	ID=CDS:F37A4.7b;Parent=Transcript:F37A4.7b.1
+ch.7709	WormBase	CDS	570	922	.	+	.	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3
+ch.7709	WormBase	exon	570	922	.	+	.	Parent=Transcript:F37A4.7a.1
+ch.7709	WormBase	exon	570	922	.	+	.	Parent=Transcript:F37A4.7a.2
+ch.7709	WormBase	exon	570	922	.	+	.	Parent=Transcript:F37A4.7a.3
+ch.7709	WormBase	exon	570	922	.	+	.	Parent=Transcript:F37A4.7b.1
+ch.7709	WormBase	exon	570	922	.	+	.	Parent=Transcript:F37A4.7c.1
+ch.7709	WormBase	exon	570	922	.	+	.	Parent=Transcript:F37A4.7d.1
+ch.7709	RNASeq_splice	intron	627	679	3.0	+	.

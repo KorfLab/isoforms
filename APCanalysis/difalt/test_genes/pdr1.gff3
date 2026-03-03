@@ -1,0 +1,54 @@
+ch.9108	WormBase	CDS	-378	54	.	+	.	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	CDS	-378	54	.	+	.	ID=CDS:K08E3.7b;Parent=Transcript:K08E3.7b.1,Transcript:K08E3.7b.2
+ch.9108	WormBase	CDS	-378	54	.	+	.	ID=CDS:K08E3.7c;Parent=Transcript:K08E3.7c.1
+ch.9108	WormBase	exon	-378	54	.	+	.	Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	exon	-378	54	.	+	.	Parent=Transcript:K08E3.7b.1
+ch.9108	WormBase	exon	-378	54	.	+	.	Parent=Transcript:K08E3.7b.2
+ch.9108	WormBase	exon	-378	54	.	+	.	Parent=Transcript:K08E3.7c.1
+ch.9108	RNASeq_splice	intron	47	100	4.0	+	.
+ch.9108	WormBase	intron	55	100	.	+	.	Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	intron	55	100	.	+	.	Parent=Transcript:K08E3.7c.1
+ch.9108	RNASeq_splice	intron	55	100	190308.0	+	.
+ch.9108	RNASeq_splice	intron	55	114	52.0	+	.
+ch.9108	WormBase	intron	55	470	.	+	.	Parent=Transcript:K08E3.7b.1
+ch.9108	WormBase	intron	55	470	.	+	.	Parent=Transcript:K08E3.7b.2
+ch.9108	RNASeq_splice	intron	55	470	41967.0	+	.
+ch.9108	RNASeq_splice	intron	55	511	4.0	+	.
+ch.9108	RNASeq_splice	intron	59	100	89.0	+	.
+ch.9108	RNASeq_splice	intron	59	470	2075.0	+	.
+ch.9108	RNASeq_splice	intron	59	473	10.0	+	.
+ch.9108	WormBase	CDS	101	191	.	+	.	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	CDS	101	191	.	+	.	ID=CDS:K08E3.7c;Parent=Transcript:K08E3.7c.1
+ch.9108	WormBase	exon	101	191	.	+	.	Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	exon	101	191	.	+	.	Parent=Transcript:K08E3.7c.1
+ch.9108	RNASeq_splice	intron	184	470	3141.0	+	.
+ch.9108	RNASeq_splice	intron	184	606	6.0	+	.
+ch.9108	WormBase	intron	192	470	.	+	.	Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	intron	192	470	.	+	.	Parent=Transcript:K08E3.7c.1
+ch.9108	RNASeq_splice	intron	192	470	271835.0	+	.
+ch.9108	RNASeq_splice	intron	192	473	5.0	+	.
+ch.9108	RNASeq_splice	intron	196	470	273.0	+	.
+ch.9108	RNASeq_splice	intron	196	473	19.0	+	.
+ch.9108	RNASeq_splice	intron	288	470	5.0	+	.
+ch.9108	RNASeq_splice	intron	425	470	112.0	+	.
+ch.9108	WormBase	CDS	471	554	.	+	.	ID=CDS:K08E3.7b;Parent=Transcript:K08E3.7b.1,Transcript:K08E3.7b.2
+ch.9108	WormBase	CDS	471	675	.	+	.	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	CDS	471	675	.	+	.	ID=CDS:K08E3.7c;Parent=Transcript:K08E3.7c.1
+ch.9108	WormBase	exon	471	675	.	+	.	Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	exon	471	675	.	+	.	Parent=Transcript:K08E3.7b.1
+ch.9108	WormBase	exon	471	675	.	+	.	Parent=Transcript:K08E3.7b.2
+ch.9108	WormBase	exon	471	675	.	+	.	Parent=Transcript:K08E3.7c.1
+ch.9108	RNASeq_splice	intron	573	728	3.0	+	.
+ch.9108	WormBase	intron	676	728	.	+	.	Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	intron	676	728	.	+	.	Parent=Transcript:K08E3.7b.1
+ch.9108	WormBase	intron	676	728	.	+	.	Parent=Transcript:K08E3.7b.2
+ch.9108	WormBase	intron	676	728	.	+	.	Parent=Transcript:K08E3.7c.1
+ch.9108	RNASeq_splice	intron	676	728	401700.0	+	.
+ch.9108	RNASeq_splice	intron	676	732	527.0	+	.
+ch.9108	RNASeq_splice	intron	689	776	11.0	-	.
+ch.9108	WormBase	CDS	729	803	.	+	.	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	CDS	729	803	.	+	.	ID=CDS:K08E3.7c;Parent=Transcript:K08E3.7c.1
+ch.9108	WormBase	exon	729	803	.	+	.	Parent=Transcript:K08E3.7a.1
+ch.9108	WormBase	exon	729	803	.	+	.	Parent=Transcript:K08E3.7b.1
+ch.9108	WormBase	exon	729	803	.	+	.	Parent=Transcript:K08E3.7c.1
+ch.9108	WormBase	exon	729	1033	.	+	.	Parent=Transcript:K08E3.7b.2

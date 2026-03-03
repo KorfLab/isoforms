@@ -1,0 +1,13 @@
+ch.19698	WormBase	intron	337	800	.	+	.	Parent=Transcript:F15A2.6b.1
+ch.19698	WormBase	intron	149	800	.	+	.	Parent=Transcript:F15A2.6a.1
+ch.19698	RNASeq_splice	intron	149	677	3.0	+	.
+ch.19698	WormBase	exon	304	336	.	+	.	Parent=Transcript:F15A2.6b.1
+ch.19698	WormBase	CDS	304	317	.	+	.	ID=CDS:F15A2.6b;Parent=Transcript:F15A2.6b.1
+ch.19698	WormBase	intron	149	303	.	+	.	Parent=Transcript:F15A2.6b.1
+ch.19698	RNASeq_splice	intron	149	303	16440.0	+	.
+ch.19698	WormBase	CDS	67	148	.	+	.	ID=CDS:F15A2.6a;Parent=Transcript:F15A2.6a.1
+ch.19698	WormBase	CDS	67	148	.	+	.	ID=CDS:F15A2.6b;Parent=Transcript:F15A2.6b.1
+ch.19698	WormBase	exon	67	148	.	+	.	Parent=Transcript:F15A2.6a.1
+ch.19698	WormBase	exon	67	148	.	+	.	Parent=Transcript:F15A2.6b.1
+ch.19698	WormBase	intron	-425	66	.	+	.	Parent=Transcript:F15A2.6a.1
+ch.19698	WormBase	intron	-425	66	.	+	.	Parent=Transcript:F15A2.6b.1

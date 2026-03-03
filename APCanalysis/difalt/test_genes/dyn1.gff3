@@ -1,0 +1,33 @@
+ch.20033	WormBase	mRNA	-3349	679	.	+	.	ID=Transcript:C02C6.1b.1;Parent=Gene:WBGene00001130
+ch.20033	WormBase	gene	-3349	751	.	+	.	ID=Gene:WBGene00001130
+ch.20033	WormBase	mRNA	-3349	751	.	+	.	ID=Transcript:C02C6.1a.1;Parent=Gene:WBGene00001130
+ch.20033	WormBase	CDS	-315	70	.	+	.	ID=CDS:C02C6.1b;Parent=Transcript:C02C6.1b.1
+ch.20033	WormBase	CDS	-315	70	.	+	.	ID=CDS:C02C6.1a;Parent=Transcript:C02C6.1a.1
+ch.20033	WormBase	exon	-315	70	.	+	.	Parent=Transcript:C02C6.1a.1
+ch.20033	WormBase	exon	-315	70	.	+	.	Parent=Transcript:C02C6.1b.1
+ch.20033	RNASeq_splice	intron	25	243	23.0	+	.
+ch.20033	RNASeq_splice	intron	25	606	75.0	+	.
+ch.20033	RNASeq_splice	intron	25	638	4.0	+	.
+ch.20033	RNASeq_splice	intron	71	180	69.0	+	.
+ch.20033	RNASeq_splice	intron	71	202	3.0	+	.
+ch.20033	RNASeq_splice	intron	71	206	5.0	+	.
+ch.20033	WormBase	intron	71	243	.	+	.	Parent=Transcript:C02C6.1a.1
+ch.20033	RNASeq_splice	intron	71	243	95180.0	+	.
+ch.20033	WormBase	intron	71	606	.	+	.	Parent=Transcript:C02C6.1b.1
+ch.20033	RNASeq_splice	intron	71	606	158049.0	+	.
+ch.20033	RNASeq_splice	intron	71	609	11.0	+	.
+ch.20033	RNASeq_splice	intron	75	609	15.0	+	.
+ch.20033	RNASeq_splice	intron	75	611	17.0	+	.
+ch.20033	WormBase	CDS	244	292	.	+	.	ID=CDS:C02C6.1a;Parent=Transcript:C02C6.1a.1
+ch.20033	WormBase	exon	244	325	.	+	.	Parent=Transcript:C02C6.1a.1
+ch.20033	RNASeq_splice	intron	326	559	3.0	+	.
+ch.20033	WormBase	intron	326	606	.	+	.	Parent=Transcript:C02C6.1a.1
+ch.20033	RNASeq_splice	intron	326	606	89852.0	+	.
+ch.20033	RNASeq_splice	intron	326	609	3.0	+	.
+ch.20033	RNASeq_splice	intron	330	611	3.0	+	.
+ch.20033	RNASeq_splice	intron	358	606	40.0	+	.
+ch.20033	RNASeq_splice	intron	360	606	55.0	+	.
+ch.20033	RNASeq_splice	intron	551	606	10.0	+	.
+ch.20033	WormBase	CDS	607	679	.	+	.	ID=CDS:C02C6.1b;Parent=Transcript:C02C6.1b.1
+ch.20033	WormBase	exon	607	679	.	+	.	Parent=Transcript:C02C6.1b.1
+ch.20033	WormBase	exon	607	751	.	+	.	Parent=Transcript:C02C6.1a.1

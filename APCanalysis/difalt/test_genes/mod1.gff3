@@ -1,0 +1,16 @@
+ch.14578	WormBase	CDS	750	860	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	CDS	750	860	.	+	.	ID=CDS:K06C4.6b;Parent=Transcript:K06C4.6b.1
+ch.14578	WormBase	exon	750	860	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	750	860	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	RNASeq_splice	intron	664	749	5.0	+	.
+ch.14578	WormBase	intron	159	749	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	RNASeq_splice	intron	159	749	6197.0	+	.
+ch.14578	WormBase	intron	-12	749	.	+	.	Parent=Transcript:K06C4.6b.1
+ch.14578	RNASeq_splice	intron	159	735	10.0	+	.
+ch.14578	WormBase	CDS	117	182	.	+	.	ID=CDS:K06C4.6c;Parent=Transcript:K06C4.6c.1
+ch.14578	WormBase	exon	117	182	.	+	.	Parent=Transcript:K06C4.6c.1
+ch.14578	WormBase	mRNA	-3103	182	.	+	.	ID=Transcript:K06C4.6c.1;Parent=Gene:WBGene00003386
+ch.14578	WormBase	CDS	117	158	.	+	.	ID=CDS:K06C4.6a;Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	exon	117	158	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	-12	116	.	+	.	Parent=Transcript:K06C4.6a.1
+ch.14578	WormBase	intron	-12	116	.	+	.	Parent=Transcript:K06C4.6c.1

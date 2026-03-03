@@ -1,0 +1,50 @@
+ch.18101	WormBase	mRNA	118	2856	.	+	.	ID=Transcript:F35A5.8a.2;Parent=Gene:WBGene00001335
+ch.18101	WormBase	mRNA	118	2854	.	+	.	ID=Transcript:F35A5.8c.1;Parent=Gene:WBGene00001335
+ch.18101	WormBase	mRNA	118	2157	.	+	.	ID=Transcript:F35A5.8b.1;Parent=Gene:WBGene00001335
+ch.18101	WormBase	CDS	656	789	.	+	.	ID=CDS:F35A5.8a;Parent=Transcript:F35A5.8a.1,Transcript:F35A5.8a.2
+ch.18101	WormBase	CDS	656	789	.	+	.	ID=CDS:F35A5.8c;Parent=Transcript:F35A5.8c.1
+ch.18101	WormBase	CDS	656	789	.	+	.	ID=CDS:F35A5.8b;Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	exon	656	789	.	+	.	Parent=Transcript:F35A5.8a.1
+ch.18101	WormBase	exon	656	789	.	+	.	Parent=Transcript:F35A5.8a.2
+ch.18101	WormBase	exon	656	789	.	+	.	Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	exon	656	789	.	+	.	Parent=Transcript:F35A5.8c.1
+ch.18101	WormBase	intron	603	655	.	+	.	Parent=Transcript:F35A5.8a.1
+ch.18101	WormBase	intron	603	655	.	+	.	Parent=Transcript:F35A5.8a.2
+ch.18101	WormBase	intron	603	655	.	+	.	Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	intron	603	655	.	+	.	Parent=Transcript:F35A5.8c.1
+ch.18101	RNASeq_splice	intron	603	655	107504.0	+	.
+ch.18101	WormBase	CDS	468	602	.	+	.	ID=CDS:F35A5.8a;Parent=Transcript:F35A5.8a.1,Transcript:F35A5.8a.2
+ch.18101	WormBase	CDS	468	602	.	+	.	ID=CDS:F35A5.8c;Parent=Transcript:F35A5.8c.1
+ch.18101	WormBase	CDS	468	602	.	+	.	ID=CDS:F35A5.8b;Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	exon	468	602	.	+	.	Parent=Transcript:F35A5.8a.1
+ch.18101	WormBase	exon	468	602	.	+	.	Parent=Transcript:F35A5.8a.2
+ch.18101	WormBase	exon	468	602	.	+	.	Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	exon	468	602	.	+	.	Parent=Transcript:F35A5.8c.1
+ch.18101	WormBase	intron	401	467	.	+	.	Parent=Transcript:F35A5.8a.1
+ch.18101	WormBase	intron	401	467	.	+	.	Parent=Transcript:F35A5.8a.2
+ch.18101	WormBase	intron	401	467	.	+	.	Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	intron	401	467	.	+	.	Parent=Transcript:F35A5.8c.1
+ch.18101	RNASeq_splice	intron	401	467	88011.0	+	.
+ch.18101	WormBase	CDS	259	400	.	+	.	ID=CDS:F35A5.8a;Parent=Transcript:F35A5.8a.1,Transcript:F35A5.8a.2
+ch.18101	WormBase	CDS	259	400	.	+	.	ID=CDS:F35A5.8c;Parent=Transcript:F35A5.8c.1
+ch.18101	WormBase	CDS	259	400	.	+	.	ID=CDS:F35A5.8b;Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	exon	259	400	.	+	.	Parent=Transcript:F35A5.8a.1
+ch.18101	WormBase	exon	259	400	.	+	.	Parent=Transcript:F35A5.8a.2
+ch.18101	WormBase	exon	259	400	.	+	.	Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	exon	259	400	.	+	.	Parent=Transcript:F35A5.8c.1
+ch.18101	RNASeq_splice	intron	200	286	3.0	+	.
+ch.18101	WormBase	intron	200	258	.	+	.	Parent=Transcript:F35A5.8a.1
+ch.18101	WormBase	intron	200	258	.	+	.	Parent=Transcript:F35A5.8a.2
+ch.18101	WormBase	intron	200	258	.	+	.	Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	intron	200	258	.	+	.	Parent=Transcript:F35A5.8c.1
+ch.18101	RNASeq_splice	intron	200	258	131084.0	+	.
+ch.18101	WormBase	CDS	137	199	.	+	.	ID=CDS:F35A5.8a;Parent=Transcript:F35A5.8a.1,Transcript:F35A5.8a.2
+ch.18101	WormBase	CDS	137	199	.	+	.	ID=CDS:F35A5.8c;Parent=Transcript:F35A5.8c.1
+ch.18101	WormBase	CDS	137	199	.	+	.	ID=CDS:F35A5.8b;Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	exon	120	199	.	+	.	Parent=Transcript:F35A5.8a.1
+ch.18101	WormBase	exon	118	199	.	+	.	Parent=Transcript:F35A5.8a.2
+ch.18101	WormBase	exon	118	199	.	+	.	Parent=Transcript:F35A5.8b.1
+ch.18101	WormBase	exon	118	199	.	+	.	Parent=Transcript:F35A5.8c.1
+ch.18101	WormBase	intron	-447	119	.	+	.	Parent=Transcript:F35A5.8a.1
+ch.18101	WormBase	gene	-2	109	.	-	.	ID=Gene:WBGene00196706
+ch.18101	WormBase	exon	-2	109	.	-	.	Parent=Transcript:F35A5.9

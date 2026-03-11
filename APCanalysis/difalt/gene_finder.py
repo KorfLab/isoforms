@@ -96,6 +96,6 @@ if len(seq_line) != 0:
 with open(f'{args.fname}.fa', 'wt') as fp:
 	fp.write(f'>{args.seq_desc}\n')
 	for seq in seq_lines:
-		fp.write(seq)
+		fp.write(f'{seq}\n')
 
 

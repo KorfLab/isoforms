@@ -20,6 +20,7 @@ args = parser.parse_args()
 ginfo = {}
 with open(args.WBGenes, 'rt') as fp:
 	for line in fp:
+		if line.startswith('#'): continue
 		line = line.rstrip()
 		line = line.split(',')
 		ginfo[line[0]] = line[1:]
@@ -30,11 +31,15 @@ for gff_file in glob.glob(args.gene_dir + '*.gff3'):
 			line = line.rstrip().split('\t')
 			if line[1] == 'WormBase' and line[2] == 'gene':
 				wbg = line[8].split(':')[1]
+				print(wbg)
 				if wbg in ginfo:
 					ginfo[wbg].append(gff_file)
 					base = gff_file.split('/')[-1].split('.')[:-1]
 					ginfo[wbg].append(f'{args.gene_dir}'
 										f'{'.'.join(base)}.fa')
+					print(f'{args.gene_dir}{'.'.join(base)}', 'wow')
+										
+print(ginfo)
 
 if not os.path.isdir(f'{args.new_dir}'):
 	os.mkdir(f'{args.new_dir}/')
@@ -54,6 +59,7 @@ if coors2[3] == '+':
 lines_to_write = {}
 flank = 100
 for item in ginfo.items():
+	print(item)
 	if len(item[1]) == 1: continue
 	if item[1][5] == '-':
 		start = abs(int(item[1][3]) - int(item[1][4])) + flank+1
@@ -71,15 +77,26 @@ for item in ginfo.items():
 			if len(line) >= 8:
 				if (line[1] == 'WormBase' and line[2] 
 					in ['exon', 'gene', 'mRNA', 'CDS', 'intron']):
-						#if line[2] == 'gene': print(line)
+						if line[2] == 'gene': print(line)
 						# get any regions that overlap
+						print(gen_coors, 'COORS')
+						'''
 						if ((int(line[3]) <= gen_coors[1] and 
 							int(line[3]) >= gen_coors[0]) or 
 							(int(line[4]) <= gen_coors[1] and
+							int(line[4]) >= gen_coors[0]) or
+							(int(line[3]) <= gen_coors[1] and
+							int(line[4]) >= gen_coors[1]) or
+							(int(line[3]) <= gen_coors[0] and
 							int(line[4]) >= gen_coors[0])):
+						'''
+						f_start, f_end = int(line[3]), int(line[4])
+						g_start, g_end = gen_coors
+						if f_start <= gen_coors[1] and f_end >= gen_coors[0]:
 								# negative CDS coors needed for make_svg.py
 								line[3] = str(int(line[3]) - gen_coors[0] +1)
 								line[4] = str(int(line[4]) - gen_coors[0] +1)
+								print(line, '####')
 								#print('\t'.join(line))
 								keep_lines.append(line)
 				if line[1] == 'RNASeq_splice':
@@ -96,7 +113,7 @@ for item in ginfo.items():
 				
 
 for item in lines_to_write.items():
-	with open(f'{item[0]}.gff3', 'wt') as fp:
+	with open(f'gpt{item[0]}.gff3', 'wt') as fp:
 		for line in item[1]:
 			fp.write(f'{'\t'.join(line)}\n')
 

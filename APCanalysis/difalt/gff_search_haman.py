@@ -27,7 +27,7 @@ with open(args.WBGenes, 'rt') as fp:
 		ginfo[line[0]] = line[1:]
 
 # some haman genes have more than one WBGene in a gff
-'''
+
 gene_chs = {}
 for gff_file in glob.glob(args.gene_dir + '*.gff3'):
 	with open(gff_file, 'rt') as fp:
@@ -35,7 +35,7 @@ for gff_file in glob.glob(args.gene_dir + '*.gff3'):
 			line = line.rstrip().split('\t')
 			if line[1] == 'WormBase' and line[2] == 'gene':
 				print(line[0], line[8])
-'''
+
 
 # get any fasta/gff files that mention a WBGene
 for gff_file in glob.glob(args.gene_dir + '*.gff3'):
@@ -66,8 +66,6 @@ lines_to_write = {}
 # hard coded, use same flank as haman genes
 flank = 100
 for item in ginfo.items():
-	print(item)
-	print(len(item[1]))
 	if len(item[1]) < 7: continue
 	# adjust genomic coordinates to gene 
 	if item[1][5] == '-':
@@ -87,7 +85,7 @@ for item in ginfo.items():
 			if len(line) >= 8:
 				if (line[1] == 'WormBase' and line[2] 
 					in ['exon', 'gene', 'mRNA', 'CDS', 'intron']):
-						print(line)
+						#print(line)
 					
 						
 						# get any regions that overlap
@@ -131,51 +129,6 @@ for item in gfiles.items():
 	shutil.copy(src2, dest)
 '''
 
-# old code to search gff
-# now using haman gene builds
-'''
-parser = argparse.ArgumentParser(
-	description='get overlapping introns in genomic region of interest')
-parser.add_argument('annotation', help='gff3 genome annotation')
-parser.add_argument('coordinates', help='chromosome:loc i.e. X:99:999; '
-	'chromosomes: I, II, III, IV, V, X, MtDNA')
-#parser.add_argument('--fname', help='name file')
-
-args = parser.parse_args()
-
-read_arg = args.coordinates.split(':')
-chrom = read_arg[0]
-gen_coors = [int(read_arg[1]), int(read_arg[2])]
-
-open_type = gzip.open if args.annotation.endswith('.gz') else open
-
-count = 0
-with open_type(args.annotation, 'rt') as fp:
-	for line in fp:
-		line = line.rstrip()
-		line = line.split('\t')
-		if len(line) == 9:
-			if (line[0] == chrom and line[1] == 'WormBase' and
-				line[2] == 'CDS'):
-				# get any CDS regions that overlap
-				if ((int(line[3]) <= gen_coors[1] and 
-					int(line[3]) >= gen_coors[0]) or 
-					(int(line[4]) <= gen_coors[1] and
-					int(line[4]) >= gen_coors[0])):
-						# negative CDS coors needed for make_svg.py
-						line[3] = str(int(line[3]) - gen_coors[0] +1)
-						line[4] = str(int(line[4]) - gen_coors[0] +1)
-						print('\t'.join(line))
-			if line[0] == chrom and line[1] == 'RNASeq_splice':
-				# only get introns within coors
-				if (int(line[3]) <= gen_coors[1] and 
-					int(line[3]) >= gen_coors[0] and
-					int(line[4]) <= gen_coors[1] and
-					int(line[4]) >= gen_coors[0]):
-						line[3] = str(int(line[3]) - gen_coors[0] +1)
-						line[4] = str(int(line[4]) - gen_coors[0] +1)
-						print('\t'.join(line))
-'''	
 			
 			
 			

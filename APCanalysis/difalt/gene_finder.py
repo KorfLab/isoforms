@@ -36,20 +36,37 @@ with open_type(args.genome, 'rt') as fp:
 			continue
 		# match line index to region of interest 
 		for info in gene_info.items():
-			# gene name and strandedness
-			gns = f'{info[1][1]}{info[1][5]}'
-			if gns not in gen_seqs:
-				gen_seqs[gns] = []
+			# save sequence identifiers and info
+			sq_ids = [info[0]]
+			info_list = info[1]
+			sq_ids.extend(info_list)
+			sq_ids = tuple(sq_ids)
+			if sq_ids not in gen_seqs:
+				gen_seqs[sq_ids] = []
 			if info[1][1] != current_chrom: continue
 			beg = int(info[1][2])
 			end = int(info[1][3])
 			for n in line:
 				n_counts += 1
 				if n_counts >= beg and n_counts <= end:
-					gen_seqs[gns].append(n)
-				
+					gen_seqs[sq_ids].append(n)
+
 # flip - strands
-for gen_seq in gen_seqs.items():
+for info_seq in gen_seqs.items():
+	if info_seq[0][6] == '-':
+		comp_seq = []
+		comps = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+		for n in info_seq[1]:
+			comp_seq.append(comps[n])
+		rev_seq = []
+		for i in range(len(comp_seq)):
+			i = i+1
+			rev_seq.append(comp_seq[-i])
+		gen_seqs[info_seq[0]] = rev_seq
+		
+print(gen_seqs)
+
+'''
 	if gen_seq[0].endswith('-'):
 		comp_seq = [] 
 		comp = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
@@ -79,9 +96,9 @@ for gen_seq in gen_seqs.items():
 	gen_seqs_80[gen_seq[0]] = seq_lines
 	
 print(gen_seqs_80)
+'''
 
 '''
-	
 with open(f'{args.fname}.fa', 'wt') as fp:
 	fp.write(f'>{args.seq_desc}\n')
 	for seq in seq_lines:

@@ -1,8 +1,6 @@
 import argparse
 import gzip
-import glob
 import os
-import shutil
 
 parser = argparse.ArgumentParser(description='create gffs for WBGenes '
 	'of interest')
@@ -26,7 +24,6 @@ with open(args.WBGenes, 'rt') as fp:
 		gene_info[line[0]] = line[1:]
 
 open_type = gzip.open if args.annotation.endswith('.gz') else open
-# ('WBGene00001130', ['dyn-1', 'X', '15572271', '15573021', '15568921', '+'])
 
 gene_lines = {}
 with open_type(args.annotation, 'rt') as fp:
@@ -40,6 +37,12 @@ with open_type(args.annotation, 'rt') as fp:
 			if len(line) == 9:
 				f_start, f_end = int(line[3]), int(line[4])
 				g_start, g_end = int(info[1][2]), int(info[1][3])
+				
+				# match WBGene
+				if line[2] == 'gene':
+					wbg_gff = line[8].split(';')[0].split(':')[1]
+					if info[0] == wbg_gff:
+						gene_lines[gid_info].append(line)
 				
 				# match WBGene
 				if line[2] == 'mRNA':
@@ -59,11 +62,18 @@ with open_type(args.annotation, 'rt') as fp:
 				if line[0] == info[1][1] and line[1] == 'RNASeq_splice': 
 					if f_start >= g_start and f_end <= g_end:		
 						gene_lines[gid_info].append(line)
+	
+if args.out_dir.endswith('/'): 
+	out = args.out_dir
+else:
+	out = f'{args.out_dir}/'
+	
+if not os.path.exists(out):
+	os.makedirs(out)
 						
-
 for item in gene_lines.items():
-	print(item[0])
-						
+	with open(f'{out}{item[0][1]}.gff3', 'wt') as fp:
+		for line in item[1]:
+			fp.write('\t'.join(line)+'\n')
+				
 			
-
-

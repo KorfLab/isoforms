@@ -1,5 +1,6 @@
 import argparse
 import gzip
+import os
 
 parser = argparse.ArgumentParser(
 	description='find gene sequences in the C. elegans genome')
@@ -9,6 +10,8 @@ parser.add_argument('WBGenes', help='csv with list of WBGene IDs and '
 	'WBGene, gene name, chr, left bound, right bound, '
 	'first exon start, sense | '
 	'WBGene00003386,mod1,V,8910090,8910840,8913992,-')
+parser.add_argument('out_dir', help='name of directory to store '
+			'fa and gff files')
 
 args = parser.parse_args()
 
@@ -63,20 +66,6 @@ for info_seq in gen_seqs.items():
 			i = i+1
 			rev_seq.append(comp_seq[-i])
 		gen_seqs[info_seq[0]] = rev_seq
-		
-print(gen_seqs)
-
-'''
-	if gen_seq[0].endswith('-'):
-		comp_seq = [] 
-		comp = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
-		for n in gen_seq[1]:
-			comp_seq.append(comp[n])
-		rev_seq = []
-		for i in range(len(comp_seq)):
-			i = i+1 
-			rev_seq.append(comp_seq[-i])
-		gen_seqs[gen_seq[0]] = rev_seq
 
 # organize sequences into 80 nt lines
 gen_seqs_80 = {}
@@ -94,14 +83,22 @@ for gen_seq in gen_seqs.items():
 		seq_lines.append(''.join(seq_line))
 
 	gen_seqs_80[gen_seq[0]] = seq_lines
-	
-print(gen_seqs_80)
-'''
 
-'''
-with open(f'{args.fname}.fa', 'wt') as fp:
-	fp.write(f'>{args.seq_desc}\n')
-	for seq in seq_lines:
-		fp.write(f'{seq}\n')
-'''
+if args.out_dir.endswith('/'): 
+	out = args.out_dir
+else:
+	out = f'{args.out_dir}/'
+	
+if not os.path.exists(out):
+	os.makedirs(out)
+	
+for items in gen_seqs_80.items():
+	seq_desc = (
+		f'>{items[0][1]} {items[0][2]}:{items[0][3]}-{items[0][3]} '
+		f'{items[0][6]} Gene:{items[0][0]} Start={items[0][5]}'
+	)
+	with open(f'{out}{items[0][1]}.fa', 'wt') as fp:
+		fp.write(f'{seq_desc}\n')
+		for seq in items[1]:
+			fp.write(f'{seq}\n')
 

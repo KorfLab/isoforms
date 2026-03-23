@@ -94,7 +94,7 @@ if not os.path.exists(out):
 	
 for items in gen_seqs_80.items():
 	seq_desc = (
-		f'>{items[0][1]} {items[0][2]}:{items[0][3]}-{items[0][3]} '
+		f'>{items[0][1]} {items[0][2]}:{items[0][3]}-{items[0][4]} '
 		f'{items[0][6]} Gene:{items[0][0]} Start={items[0][5]}'
 	)
 	with open(f'{out}{items[0][1]}.fa', 'wt') as fp:

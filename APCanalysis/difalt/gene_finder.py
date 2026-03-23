@@ -29,16 +29,18 @@ open_type = gzip.open if args.genome.endswith('.gz') else open
 with open_type(args.genome, 'rt') as fp:
 	current_chrom = None
 	gen_seqs = {}
-	n_counts = 0
+	n_counts = {}
 	# go line by line, don't save whole chr seq
 	for line in fp:
 		line = line.rstrip()
 		if line.startswith('>'):
 			current_chrom = line.split(' ')[0][1:]
-			n_counts = 0
+			# reset counts between different genes, not just chroms
+			n_counts = {}
 			continue
 		# match line index to region of interest 
 		for info in gene_info.items():
+			if info[1][1] != current_chrom: continue
 			# save sequence identifiers and info
 			sq_ids = [info[0]]
 			info_list = info[1]
@@ -46,12 +48,14 @@ with open_type(args.genome, 'rt') as fp:
 			sq_ids = tuple(sq_ids)
 			if sq_ids not in gen_seqs:
 				gen_seqs[sq_ids] = []
-			if info[1][1] != current_chrom: continue
 			beg = int(info[1][2])
 			end = int(info[1][3])
 			for n in line:
-				n_counts += 1
-				if n_counts >= beg and n_counts <= end:
+				# add counts based on gene, not chrom
+				if info[1][0] not in n_counts:
+					n_counts[info[1][0]] = 0
+				n_counts[info[1][0]] += 1
+				if n_counts[info[1][0]] >= beg and n_counts[info[1][0]] <= end:
 					gen_seqs[sq_ids].append(n)
 
 # flip - strands
@@ -70,6 +74,7 @@ for info_seq in gen_seqs.items():
 # organize sequences into 80 nt lines
 gen_seqs_80 = {}
 for gen_seq in gen_seqs.items():
+	#####################################print(len(gen_seq[1]))
 	seq_line = []
 	seq_lines = []
 	for n in gen_seq[1]:

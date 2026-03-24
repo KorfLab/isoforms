@@ -1,0 +1,14 @@
+III	WormBase	gene	6675760	6703998	.	+	.	ID=Gene:WBGene00004316;Name=WBGene00004316;locus=rbf-1;sequence_name=F37A4.7;biotype=protein_coding;so_term_name=protein_coding_gene;curie=WB:WBGene00004316;Alias=rbf-1,F37A4.7
+III	WormBase	CDS	6699244	6699333	.	+	1	ID=CDS:F37A4.7d;Parent=Transcript:F37A4.7d.1;Name=F37A4.7d;prediction_status=Confirmed;wormpep=CE54128;protein_id=CCD70708.2;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6699585	6699937	.	+	1	ID=CDS:F37A4.7d;Parent=Transcript:F37A4.7d.1;Name=F37A4.7d;prediction_status=Confirmed;wormpep=CE54128;protein_id=CCD70708.2;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6699244	6699333	.	+	1	ID=CDS:F37A4.7c;Parent=Transcript:F37A4.7c.1;Name=F37A4.7c;prediction_status=Confirmed;wormpep=CE29963;protein_id=CCD70707.1;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6699585	6699937	.	+	1	ID=CDS:F37A4.7c;Parent=Transcript:F37A4.7c.1;Name=F37A4.7c;prediction_status=Confirmed;wormpep=CE29963;protein_id=CCD70707.1;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6699244	6699333	.	+	1	ID=CDS:F37A4.7b;Parent=Transcript:F37A4.7b.1;Name=F37A4.7b;prediction_status=Confirmed;wormpep=CE29962;protein_id=CCD70706.1;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6699585	6699937	.	+	1	ID=CDS:F37A4.7b;Parent=Transcript:F37A4.7b.1;Name=F37A4.7b;prediction_status=Confirmed;wormpep=CE29962;protein_id=CCD70706.1;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6699244	6699333	.	+	1	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3;Name=F37A4.7a;prediction_status=Confirmed;wormpep=CE29961;protein_id=CCD70705.1;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6699585	6699937	.	+	1	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3;Name=F37A4.7a;prediction_status=Confirmed;wormpep=CE29961;protein_id=CCD70705.1;locus=rbf-1;uniprot_id=P41885
+III	RNASeq_splice	intron	6699314	6699789	6	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	6699334	6699584	50517	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	6699334	6699587	17	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	6699338	6699587	5	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	6699642	6699694	3	+	.	Name=RNASeq intron

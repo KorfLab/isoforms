@@ -6,8 +6,8 @@ parser = argparse.ArgumentParser(description='create gffs for WBGenes '
 	'of interest')
 parser.add_argument('WBGenes', help='csv with list of WBGene IDs and '
 	'region of interest i.e. '
-	'WBGene, gene name, chr, left bound, right bound, '
-	'first exon start, sense | '
+	'WBGene, gene name, chr, region start, region end, '
+	'gene start, gene end, sense | '
 	'WBGene00003386,mod1,V,8910090,8910840,8913992,-')
 parser.add_argument('annotation', help='annotation gff')
 parser.add_argument('out_dir', help='name of directory to store '
@@ -52,11 +52,18 @@ with open_type(args.annotation, 'rt') as fp:
 						if len(gene_lines[gid_info]) == 0:
 							gene_lines[gid_info].append(line)
 						
-				# get any CDS regions that overlap
+				'''
+				# get any CDS regions that overlap region of interest
 				if (line[0] == info[1][1] and line[1] == 'WormBase' and
 					line[2] == 'CDS'):
 					if f_start <= g_end and f_end >= g_start:
 						gene_lines[gid_info].append(line)
+				'''
+				
+				# get any CDS regions that overlap entire gene
+				if (line[0] == info[1][1] and line[1] == 'WormBase' and
+					line[2] == 'CDS'):
+					gene_lines[gid_info].append(line)
 				
 				# get any introns only within 
 				if line[0] == info[1][1] and line[1] == 'RNASeq_splice': 

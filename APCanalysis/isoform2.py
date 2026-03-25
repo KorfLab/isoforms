@@ -518,8 +518,6 @@ class Isoform:
 					print(s, 'ins')
 		s += inf * len(self.introns) * winf
 		self.score = s
-		if self.introns == [(187, 241), (286, 333)]:
-			print(s, '$$$$$$$$')
 
 	def _canonical_start_codon(self, x):
 		pos = set()

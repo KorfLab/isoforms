@@ -35,8 +35,9 @@ with open_type(args.annotation, 'rt') as fp:
 			if gid_info not in gene_lines:
 				gene_lines[gid_info] = []
 			if len(line) == 9:
-				f_start, f_end = int(line[3]), int(line[4])
-				g_start, g_end = int(info[1][2]), int(info[1][3])
+				gff_start, gff_end = int(line[3]), int(line[4])
+				subreg_start, subreg_end = int(info[1][2]), int(info[1][3])
+				gen_start, gen_end = int(info[1][4]), int(info[1][5])
 				
 				# match WBGene
 				if line[2] == 'gene':
@@ -51,23 +52,16 @@ with open_type(args.annotation, 'rt') as fp:
 						# only add first entry of WBGene
 						if len(gene_lines[gid_info]) == 0:
 							gene_lines[gid_info].append(line)
-						
-				'''
-				# get any CDS regions that overlap region of interest
+				
+				# get any CDS regions that overlaps entire gene
 				if (line[0] == info[1][1] and line[1] == 'WormBase' and
 					line[2] == 'CDS'):
-					if f_start <= g_end and f_end >= g_start:
+					if gff_start <= gen_end and gff_end >= gen_start:
 						gene_lines[gid_info].append(line)
-				'''
 				
-				# get any CDS regions that overlap entire gene
-				if (line[0] == info[1][1] and line[1] == 'WormBase' and
-					line[2] == 'CDS'):
-					gene_lines[gid_info].append(line)
-				
-				# get any introns only within 
+				# get any introns only within region
 				if line[0] == info[1][1] and line[1] == 'RNASeq_splice': 
-					if f_start >= g_start and f_end <= g_end:		
+					if gff_start >= subreg_start and gff_end <= subreg_end:		
 						gene_lines[gid_info].append(line)
 	
 if args.out_dir.endswith('/'): 

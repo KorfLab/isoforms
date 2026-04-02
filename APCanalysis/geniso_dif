@@ -203,6 +203,26 @@ if arg.translate:
 		#print(''.join(first_ex_seq))
 		print(cds_seq)
 		print('#####')
+		
+		# Lambert et. al., 2020, Mechanisms and regulation of nonsense-
+		# mediated mRNA decay and nonsense-associated altered splicing
+		# in lymphocytes
+		'''
+		EJC 20-24 nucleotides upstream of exon-exon junction
+		EJC is removed by ribosomal reading
+		PTCs >50 nt upstream of last EJC triggers NMD, downstream EJCs
+		cannot be removed
+		
+		'''
+		
+		
+		minejc = 10
+		
+		# if 3'utr is this long, flag as bad
+		minutr = 300
+		
+		# also need to consider 3' end, which may not be part of the 
+		# truncated gene
 		# now find stop codons and non-stops
 		for eseq in cds_seq:
 			

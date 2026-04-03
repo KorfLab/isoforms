@@ -202,6 +202,7 @@ if arg.translate:
 		print('#####')
 		#print(''.join(first_ex_seq))
 		print(cds_seq)
+		print(len(cds_seq[1])/3, len(cds_seq[1])%3)
 		print('#####')
 		
 		# Lambert et. al., 2020, Mechanisms and regulation of nonsense-
@@ -224,16 +225,16 @@ if arg.translate:
 		# also need to consider 3' end, which may not be part of the 
 		# truncated gene
 		# now find stop codons and non-stops
-		for eseq in cds_seq:
+		#for eseq in cds_seq:
 			
-		'''
-		cds_translate = []
-		for i in range(0, len(cds_seq), 3):
-			cds_translate.append(cds_seq[i:i+3])
+		
+		#cds_translate = []
+		#for i in range(0, len(cds_seq), 3):
+		#	cds_translate.append(cds_seq[i:i+3])
 		# can now search for stop codons or non-stops
 		# still need to know exon junctions
-		print(cds_translate)
-		'''
+		#print(cds_translate)
+	
 		break
 	
 # pdr1small.fa 	

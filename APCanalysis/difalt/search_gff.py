@@ -25,6 +25,17 @@ with open(args.WBGenes, 'rt') as fp:
 
 open_type = gzip.open if args.annotation.endswith('.gz') else open
 
+'''
+# maybe move this filter to search_gff.py?
+			if (line[2] == 'CDS' 
+				and line[8].split(';')[0].split(':')[1].endswith('a')):
+					beg, end = int(line[3]), int(line[4])
+					cds_len = end-beg+1
+					total_len += cds_len
+					CDSs[(beg, end)] = [cds_len, line[7]]
+'''
+
+
 gene_lines = {}
 with open_type(args.annotation, 'rt') as fp:
 	for line in fp:
@@ -49,19 +60,26 @@ with open_type(args.annotation, 'rt') as fp:
 				if line[2] == 'mRNA':
 					wbg_gff = line[8].split(';')[1].split(':')[1]
 					if info[0] == wbg_gff:
-						# only add first entry of WBGene
-						if len(gene_lines[gid_info]) == 0:
+						# only add transcripts belonging to 'a' 
+						if line[8].split(';')[0].split(':')[1].split('.')[1].endswith('a'):
+							#print(line)
 							gene_lines[gid_info].append(line)
+						#if len(gene_lines[gid_info]) == 0:
+							#gene_lines[gid_info].append(line)
 				
 				# get any CDS regions that overlaps entire gene
 				if (line[0] == info[1][1] and line[1] == 'WormBase' and
 					line[2] == 'CDS'):
 					if gff_start <= gen_end and gff_end >= gen_start:
+						#print(line)
 						gene_lines[gid_info].append(line)
 				
 				# get any introns only within region
 				if line[0] == info[1][1] and line[1] == 'RNASeq_splice': 
-					if gff_start >= subreg_start and gff_end <= subreg_end:		
+					if gff_start >= subreg_start and gff_end <= subreg_end:
+						# remove low count introns for testing/readability
+						if int(line[5]) < 20000: continue
+						#print(line)
 						gene_lines[gid_info].append(line)
 	
 if args.out_dir.endswith('/'): 

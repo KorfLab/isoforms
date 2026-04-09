@@ -50,16 +50,21 @@ with open_type(args.annotation, 'rt') as fp:
 				if line[2] == 'mRNA':
 					wbg_gff = line[8].split(';')[1].split(':')[1]
 					if info[0] == wbg_gff:
-						# only add first mRNA entry
+						# only add first mRNA entry matching WBGene
 						# not all mRNA ID transcripts start with 'a'
+						print(line)
 						if 'mRNA' not in [x[2] for x in gene_lines[gid_info]]:
 							gene_lines[gid_info].append(line)
 				
+
+				
+				'''
 				# get any CDS regions that overlaps entire gene
 				if (line[0] == info[1][1] and line[1] == 'WormBase' and
 					line[2] == 'CDS'): 
 					if gff_start <= gen_end and gff_end >= gen_start:
 						gene_lines[gid_info].append(line)
+				'''
 						
 				# get any CDS regions that overlap region of interest
 				if (line[0] == info[1][1] and line[1] == 'WormBase' and
@@ -76,6 +81,28 @@ with open_type(args.annotation, 'rt') as fp:
 						#print(line)
 						gene_lines[gid_info].append(line)
 	
+# remove CDS regions not matching mRNA ID=Transcript
+gene_lines_2 = {}
+for item in gene_lines.items():
+	gene_lines_2[item[0]] = []
+	
+	# get transcript ID
+	m_tid = None
+	for line in item[1]:
+		if line[2] == 'mRNA':
+			m_tid = line[8].split(';')[0].split(':')[1]
+			break
+	
+	# add to new dictionary
+	for line in item[1]:
+		if line[2] == 'CDS':
+			c_tid = line[8].split(';')[0].split(':')[1]
+			print(c_tid, m_tid)
+			if c_tid in m_tid:
+				gene_lines_2[item[0]].append(line)
+		else:
+			gene_lines_2[item[0]].append(line)
+
 if args.out_dir.endswith('/'): 
 	out = args.out_dir
 else:
@@ -84,7 +111,7 @@ else:
 if not os.path.exists(out):
 	os.makedirs(out)
 						
-for item in gene_lines.items():
+for item in gene_lines_2.items():
 	with open(f'{out}{item[0][1]}.gff3', 'wt') as fp:
 		for line in item[1]:
 			fp.write('\t'.join(line)+'\n')

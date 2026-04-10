@@ -50,11 +50,13 @@ with open_type(args.annotation, 'rt') as fp:
 				if line[2] == 'mRNA':
 					wbg_gff = line[8].split(';')[1].split(':')[1]
 					if info[0] == wbg_gff:
+						gene_lines[gid_info].append(line)
 						# only add first mRNA entry matching WBGene
 						# not all mRNA ID transcripts start with 'a'
-						print(line)
-						if 'mRNA' not in [x[2] for x in gene_lines[gid_info]]:
-							gene_lines[gid_info].append(line)
+						#print(line)
+						#print(line[8].split(';')[0].split(':')[1])
+						#if 'mRNA' not in [x[2] for x in gene_lines[gid_info]]:
+						#	gene_lines[gid_info].append(line)
 				
 
 				
@@ -97,12 +99,17 @@ for item in gene_lines.items():
 	for line in item[1]:
 		if line[2] == 'CDS':
 			c_tid = line[8].split(';')[0].split(':')[1]
-			print(c_tid, m_tid)
-			if c_tid in m_tid:
-				gene_lines_2[item[0]].append(line)
+			# only add first 'a' or '1' CDS entries
+			if c_tid.split('.')[0] == m_tid.split('.')[0]:
+				if m_tid.split('.')[1].endswith('a'):
+					gene_lines_2[item[0]].append(line)
+				if m_tid.split('.')[1].endswith('1'):
+					gene_lines_2[item[0]].append(line)
+		
+		# keep everything else
 		else:
 			gene_lines_2[item[0]].append(line)
-
+				
 if args.out_dir.endswith('/'): 
 	out = args.out_dir
 else:

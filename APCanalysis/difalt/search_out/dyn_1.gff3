@@ -1,7 +1,0 @@
-X	WormBase	gene	15568921	15573021	.	+	.	ID=Gene:WBGene00001130;Name=WBGene00001130;locus=dyn-1;sequence_name=C02C6.1;biotype=protein_coding;so_term_name=protein_coding_gene;curie=WB:WBGene00001130;Alias=dyn-1,C02C6.1
-X	WormBase	mRNA	15568921	15572949	.	+	.	ID=Transcript:C02C6.1b.1;Parent=Gene:WBGene00001130;Name=C02C6.1b.1;wormpep=CE07832;locus=dyn-1;uniprot_id=P39055
-X	WormBase	CDS	15571955	15572340	.	+	0	ID=CDS:C02C6.1b;Parent=Transcript:C02C6.1b.1;Name=C02C6.1b;prediction_status=Confirmed;wormpep=CE07832;protein_id=CAC42251.1;locus=dyn-1;uniprot_id=P39055
-X	WormBase	CDS	15572877	15572949	.	+	1	ID=CDS:C02C6.1b;Parent=Transcript:C02C6.1b.1;Name=C02C6.1b;prediction_status=Confirmed;wormpep=CE07832;protein_id=CAC42251.1;locus=dyn-1;uniprot_id=P39055
-X	RNASeq_splice	intron	15572341	15572513	95180	+	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15572341	15572876	158049	+	.	Name=RNASeq intron
-X	RNASeq_splice	intron	15572596	15572876	89852	+	.	Name=RNASeq intron

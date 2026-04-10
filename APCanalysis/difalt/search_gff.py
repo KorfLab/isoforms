@@ -50,7 +50,10 @@ with open_type(args.annotation, 'rt') as fp:
 				if line[2] == 'mRNA':
 					wbg_gff = line[8].split(';')[1].split(':')[1]
 					if info[0] == wbg_gff:
-						gene_lines[gid_info].append(line)
+						idt = line[8].split(';')[0].split(':')[1].split('.')
+						print(line, idt[1], '@@@')
+						if idt[1].endswith('a') or idt[1] == '1':
+							gene_lines[gid_info].append(line)
 						# only add first mRNA entry matching WBGene
 						# not all mRNA ID transcripts start with 'a'
 						#print(line)
@@ -101,9 +104,10 @@ for item in gene_lines.items():
 			c_tid = line[8].split(';')[0].split(':')[1]
 			# only add first 'a' or '1' CDS entries
 			if c_tid.split('.')[0] == m_tid.split('.')[0]:
+				print(m_tid.split('.'))
 				if m_tid.split('.')[1].endswith('a'):
 					gene_lines_2[item[0]].append(line)
-				if m_tid.split('.')[1].endswith('1'):
+				if m_tid.split('.')[1] == '1':
 					gene_lines_2[item[0]].append(line)
 		
 		# keep everything else

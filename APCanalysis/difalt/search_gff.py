@@ -51,25 +51,8 @@ with open_type(args.annotation, 'rt') as fp:
 					wbg_gff = line[8].split(';')[1].split(':')[1]
 					if info[0] == wbg_gff:
 						idt = line[8].split(';')[0].split(':')[1].split('.')
-						print(line, idt[1], '@@@')
 						if idt[1].endswith('a') or idt[1] == '1':
 							gene_lines[gid_info].append(line)
-						# only add first mRNA entry matching WBGene
-						# not all mRNA ID transcripts start with 'a'
-						#print(line)
-						#print(line[8].split(';')[0].split(':')[1])
-						#if 'mRNA' not in [x[2] for x in gene_lines[gid_info]]:
-						#	gene_lines[gid_info].append(line)
-				
-
-				
-				'''
-				# get any CDS regions that overlaps entire gene
-				if (line[0] == info[1][1] and line[1] == 'WormBase' and
-					line[2] == 'CDS'): 
-					if gff_start <= gen_end and gff_end >= gen_start:
-						gene_lines[gid_info].append(line)
-				'''
 						
 				# get any CDS regions that overlap region of interest
 				if (line[0] == info[1][1] and line[1] == 'WormBase' and
@@ -79,11 +62,11 @@ with open_type(args.annotation, 'rt') as fp:
 				
 				# get any introns only within region
 				if line[0] == info[1][1] and line[1] == 'RNASeq_splice': 
-					#print(subreg_start, subreg_end)
 					if gff_start >= subreg_start and gff_end <= subreg_end:
-						# remove low count introns for testing/readability
+						
+			############# filter low count introns for testing/readability
 						if int(line[5]) < 20000: continue
-						#print(line)
+						
 						gene_lines[gid_info].append(line)
 	
 # remove CDS regions not matching mRNA ID=Transcript
@@ -102,17 +85,34 @@ for item in gene_lines.items():
 	for line in item[1]:
 		if line[2] == 'CDS':
 			c_tid = line[8].split(';')[0].split(':')[1]
-			# only add first 'a' or '1' CDS entries
+			# only add 'a' or '1' CDS entries
+			# that match mRNA tx id
 			if c_tid.split('.')[0] == m_tid.split('.')[0]:
-				print(m_tid.split('.'))
-				if m_tid.split('.')[1].endswith('a'):
+				if c_tid.split('.')[1].endswith('a'):
 					gene_lines_2[item[0]].append(line)
-				if m_tid.split('.')[1] == '1':
+				if c_tid.split('.')[1] == '1':
 					gene_lines_2[item[0]].append(line)
-		
 		# keep everything else
 		else:
 			gene_lines_2[item[0]].append(line)
+			
+# for now assume CDS regions appear in order without sorting
+# create custom coordinates
+gene_lines_3 = {}
+for item in gene_lines_2.items():
+	for line in item[1]:
+		first = 0
+		if line[2] == 'CDS':
+			print(line)
+			if first == 0:
+				# insert in phase start codon
+				if line[7] == '0':
+					start = int(line[3]) + 3
+				if line[7] == '1':
+					start = int(line[3]) + 5
+				if line[7] == '2':
+					start = int(line[3]) + 4
+				print(start)
 				
 if args.out_dir.endswith('/'): 
 	out = args.out_dir

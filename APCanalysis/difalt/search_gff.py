@@ -97,22 +97,42 @@ for item in gene_lines.items():
 			gene_lines_2[item[0]].append(line)
 			
 # for now assume CDS regions appear in order without sorting
+# all CDS should be same strand
 # create custom coordinates
 gene_lines_3 = {}
 for item in gene_lines_2.items():
+	# only adjust coors for first CDS
+	first = False
+	new_st = None
+	gene_lines_3[item[0]] = []
 	for line in item[1]:
-		first = 0
-		if line[2] == 'CDS':
-			print(line)
-			if first == 0:
-				# insert in phase start codon
-				if line[7] == '0':
-					start = int(line[3]) + 3
-				if line[7] == '1':
-					start = int(line[3]) + 5
-				if line[7] == '2':
-					start = int(line[3]) + 4
-				print(start)
+		# extend starts for in phase start codon
+		if line[2] == 'CDS' and line[6] == '-' and first == False:
+			if line[7] == '0':
+				new_st = int(line[4]) + 3
+			if line[7] == '1':
+				new_st = int(line[4]) + 5
+			if line[7] == '2':
+				new_st = int(line[4]) + 4
+				new_line = line.copy()
+				new_line[4] = str(new_st)
+				print(new_line, '$$$$$')
+				gene_lines_3[item[0]].append(new_line)
+				first = True
+		if line[2] == 'CDS' and line[6] == '+' and first == False:
+			if line[7] == '0':
+				new_st = int(line[3]) - 3
+			if line[7] == '1':
+				new_st = int(line[3]) - 5
+			if line[7] == '2':
+				new_st = int(line[3]) - 4
+				new_line = line.copy()
+				new_line[3] = str(new_st)
+				gene_lines_3[item[0]].append(new_line)
+				first = True
+		else:
+			print(line, '$$$$')
+			gene_lines_3[item[0]].append(line)
 				
 if args.out_dir.endswith('/'): 
 	out = args.out_dir
@@ -122,7 +142,7 @@ else:
 if not os.path.exists(out):
 	os.makedirs(out)
 						
-for item in gene_lines_2.items():
+for item in gene_lines_3.items():
 	with open(f'{out}{item[0][1]}.gff3', 'wt') as fp:
 		for line in item[1]:
 			fp.write('\t'.join(line)+'\n')

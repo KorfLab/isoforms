@@ -101,39 +101,90 @@ for item in gene_lines.items():
 # create custom coordinates
 gene_lines_3 = {}
 for item in gene_lines_2.items():
-	# only adjust coors for first CDS
-	first = False
+	
+	# count number of CDS lines
+	n_cds = 0
+	for line in item[1]:
+		if line[2] == 'CDS':
+			n_cds += 1
+			
+	# adjust coors for first CDS
+	cds_idx = 0
 	new_st = None
 	gene_lines_3[item[0]] = []
 	for line in item[1]:
+		
+		# need to start with sense of strand
+		# if +, last CDS is end
+		# if -, last CDS is beg
+		new_line = line.copy()
+		if line[6] == '+':
+			if line[2] == 'CDS' and cds_idx == 0:
+				if line[7] == '0':
+					new_st = int(line[3]) - 3
+				if line[7] == '1':
+					new_st = int(line[3]) - 5
+				if line[7] == '2':
+					new_st = int(line[3]) - 4
+				print(new_st)
+				cds_idx += 1
+		
+		
+		
+		'''
 		# extend starts for in phase start codon
-		if line[2] == 'CDS' and line[6] == '-' and first == False:
+		if line[2] == 'CDS' and line[6] == '-' and cds_idx == 0:
 			if line[7] == '0':
 				new_st = int(line[4]) + 3
 			if line[7] == '1':
 				new_st = int(line[4]) + 5
 			if line[7] == '2':
 				new_st = int(line[4]) + 4
-				new_line = line.copy()
-				new_line[4] = str(new_st)
-				print(new_line, '$$$$$')
-				gene_lines_3[item[0]].append(new_line)
-				first = True
-		if line[2] == 'CDS' and line[6] == '+' and first == False:
+			new_line = line.copy()
+			new_line[4] = str(new_st)
+			gene_lines_3[item[0]].append(new_line)
+			cds_idx += 1
+			continue
+		if line[2] == 'CDS' and line[6] == '+' and cds_idx == 0:
 			if line[7] == '0':
 				new_st = int(line[3]) - 3
 			if line[7] == '1':
 				new_st = int(line[3]) - 5
 			if line[7] == '2':
 				new_st = int(line[3]) - 4
-				new_line = line.copy()
-				new_line[3] = str(new_st)
-				gene_lines_3[item[0]].append(new_line)
-				first = True
+			new_line = line.copy()
+			new_line[3] = str(new_st)
+			gene_lines_3[item[0]].append(new_line)
+			cds_idx += 1
+			continue
 		else:
-			print(line, '$$$$')
+			# adjust coors for last CDS
+			if line[2] == 'CDS': 
+				cds_idx += 1
+			if cds_idx == n_cds and line[2] == 'CDS':
+				print('WOWOW')
+				new_line = line.copy()
+				if line[6] == '-':
+					if new_line[7] == '0':
+						print(new_line)
+						new_end = int(line[3])
+					if new_line[7] == '1':
+						print(new_line)
+					if new_line[7] == '2':
+						print(new_line)
+				if line[6] == '+':
+					if new_line[7] == '0':
+						print(new_line)
+					if new_line[7] == '1':
+						print(new_line)
+					if new_line[7] == '2':
+						print(new_line)
+				 
 			gene_lines_3[item[0]].append(line)
-				
+			continue
+		'''
+
+	
 if args.out_dir.endswith('/'): 
 	out = args.out_dir
 else:

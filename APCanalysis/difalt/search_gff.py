@@ -31,7 +31,7 @@ with open_type(args.annotation, 'rt') as fp:
 		line = line.rstrip()
 		line = line.split('\t')
 		for info in gene_info.items():
-			gid_info = (info[0], info[1][0])
+			gid_info = (info[0], info[1][0], info[1][2], info[1][3])
 			if line[0] != info[1][1]: continue
 			if gid_info not in gene_lines:
 				gene_lines[gid_info] = []
@@ -102,32 +102,122 @@ for item in gene_lines.items():
 gene_lines_3 = {}
 for item in gene_lines_2.items():
 	
+	print(item[0])
+	
 	# count number of CDS lines
 	n_cds = 0
 	for line in item[1]:
 		if line[2] == 'CDS':
 			n_cds += 1
 			
-	# adjust coors for first CDS
+	# adjust coors for first and last CDS
+	# adds space for ATG or TAA/TAG/TGA
 	cds_idx = 0
 	new_st = None
 	gene_lines_3[item[0]] = []
 	for line in item[1]:
-		
-		# need to start with sense of strand
-		# if +, last CDS is end
-		# if -, last CDS is beg
+		if line[2] == 'CDS': cds_idx += 1
 		new_line = line.copy()
-		if line[6] == '+':
-			if line[2] == 'CDS' and cds_idx == 0:
+		
+		# adjust first CDS coors
+		if line[2] == 'CDS' and cds_idx == 1:
+			# base pairs left over 
+			ex_bp = ((int(line[3]) - int(item[0][2]))%3)
+			phase = int(line[7])
+			print(6%3, 5%3, 4%3, 3%3)
+			if ex_bp == 0:
+				new_st == int(line[3]) - int(item[0][2])
+			if ex_bp == 1:
+				new_st == int(line[3]) - int(item[0][2])
+			
+			if line[7] == '0':
+				new_st = int(line[3]) - int(item[0][2]) - 3
+			if line[7] == '1':
+				new_st = int(line[3]) - int(item[0][2]) - 5
+			if line[7] == '2':
+				new_st = int(line[3]) - int(item[0][2]) - 4
+			new_line[3] = str(new_st)
+			gene_lines_3[item[0]].append(new_line)
+			continue
+		
+		# get inner CDS
+		if line[2] == 'CDS' and cds_idx > 1 and cds_idx < n_cds:
+			gene_lines_3[item[0]].append(new_line)
+		
+		# adjust last CDS coors
+		if line[2] == 'CDS' and cds_idx == n_cds:
+			if line[7] == '0':
+				new_st = int(line[4]) + 3
+			if line[7] == '1':
+				new_st = int(line[4]) + 5
+			if line[7] == '2':
+				new_st = int(line[4]) + 4
+			new_line[4] = str(new_st)
+			gene_lines_3[item[0]].append(new_line)
+			continue
+		
+		# add rest of lines
+		if line[2] != 'CDS':
+			gene_lines_3[item[0]].append(new_line)
+		
+		# don't need to worry about + or -
+		# completely unnecessary oops
+		'''
+		# if +, first CDS is beg and last CDS is end
+		if line[6] == '+' and line[2] == 'CDS':
+			# adjust starting coor for ATG
+			if cds_idx == 1:
 				if line[7] == '0':
 					new_st = int(line[3]) - 3
 				if line[7] == '1':
 					new_st = int(line[3]) - 5
 				if line[7] == '2':
 					new_st = int(line[3]) - 4
-				print(new_st)
-				cds_idx += 1
+				new_line[3] = str(new_st)
+				gene_lines_3[item[0]].append(new_line)
+				continue
+			if cds_idx > 1 and cds_idx < n_cds:
+				gene_lines_3[item[0]].append(new_line)
+			# adjust ending coor for TAA/TAG/TGA
+			if cds_idx == n_cds:
+				if line[7] == '0':
+					new_ed = int(line[4]) + 3 
+				if line[7] == '1':
+					new_ed = int(line[4]) + 5
+				if line[7] == '2':
+					new_ed = int(line[4]) + 4
+				new_line[4] = str(new_st)
+				gene_lines_3[item[0]].append(new_line)
+				continue
+		# if -, first CDS is end and last CDS is beg
+		if line[6] == '-' and line[2] == 'CDS':
+			# adjust ending coor for TAA/TAG/TGA
+			if cds_idx == 1:
+				if line[7] == '0':
+					new_ed = int(line[3]) - 3 
+				if line[7] == '1':
+					new_ed = int(line[3]) - 5
+				if line[7] == '2':
+					new_ed = int(line[3]) - 4
+				new_line[3] = str(new_ed)
+				gene_lines_3[item[0]].append(new_line)
+				continue
+			if cds_idx > 1 and cds_idx < n_cds:
+				gene_lines_3[item[0]].append(new_line)
+			# adjust staring coor for ATG
+			if cds_idx == n_cds:
+				if line[7] == '0':
+					new_st = int(line[4]) + 3
+				if line[7] == '1':
+					new_st = int(line[4]) + 5
+				if line[7] == '2':
+					new_st = int(line[4]) + 4
+				new_line[4] = str(new_st)
+				gene_lines_3[item[0]].append(new_line)
+				continue
+		'''
+
+		
 		
 		
 		

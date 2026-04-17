@@ -1,7 +1,8 @@
 import argparse
 import gzip
 import os
-
+import sys
+'''
 parser = argparse.ArgumentParser(description='create gffs for WBGenes '
 	'of interest')
 parser.add_argument('WBGenes', help='csv with list of WBGene IDs and '
@@ -95,14 +96,19 @@ for item in gene_lines.items():
 		# keep everything else
 		else:
 			gene_lines_2[item[0]].append(line)
-			
+'''
+open_type = gzip.open if sys.argv[1].endswith('.gz') else open
+WBGene00003967,pdr_1,III,13772278,13773062,13771513,13773345,+
+with open_type(sys.argv[1], 'rt') as fp:
+	for line in fp:
+		print(line)
+		
+
 # for now assume CDS regions appear in order without sorting
 # all CDS should be same strand
 # create custom coordinates
 gene_lines_3 = {}
 for item in gene_lines_2.items():
-	
-	print(item[0])
 	
 	# count number of CDS lines
 	n_cds = 0
@@ -121,44 +127,35 @@ for item in gene_lines_2.items():
 		
 		# adjust first CDS coors
 		if line[2] == 'CDS' and cds_idx == 1:
-			# base pairs left over 
-			ex_bp = ((int(line[3]) - int(item[0][2]))%3)
 			phase = int(line[7])
-			print(6%3, 5%3, 4%3, 3%3)
-			if ex_bp == 0:
-				new_st == int(line[3]) - int(item[0][2])
-			if ex_bp == 1:
-				new_st == int(line[3]) - int(item[0][2])
-			
-			if line[7] == '0':
-				new_st = int(line[3]) - int(item[0][2]) - 3
-			if line[7] == '1':
-				new_st = int(line[3]) - int(item[0][2]) - 5
-			if line[7] == '2':
-				new_st = int(line[3]) - int(item[0][2]) - 4
+			ph_start = int(line[3]) + phase
+			ex_bp = (ph_start - int(item[0][2])) %3
+			new_st = int(item[0][2]) + ex_bp
 			new_line[3] = str(new_st)
+			print(new_line)
 			gene_lines_3[item[0]].append(new_line)
 			continue
 		
 		# get inner CDS
 		if line[2] == 'CDS' and cds_idx > 1 and cds_idx < n_cds:
-			gene_lines_3[item[0]].append(new_line)
+			print(line)
+			gene_lines_3[item[0]].append(line)
 		
 		# adjust last CDS coors
 		if line[2] == 'CDS' and cds_idx == n_cds:
-			if line[7] == '0':
-				new_st = int(line[4]) + 3
-			if line[7] == '1':
-				new_st = int(line[4]) + 5
-			if line[7] == '2':
-				new_st = int(line[4]) + 4
-			new_line[4] = str(new_st)
+			phase = int(line[7])
+			ph_start = int(line[3]) + phase
+			ex_bp = (ph_start - int(item[0][2])) %3
+			new_ed = int(item[0][3]) + ex_bp
+			new_line[4] = str(new_ed)
+			print(new_line)
 			gene_lines_3[item[0]].append(new_line)
 			continue
 		
 		# add rest of lines
 		if line[2] != 'CDS':
-			gene_lines_3[item[0]].append(new_line)
+			print(line)
+			gene_lines_3[item[0]].append(line)
 		
 		# don't need to worry about + or -
 		# completely unnecessary oops
@@ -283,7 +280,7 @@ else:
 if not os.path.exists(out):
 	os.makedirs(out)
 						
-for item in gene_lines_3.items():
+for item in gene_lines_2.items():
 	with open(f'{out}{item[0][1]}.gff3', 'wt') as fp:
 		for line in item[1]:
 			fp.write('\t'.join(line)+'\n')

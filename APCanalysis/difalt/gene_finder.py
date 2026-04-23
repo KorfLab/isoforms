@@ -1,10 +1,15 @@
 import argparse
 import gzip
 import os
+import glob
 
 parser = argparse.ArgumentParser(
 	description='find gene sequences in the C. elegans genome')
 parser.add_argument('genome', help='genomic fasta file')
+parser.add_argument('gffs', help='directory of gffs with genes of '
+	'interest, output from search_gff.py')
+	
+'''
 parser.add_argument('WBGenes', help='csv with list of WBGene IDs and '
 	'region of interest i.e. '
 	'WBGene, gene name, chr, left bound, right bound, '
@@ -12,9 +17,34 @@ parser.add_argument('WBGenes', help='csv with list of WBGene IDs and '
 	'WBGene00003386,mod1,V,8910090,8910840,8913992,-')
 parser.add_argument('out_dir', help='name of directory to store '
 			'fa and gff files')
+'''
 
 args = parser.parse_args()
 
+
+if not args.gffs.endswith('/'):
+	args.gffs = f'{args.gffs}/'
+	
+gffs = {}	
+for file in glob.glob(f'{args.gffs}*'):
+	wbg_gene = None
+	gene_name = file.split('/')[-1].split('.')[0]
+	chrom = None
+	sense = None
+	with open(file, 'rt') as fp:
+		for line in fp:
+			line = line.rstrip()
+			line = line.split('\t')
+			print(line)
+			if line[2] == 'gene':
+				wbg_gene = line[8].split(';')[0].split(':')[1]
+				chrom = line[0]
+				sense = line[6]
+	
+
+
+
+'''
 gene_info = {}
 with open(args.WBGenes, 'rt') as fp:
 	for line in fp:
@@ -107,4 +137,4 @@ for items in gen_seqs_80.items():
 		fp.write(f'{seq_desc}\n')
 		for seq in items[1]:
 			fp.write(f'{seq}\n')
-
+'''

@@ -1,8 +1,7 @@
 import argparse
 import gzip
 import os
-import sys
-'''
+
 parser = argparse.ArgumentParser(description='create gffs for WBGenes '
 	'of interest')
 parser.add_argument('WBGenes', help='csv with list of WBGene IDs and '
@@ -69,7 +68,7 @@ with open_type(args.annotation, 'rt') as fp:
 						if int(line[5]) < 20000: continue
 						
 						gene_lines[gid_info].append(line)
-	
+
 # remove CDS regions not matching mRNA ID=Transcript
 gene_lines_2 = {}
 for item in gene_lines.items():
@@ -96,182 +95,58 @@ for item in gene_lines.items():
 		# keep everything else
 		else:
 			gene_lines_2[item[0]].append(line)
-'''
-open_type = gzip.open if sys.argv[1].endswith('.gz') else open
-WBGene00003967,pdr_1,III,13772278,13773062,13771513,13773345,+
-with open_type(sys.argv[1], 'rt') as fp:
-	for line in fp:
-		print(line)
-		
 
-# for now assume CDS regions appear in order without sorting
-# all CDS should be same strand
-# create custom coordinates
+# assume CDS regions appear in order without sorting
+# all CDS should be on the same strand
+# add in frame start or stop codon
+# same for + and - strand
 gene_lines_3 = {}
 for item in gene_lines_2.items():
 	
-	# count number of CDS lines
+	# count number of CDS
 	n_cds = 0
 	for line in item[1]:
 		if line[2] == 'CDS':
 			n_cds += 1
-			
-	# adjust coors for first and last CDS
-	# adds space for ATG or TAA/TAG/TGA
-	cds_idx = 0
-	new_st = None
-	gene_lines_3[item[0]] = []
-	for line in item[1]:
-		if line[2] == 'CDS': cds_idx += 1
-		new_line = line.copy()
-		
-		# adjust first CDS coors
-		if line[2] == 'CDS' and cds_idx == 1:
-			phase = int(line[7])
-			ph_start = int(line[3]) + phase
-			ex_bp = (ph_start - int(item[0][2])) %3
-			new_st = int(item[0][2]) + ex_bp
-			new_line[3] = str(new_st)
-			print(new_line)
-			gene_lines_3[item[0]].append(new_line)
-			continue
-		
-		# get inner CDS
-		if line[2] == 'CDS' and cds_idx > 1 and cds_idx < n_cds:
-			print(line)
-			gene_lines_3[item[0]].append(line)
-		
-		# adjust last CDS coors
-		if line[2] == 'CDS' and cds_idx == n_cds:
-			phase = int(line[7])
-			ph_start = int(line[3]) + phase
-			ex_bp = (ph_start - int(item[0][2])) %3
-			new_ed = int(item[0][3]) + ex_bp
-			new_line[4] = str(new_ed)
-			print(new_line)
-			gene_lines_3[item[0]].append(new_line)
-			continue
-		
-		# add rest of lines
-		if line[2] != 'CDS':
-			print(line)
-			gene_lines_3[item[0]].append(line)
-		
-		# don't need to worry about + or -
-		# completely unnecessary oops
-		'''
-		# if +, first CDS is beg and last CDS is end
-		if line[6] == '+' and line[2] == 'CDS':
-			# adjust starting coor for ATG
-			if cds_idx == 1:
-				if line[7] == '0':
-					new_st = int(line[3]) - 3
-				if line[7] == '1':
-					new_st = int(line[3]) - 5
-				if line[7] == '2':
-					new_st = int(line[3]) - 4
-				new_line[3] = str(new_st)
-				gene_lines_3[item[0]].append(new_line)
-				continue
-			if cds_idx > 1 and cds_idx < n_cds:
-				gene_lines_3[item[0]].append(new_line)
-			# adjust ending coor for TAA/TAG/TGA
-			if cds_idx == n_cds:
-				if line[7] == '0':
-					new_ed = int(line[4]) + 3 
-				if line[7] == '1':
-					new_ed = int(line[4]) + 5
-				if line[7] == '2':
-					new_ed = int(line[4]) + 4
-				new_line[4] = str(new_st)
-				gene_lines_3[item[0]].append(new_line)
-				continue
-		# if -, first CDS is end and last CDS is beg
-		if line[6] == '-' and line[2] == 'CDS':
-			# adjust ending coor for TAA/TAG/TGA
-			if cds_idx == 1:
-				if line[7] == '0':
-					new_ed = int(line[3]) - 3 
-				if line[7] == '1':
-					new_ed = int(line[3]) - 5
-				if line[7] == '2':
-					new_ed = int(line[3]) - 4
-				new_line[3] = str(new_ed)
-				gene_lines_3[item[0]].append(new_line)
-				continue
-			if cds_idx > 1 and cds_idx < n_cds:
-				gene_lines_3[item[0]].append(new_line)
-			# adjust staring coor for ATG
-			if cds_idx == n_cds:
-				if line[7] == '0':
-					new_st = int(line[4]) + 3
-				if line[7] == '1':
-					new_st = int(line[4]) + 5
-				if line[7] == '2':
-					new_st = int(line[4]) + 4
-				new_line[4] = str(new_st)
-				gene_lines_3[item[0]].append(new_line)
-				continue
-		'''
-
-		
-		
-		
-		
-		'''
-		# extend starts for in phase start codon
-		if line[2] == 'CDS' and line[6] == '-' and cds_idx == 0:
-			if line[7] == '0':
-				new_st = int(line[4]) + 3
-			if line[7] == '1':
-				new_st = int(line[4]) + 5
-			if line[7] == '2':
-				new_st = int(line[4]) + 4
-			new_line = line.copy()
-			new_line[4] = str(new_st)
-			gene_lines_3[item[0]].append(new_line)
-			cds_idx += 1
-			continue
-		if line[2] == 'CDS' and line[6] == '+' and cds_idx == 0:
-			if line[7] == '0':
-				new_st = int(line[3]) - 3
-			if line[7] == '1':
-				new_st = int(line[3]) - 5
-			if line[7] == '2':
-				new_st = int(line[3]) - 4
-			new_line = line.copy()
-			new_line[3] = str(new_st)
-			gene_lines_3[item[0]].append(new_line)
-			cds_idx += 1
-			continue
-		else:
-			# adjust coors for last CDS
-			if line[2] == 'CDS': 
-				cds_idx += 1
-			if cds_idx == n_cds and line[2] == 'CDS':
-				print('WOWOW')
-				new_line = line.copy()
-				if line[6] == '-':
-					if new_line[7] == '0':
-						print(new_line)
-						new_end = int(line[3])
-					if new_line[7] == '1':
-						print(new_line)
-					if new_line[7] == '2':
-						print(new_line)
-				if line[6] == '+':
-					if new_line[7] == '0':
-						print(new_line)
-					if new_line[7] == '1':
-						print(new_line)
-					if new_line[7] == '2':
-						print(new_line)
-				 
-			gene_lines_3[item[0]].append(line)
-			continue
-		'''
-
 	
+	n_cds2 = 1
+	total_len = 0
+	for line in item[1]:
+		if line[2] == 'CDS':
+			new_line = line.copy()
+			
+			# get first and inner CDS lengths
+			if n_cds2 < n_cds:
+				new_cds_len = int(item[0][2]) - int(line[3]) +1
+				total_len += new_cds_len
+				new_line[3] = item[0][2]
+				if item[0] not in gene_lines_3:
+					gene_lines_3[item[0]] = [new_line]
+				else:
+					gene_lines_3[item[0]].append(new_line)
+				n_cds2 += 1
+				
+			# adjust last CDS coor for in frame stop or start codon
+			else:
+				cds_len = int(line[4]) - int(line[3]) +1
+				total_len += cds_len
+				if total_len%3 == 0:
+					new_end = int(item[0][3])
+				if total_len%3 == 1:
+					new_end = int(item[0][3]) +2
+				if total_len%3 == 2:
+					new_end = int(item[0][3]) +1
+				print(new_line)
+				new_line[4] = str(new_end)
+				gene_lines_3[item[0]].append(new_line)
+				
+		# keep all other lines
+		else:
+			if item[0] not in gene_lines_3:
+				gene_lines_3[item[0]] = [line]
+			else:
+				gene_lines_3[item[0]].append(line)
+				
 if args.out_dir.endswith('/'): 
 	out = args.out_dir
 else:
@@ -280,9 +155,9 @@ else:
 if not os.path.exists(out):
 	os.makedirs(out)
 						
-for item in gene_lines_2.items():
+for item in gene_lines_3.items():
 	with open(f'{out}{item[0][1]}.gff3', 'wt') as fp:
 		for line in item[1]:
 			fp.write('\t'.join(line)+'\n')
-				
+		
 			

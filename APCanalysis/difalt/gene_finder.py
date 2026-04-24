@@ -24,35 +24,46 @@ args = parser.parse_args()
 
 if not args.gffs.endswith('/'):
 	args.gffs = f'{args.gffs}/'
-	
-gffs = {}	
+
+# collect info for sequence from gffs
+genes = {}	
 for file in glob.glob(f'{args.gffs}*'):
 	wbg_gene = None
 	gene_name = file.split('/')[-1].split('.')[0]
 	chrom = None
 	sense = None
+	start = None
+	end = None
+	n_cds = 0
+	gff_lines = []
 	with open(file, 'rt') as fp:
 		for line in fp:
-			line = line.rstrip()
-			line = line.split('\t')
-			print(line)
+			line = line.rstrip().split('\t')
+			gff_lines.append(line)
+		
+		n_cds = 0
+		for line in gff_lines:
+			if line[2] == 'CDS': n_cds += 1
+		
+		n_cds2 = 0
+		for line in gff_lines:
 			if line[2] == 'gene':
 				wbg_gene = line[8].split(';')[0].split(':')[1]
 				chrom = line[0]
 				sense = line[6]
+			if line[2] == 'CDS':
+				n_cds2 += 1
+				if n_cds2 == 1:
+					start = line[3]
+				if n_cds2 == n_cds:
+					end = line[4]
+
+	g_info = f'>{gene_name} {chrom}:{start}-{end} {sense} {wbg_gene}'
+	genes[g_info] = []
+
+for gene in genes.items():
+	print(gene)
 	
-
-
-
-'''
-gene_info = {}
-with open(args.WBGenes, 'rt') as fp:
-	for line in fp:
-		line = line.rstrip()
-		if line.startswith('#'): continue
-		line = line.split(',')
-		gene_info[line[0]] = line[1:]
-
 open_type = gzip.open if args.genome.endswith('.gz') else open
 
 # gather seq strings for each entry
@@ -68,6 +79,25 @@ with open_type(args.genome, 'rt') as fp:
 			# reset counts between different genes, not just chroms
 			n_counts = {}
 			continue
+			
+		# match line index to region of interest
+		for gene in genes.items():
+			chrom = gene[0].split(' ')[1].split(':')[0]
+			if chrom != current_chrom: continue
+			n_counts = {}
+			coors = gene[0].split(' ')[1].split(':')[1].split('-')
+			coors = [int(coors[0]), int(coors[1])]
+			for n in line:
+				if gene[0] not in n_counts:
+					n_counts[gene[0]] = 0
+				n_counts[gene[0]] += 1
+				print(n_counts)
+				if coors[0] <= n_counts[gene[0]] <= end:
+					gen_seqs[item[0]].append(n)
+
+print(gen_seqs)
+
+'''
 		# match line index to region of interest 
 		for info in gene_info.items():
 			if info[1][1] != current_chrom: continue

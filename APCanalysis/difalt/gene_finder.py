@@ -94,8 +94,6 @@ with open_type(args.genome, 'rt') as fp:
 					if gene[0] not in gen_seqs:
 						gen_seqs[gene[0]] = []
 					gen_seqs[gene[0]].append(n)
-		#print(gen_seqs)
-
 
 # flip - strands
 for info_seq in gen_seqs.items():

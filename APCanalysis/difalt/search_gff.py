@@ -1,7 +1,7 @@
 import argparse
 import gzip
 import os
-'''
+
 parser = argparse.ArgumentParser(description='create gffs for WBGenes '
 	'of interest with in frame start/stop coordinates')
 parser.add_argument('WBGenes', help='csv with list of WBGene IDs and '
@@ -23,18 +23,6 @@ with open(args.WBGenes, 'rt') as fp:
 		line = line.split(',')
 		gene_info[line[0]] = line[1:]
 		
-#print(gene_info)
-'''
-# find another gene to test
-'''
-with open(args.annotation, 'rt') as fp:
-	for line in fp:
-		line = line.rstrip()
-		line = line.split('\t')
-		if line[2] == 'mRNA':
-			print(line)
-'''
-'''
 open_type = gzip.open if args.annotation.endswith('.gz') else open
 
 gene_lines = {}
@@ -82,67 +70,9 @@ with open_type(args.annotation, 'rt') as fp:
 						
 						gene_lines[gid_info].append(line)
 
-
-for item in gene_lines.items():
-	print(','.join(item[0]))
-	for line in item[1]:
-		print(','.join(line))
-'''
-
-import sys
-
-gl = sys.argv[1]
-
-gene_lines = {}
-with open(gl, 'rt') as fp:
-	current_lid = None
-	for line in fp:
-		line = line.rstrip()
-		if line.startswith('WBGene'):
-			line_id = tuple(line.split(','))
-			current_lid = line_id
-			gene_lines[line_id] = []
-		else:
-			gene_lines[current_lid].append(line.split(','))
-			
-for item in gene_lines.items():
-	for line in item[1]:
-		if line[2] == 'CDS':
-			print(line)
-
-
-
-'''
-import sys
-
-gl2 = sys.argv[1]
-
-gene_lines_2 = {}
-with open(gl2, 'rt') as fp:
-	current_lid = None
-	for line in fp:
-		line = line.rstrip()
-		if line.startswith('WBGene'):
-			line_id = tuple(line.split(','))
-			current_lid = line_id
-			gene_lines_2[line_id] = []
-		else:
-			gene_lines_2[current_lid].append(line.split(','))
-			
-for item in gene_lines_2.items():
-	for line in item[1]:
-		if line[2] == 'CDS':
-			print(line)
-'''
-
-
-#for item in gene_lines.items():
-#	print(item[0])
-
 # remove CDS regions not matching mRNA ID=Transcript
 gene_lines_2 = {}
 for item in gene_lines.items():
-	#print(item[0], '###')
 	gene_lines_2[item[0]] = []
 	
 	# get transcript ID
@@ -166,39 +96,6 @@ for item in gene_lines.items():
 		# keep everything else
 		else:
 			gene_lines_2[item[0]].append(line)
-
-
-'''
-for item in gene_lines_2.items():
-	print(','.join(item[0]))
-	for line in item[1]:
-		print(','.join(line))
-'''
-
-	
-'''
-import sys
-
-gl2 = sys.argv[1]
-
-gene_lines_2 = {}
-with open(gl2, 'rt') as fp:
-	current_lid = None
-	for line in fp:
-		line = line.rstrip()
-		if line.startswith('WBGene'):
-			line_id = tuple(line.split(','))
-			current_lid = line_id
-			gene_lines_2[line_id] = []
-		else:
-			gene_lines_2[current_lid].append(line.split(','))
-			
-for item in gene_lines_2.items():
-	for line in item[1]:
-		if line[2] == 'CDS':
-			print(line)
-'''
-print('#########')
 
 # assume CDS regions appear in order without sorting
 # all CDS should be on the same strand
@@ -244,7 +141,7 @@ for item in gene_lines_2.items():
 				if total_cds_len%3 == 0:
 					new_end = int(item[0][3])
 				if total_cds_len%3 == 1:
-					new_end = int(item[0][3]) + 1
+					new_end = int(item[0][3]) + 2
 				if total_cds_len%3 == 2:
 					new_end = int(item[0][3]) + 1
 				new_line[4] = str(new_end)
@@ -257,9 +154,8 @@ for item in gene_lines_2.items():
 				gene_lines_3[item[0]] = [line]
 			else:
 				gene_lines_3[item[0]].append(line)
-				
-print('#########')
-				
+
+'''
 # check new CDS coors are in-frame
 for item in gene_lines_3.items():
 	total = 0
@@ -271,8 +167,8 @@ for item in gene_lines_3.items():
 			total += cds_len
 			print(cds_len)
 	print(total/3, 'frame3')
-
 '''
+
 if args.out_dir.endswith('/'): 
 	out = args.out_dir
 else:
@@ -286,7 +182,7 @@ for item in gene_lines_3.items():
 		for line in item[1]:
 			fp.write('\t'.join(line)+'\n')
 
-'''
+
 
 		
 			

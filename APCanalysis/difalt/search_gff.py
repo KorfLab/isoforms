@@ -42,9 +42,11 @@ with open_type(args.annotation, 'rt') as fp:
 				gen_start, gen_end = int(info[1][4]), int(info[1][5])
 				
 				# match WBGene
-				if line[2] == 'gene':
+				if line[1] == 'WormBase' and line[2] == 'gene':
 					wbg_gff = line[8].split(';')[0].split(':')[1]
 					if info[0] == wbg_gff:
+						# WBGene is in the annotation
+						#print('MATCH')
 						gene_lines[gid_info].append(line)
 				
 				# match WBGene
@@ -69,6 +71,11 @@ with open_type(args.annotation, 'rt') as fp:
 						#if int(line[5]) < 20000: continue
 						
 						gene_lines[gid_info].append(line)
+# gene is here
+for item in gene_lines.items():
+	for line in item[1]:
+		if line[2] == 'gene':
+			print(line)
 
 # remove CDS regions not matching mRNA ID=Transcript
 gene_lines_2 = {}

@@ -31,7 +31,6 @@ with open_type(args.annotation, 'rt') as fp:
 		line = line.rstrip()
 		line = line.split('\t')
 		for info in gene_info.items():
-			#print(info[1])
 			gid_info = (info[0], info[1][0], info[1][2], info[1][3])
 			if line[0] != info[1][1]: continue
 			if gid_info not in gene_lines:
@@ -45,8 +44,6 @@ with open_type(args.annotation, 'rt') as fp:
 				if line[1] == 'WormBase' and line[2] == 'gene':
 					wbg_gff = line[8].split(';')[0].split(':')[1]
 					if info[0] == wbg_gff:
-						# WBGene is in the annotation
-						#print('MATCH')
 						gene_lines[gid_info].append(line)
 				
 				# match WBGene
@@ -71,11 +68,6 @@ with open_type(args.annotation, 'rt') as fp:
 						#if int(line[5]) < 20000: continue
 						
 						gene_lines[gid_info].append(line)
-# gene is here
-for item in gene_lines.items():
-	for line in item[1]:
-		if line[2] == 'gene':
-			print(line)
 
 # remove CDS regions not matching mRNA ID=Transcript
 gene_lines_2 = {}
@@ -103,15 +95,16 @@ for item in gene_lines.items():
 		# keep everything else
 		else:
 			gene_lines_2[item[0]].append(line)
-
+			
 # assume CDS regions appear in order without sorting
 # all CDS should be on the same strand
 # add in frame start or stop codon
 # same for + and - strand
 gene_lines_3 = {}
 for item in gene_lines_2.items():
+	
+	gene_lines_3[item[0]] = []
 
-	#print(item[0], '222')
 	# count number of CDS
 	total_cds = 0
 	for line in item[1]:
@@ -130,7 +123,7 @@ for item in gene_lines_2.items():
 				first_cds_len = int(line[4]) - int(item[0][2]) + 1
 				total_cds_len += first_cds_len
 				new_line[3] = item[0][2]
-				gene_lines_3[item[0]] = [new_line]
+				gene_lines_3[item[0]].append(new_line)
 				n_cds += 1
 				continue
 			
@@ -157,11 +150,8 @@ for item in gene_lines_2.items():
 				
 		# keep all other lines
 		else:
-			if item[0] not in gene_lines_3:
-				gene_lines_3[item[0]] = [line]
-			else:
-				gene_lines_3[item[0]].append(line)
-
+			gene_lines_3[item[0]].append(line)
+			
 '''
 # check new CDS coors are in-frame
 for item in gene_lines_3.items():

@@ -15,10 +15,10 @@
 # conda activate something
 
 # Various commands
-./../../bin/optiso genes/mod1_750bp.fa genes/mod1_750bp.gff3 ../../models/worm.splicemodel --name mod1_750bp.optiso
-./../../bin/optiso genes/dyn1_750bp.fa genes/dyn1_750bp.gff3 ../../models/worm.splicemodel --name dyn1_750bp.optiso
-./../../bin/optiso genes/erp1_750bp.fa genes/erp1_750bp.gff3 ../../models/worm.splicemodel --name erp1_750bp.optiso
-./../../bin/optiso genes/pdr1_783bp.fa genes/pdr1_783bp.gff3 ../../models/worm.splicemodel --name pdr1_783bp.optiso
-./../../bin/optiso genes/rbf1_750bp.fa genes/rbf1_750bp.gff3 ../../models/worm.splicemodel --name rbf1_750bp.optiso
-./../../bin/optiso genes/sad1_750bp.fa genes/sad1_750bp.gff3 ../../models/worm.splicemodel --name sad1_750bp.optiso
-./../../bin/optiso genes/unc16_750bp.fa genes/unc16_750bp.gff3 ../../models/worm.splicemodel --name unc16_750bp.optiso
+./../../bin/optiso finder_out/mod_1.fa search_out/mod_1.gff3 ../../models/worm.splicemodel > mod_1.optiso
+./../../bin/optiso finder_out/dyn_1.fa search_out/dyn_1.gff3 ../../models/worm.splicemodel > dyn_1.optiso
+./../../bin/optiso finder_out/erp_1.fa search_out/erp_1.gff3 ../../models/worm.splicemodel > erp_1.optiso
+./../../bin/optiso finder_out/pdr_1.fa search_out/pdr_1.gff3 ../../models/worm.splicemodel > pdr_1.optiso
+./../../bin/optiso finder_out/rbf_1.fa search_out/rbf_1.gff3 ../../models/worm.splicemodel > rbf_1.optiso
+./../../bin/optiso finder_out/sad_1.fa search_out/sad_1.gff3 ../../models/worm.splicemodel > sad_1.optiso
+./../../bin/optiso finder_out/unc_16.fa search_out/unc_16.gff3 ../../models/worm.splicemodel > unc_16.optiso

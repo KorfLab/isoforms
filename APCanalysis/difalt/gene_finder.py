@@ -83,6 +83,10 @@ with open_type(args.genome, 'rt') as fp:
 						gen_seqs[gene[0]] = []
 					gen_seqs[gene[0]].append(n)
 
+# not sure this is necessary
+# i think the fasta should not be translated
+# forgot why i did this
+'''
 # flip - strands
 for info_seq in gen_seqs.items():
 	if info_seq[0].split(' ')[2] == '-':
@@ -95,6 +99,7 @@ for info_seq in gen_seqs.items():
 			i = i+1
 			rev_seq.append(comp_seq[-i])
 		gen_seqs[info_seq[0]] = rev_seq
+'''
 
 # organize sequences into 80 nt lines
 gen_seqs_80 = {}

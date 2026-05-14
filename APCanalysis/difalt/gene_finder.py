@@ -53,7 +53,7 @@ for file in glob.glob(f'{args.gffs}*'):
 					end = int(line[4]) + args.flank
 
 	g_info = f'>{gene_name} {chrom}:{start}-{end} {sense} {wbg_gene}'
-	genes[g_info] = []
+	genes[g_info] = gff_lines
 	
 open_type = gzip.open if args.genome.endswith('.gz') else open
 
@@ -107,6 +107,7 @@ for info_seq in gen_seqs.items():
 # organize sequences into 80 nt lines
 gen_seqs_80 = {}
 for gen_seq in gen_seqs.items():
+	print(gen_seq)
 	seq_line = []
 	seq_lines = []
 	for n in gen_seq[1]:
@@ -135,14 +136,19 @@ for item in gen_seqs_80.items():
 	fname = info[0].split('>')[1]
 	with open(f'{out}{fname}.fa', 'wt') as fp:
 		fp.write(f'{seq_desc}\n')
+		s_count = 0
 		for seq in item[1]:
 			fp.write(f'{seq}\n')
-			
-# need to adjust gff coors to 0
+'''	
+# adjust gff coors to 0
 for item in genes.items():
 	coors = item[0].split(' ')[1].split(':')[1].split('-')
 	start = int(coors[0])
 	end = int(coors[1])
-	
-for item in gen_seqs_80.items():
-	print(item[0])
+	print(start, end)
+	for line in item[1]:
+		new_line = line.copy()
+		new_line[3] = int(line[3]) - start
+		new_line[4] = int(line[4]) - start
+		print(new_line)
+'''

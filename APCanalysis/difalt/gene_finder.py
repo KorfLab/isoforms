@@ -9,7 +9,10 @@ parser.add_argument('genome', help='genomic fasta file')
 parser.add_argument('gffs', help='directory of gffs with genes of '
 	'interest, output from search_gff.py')
 parser.add_argument('out_dir', help='name of directory to store '
-			'fa and gff files')
+	'fa and gff files')
+parser.add_argument('--flank', required=False, type=int, default=99, 
+	metavar='<int>', help='add n nucleotides of genomic '
+	'flank to sequence')
 
 args = parser.parse_args()
 
@@ -45,9 +48,9 @@ for file in glob.glob(f'{args.gffs}*'):
 			if line[2] == 'CDS':
 				n_cds2 += 1
 				if n_cds2 == 1:
-					start = line[3]
+					start = int(line[3]) - args.flank
 				if n_cds2 == n_cds:
-					end = line[4]
+					end = int(line[4]) + args.flank
 
 	g_info = f'>{gene_name} {chrom}:{start}-{end} {sense} {wbg_gene}'
 	genes[g_info] = []
@@ -134,3 +137,12 @@ for item in gen_seqs_80.items():
 		fp.write(f'{seq_desc}\n')
 		for seq in item[1]:
 			fp.write(f'{seq}\n')
+			
+# need to adjust gff coors to 0
+for item in genes.items():
+	coors = item[0].split(' ')[1].split(':')[1].split('-')
+	start = int(coors[0])
+	end = int(coors[1])
+	
+for item in gen_seqs_80.items():
+	print(item[0])

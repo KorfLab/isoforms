@@ -175,7 +175,7 @@ if not os.path.exists(out):
 	os.makedirs(out)
 						
 for item in gene_lines_3.items():
-	with open(f'{out}{item[0][1]}.gff3', 'wt') as fp:
+	with open(f'{out}{item[0][1]}.gencoor.gff3', 'wt') as fp:
 		for line in item[1]:
 			fp.write('\t'.join(line)+'\n')
 

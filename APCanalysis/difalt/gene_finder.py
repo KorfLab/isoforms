@@ -47,6 +47,7 @@ for file in glob.glob(f'{args.gffs}*'):
 				sense = line[6]
 			if line[2] == 'CDS':
 				n_cds2 += 1
+############## don't forget flank changes start/beg ####################
 				if n_cds2 == 1:
 					start = int(line[3]) - args.flank
 				if n_cds2 == n_cds:
@@ -86,28 +87,46 @@ with open_type(args.genome, 'rt') as fp:
 						gen_seqs[gene[0]] = []
 					gen_seqs[gene[0]].append(n)
 
-# not sure this is necessary
-# i think the fasta should not be translated
-# forgot why i did this
-'''
-# flip - strands
+# get sequence on reverse strand
+# complement only
+# also add start/stop codons
 for info_seq in gen_seqs.items():
 	if info_seq[0].split(' ')[2] == '-':
 		comp_seq = []
 		comps = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
 		for n in info_seq[1]:
 			comp_seq.append(comps[n])
+		'''
 		rev_seq = []
 		for i in range(len(comp_seq)):
 			i = i+1
 			rev_seq.append(comp_seq[-i])
 		gen_seqs[info_seq[0]] = rev_seq
-'''
-
+		'''
+		gen_seqs[info_seq[0]] = comp_seq
+	
+# insert start and stop codons	
+f = args.flank
+for gen_seq in gen_seqs.items():
+	strand = gen_seq[0].split(' ')[2]
+	if strand == '+':
+		(gen_seq[1][f],
+		gen_seq[1][f+1],
+		gen_seq[1][f+2]) = ('a', 't', 'g')
+		(gen_seq[1][-(f+3)],
+		gen_seq[1][-(f+2)],
+		gen_seq[1][-(f+1)]) = ('t', 'a', 'a')
+	if strand == '-':
+		(gen_seq[1][f],
+		gen_seq[1][f+1],
+		gen_seq[1][f+2]) = ('a', 'a', 't')
+		(gen_seq[1][-(f+3)],
+		gen_seq[1][-(f+2)],
+		gen_seq[1][-(f+1)]) = ('g', 't', 'a')
+		
 # organize sequences into 80 nt lines
 gen_seqs_80 = {}
 for gen_seq in gen_seqs.items():
-	print(gen_seq)
 	seq_line = []
 	seq_lines = []
 	for n in gen_seq[1]:
@@ -139,8 +158,9 @@ for item in gen_seqs_80.items():
 		s_count = 0
 		for seq in item[1]:
 			fp.write(f'{seq}\n')
-'''	
+
 # adjust gff coors to 0
+'''
 for item in genes.items():
 	coors = item[0].split(' ')[1].split(':')[1].split('-')
 	start = int(coors[0])

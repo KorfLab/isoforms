@@ -180,6 +180,5 @@ for item in gene_lines_3.items():
 			fp.write('\t'.join(line)+'\n')
 
 
-
 		
 			

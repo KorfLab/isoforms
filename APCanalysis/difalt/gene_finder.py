@@ -160,15 +160,18 @@ for item in gen_seqs_80.items():
 			fp.write(f'{seq}\n')
 
 # adjust gff coors to 0
-'''
+# only keep CDS and introns
+# for difalt, CDS = exon
 for item in genes.items():
 	coors = item[0].split(' ')[1].split(':')[1].split('-')
 	start = int(coors[0])
 	end = int(coors[1])
-	print(start, end)
-	for line in item[1]:
-		new_line = line.copy()
-		new_line[3] = int(line[3]) - start
-		new_line[4] = int(line[4]) - start
-		print(new_line)
-'''
+	fname = info[0].split('>')[1]
+	with open(f'{out}{fname}.gff', 'wt') as fp:
+		for line in item[1]:
+			if line[2] in ['CDS', 'intron']:
+				new_line = line.copy()
+				new_line[3] = str(int(line[3]) - start +1)
+				new_line[4] = str(int(line[4]) - start +1)
+				fp.write(f'{'\t'.join(new_line)}\n')
+

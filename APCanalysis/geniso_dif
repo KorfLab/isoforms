@@ -70,13 +70,16 @@ constraints = {
 
 if arg.out: fp = open(arg.out, 'w')
 else: fp = sys.stdout
-'''
+
 name, seq = next(isoform2.read_fasta(arg.fasta))
 locus = Locus(name, seq, model, constraints=constraints, weights=weights,
 	limit=arg.limit)
-'''
+	
+locus.write_gff(fp)
+
 # for difalt genes, set first CDS beg = 0
 # starts with in frame start codon
+'''
 if arg.translate:
 	with open(arg.translate, 'rt') as fp:
 		
@@ -96,6 +99,7 @@ if arg.translate:
 					print(line)
 				if i_cds == n_cds:
 					print(line)
+'''
 		
 
 

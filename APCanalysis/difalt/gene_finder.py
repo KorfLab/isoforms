@@ -55,7 +55,7 @@ for file in glob.glob(f'{args.gffs}*'):
 
 	g_info = f'>{gene_name} {chrom}:{start}-{end} {sense} {wbg_gene}'
 	genes[g_info] = gff_lines
-	
+
 open_type = gzip.open if args.genome.endswith('.gz') else open
 
 # gather seq strings for each entry
@@ -74,7 +74,7 @@ with open_type(args.genome, 'rt') as fp:
 			
 		# match line index to region of interest
 		for gene in genes.items():
-			chrom = gene[0].split(' ')[1].split(':')[0]
+			chrlinuxom = gene[0].split(' ')[1].split(':')[0]
 			if chrom != current_chrom: continue
 			coors = gene[0].split(' ')[1].split(':')[1].split('-')
 			coors = [int(coors[0]), int(coors[1])]
@@ -112,17 +112,17 @@ for gen_seq in gen_seqs.items():
 	if strand == '+':
 		(gen_seq[1][f],
 		gen_seq[1][f+1],
-		gen_seq[1][f+2]) = ('a', 't', 'g')
+		gen_seq[1][f+2]) = ('A', 'T', 'G')
 		(gen_seq[1][-(f+3)],
 		gen_seq[1][-(f+2)],
-		gen_seq[1][-(f+1)]) = ('t', 'a', 'a')
+		gen_seq[1][-(f+1)]) = ('T', 'A', 'A')
 	if strand == '-':
 		(gen_seq[1][f],
 		gen_seq[1][f+1],
-		gen_seq[1][f+2]) = ('a', 'a', 't')
+		gen_seq[1][f+2]) = ('A', 'A', 'T')
 		(gen_seq[1][-(f+3)],
 		gen_seq[1][-(f+2)],
-		gen_seq[1][-(f+1)]) = ('g', 't', 'a')
+		gen_seq[1][-(f+1)]) = ('G', 'T', 'A')
 		
 # organize sequences into 80 nt lines
 gen_seqs_80 = {}
@@ -166,7 +166,7 @@ for item in genes.items():
 	coors = item[0].split(' ')[1].split(':')[1].split('-')
 	start = int(coors[0])
 	end = int(coors[1])
-	fname = info[0].split('>')[1]
+	fname = item[0].split(' ')[0].split('>')[1]
 	with open(f'{out}{fname}.gff', 'wt') as fp:
 		for line in item[1]:
 			if line[2] in ['CDS', 'intron']:

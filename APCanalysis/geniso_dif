@@ -79,30 +79,44 @@ locus.write_gff(fp)
 
 # for difalt genes, set first CDS beg = 0
 # starts with in frame start codon
-'''
 if arg.translate:
-	with open(arg.translate, 'rt') as fp:
+	with open(arg.translate, 'rt') as gff_fp:
 		
-		gff_lines = []		
+		cds_lines = []		
 		n_cds = 0
-		for line in fp:
+		for line in gff_fp:
 			line = line.rstrip()
 			line = line.split('\t')
-			gff_lines.append(line)
 			if line[2] == 'CDS':
+				cds_lines.append(line)
 				n_cds += 1
-		
-		i_cds = 0
-		for line in gff_lines:
-			if line[2] == 'CDS':
-				if i_cds == 0:
-					print(line)
-				if i_cds == n_cds:
-					print(line)
-'''
-		
 
+		cds_lines = sorted(cds_lines, key=lambda x : x[3])
+		
+		i_cds = 1
+		for line in cds_lines:
+			if i_cds == 1:
+				cds_beg = int(line[3])
+				
+	prevs = [iso.prob for iso in locus.isoforms]
+	posts = []
+	rtypes = []
+	for iso in locus.isoforms:
+		iso.translate(cds_beg)
+		if   iso.rnatype == 'non-stop':   iso.prob *= arg.nonstop
+		elif iso.rnatype == 'nmd-target': iso.prob *= arg.nmd
+		posts.append(iso.prob)
+		rtypes.append(iso.rnatype)
 
+	# recompute probabilities
+	total = sum([iso.prob for iso in locus.isoforms])
+	for iso in locus.isoforms:
+		iso.prob /= total
+
+	locus.write_gff(fp)
+
+else:
+	locus.write_gff(fp)
 
 
 

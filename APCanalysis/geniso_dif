@@ -8,7 +8,8 @@ from isoform2 import Locus
 from grimoire.genome import Reader
 
 parser = argparse.ArgumentParser(
-	description='Alternative isoform generator with NMD')
+	description='Alternative isoform generator with NMD '
+	'slightly edited for difalt project')
 parser.add_argument('fasta', type=str, metavar='<fasta file>',
 	help='input fasta file (reads only the first sequence if multi-fasta) '
 	'only for difalt gffs')
@@ -78,7 +79,7 @@ locus = Locus(name, seq, model, constraints=constraints, weights=weights,
 locus.write_gff(fp)
 
 # for difalt genes, set first CDS beg = 0
-# starts with in frame start codon
+# should start with in frame start codon
 if arg.translate:
 	with open(arg.translate, 'rt') as gff_fp:
 		

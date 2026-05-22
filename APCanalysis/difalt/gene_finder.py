@@ -23,7 +23,7 @@ if not args.gffs.endswith('/'):
 genes = {}	
 for file in glob.glob(f'{args.gffs}*'):
 	wbg_gene = None
-	gene_name = file.split('/')[-1].split('.')[0]
+	gene_name = '.'.join(file.split('/')[-1].split('.')[0:2])
 	chrom = None
 	sense = None
 	start = None
@@ -74,7 +74,7 @@ with open_type(args.genome, 'rt') as fp:
 			
 		# match line index to region of interest
 		for gene in genes.items():
-			chrlinuxom = gene[0].split(' ')[1].split(':')[0]
+			chrom = gene[0].split(' ')[1].split(':')[0]
 			if chrom != current_chrom: continue
 			coors = gene[0].split(' ')[1].split(':')[1].split('-')
 			coors = [int(coors[0]), int(coors[1])]

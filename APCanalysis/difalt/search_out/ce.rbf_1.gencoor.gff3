@@ -1,0 +1,11 @@
+III	WormBase	gene	6675760	6703998	.	+	.	ID=Gene:WBGene00004316;Name=WBGene00004316;locus=rbf-1;sequence_name=F37A4.7;biotype=protein_coding;so_term_name=protein_coding_gene;curie=WB:WBGene00004316;Alias=rbf-1,F37A4.7
+III	WormBase	mRNA	6675797	6703998	.	+	.	ID=Transcript:F37A4.7a.2;Parent=Gene:WBGene00004316;Name=F37A4.7a.2;wormpep=CE29961;locus=rbf-1;uniprot_id=P41885
+III	WormBase	mRNA	6691007	6703998	.	+	.	ID=Transcript:F37A4.7a.1;Parent=Gene:WBGene00004316;Name=F37A4.7a.1;wormpep=CE29961;locus=rbf-1;uniprot_id=P41885
+III	WormBase	mRNA	6695573	6703998	.	+	.	ID=Transcript:F37A4.7a.3;Parent=Gene:WBGene00004316;Name=F37A4.7a.3;wormpep=CE29961;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6700438	6700467	.	+	2	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3;Name=F37A4.7a;prediction_status=Confirmed;wormpep=CE29961;protein_id=CCD70705.1;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6700517	6700586	.	+	0	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3;Name=F37A4.7a;prediction_status=Confirmed;wormpep=CE29961;protein_id=CCD70705.1;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	6701099	6701130	.	+	2	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3;Name=F37A4.7a;prediction_status=Confirmed;wormpep=CE29961;protein_id=CCD70705.1;locus=rbf-1;uniprot_id=P41885
+III	RNASeq_splice	intron	6700468	6700516	33746	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	6700468	6701098	152	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	6700587	6701098	27198	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	6700587	6701100	11	+	.	Name=RNASeq intron

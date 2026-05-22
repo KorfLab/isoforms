@@ -36,14 +36,19 @@ else:
 
 fpaths = {}
 for file in os.listdir(adir):
-	gID = '.'.join(file.split('.')[1:3])
+	gID = '.'.join(file.split('.')[1:2])
 	if gID not in fpaths:
 		fpaths[gID] = [(), ()]
 	if file.endswith('.fa'):
 		fpaths[gID][0] = f'{adir}{file}'
-	if file.endswith('.gff3'):
+	if file.endswith(('.gff3', '.gff')):
 		fpaths[gID][1] = f'{adir}{file}'
+		
+for item in fpaths.items():
+	print(item)
 
+
+'''
 # why does using no weights make the program run slower?
 if args.weights:
 	weights = {}
@@ -134,4 +139,4 @@ for res in result:
 
 end = time.perf_counter()
 print('time:', end-start)
-
+'''

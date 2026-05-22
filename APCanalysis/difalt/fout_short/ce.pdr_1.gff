@@ -1,0 +1,17 @@
+III	WormBase	CDS	100	129	.	+	1	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1;Name=K08E3.7a;prediction_status=Confirmed;wormpep=CE31713;protein_id=CAB04599.2;locus=pdr-1;uniprot_id=Q9XUS3
+III	WormBase	CDS	176	266	.	+	0	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1;Name=K08E3.7a;prediction_status=Confirmed;wormpep=CE31713;protein_id=CAB04599.2;locus=pdr-1;uniprot_id=Q9XUS3
+III	WormBase	CDS	546	577	.	+	2	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1;Name=K08E3.7a;prediction_status=Confirmed;wormpep=CE31713;protein_id=CAB04599.2;locus=pdr-1;uniprot_id=Q9XUS3
+III	RNASeq_splice	intron	122	175	4	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	130	175	190308	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	130	189	52	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	130	545	41967	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	134	175	89	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	134	545	2075	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	134	548	10	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	259	545	3141	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	267	545	271835	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	267	548	5	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	271	545	273	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	271	548	19	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	363	545	5	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	500	545	112	+	.	Name=RNASeq intron

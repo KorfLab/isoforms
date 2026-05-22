@@ -1,7 +1,7 @@
 X	WormBase	gene	13487552	13500668	.	-	.	ID=Gene:WBGene00004719;Name=WBGene00004719;locus=sad-1;sequence_name=F15A2.6;biotype=protein_coding;so_term_name=protein_coding_gene;curie=WB:WBGene00004719;Alias=sad-1,F15A2.6
 X	WormBase	mRNA	13487555	13500662	.	-	.	ID=Transcript:F15A2.6a.1;Parent=Gene:WBGene00004719;Name=F15A2.6a.1;wormpep=CE28218;locus=sad-1;uniprot_id=Q19469
-X	WormBase	CDS	13488903	13488969	.	-	2	ID=CDS:F15A2.6a;Parent=Transcript:F15A2.6a.1;Name=F15A2.6a;prediction_status=Confirmed;wormpep=CE28218;protein_id=CAA94127.2;locus=sad-1;uniprot_id=Q19469
-X	WormBase	CDS	13489622	13489653	.	-	0	ID=CDS:F15A2.6a;Parent=Transcript:F15A2.6a.1;Name=F15A2.6a;prediction_status=Confirmed;wormpep=CE28218;protein_id=CAA94127.2;locus=sad-1;uniprot_id=Q19469
+X	WormBase	CDS	13488940	13488969	.	-	2	ID=CDS:F15A2.6a;Parent=Transcript:F15A2.6a.1;Name=F15A2.6a;prediction_status=Confirmed;wormpep=CE28218;protein_id=CAA94127.2;locus=sad-1;uniprot_id=Q19469
+X	WormBase	CDS	13489622	13489651	.	-	0	ID=CDS:F15A2.6a;Parent=Transcript:F15A2.6a.1;Name=F15A2.6a;prediction_status=Confirmed;wormpep=CE28218;protein_id=CAA94127.2;locus=sad-1;uniprot_id=Q19469
 X	RNASeq_splice	intron	13488965	13489428	11	+	.	Name=RNASeq intron
 X	RNASeq_splice	intron	13488970	13489022	4	-	.	Name=RNASeq intron
 X	RNASeq_splice	intron	13488970	13489277	3	-	.	Name=RNASeq intron

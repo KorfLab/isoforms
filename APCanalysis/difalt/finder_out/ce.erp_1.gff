@@ -1,0 +1,12 @@
+X	WormBase	CDS	100	129	.	-	0	ID=CDS:F35A5.8a;Parent=Transcript:F35A5.8a.1,Transcript:F35A5.8a.2;Name=F35A5.8a;prediction_status=Confirmed;wormpep=CE04492;protein_id=CCD70481.1;uniprot_id=Q20005
+X	WormBase	CDS	270	308	.	-	0	ID=CDS:F35A5.8a;Parent=Transcript:F35A5.8a.1,Transcript:F35A5.8a.2;Name=F35A5.8a;prediction_status=Confirmed;wormpep=CE04492;protein_id=CCD70481.1;uniprot_id=Q20005
+X	WormBase	CDS	387	416	.	-	0	ID=CDS:F35A5.8a;Parent=Transcript:F35A5.8a.1,Transcript:F35A5.8a.2;Name=F35A5.8a;prediction_status=Confirmed;wormpep=CE04492;protein_id=CCD70481.1;uniprot_id=Q20005
+X	RNASeq_splice	intron	126	269	9	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	126	386	19	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	130	269	38323	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	130	386	71594	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	130	389	74	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	136	269	27	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	136	386	3940	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	309	386	42803	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	309	389	15	-	.	Name=RNASeq intron

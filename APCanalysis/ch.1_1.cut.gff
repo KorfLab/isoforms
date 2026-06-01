@@ -1,8 +1,0 @@
-ch.1_1	RNASeq_splice	intron	355	403	22.0	+	.
-ch.1_1	RNASeq_splice	intron	351	403	8.0	+	.
-ch.1_1	WormBase	exon	281	379	.	+	.	Parent=Transcript:F23D12.7.1
-ch.1_1	WormBase	CDS	281	330	.	+	.	ID=CDS:F23D12.7;Parent=Transcript:F23D12.7.1
-ch.1_1	WormBase	intron	234	280	.	+	.	Parent=Transcript:F23D12.7.1
-ch.1_1	RNASeq_splice	intron	234	280	418741.0	+	.
-ch.1_1	WormBase	CDS	104	233	.	+	.	ID=CDS:F23D12.7;Parent=Transcript:F23D12.7.1
-ch.1_1	WormBase	exon	101	233	.	+	.	Parent=Transcript:F23D12.7.1

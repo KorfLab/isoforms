@@ -75,8 +75,6 @@ else: fp = sys.stdout
 name, seq = next(isoform2.read_fasta(arg.fasta))
 locus = Locus(name, seq, model, constraints=constraints, weights=weights,
 	limit=arg.limit)
-	
-locus.write_gff(fp)
 
 # for difalt genes, set first CDS beg = 0
 # should start with in frame start codon
@@ -94,16 +92,21 @@ if arg.translate:
 
 		cds_lines = sorted(cds_lines, key=lambda x : x[3])
 		
-		i_cds = 1
+		# don't really need cds_beg
+		# just need argument for iso.translate
+		# correct ATG will be chosen anyway
+		cds_beg = None
 		for line in cds_lines:
-			if i_cds == 1:
-				cds_beg = int(line[3])
+			cds_beg = int(line[3]) - 1
+			break
 				
 	prevs = [iso.prob for iso in locus.isoforms]
 	posts = []
 	rtypes = []
 	for iso in locus.isoforms:
 		iso.translate(cds_beg)
+		#print(iso.rnatype, iso.start_codon, iso.stop_codon)
+		#print(iso.seq[iso.stop_codon-2:iso.stop_codon+10])
 		if   iso.rnatype == 'non-stop':   iso.prob *= arg.nonstop
 		elif iso.rnatype == 'nmd-target': iso.prob *= arg.nmd
 		posts.append(iso.prob)
@@ -115,10 +118,24 @@ if arg.translate:
 		iso.prob /= total
 
 	locus.write_gff(fp)
+	
+	# write your own nmd target finder
+	# some results seem inconsistent
+	# come back to this later maybe
+	'''
+	for iso in locus.isoforms:
+		print('######')
+		print(iso.exons)
+		print(iso.rnatype)
+		tlen = 0
+		for exon in iso.exons:
+			print(seq[exon[0]:exon[1]+1])
+			tlen += len(seq[exon[0]:exon[1]+1])
+		print(tlen, tlen/3)
+	'''
 
 else:
 	locus.write_gff(fp)
-
 
 
 

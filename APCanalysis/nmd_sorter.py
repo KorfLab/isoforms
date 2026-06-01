@@ -1,4 +1,4 @@
-# quick script to sort NMD teste results
+# quick script to sort NMD test results
 
 import sys
 import csv

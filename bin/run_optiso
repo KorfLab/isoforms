@@ -21,8 +21,6 @@ parser.add_argument('--flank', required=False, type=int, default=99,
 	metavar='<int>', help='genomic flank on each side [%(default)i]')
 parser.add_argument('--limit', required=False, type=int, default=1000,
     metavar='<int>', help='limit number of isoforms [%(default)i]')
-parser.add_argument('--params', required=False, type=str, metavar='<int>', 
-	help='json file with constraints/parameters to use for APC')
 parser.add_argument('--out_name', required=False, type=str, metavar='<string>',
     help='name of output file')
 parser.add_argument('--program', required=False, type=str, default='optiso', 

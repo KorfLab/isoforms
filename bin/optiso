@@ -91,12 +91,19 @@ parser.add_argument('--name', required=False, type=str, default='',
 parser.add_argument('--verbose', action='store_true', help='show progress')
 arg = parser.parse_args()
 
+constraints = {
+	'min_intron': arg.min_intron,
+	'min_exon': arg.min_exon,
+	'flank': arg.flank
+}
+
 # Initialize
 if arg.seed: random.seed(arg.seed)
 name, seq = next(isoform.read_fasta(arg.fasta))
 model = isoform.read_splicemodel(arg.model)
 if arg.verbose: print('computing isoforms...', end='', flush=True)
-gene = Locus(name, seq, model, None, None, limit=arg.limit, memoize=True)
+gene = Locus(name, seq, model, constraints=constraints, weights=None, 
+	limit=arg.limit, memoize=True)
 if arg.verbose: print(f'found {len(gene.isoforms)} isoforms', flush=True)
 
 # RNA-Seq from GFF

@@ -13,8 +13,16 @@ parser.add_argument('apc_dir', type=str, metavar='<directory>',
     help='directory with APC .gff3 and .fa files')
 parser.add_argument('model', type=str, metavar='<file>',
     help='splice model file')
-parser.add_argument('--limit', required=False, type=str, default=1000,
+parser.add_argument('--min_intron', required=False, type=int, default=35,
+	metavar='<int>', help='minimum length of intron [%(default)i]')
+parser.add_argument('--min_exon', required=False, type=int, default=25,
+	metavar='<int>', help='minimum length exon [%(default)i]')
+parser.add_argument('--flank', required=False, type=int, default=99,
+	metavar='<int>', help='genomic flank on each side [%(default)i]')
+parser.add_argument('--limit', required=False, type=int, default=1000,
     metavar='<int>', help='limit number of isoforms [%(default)i]')
+parser.add_argument('--params', required=False, type=str, metavar='<int>', 
+	help='json file with constraints/parameters to use for APC')
 parser.add_argument('--out_name', required=False, type=str, metavar='<string>',
     help='name of output file')
 parser.add_argument('--program', required=False, type=str, default='optiso', 
@@ -29,32 +37,38 @@ if args.apc_dir.endswith('/'):
 else:
 	adir = args.apc_dir + '/'
 
+
 fpaths = {}
 for file in os.listdir(adir):
-	gID = '.'.join(file.split('.')[1:3])
+	gID = '.'.join(file.split('.')[1:2])
 	if gID not in fpaths:
 		fpaths[gID] = [(), ()]
 	if file.endswith('.fa'):
 		fpaths[gID][0] = f'{adir}{file}'
-	if file.endswith('.gff3'):
+	if file.endswith(('.gff3', '.gff')):
 		fpaths[gID][1] = f'{adir}{file}'
- 
-def optimize(prog, fasta, gff, model, limit):
 
-	cmd = f'./{prog} {fasta} {gff} {model} --limit {limit}'
+def optimize(prog, fasta, gff, model, limit, flank, minin, minex):
+
+	cmd = (
+		f'./{prog} {fasta} {gff} {model} --limit {limit} '
+		f'--flank {flank} --min_intron {minin} --min_exon {minex}'
+	)
 	cmd = cmd.split(' ')
-	gid = '.'.join(fasta.split('.')[-3:-1])
+	gid = fasta.split('/')[-1:][0].split('.')[1]
 	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout.split()
-	print(f'working on {gid}...')
+	print(f'working on {gid}')
 	return [gid] + output
 
 def worker(inputs):
 
-	return optimize(inputs[0], inputs[1], inputs[2], inputs[3], args.limit)
+	return optimize(inputs[0], inputs[1], inputs[2], inputs[3], args.limit,
+					args.flank, args.min_intron, args.min_exon)
 
 inputs = []
 for gID in fpaths:
-	input = [args.program, fpaths[gID][0], fpaths[gID][1], args.model]
+	input = [args.program, fpaths[gID][0], fpaths[gID][1], args.model, 
+		args.limit, args.flank, args.min_intron, args.min_exon]
 	inputs.append(input)
 
 with Pool(processes=args.cpu) as pool:
@@ -77,9 +91,11 @@ if args.out_name:
 	out_name = args.out_name
 else:
 	out_name = 'results_optisos2.csv'	
-	
+
 with open(out_name, 'w') as file:
     writer = csv.writer(file)
     writer.writerow(['gid', 'fitness', 'wacc', 'wdon', 'wexs', 'wins', 'wexl', 'winl', 'winf'])
     writer.writerows(ref)
+
+
 

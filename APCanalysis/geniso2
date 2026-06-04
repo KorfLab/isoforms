@@ -3,13 +3,13 @@
 import argparse
 import sys
 
-import isoform2
-from isoform2 import Locus
+import isoform
+from isoform import Locus
 from grimoire.genome import Reader
 
 parser = argparse.ArgumentParser(
 	description='Alternative isoform generator with NMD '
-	'slightly edited for difalt project')
+	'slightly edited for pcr genes project')
 parser.add_argument('fasta', type=str, metavar='<fasta file>',
 	help='input fasta file (reads only the first sequence if multi-fasta) '
 	'only for difalt gffs')
@@ -51,7 +51,7 @@ parser.add_argument('--countonly', action='store_true',
 
 arg = parser.parse_args()
 
-model = isoform2.read_splicemodel(arg.model)
+model = isoform.read_splicemodel(arg.model)
 
 weights = {
 	'wacc': arg.wacc,
@@ -72,7 +72,7 @@ constraints = {
 if arg.out: fp = open(arg.out, 'w')
 else: fp = sys.stdout
 
-name, seq = next(isoform2.read_fasta(arg.fasta))
+name, seq = next(isoform.read_fasta(arg.fasta))
 locus = Locus(name, seq, model, constraints=constraints, weights=weights,
 	limit=arg.limit)
 

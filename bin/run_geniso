@@ -7,7 +7,7 @@ import multiprocessing as mp
 from multiprocessing import Pool
 import time
 
-parser = argparse.ArgumentParser(description='wrapper for geniso3')
+parser = argparse.ArgumentParser(description='wrapper for geniso')
 parser.add_argument('apc_dir', type=str, metavar='<directory>', 
 	help='directory with APC .gff3 and .fa files')
 parser.add_argument('model', type=str, metavar='<file>',

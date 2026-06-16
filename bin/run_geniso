@@ -35,10 +35,10 @@ if not args.apc_dir.endswith('/'):
 
 fpaths = {}
 for fa_path in glob.glob(f'{args.apc_dir}/*.fa'):
-	gID = fa_path.split('.')[:-1][1]
+	gID = fa_path.split('.')[-2]
 	gff_path = '.'.join(fa_path.split('.')[:-1]) + '.gff'
 	fpaths[gID] = [(fa_path), (gff_path)]
-		
+
 # why does using no weights make the program run slower?
 if args.weights:
 	weights = {}

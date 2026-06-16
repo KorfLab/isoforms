@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import glob
 import os
 import subprocess
 import multiprocessing as mp
@@ -33,14 +34,10 @@ if not args.apc_dir.endswith('/'):
 	args.apc_dir = f'{args.apc_dir}/'
 
 fpaths = {}
-for file in os.listdir(args.apc_dir):
-	gID = '.'.join(file.split('.')[1:3])
-	if gID not in fpaths:
-		fpaths[gID] = [(), ()]
-	if file.endswith('.fa'):
-		fpaths[gID][0] = f'{args.apc_dir}{file}'
-	if file.endswith('.gff3'):
-		fpaths[gID][1] = f'{args.apc_dir}{file}'
+for fa_path in glob.glob(f'{args.apc_dir}/*.fa'):
+	gID = fa_path.split('.')[:-1][1]
+	gff_path = '.'.join(fa_path.split('.')[:-1]) + '.gff'
+	fpaths[gID] = [(fa_path), (gff_path)]
 		
 # why does using no weights make the program run slower?
 if args.weights:

@@ -25,8 +25,13 @@ if not args.smallgenes.endswith('/'):
 
 gff_paths = {}
 for fname in os.listdir(args.apc):
-	gid = '.'.join(fname.split('.')[:3])
+	gid = '.'.join(fname.split('.')[:2])
 	gff_paths[gid] = [f'{args.apc}{fname}']
+	
+for fname in os.listdir(args.smallgenes):
+	if fname.endswith('.gff3'):
+		gid = '.'.join(fname.split('.')[:2])
+		gff_paths[gid].append(f'{args.smallgenes}{fname}')
 	
 # create identical length histograms
 def add_zeroes(introns1, introns2):
@@ -45,11 +50,6 @@ def add_zeroes(introns1, introns2):
 		i2_sort[i] = i2[i]
 		
 	return i1, i2_sort
-		
-for fname in os.listdir(args.smallgenes):
-	if fname.endswith('.gff3'):
-		gid = '.'.join(fname.split('.')[:3])
-		gff_paths[gid].append(f'{args.smallgenes}{fname}')
 
 # get wbgene and transcript id from rna seq gff				
 def get_wbgene(gff):
@@ -77,7 +77,7 @@ for gitems in gff_paths.items():
 	histograms = {}
 	for intron in apc_ints0:
 		histograms[intron] = (apc_ints0[intron], wb_ints0[intron])
-	gene_hists[gitems[0]] = histograms		
+	gene_hists[gitems[0]] = histograms	
 		
 def intersection(histograms):
 	
@@ -121,7 +121,7 @@ for sitems in similarities.items():
 	# get total number of genes that are above each cutoff 
 	#print(sitems[0], sitems[1], counter, counter/total_genes)
 	sim_counts.append((sitems[0], counter/total_genes, counter))
-
+	
 if args.outf:
 	outname1 = f'{args.outf}.isodif.bins'
 	outname2 = f'{args.outf}.isodif.ranked'
@@ -131,7 +131,8 @@ else:
 	
 with open(outname1, 'w') as csvfile:
 	sim_writer = csv.writer(csvfile)
-	sim_writer.writerow(['similarity', 'percent_match', 'counts'])
+	sim_writer.writerow(['percent_similarity', 'percent_over_threshold', 
+						'gene_counts'])
 	for stup in sim_counts:
 		sim_writer.writerow([stup[0], stup[1], stup[2]])
 

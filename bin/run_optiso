@@ -38,7 +38,7 @@ else:
 
 fpaths = {}
 for file in os.listdir(adir):
-	gID = '.'.join(file.split('.')[1:2])
+	gID = '.'.join(file.split('.')[1:3])
 	if gID not in fpaths:
 		fpaths[gID] = [(), ()]
 	if file.endswith('.fa'):
@@ -53,7 +53,7 @@ def optimize(prog, fasta, gff, model, limit, flank, minin, minex):
 		f'--flank {flank} --min_intron {minin} --min_exon {minex}'
 	)
 	cmd = cmd.split(' ')
-	gid = fasta.split('/')[-1:][0].split('.')[1]
+	gid = '.'.join(fasta.split('/')[-1:][0].split('.')[1:3])
 	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout.split()
 	print(f'working on {gid}')
 	return [gid] + output
@@ -88,7 +88,7 @@ for res in result:
 if args.out_name:
 	out_name = args.out_name
 else:
-	out_name = 'results_optisos2.csv'	
+	out_name = 'results_optisos.csv'	
 
 with open(out_name, 'w') as file:
     writer = csv.writer(file)

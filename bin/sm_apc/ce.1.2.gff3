@@ -1,0 +1,10 @@
+ce.1.2	WormBase	three_prime_UTR	351	388	.	+	.	Parent=Transcript:F46B6.13.1
+ce.1.2	WormBase	exon	189	388	.	+	.	Parent=Transcript:F46B6.13.1
+ce.1.2	WormBase	gene	100	388	.	+	.	ID=Gene:WBGene00044192
+ce.1.2	WormBase	mRNA	100	388	.	+	.	ID=Transcript:F46B6.13.1;Parent=Gene:WBGene00044192
+ce.1.2	WormBase	CDS	189	350	.	+	.	ID=CDS:F46B6.13;Parent=Transcript:F46B6.13.1
+ce.1.2	WormBase	intron	143	188	.	+	.	Parent=Transcript:F46B6.13.1
+ce.1.2	RNASeq_splice	intron	143	188	27257.0	+	.	
+ce.1.2	WormBase	CDS	113	142	.	+	.	ID=CDS:F46B6.13;Parent=Transcript:F46B6.13.1
+ce.1.2	WormBase	exon	100	142	.	+	.	Parent=Transcript:F46B6.13.1
+ce.1.2	WormBase	five_prime_UTR	100	112	.	+	.	Parent=Transcript:F46B6.13.1

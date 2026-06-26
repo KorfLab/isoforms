@@ -38,8 +38,6 @@ for fa_path in glob.glob(f'{args.apc_dir}/*.fa'):
 	gID = '.'.join(fa_path.split('.')[-3:-1]) 
 	gff_path = '.'.join(fa_path.split('.')[:-1]) + '.gff3'
 	fpaths[gID] = [(fa_path), (gff_path)]
-	
-print(fpaths)
 
 # why does using no weights make the program run slower?
 if args.weights:
@@ -49,7 +47,6 @@ if args.weights:
 			line = line.rstrip()
 			if line.startswith('gid'): continue
 			line = line.split(',')
-			print(line[0], 'ID')
 			weights[line[0]] = [x for x in line[1:]]
 	
 def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl, 

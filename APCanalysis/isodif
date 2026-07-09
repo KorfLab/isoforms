@@ -25,12 +25,12 @@ if not args.smallgenes.endswith('/'):
 
 gff_paths = {}
 for fname in os.listdir(args.apc):
-	gid = '.'.join(fname.split('.')[:2])
+	gid = '.'.join(fname.split('.')[:3])
 	gff_paths[gid] = [f'{args.apc}{fname}']
 	
 for fname in os.listdir(args.smallgenes):
 	if fname.endswith('.gff3'):
-		gid = '.'.join(fname.split('.')[:2])
+		gid = '.'.join(fname.split('.')[:3])
 		gff_paths[gid].append(f'{args.smallgenes}{fname}')
 	
 # create identical length histograms

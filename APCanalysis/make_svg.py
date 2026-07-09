@@ -48,7 +48,7 @@ with open(arg.wb_gff, 'r') as fp:
 				wb_cds[parent_tx] = [cds]
 			else:
 				wb_cds[parent_tx].append(cds)
-
+				
 sorted_cdss = []
 for item in wb_cds.items():
 	sorted_cds = sorted(item[1], key=lambda index : index[1])
@@ -116,7 +116,6 @@ with open(arg.out_name, 'w') as fp:
 	
 	# draw RNA-seq introns
 	start_pt = min(rna_introns.items(), key=lambda index : index[0][0])
-	end_pt = max(rna_introns.items(), key=lambda index : index[0][0])
 	for intron in rna_introns.items():
 		score = intron[1]
 		height = 6
@@ -124,7 +123,7 @@ with open(arg.out_name, 'w') as fp:
 		rect = draw_rect(width, height, intron[0][0]+x_offset, y, 'green')
 		text1 = draw_text(score, start_pt[0][0]-50+x_offset, y+7)
 		text2 = draw_text(f'{intron[0][0]},{intron[0][1]}', 
-							end_pt[0][0]+100+x_offset, y+7)
+							intron[0][1]+10+x_offset, y+7)
 		fp.write(rect)
 		fp.write(text1)
 		fp.write(text2)

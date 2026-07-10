@@ -44,7 +44,21 @@ with open(args.fa, 'rt') as fp:
 		for n in line:
 			seq.append(n)
 			
-print(seq)
+print(isos[1])
+
+model = isoform.read_splicemodel(args.model)
+
+print(model['don'])
+print(model['acc'])
+
+
+for intron in isos[1]['intron']:
+	print(intron)
+	beg = int(intron[0])
+	dseq = ''.join(seq[beg-1:beg+5])
+	dscore = isoform.score_pwm(model['don'], dseq, 0, memo=None)
+	print(dseq, dscore)
+			
 print(seq[260:266])
 		
 	
@@ -54,8 +68,5 @@ print('####')
 # isoform.score_pwm(pwm, seq, pos, memo=None)
 # isoform.read_splicemodel(file)
 
-model = isoform.read_splicemodel(args.model)
 
-print(model['don'])
-print(model['acc'])
 

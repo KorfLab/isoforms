@@ -20,8 +20,6 @@ with open(args.fasta) as fp:
 			if n_count < args.seq_len:
 				seq.append(n)
 			n_count += 1
-			
-print(seq, len(seq))
 
 seq = ''.join(seq)
 order = args.order
@@ -43,7 +41,8 @@ for i in range(order, len(seq)):
 	
 	counts[row_idx][curr_idx] += 1
 	
-print(counts)
+#print(counts)
+#print('##########')
 
 # match output
 '''
@@ -58,9 +57,36 @@ print(count)
 '''
 # output matches
 
+# recursion from copilot
+def markov_rows(order, nts=('A', 'C', 'G', 'T')):
 	
+	if order == 0:
+		return ['']
+	prev = markov_rows(order-1, nts)
+	return [p + n for p in prev for n in nts]
 	
+# cartesian product
+'''
+l1 = [1, 2]
+l2 = ['A', 'B']
+
+res = [(x, y) for x in l1 for y in l2]
+
+print(res)
+'''
+
+res = markov_rows(order)
+
+print(res)
+
+row_names = []
+for i in range(len(res)):
+	print(i, res[i], counts[i])
 	
+# format to csv
+
+	
+
 	
 	
 	

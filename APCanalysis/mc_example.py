@@ -44,6 +44,23 @@ for i in range(order, len(seq)):
 #print(counts)
 #print('##########')
 
+freqs = []
+for i in range(len(counts)):
+	row_sum = 0
+	for ct in counts[i]:
+		row_sum += ct
+	fq_row = []
+	for ct in counts[i]:
+		if row_sum != 0:
+			freq = round(ct/row_sum, 2)
+		else:
+			freq = 0
+		fq_row.append(freq)
+	if sum(fq_row) != 1:
+		fq_row[3] = fq_row[3] + (1-sum(fq_row))
+		fq_row[3] = f'{fq_row[3]:.2f}'
+	freqs.append(fq_row)
+
 # match output
 '''
 count = {}
@@ -77,14 +94,50 @@ print(res)
 
 res = markov_rows(order)
 
-print(res)
+# format to latex
+'''
+$$
+\begin{array}{c|ccc}
+     & c_1 & c_2 & c_3 \\ \hline
+r_1  & 1   & 0   & 0   \\
+r_2  & 0   & 1   & 0   \\
+r_3  & 0   & 0   & 1
+\end{array}
+$$
+'''
 
-row_names = []
+print(seq)
+
+print('$$')
+print(r'\begin{array}{c|cccc}')
+print(r'    & A   & C   & G   & T   \\ \hline')
 for i in range(len(res)):
-	print(i, res[i], counts[i])
-	
-# format to csv
+	print(f'{res[i]}  {''.join([f'& {str(x)}   ' for x in counts[i]])}'
+			r'\\')
+print(r'\end{array}')
+print('$$')
 
+print('$$')
+print(r'\begin{array}{c|cccc}')
+print(r'    & A   & C   & G   & T   \\ \hline')
+for i in range(len(res)):
+	print(f'{res[i]}  {''.join([f'& {str(x)}   ' for x in freqs[i]])}'
+			r'\\')
+print(r'\end{array}')
+print('$$')
+
+
+
+
+'''
+for i in range(len(res)):
+	print(f'{res[i]},{','.join([str(x) for x in counts[i]])}')
+	
+	
+	
+for i in range(len(res)):
+	print(f'{res[i]},{','.join([str(x) for x in freqs[i]])}')
+'''
 	
 
 	

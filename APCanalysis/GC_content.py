@@ -16,7 +16,7 @@ for gff_path in glob.glob(f'{args.smallgenes}*gff3'):
 	gid = gff_path.split('/')[-1]
 	gid = '.'.join(gid.split('.')[:-1])
 	fa_path = f'{args.smallgenes}{gid}.fa'
-	gene_file_paths[gid] = [gff_path, fa_path]
+	gene_file_paths[gid] = [fa_path, gff_path]
 
 for apc_dir in args.apc_results:
 	
@@ -28,24 +28,110 @@ for apc_dir in args.apc_results:
 		gid = '.'.join(gid.split('.')[:-2])
 		gene_file_paths[gid].append(fpath)
 			
-def GC(seq):
+def gc_calc(seq):
 	
 	nts = {'A': 0, 'C': 0, 'G': 0, 'T': 0}
 	for nt in seq:
 		nts[nt] += 1
 		
-	gc_con = (
+	gc_calc = (
 		((nts['G'] + nts['C']) / 
 		(nts['A'] + nts['C'] + nts['G'] + nts['T'])) * 100
 	)	
 	
-	return round(gc_con, 2)
+	return round(gc_calc, 2)
 	
-# get cds and intron sequences from annotation
+def gc_content(fasta, gff):
+	
+	with open(fasta) as fp:
+		
+		seq = []
+		for line in fp:
+			line = line.rstrip()
+			if line.startswith('>'): continue
+			for n in line:
+				seq.append(n)
+				
+	with open(gff) as fp:
+	
+		total_cds = 0		
+		for line in fp:
+			line = line.rstrip()
+			line = line.split('\t')
+			if line[2] == 'CDS': total_cds += 1
+			
+
+	with open(gff) as fp:
+		
+		cds_res = {}
+		intron_res = {}
+		intron_bounds = []
+		cds_count = 1
+		for line in fp:
+			line = line.rstrip()
+			line = line.split('\t')
+			if line[2] == 'CDS':
+				l_cds = int(line[3]) - 1
+				r_cds = int(line[4]) - 1
+				cds = (l_cds, r_cds)
+				cds_seq = seq[l_cds:r_cds+1]
+				cres = gc_calc(cds_seq)
+				cds_res[cds] = cres
+				
+				if cds_count == 1:
+					l_int = r_cds + 1  
+					intron_bounds.append(l_int)
+					
+				if cds_count > 1:
+					
+					if cds_count < total_cds:
+						l_int = l_cds - 1
+						r_int = r_cds + 1
+						intron_bounds.append(l_int)
+						intron_bounds.append(r_int)
+						
+					if cds_count == total_cds:
+						r_int = l_cds - 1
+						intron_bounds.append(r_int)
+					
+				cds_count += 1
+				
+		cds_res = dict(sorted(cds_res.items()))
+		intron_bounds = sorted(intron_bounds)
+				
+		for i in range(0, len(intron_bounds), 2):
+			intron = tuple(intron_bounds[i:i+2])
+			intron_seq = seq[intron[0]:intron[1]+1]
+			ires = gc_calc(intron_seq)
+			intron_res[intron] = ires
+				
+		return {'cds': cds_res, 'intron': intron_res}
+	
+
+for gene in gene_file_paths.items():
+	
+	fasta = gene[1][0]
+	wormbase = gene[1][1]
+	apc_res = gene[1][2:]
+	
+	print(fasta)
+	print(wormbase)
+	print(apc_res)
+	
+	break
+	
+	
+	
+'''
 gc_contents = {}
 for gene in gene_file_paths.items():
+	
+	if not gene[0] == 'ce.2.58': continue
+	
 	print(gene[0])
 	print(gene[1][0], gene[1][1])
+	
+
 	
 	seq = []
 	with open(gene[1][1]) as fp:
@@ -56,6 +142,9 @@ for gene in gene_file_paths.items():
 			for n in line:
 				seq.append(n)
 			
+	print(seq)
+	print('#######')
+			
 	with open(gene[1][0]) as fp:
 		
 		total_cds = 0
@@ -63,6 +152,10 @@ for gene in gene_file_paths.items():
 			line = line.rstrip()
 			line = line.split('\t')
 			if line[2] == 'CDS': total_cds += 1
+				
+
+	cds_res = {}
+	intron_res = {}
 
 	with open(gene[1][0]) as fp:
 		
@@ -75,10 +168,12 @@ for gene in gene_file_paths.items():
 				
 				l_cds = int(line[3]) - 1
 				r_cds = int(line[4]) - 1
-				cds = [l_cds, r_cds]
+				cds = (l_cds, r_cds)
 				cds_seq = seq[l_cds:r_cds+1]
-				res = GC(cds_seq)
-				print(cds, res)
+				print(cds)
+				print(cds_seq)
+				cres = gc_calc(cds_seq)
+				cds_res[cds] = cres
 				
 				if cds_count == 1:
 					l_int = r_cds + 1  
@@ -95,16 +190,32 @@ for gene in gene_file_paths.items():
 					
 				cds_count += 1
 				
-		print('###############')
+
+		cds_res = dict(sorted(cds_res.items()))
+		
+		print(cds_res)
+		print(sorted(intron_bounds))
+		
+		intron_bounds = sorted(intron_bounds)
+		
+		for item in cds_res.items():
+			print(item)
+				
 		for i in range(0, len(intron_bounds), 2):
-			intron = intron_bounds[i:i+2]
+			intron = tuple(intron_bounds[i:i+2])
 			intron_seq = seq[intron[0]:intron[1]+1]
-			res = GC(intron_seq)
-			print(intron, res)
+			print(intron)
+			print(intron_seq)
+			#ires = gc_calc(intron_seq)
+			#intron_res[intron] = ires
+	
+	#gc_contents[gene[0]] = {'cds': cds_res, 'intron': intron_res}
+	
+	#print(gc_contents)
 			
 
-	break
-	
+	#break
+'''
 
 
 

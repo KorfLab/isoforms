@@ -167,16 +167,54 @@ def gc_content(fasta, exons):
 			if line.startswith('>'): continue
 			for n in line:
 				seq.append(n)
-				
-	for item in exons.items():
-		print(item)
-				
-		
-		
 
+	for iso in exons.items():
+		cds_res = {}
+		intron_res = {}
+		intron_bounds = []
+		cds_count = 0
+		for cds in iso[1]:
+			# swap to 0 based indexing
+			# get cds seq/gc
+			l_cds = cds[0] - 1
+			r_cds = cds[1] - 1
+			cds = (l_cds, r_cds)
+			cds_seq = seq[l_cds:r_cds+1]
+			cres = gc_calc(cds_seq)
+			cds_res[cds] = cres
 			
+			# get left and right intron boundaries
+			if cds_count == 0:
+				l_int = r_cds + 1
+				intron_bounds.append(l_int)
+				
+			if cds_count > 0:
+				
+				if cds_count < len(iso[1]) - 1:
+					l_int = l_cds - 1
+					r_int = r_cds + 1
+					intron_bounds.append(l_int)
+					intron_bounds.append(r_int)
+					
+				if cds_count == len(iso[1]) - 1:
+					r_int = l_cds - 1
+					intron_bounds.append(r_int)
+					
+			cds_count += 1
 			
-
+		# sort after 
+		cds_res = dict(sorted(cds_res.items()))
+		intron_bounds = sorted(intron_bounds)
+		
+		# get intron seq/gc
+		for i in range(0, len(intron_bounds), 2):
+			intron = tuple(intron_bounds[i:i+2])
+			intron_seq = seq[intron[0]:intron[1]+1]
+			ires = gc_calc(intron_seq)
+			intron_res[intron] = ires
+				
+		yield {'cds': cds_res, 'intron': intron_res}
+		
 for gene in gene_file_paths.items():
 	
 	fasta = gene[1][0]
@@ -186,12 +224,12 @@ for gene in gene_file_paths.items():
 	#g = gc_content(fasta, wormbase)
 	
 	wb_cds = get_wb_cds(wormbase)
-	print('#################')
 	for r in apc_res:
 		apc_cds = get_apc_cds(r)
 		break
 		
-	gc_content(fasta, wb_cds)
+	for y in gc_content(fasta, wb_cds):
+		print(y)
 	
 	#gc_content(fasta, apc_cds)
 	

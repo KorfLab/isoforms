@@ -41,6 +41,56 @@ def gc_calc(seq):
 	
 	return round(gc_calc, 2)
 	
+def get_wb_cds(gff):
+	
+	gff_lines = []
+	with open(gff, 'rt') as fp:
+		
+		for line in fp:
+			line = line.rstrip()
+			line = line.split('\t')  
+			gff_lines.append(line)
+			
+	# get transcript IDs
+	mrna_cds = {}
+	for line in gff_lines:	
+		if line[2] == 'mRNA':
+			m_tid = line[8].split(';')[0].split(':')[1]
+			m_tid = '.'.join(m_tid.split('.')[:-1])
+			mrna_cds[m_tid] = []
+	
+	# match CDS to transcript IDs
+	for line in gff_lines:
+		if line[2] == 'CDS':
+			c_tid = line[8].split(';')[0].split(':')[1]
+			if c_tid in mrna_cds:
+				cds_coor = (int(line[3]), int(line[4]))
+				mrna_cds[c_tid].append(cds_coor)
+			
+	return mrna_cds
+	
+def get_apc_cds(gff):
+	
+	with open(gff, 'rt') as fp:
+		
+		# collect cds coors for each isoform
+		iso_n = 0
+		iso_exons = {}
+		for line in fp:
+			line = line.rstrip()
+			if line.startswith('#'): continue
+			if line == '': continue
+			line = line.split('\t')
+			if line[2] == 'gene': continue
+			if line[2] == 'mRNA': 
+				iso_n += 1
+				iso_exons[iso_n] = []
+			if line[2] == 'exon':
+				exon_coor = (int(line[3]), int(line[4]))
+				iso_exons[iso_n].append(exon_coor)
+
+		return iso_exons
+		
 def gc_content(fasta, gff):
 	
 	with open(fasta) as fp:
@@ -105,8 +155,27 @@ def gc_content(fasta, gff):
 			ires = gc_calc(intron_seq)
 			intron_res[intron] = ires
 				
-		return {'cds': cds_res, 'intron': intron_res}
+		return {'cds': cds_res, 'intron': intron_res}		
+		
+def gc_content(fasta, exons):
 	
+	with open(fasta, 'rt') as fp:
+		
+		seq = []
+		for line in fp:
+			line = line.rstrip()
+			if line.startswith('>'): continue
+			for n in line:
+				seq.append(n)
+				
+	for item in exons.items():
+		print(item)
+				
+		
+		
+
+			
+			
 
 for gene in gene_file_paths.items():
 	
@@ -114,18 +183,31 @@ for gene in gene_file_paths.items():
 	wormbase = gene[1][1]
 	apc_res = gene[1][2:]
 	
-	g = gc_content(fasta, wormbase)
+	#g = gc_content(fasta, wormbase)
 	
-	#print(g)
+	wb_cds = get_wb_cds(wormbase)
+	print('#################')
+	for r in apc_res:
+		apc_cds = get_apc_cds(r)
+		break
+		
+	gc_content(fasta, wb_cds)
 	
-	#gc_content(fasta, apc_res[0])
+	#gc_content(fasta, apc_cds)
 	
-	#for r in apc_res:
-	#	print(r)
-	
-# split gffs into isoforms
+	break
 
-def get_isos():
+	
+# ce.2.273 has an isoform with no introns (one CDS)		
+		
+# ce.2.243 has 7 cds
+# 2 annotated gene structures
+# WBGene00045461
+
+# ce.1.350
+	
+
+
 	
 	
 	

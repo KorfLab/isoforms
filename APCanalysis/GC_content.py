@@ -114,11 +114,22 @@ for gene in gene_file_paths.items():
 	wormbase = gene[1][1]
 	apc_res = gene[1][2:]
 	
-	print(fasta)
-	print(wormbase)
-	print(apc_res)
+	g = gc_content(fasta, wormbase)
 	
-	break
+	#print(g)
+	
+	#gc_content(fasta, apc_res[0])
+	
+	#for r in apc_res:
+	#	print(r)
+	
+# split gffs into isoforms
+
+def get_isos():
+	
+	
+	
+
 	
 	
 	

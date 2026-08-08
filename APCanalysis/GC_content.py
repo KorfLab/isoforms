@@ -1,5 +1,6 @@
 import argparse
 import glob
+import json
 
 parser = argparse.ArgumentParser(description='get GC content data from '
 	'smallgenes and APC')
@@ -11,6 +12,7 @@ args = parser.parse_args()
 if not args.smallgenes.endswith('/'):
 	args.smallgenes = f'{args.smallgenes}/'
 	
+# gather file paths from each directory
 gene_file_paths = {}
 for gff_path in glob.glob(f'{args.smallgenes}*gff3'):
 	gid = gff_path.split('/')[-1]
@@ -41,6 +43,7 @@ def gc_calc(seq):
 	
 	return round(gc_calc, 2)
 	
+# get matching cds and transcript regions from smallgenes gff
 def get_wb_cds(gff):
 	
 	gff_lines = []
@@ -69,6 +72,7 @@ def get_wb_cds(gff):
 			
 	return mrna_cds
 	
+# get matching cds and isoforms from apc gff results
 def get_apc_cds(gff):
 	
 	with open(gff, 'rt') as fp:
@@ -90,72 +94,6 @@ def get_apc_cds(gff):
 				iso_exons[iso_n].append(exon_coor)
 
 		return iso_exons
-		
-def gc_content(fasta, gff):
-	
-	with open(fasta) as fp:
-		
-		seq = []
-		for line in fp:
-			line = line.rstrip()
-			if line.startswith('>'): continue
-			for n in line:
-				seq.append(n)
-				
-	with open(gff) as fp:
-	
-		total_cds = 0		
-		for line in fp:
-			line = line.rstrip()
-			line = line.split('\t')
-			if line[2] == 'CDS': total_cds += 1
-			
-
-	with open(gff) as fp:
-		
-		cds_res = {}
-		intron_res = {}
-		intron_bounds = []
-		cds_count = 1
-		for line in fp:
-			line = line.rstrip()
-			line = line.split('\t')
-			if line[2] == 'CDS':
-				l_cds = int(line[3]) - 1
-				r_cds = int(line[4]) - 1
-				cds = (l_cds, r_cds)
-				cds_seq = seq[l_cds:r_cds+1]
-				cres = gc_calc(cds_seq)
-				cds_res[cds] = cres
-				
-				if cds_count == 1:
-					l_int = r_cds + 1  
-					intron_bounds.append(l_int)
-					
-				if cds_count > 1:
-					
-					if cds_count < total_cds:
-						l_int = l_cds - 1
-						r_int = r_cds + 1
-						intron_bounds.append(l_int)
-						intron_bounds.append(r_int)
-						
-					if cds_count == total_cds:
-						r_int = l_cds - 1
-						intron_bounds.append(r_int)
-					
-				cds_count += 1
-				
-		cds_res = dict(sorted(cds_res.items()))
-		intron_bounds = sorted(intron_bounds)
-				
-		for i in range(0, len(intron_bounds), 2):
-			intron = tuple(intron_bounds[i:i+2])
-			intron_seq = seq[intron[0]:intron[1]+1]
-			ires = gc_calc(intron_seq)
-			intron_res[intron] = ires
-				
-		return {'cds': cds_res, 'intron': intron_res}		
 		
 def gc_content(fasta, exons):
 	
@@ -202,7 +140,7 @@ def gc_content(fasta, exons):
 					
 			cds_count += 1
 			
-		# sort after 
+		# ok to sort after 
 		cds_res = dict(sorted(cds_res.items()))
 		intron_bounds = sorted(intron_bounds)
 		
@@ -217,24 +155,51 @@ def gc_content(fasta, exons):
 		
 for gene in gene_file_paths.items():
 	
-	fasta = gene[1][0]
-	wormbase = gene[1][1]
-	apc_res = gene[1][2:]
+	if gene[0] == 'ce.1.542':
 	
-	#g = gc_content(fasta, wormbase)
+		fasta = gene[1][0]
+		wormbase = gene[1][1]
+		apc_res = gene[1][2:]
 	
-	wb_cds = get_wb_cds(wormbase)
-	for r in apc_res:
-		apc_cds = get_apc_cds(r)
-		break
-		
+		wb_cds = get_wb_cds(wormbase)
+		gc = gc_content(fasta, wb_cds)
+		for g in gc:
+			print(g)
+	
+		print('##########')
+	
+		for ar in apc_res:
+			apc_cds = get_apc_cds(ar)
+			gc = gc_content(fasta, apc_cds)
+			g_count = 0
+			for g in gc:
+				if g_count < 5:
+					print(g)
+				g_count += 1
+
+
+
+'''
+		for r in apc_res:
+			print(r)
+			apc_cds = get_apc_cds(r)
+			cnt = 0 
+			for y in gc_content(fasta, apc_cds):
+				print(y)
+				cnt += 1
+			print(cnt)
+			json_str = json.dumps(apc_cds, indent=4)
+			#print(json_str)
+			break
+			
+	print('####')
 	for y in gc_content(fasta, wb_cds):
 		print(y)
 	
 	#gc_content(fasta, apc_cds)
 	
 	break
-
+'''
 	
 # ce.2.273 has an isoform with no introns (one CDS)		
 		

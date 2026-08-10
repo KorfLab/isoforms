@@ -6,8 +6,11 @@ parser = argparse.ArgumentParser(description='get GC content data from '
 	'smallgenes and APC')
 parser.add_argument('smallgenes')
 parser.add_argument('--apc_results', nargs='+')
-parser.add_argument('--out_file', default='GC_con', 
-					help='name of output file [%(default)s]')
+parser.add_argument('--out_dir', default='gc_contents',
+					help='name of output directory [%(default)s]')
+
+#parser.add_argument('--out_file', default='GC_con', 
+#					help='name of output file [%(default)s]')
 	
 args = parser.parse_args()
 
@@ -193,8 +196,20 @@ for gene in gene_file_paths.items():
 	
 	data[gene[0]] = {'wb_data': wb_data, 'apc_data': apc_data}
 
-with open(f'{args.out_file}.json', 'w') as jfile:
-	json.dump(data, jfile, indent=4)
+for d in data.items():
+	print(d[0])
+	for d2 in d.items():
+		print(d2)
+		for d3 in d[1][d2]:
+			apc_type = d3.split('/')[-1].split('.')[-2]
+			
+		#break
+	#print(json.dumps(d, indent=4))
+	break
+
+
+#with open(f'{args.out_file}.json', 'w') as jfile:
+#	json.dump(data, jfile, indent=4)
 
 
 

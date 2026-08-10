@@ -143,16 +143,76 @@ def gc_content(fasta, exons):
 		# ok to sort after 
 		cds_res = dict(sorted(cds_res.items()))
 		intron_bounds = sorted(intron_bounds)
-		
-		# get intron seq/gc
-		for i in range(0, len(intron_bounds), 2):
-			intron = tuple(intron_bounds[i:i+2])
-			intron_seq = seq[intron[0]:intron[1]+1]
-			ires = gc_calc(intron_seq)
-			intron_res[intron] = ires
-				
+
+		# some isoforms have no introns
+		if len(intron_bounds) > 1:
+			# get intron seq/gc
+			for i in range(0, len(intron_bounds), 2):
+				intron = tuple(intron_bounds[i:i+2])
+				intron_seq = seq[intron[0]:intron[1]+1]
+				ires = gc_calc(intron_seq)
+				intron_res[intron] = ires
+		else:
+			intron_res = None
+					
 		yield {'cds': cds_res, 'intron': intron_res}
+	
+for gene in gene_file_paths.items():
+	
+	print(gene[0])
+	
+	fasta = gene[1][0]
+	wormbase = gene[1][1]
+	apc_res = gene[1][2:]
+	
+	wb_cds = get_wb_cds(wormbase)
+	wb_gc = gc_content(fasta, wb_cds)
+	
+	for i in wb_gc:
+		print(i)
 		
+	print('#####')
+
+	for ar in apc_res:
+		apc_cds = get_apc_cds(ar)
+		apc_gc = gc_content(fasta, apc_cds)
+		g_count = 0
+		for g in apc_gc:
+			if g_count < 5:
+				print(g)
+			g_count += 1
+	
+	break
+
+
+
+
+
+########## code testing ##########
+
+# 1.370 WBGene00008792	isoform with no introns
+#test_f = '../data/smallgenes/ce.1.370.fa', '../data/smallgenes/ce.1.370.gff3'
+
+#cds = get_wb_cds(test_f[1])
+#gc = gc_content(test_f[0], cds)
+
+#for c in cds.items():
+#	print(c)
+	
+#for g in gc:
+#	print(g)
+
+
+# ce.2.273 has an isoform with no introns (one CDS)		
+		
+# ce.2.243 has 7 cds
+# 2 annotated gene structures
+# WBGene00045461
+
+# ce.1.350		
+
+
+'''
 for gene in gene_file_paths.items():
 	
 	if gene[0] == 'ce.1.542':
@@ -176,166 +236,11 @@ for gene in gene_file_paths.items():
 				if g_count < 5:
 					print(g)
 				g_count += 1
-
-
-
-'''
-		for r in apc_res:
-			print(r)
-			apc_cds = get_apc_cds(r)
-			cnt = 0 
-			for y in gc_content(fasta, apc_cds):
-				print(y)
-				cnt += 1
-			print(cnt)
-			json_str = json.dumps(apc_cds, indent=4)
-			#print(json_str)
-			break
-			
-	print('####')
-	for y in gc_content(fasta, wb_cds):
-		print(y)
-	
-	#gc_content(fasta, apc_cds)
-	
-	break
-'''
-	
-# ce.2.273 has an isoform with no introns (one CDS)		
-		
-# ce.2.243 has 7 cds
-# 2 annotated gene structures
-# WBGene00045461
-
-# ce.1.350
-	
-
-
-	
-	
-	
-
-	
-	
-	
-'''
-gc_contents = {}
-for gene in gene_file_paths.items():
-	
-	if not gene[0] == 'ce.2.58': continue
-	
-	print(gene[0])
-	print(gene[1][0], gene[1][1])
-	
-
-	
-	seq = []
-	with open(gene[1][1]) as fp:
-		
-		for line in fp:
-			line = line.rstrip()
-			if line.startswith('>'): continue
-			for n in line:
-				seq.append(n)
-			
-	print(seq)
-	print('#######')
-			
-	with open(gene[1][0]) as fp:
-		
-		total_cds = 0
-		for line in fp:
-			line = line.rstrip()
-			line = line.split('\t')
-			if line[2] == 'CDS': total_cds += 1
-				
-
-	cds_res = {}
-	intron_res = {}
-
-	with open(gene[1][0]) as fp:
-		
-		intron_bounds = []
-		cds_count = 1
-		for line in fp:
-			line = line.rstrip()
-			line = line.split('\t')
-			if line[2] == 'CDS':
-				
-				l_cds = int(line[3]) - 1
-				r_cds = int(line[4]) - 1
-				cds = (l_cds, r_cds)
-				cds_seq = seq[l_cds:r_cds+1]
-				print(cds)
-				print(cds_seq)
-				cres = gc_calc(cds_seq)
-				cds_res[cds] = cres
-				
-				if cds_count == 1:
-					l_int = r_cds + 1  
-					intron_bounds.append(l_int)
-				if cds_count > 1:
-					if cds_count < total_cds:
-						l_int = l_cds - 1
-						r_int = r_cds + 1
-						intron_bounds.append(l_int)
-						intron_bounds.append(r_int)
-					if cds_count == total_cds:
-						r_int = l_cds - 1
-						intron_bounds.append(r_int)
-					
-				cds_count += 1
-				
-
-		cds_res = dict(sorted(cds_res.items()))
-		
-		print(cds_res)
-		print(sorted(intron_bounds))
-		
-		intron_bounds = sorted(intron_bounds)
-		
-		for item in cds_res.items():
-			print(item)
-				
-		for i in range(0, len(intron_bounds), 2):
-			intron = tuple(intron_bounds[i:i+2])
-			intron_seq = seq[intron[0]:intron[1]+1]
-			print(intron)
-			print(intron_seq)
-			#ires = gc_calc(intron_seq)
-			#intron_res[intron] = ires
-	
-	#gc_contents[gene[0]] = {'cds': cds_res, 'intron': intron_res}
-	
-	#print(gc_contents)
-			
-
-	#break
 '''
 
 
 
+
 	
 
 
-
-
-
-'''
-	
-if not args.APC.endswith('/'):
-	args.APC = f'{args.APC}/'
-
-gene_paths = {}
-for fasta in glob.glob(f'{args.smallgenes}*.fa'):
-		gid = '.'.join(fasta.split('/')[-1].split('.')[:-1])
-		gff = f'{args.smallgenes}{gid}.gff3'
-		gene_paths[gid] = [fasta, gff]
-		
-
-for fasta in glob.glob(f'{args.APC}*'):
-	gid = '.'.join(fasta.split('/')[-1].split('.')[:-2])
-	print(gid)
-	print(fasta)
-	
-'''

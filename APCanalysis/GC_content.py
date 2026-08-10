@@ -6,6 +6,8 @@ parser = argparse.ArgumentParser(description='get GC content data from '
 	'smallgenes and APC')
 parser.add_argument('smallgenes')
 parser.add_argument('--apc_results', nargs='+')
+parser.add_argument('--out_file', default='GC_con', 
+					help='name of output file [%(default)s]')
 	
 args = parser.parse_args()
 
@@ -119,7 +121,8 @@ def gc_content(fasta, exons):
 			cds = (l_cds, r_cds)
 			cds_seq = seq[l_cds:r_cds+1]
 			cres = gc_calc(cds_seq)
-			cds_res[cds] = cres
+			cds_key = f'{l_cds},{r_cds}'
+			cds_res[cds_key] = cres
 			
 			# get left and right intron boundaries
 			if cds_count == 0:
@@ -151,40 +154,47 @@ def gc_content(fasta, exons):
 				intron = tuple(intron_bounds[i:i+2])
 				intron_seq = seq[intron[0]:intron[1]+1]
 				ires = gc_calc(intron_seq)
-				intron_res[intron] = ires
+				intron_key = f'{intron[0]},{intron[1]}'
+				intron_res[intron_key] = ires
 		else:
 			intron_res = None
 					
 		yield {'cds': cds_res, 'intron': intron_res}
 	
+data = {}
 for gene in gene_file_paths.items():
-	
-	print(gene[0])
-	
 	fasta = gene[1][0]
 	wormbase = gene[1][1]
-	apc_res = gene[1][2:]
+	apc_files = gene[1][2:]
 	
 	wb_cds = get_wb_cds(wormbase)
 	wb_gc = gc_content(fasta, wb_cds)
 	
-	for i in wb_gc:
-		print(i)
-		
-	print('#####')
+	wb_data = {}
+	iso_n = 0
+	for gc in wb_gc:
+		if gene[1][1] not in wb_data:
+			wb_data[gene[1][1]] = {iso_n: gc}
+		else:
+			wb_data[gene[1][1]][iso_n] = gc		
+		iso_n += 1
 
-	for ar in apc_res:
-		apc_cds = get_apc_cds(ar)
+	apc_data = {}
+	for apcf in apc_files:
+		apc_cds = get_apc_cds(apcf)
 		apc_gc = gc_content(fasta, apc_cds)
-		g_count = 0
-		for g in apc_gc:
-			if g_count < 5:
-				print(g)
-			g_count += 1
+		iso_n = 0
+		for gc in apc_gc:
+			if apcf not in apc_data:
+				apc_data[apcf] = {iso_n: gc}
+			else:
+				apc_data[apcf][iso_n] = gc
+			iso_n += 1
 	
-	break
+	data[gene[0]] = {'wb_data': wb_data, 'apc_data': apc_data}
 
-
+with open(f'{args.out_file}.json', 'w') as jfile:
+	json.dump(data, jfile, indent=4)
 
 
 

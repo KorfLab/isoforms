@@ -109,7 +109,7 @@ with open(arg.out_name, 'w') as fp:
 			fp.write(rect)
 			
 		int_string = '|'.join([f'{x[0]},{x[1]}' for x in intron_coors])
-		text = draw_text(int_string, x_offset+cdss[-1][0]+100, y+14)
+		text = draw_text(int_string, x_offset+cdss[-1][1]+10, y+14)
 		fp.write(text)
 		
 		y += 30

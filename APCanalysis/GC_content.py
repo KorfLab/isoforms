@@ -1,6 +1,7 @@
 import argparse
 import glob
 import json
+import os
 
 parser = argparse.ArgumentParser(description='get GC content data from '
 	'smallgenes and APC')
@@ -196,22 +197,36 @@ for gene in gene_file_paths.items():
 	
 	data[gene[0]] = {'wb_data': wb_data, 'apc_data': apc_data}
 
+if not os.path.isdir('gcc_res/'):
+	os.mkdir('gcc_res/')
+
+# split results into multiple directories
 for d in data.items():
-	print(d[0])
-	for d2 in d.items():
-		print(d2)
-		for d3 in d[1][d2]:
-			apc_type = d3.split('/')[-1].split('.')[-2]
+	for d2 in d[1].items():
+		for d3 in d2[1].items():
 			
-		#break
-	#print(json.dumps(d, indent=4))
-	break
+			if d2[0] == 'wb_data':
+				if not os.path.isdir('gcc_res/rnaseq_gcc/'):
+					os.mkdir('gcc_res/rnaseq_gcc/')
+				with open(f'gcc_res/rnaseq_gcc/{d[0]}.gcc.json', 'w') as jfile:
+					json.dump(d3[1], jfile, indent=4)
+			
+			if d2[0] == 'apc_data':
+				apc_type = d3[0].split('/')[-1].split('.')[-2]
+				if not os.path.isdir(f'gcc_res/{apc_type}_gcc/'):
+					os.mkdir(f'gcc_res/{apc_type}_gcc/')
+				with open(f'gcc_res/{apc_type}_gcc/{d[0]}.gcc.json', 'w') as jfile:
+					json.dump(d3[1], jfile, indent=4)
 
 
-#with open(f'{args.out_file}.json', 'w') as jfile:
-#	json.dump(data, jfile, indent=4)
 
 
+			
+# write everything to one file
+'''
+with open(f'{args.out_file}.json', 'w') as jfile:
+	json.dump(data, jfile, indent=4)
+'''
 
 ########## code testing ##########
 

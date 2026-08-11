@@ -1,4 +1,5 @@
 import argparse
+import json
 
 parser = argparse.ArgumentParser(
 	description='create svg file from APC isoforms')
@@ -9,6 +10,12 @@ parser.add_argument('--out_name', type=str, required=False,
 					default='isoforms.svg')
 parser.add_argument('--width', type=int, required=False, default=1000)
 parser.add_argument('--height', type=int, required=False, default=1000)
+parser.add_argument('--gc', type=str, required=False, nargs=2, 
+					help='Input json files with GC content data; must '
+					'be in order, with the smallgenes/rnaseq data '
+					'first and apc data second. '
+					'Example: --gc gcc_res/rnaseq_gcc/ce.1.1.gcc.json '
+					'gcc_res/APC_base_gcc/ce.1.1.gcc.json')
 
 arg = parser.parse_args()
 
@@ -66,6 +73,44 @@ def draw_text(text, x, y):
 	
 	return text
 	
+gcy_offset = 0
+
+# read in json data
+if arg.gc:
+	
+	gcy_offset = 20
+	
+	# smallgenes/rnaseq 
+	with open(arg.gc[0], 'r') as fp:
+		rnaseq_gc = json.load(fp)
+	rna_gc_cds = {}
+	rna_gc_introns = {}
+	for iso in rnaseq_gc.items():
+		for ft in iso[1].items():
+			for k_v in ft[1].items():
+				k = k_v[0]
+				v = k_v[1]
+				if ft[0] == 'cds':
+					rna_gc_cds[k] = v
+				if ft[0] == 'intron':
+					rna_gc_introns[k] = v
+	
+	# apc results
+	with open(arg.gc[1], 'r') as fp:
+		apc_gc = json.load(fp)
+		
+	apc_gc_cds = {}
+	apc_gc_introns = {}
+	for iso in apc_gc.items():
+		for ft in iso[1].items():
+			for k_v in ft[1].items():
+				k = k_v[0]
+				v = k_v[1]
+				if ft[0] == 'cds':
+					apc_gc_cds[k] = v
+				if ft[0] == 'intron':
+					apc_gc_introns[k] = v
+
 with open(arg.out_name, 'w') as fp:
 	fp.write(f'<svg width="{arg.width}" height="{arg.height}">\n')
 	
@@ -95,24 +140,32 @@ with open(arg.out_name, 'w') as fp:
 		last_end = cdss[-1][0] - 1
 		if [last_beg, last_end] not in intron_coors:
 			intron_coors.append([last_beg, last_end])
-	
 		for cds in cdss:
 			height = 20
 			width = cds[1] - cds[0] + 1
 			rect = draw_rect(width, height, cds[0]+x_offset, y, 'blue')
 			fp.write(rect)
 			
+			if arg.gc:
+				cds_mid = int(round((cds[0] + cds[1])/2, 0))
+				cds_key = ','.join(map(str, map(lambda x: x-1, cds)))
+				gc_val = rna_gc_cds[cds_key]
+				gc_text = draw_text(gc_val, cds_mid-10, y-10)
+				fp.write(gc_text)
+				
+			
+			
 		for int_c in intron_coors:
 			height = 6
 			width = int_c[1] - int_c[0] + 1 
 			rect = draw_rect(width, height, int_c[0]+x_offset, y+7, 'black')
 			fp.write(rect)
-			
+		
 		int_string = '|'.join([f'{x[0]},{x[1]}' for x in intron_coors])
 		text = draw_text(int_string, x_offset+cdss[-1][1]+10, y+14)
 		fp.write(text)
 		
-		y += 30
+		y += 30 + gcy_offset
 	
 	# draw RNA-seq introns
 	start_pt = min(rna_introns.items(), key=lambda index : index[0][0])

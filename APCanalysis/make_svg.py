@@ -150,16 +150,21 @@ with open(arg.out_name, 'w') as fp:
 				cds_mid = int(round((cds[0] + cds[1])/2, 0))
 				cds_key = ','.join(map(str, map(lambda x: x-1, cds)))
 				gc_val = rna_gc_cds[cds_key]
-				gc_text = draw_text(gc_val, cds_mid-10, y-10)
+				gc_text = draw_text(gc_val, cds_mid-10, y-5)
 				fp.write(gc_text)
 				
-			
-			
 		for int_c in intron_coors:
 			height = 6
 			width = int_c[1] - int_c[0] + 1 
 			rect = draw_rect(width, height, int_c[0]+x_offset, y+7, 'black')
 			fp.write(rect)
+			
+			if arg.gc:
+				int_mid = int(round((int_c[0] + int_c[1])/2, 0))
+				intron_key = ','.join(map(str, map(lambda x: x-1, int_c)))
+				gc_val = rna_gc_introns[intron_key]
+				gc_text = draw_text(gc_val, int_mid-10, y-5)
+				fp.write(gc_text)
 		
 		int_string = '|'.join([f'{x[0]},{x[1]}' for x in intron_coors])
 		text = draw_text(int_string, x_offset+cdss[-1][1]+10, y+14)
@@ -188,12 +193,21 @@ with open(arg.out_name, 'w') as fp:
 		prob = iso[0][3]
 		int_def = []
 		for exin in iso:
+			
 			if exin[0] == 'exon':
 				prob = exin[3]
 				height = 20
 				width = exin[2] - exin[1] + 1
 				rect = draw_rect(width, height, exin[1]+x_offset, y, 'blue')
 				fp.write(rect)
+				
+				if arg.gc:
+					exon_mid = int(round((exin[1] + exin[2])/2, 0))
+					exon_key = ','.join(map(str, [exin[1]-1, exin[2]-1]))
+					gc_val = apc_gc_cds[exon_key]
+					gc_text = draw_text(gc_val, exon_mid-10, y-5)
+					fp.write(gc_text)
+				
 			if exin[0] == 'intron':
 				int_def.append([exin[1], exin[2]])
 				prob = exin[3]
@@ -201,12 +215,20 @@ with open(arg.out_name, 'w') as fp:
 				width = exin[2] - exin[1] + 1
 				rect = draw_rect(width, height, exin[1]+x_offset, y+7, 'black')
 				fp.write(rect)
+				
+				if arg.gc:
+					i_mid = int(round((exin[1] + exin[2])/2, 0))
+					i_key = ','.join(map(str, [exin[1]-1, exin[2]-1]))
+					gc_val = apc_gc_introns[i_key]
+					gc_text = draw_text(gc_val, i_mid-10, y-5)
+					fp.write(gc_text)
+				
 		int_text = '|'.join([f'{x[0]},{x[1]}' for x in int_def])
 		text1 = draw_text(prob, iso[0][1]+x_offset-55, y+15)
 		text2 = draw_text(int_text, iso[-1][2]+x_offset+10, y+15)
 		fp.write(text1)
 		fp.write(text2)
-		y += 30
+		y += 30 + gcy_offset
 	fp.write(f'</svg>')
 	
 	

@@ -35,8 +35,7 @@ for apc_dir in args.apc_results:
 		gid = fpath.split('/')[-1]
 		gid = '.'.join(gid.split('.')[:-2])
 		gene_file_paths[gid].append(fpath)
-print(gene_file_paths)
-print('###')
+
 def gc_calc(seq):
 	
 	nts = {'A': 0, 'C': 0, 'G': 0, 'T': 0}
@@ -99,7 +98,7 @@ def get_apc_cds(gff):
 			if line[2] == 'exon':
 				exon_coor = (int(line[3]), int(line[4]))
 				iso_exons[iso_n].append(exon_coor)
-		print(iso_exons, '@@@')
+
 		return iso_exons
 		
 def gc_content(fasta, exons):
@@ -118,10 +117,7 @@ def gc_content(fasta, exons):
 		intron_res = {}
 		intron_bounds = []
 		cds_count = 0
-		print(iso[1], 'ALL CDS')
-		print(sorted(iso[1]), 'sorted')
 		for cds in sorted(iso[1]):
-			print(cds, 'CDS')
 			# swap to 0 based indexing
 			# get cds seq/gc
 			l_cds = cds[0] - 1
@@ -135,7 +131,6 @@ def gc_content(fasta, exons):
 			# get left and right intron boundaries
 			if cds_count == 0:
 				l_int = r_cds + 1
-				print(l_int, 'L_INT')
 				intron_bounds.append(l_int)
 				
 			if cds_count > 0:
@@ -143,25 +138,14 @@ def gc_content(fasta, exons):
 				if cds_count < len(iso[1]) - 1:
 					l_int = l_cds - 1
 					r_int = r_cds + 1
-					print(l_int, r_int, 'LR_INT')
 					intron_bounds.append(l_int)
 					intron_bounds.append(r_int)
 					
 				if cds_count == len(iso[1]) - 1:
 					r_int = l_cds - 1
-					print(r_int, 'R_INT')
 					intron_bounds.append(r_int)
 					
 			cds_count += 1
-			
-		print('after sort?')
-		print(cds_res)
-		print(intron_bounds)	
-			
-		# ok to sort after 
-		# sort added to line 123ish
-		#cds_res = dict(sorted(cds_res.items()))
-		#intron_bounds = sorted(intron_bounds)
 
 		# some isoforms have no introns
 		if len(intron_bounds) > 1:
@@ -209,9 +193,6 @@ for gene in gene_file_paths.items():
 	
 	data[gene[0]] = {'wb_data': wb_data, 'apc_data': apc_data}
 
-for d in data.items():
-	print(d)
-print('###')
 if not os.path.isdir('gcc_res/'):
 	os.mkdir('gcc_res/')
 

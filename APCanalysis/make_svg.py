@@ -81,10 +81,8 @@ if arg.gc:
 	gcy_offset = 20
 	
 	# smallgenes/rnaseq 
-	print(arg.gc[0], 'gcccc')
 	with open(arg.gc[0], 'r') as gc0fp:
 		rnaseq_gc = json.load(gc0fp)
-		print(rnaseq_gc, 'DKFJLASF')
 	rna_gc_cds = {}
 	rna_gc_introns = {}
 	for iso in rnaseq_gc.items():
@@ -95,7 +93,6 @@ if arg.gc:
 				if ft[0] == 'cds':
 					rna_gc_cds[k] = v
 				if ft[0] == 'intron':
-					print(k, v, 'KV')
 					rna_gc_introns[k] = v
 	
 	# apc results
@@ -121,7 +118,6 @@ with open(arg.out_name, 'w') as onfp:
 	x_offset = 0
 	# draw WormBase gene
 	for cdss in sorted_cdss:
-		print(cdss, 'wow')
 		
 		# this may not work for every gff3 (check CDS starts)
 		if cdss[0][0] < 0: 
@@ -133,23 +129,17 @@ with open(arg.out_name, 'w') as onfp:
 		first_beg = cdss[0][1] + 1
 		first_end = cdss[1][0] - 1
 		intron_coors.append([first_beg, first_end])
-		
-		print(intron_coors, '!!!!!!!!')
 	
 		# inner introns
 		for i, cds in enumerate(cdss[1:len(cdss)-2]):
 			inner_int = [cds[1]+1, cdss[i+2][0]-1]
-			print(inner_int, 'inner')
 			intron_coors.append(inner_int)
-			
-		print(intron_coors)
 	
 		# last intron
 		last_beg = cdss[-2][1] + 1
 		last_end = cdss[-1][0] - 1
 		if [last_beg, last_end] not in intron_coors:
 			intron_coors.append([last_beg, last_end])
-		print(cdss, '$$$$$')
 		for cds in cdss:
 			height = 20
 			width = cds[1] - cds[0] + 1
@@ -164,7 +154,6 @@ with open(arg.out_name, 'w') as onfp:
 				onfp.write(gc_text)
 				
 		for int_c in intron_coors:
-			print(int_c, 'CCCCCCC')
 			height = 6
 			width = int_c[1] - int_c[0] + 1 
 			rect = draw_rect(width, height, int_c[0]+x_offset, y+7, 'black')
@@ -173,9 +162,6 @@ with open(arg.out_name, 'w') as onfp:
 			if arg.gc:
 				int_mid = int(round((int_c[0] + int_c[1])/2, 0))
 				intron_key = ','.join(map(str, map(lambda x: x-1, int_c)))
-				print(int_c)
-				print(rna_gc_introns, 'RNA ints')
-				print(apc_gc_introns)
 				gc_val = rna_gc_introns[intron_key]
 				gc_text = draw_text(gc_val, int_mid-10, y-5)
 				onfp.write(gc_text)

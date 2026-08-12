@@ -66,18 +66,16 @@ def build_cmd(prog, apc_gff, rna_gff, out_name, gc=None):
 	if gc:
 		cmd = (
 			f'python3 {prog} {apc_gff} {rna_gff} --out_name {out_name} '
-			f'--gc {gc[0]} {gc[1]}'
+			f'--gcc {gc[0]} {gc[1]}'
 		)		
 	else:
 		cmd = (
 			f'python3 {prog} {apc_gff} {rna_gff} --out_name {out_name}'
 		)
 		
-	return cmd
+	return cmd.split(' ')
 	
 for gpaths in gene_files.items():
-	print(gpaths[0])
-	print(len(gpaths[1]))
 	if len(gpaths[1]) == 4:
 		gc_paths = [gpaths[1][2], gpaths[1][3]]
 	else:
@@ -86,17 +84,7 @@ for gpaths in gene_files.items():
 			args.program, gpaths[1][0], gpaths[1][1], 
 			f'{args.out_dir}{gpaths[0]}.svg', gc=gc_paths
 		)
-	print(cmd)
-	break
+	#print(' '.join(cmd))	
+	subprocess.run(cmd)
 
-
-
-
-#subprocess.run('ls')
-'''
-python3 make_svg.py ../data/APCisos_optiso/ce.2.243.APC_optiso.gff 
-../data/smallgenes/ce.2.243.gff3 --out_name ce.2.243.svg 
---gc gcc_res/rnaseq_gcc/ce.2.243.gcc.json 
-gcc_res/APC_optiso_gcc/ce.2.243.gcc.json
-'''
 

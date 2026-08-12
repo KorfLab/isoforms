@@ -60,13 +60,18 @@ def get_wb_cds(gff):
 			line = line.split('\t')  
 			gff_lines.append(line)
 			
+	# ce.1.436 has CDS without the parent mRNA
+	# get txids from CDS instead of mRNAs
+			
 	# get transcript IDs
 	mrna_cds = {}
 	for line in gff_lines:	
 		if line[2] == 'mRNA':
 			m_tid = line[8].split(';')[0].split(':')[1]
 			m_tid = '.'.join(m_tid.split('.')[:-1])
+			print(m_tid)
 			mrna_cds[m_tid] = []
+	
 	
 	# match CDS to transcript IDs
 	for line in gff_lines:
@@ -168,6 +173,7 @@ for gene in gene_file_paths.items():
 	apc_files = gene[1][2:]
 	
 	wb_cds = get_wb_cds(wormbase)
+	print(wb_cds)
 	wb_gc = gc_content(fasta, wb_cds)
 	
 	wb_data = {}
@@ -193,8 +199,11 @@ for gene in gene_file_paths.items():
 	
 	data[gene[0]] = {'wb_data': wb_data, 'apc_data': apc_data}
 
-if not os.path.isdir('gcc_res/'):
-	os.mkdir('gcc_res/')
+if not args.out_dir.endswith('/'):
+	args.out_dir = f'{args.out_dir}/'
+
+if not os.path.isdir(args.out_dir):
+	os.mkdir(args.out_dir)
 
 # split results into multiple directories
 for d in data.items():
@@ -202,16 +211,16 @@ for d in data.items():
 		for d3 in d2[1].items():
 			
 			if d2[0] == 'wb_data':
-				if not os.path.isdir('gcc_res/rnaseq_gcc/'):
-					os.mkdir('gcc_res/rnaseq_gcc/')
-				with open(f'gcc_res/rnaseq_gcc/{d[0]}.gcc.json', 'w') as jfile:
+				if not os.path.isdir(f'{args.out_dir}rnaseq_gcc/'):
+					os.mkdir(f'{args.out_dir}rnaseq_gcc/')
+				with open(f'{args.out_dir}rnaseq_gcc/{d[0]}.gcc.json', 'w') as jfile:
 					json.dump(d3[1], jfile, indent=4)
 			
 			if d2[0] == 'apc_data':
 				apc_type = d3[0].split('/')[-1].split('.')[-2]
-				if not os.path.isdir(f'gcc_res/{apc_type}_gcc/'):
-					os.mkdir(f'gcc_res/{apc_type}_gcc/')
-				with open(f'gcc_res/{apc_type}_gcc/{d[0]}.gcc.json', 'w') as jfile:
+				if not os.path.isdir(f'{args.out_dir}{apc_type}_gcc/'):
+					os.mkdir(f'{args.out_dir}{apc_type}_gcc/')
+				with open(f'{args.out_dir}{apc_type}_gcc/{d[0]}.gcc.json', 'w') as jfile:
 					json.dump(d3[1], jfile, indent=4)
 
 

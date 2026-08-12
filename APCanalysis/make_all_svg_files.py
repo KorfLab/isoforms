@@ -13,11 +13,11 @@ parser.add_argument('--out_dir', help='name of output directory')
 parser.add_argument('--program', required=False, 
 					default='make_svg.py', help='path to make_svg.py '
 					'[%(default)s]')
-parser.add_argument('--gc', type=str, required=False, nargs=2, 
+parser.add_argument('--gcc', type=str, required=False, nargs=2, 
 					help='directories of json files with GC content '
 					'data; must be in order, with the '
 					'smallgenes/rnaseq data first and apc data second. '
-					'Example: --gc gcc_res/rnaseq_gcc/ '
+					'Example: --gcc gcc_res/rnaseq_gcc/ '
 					'gcc_res/APC_base_gcc/')
 
 args = parser.parse_args()
@@ -34,11 +34,11 @@ if not args.out_dir.endswith('/'):
 if not os.path.isdir(args.out_dir):
 	os.mkdir(args.out_dir)
 	
-if args.gc:
-	if not args.gc[0].endswith('/'):
-		args.gc[0] = f'{args.gc[0]}/'	
-	if not args.gc[1].endswith('/'):
-		args.gc[1] = f'{args.gc[1]}/'		
+if args.gcc:
+	if not args.gcc[0].endswith('/'):
+		args.gcc[0] = f'{args.gc[0]}/'	
+	if not args.gcc[1].endswith('/'):
+		args.gcc[1] = f'{args.gc[1]}/'		
 	
 # add file paths in order
 gene_files = {}
@@ -54,19 +54,19 @@ for rna_path in glob.glob(f'{args.smallgenes}*.gff3'):
 
 #for apc_gc_path in glob.glob(f'{args.gc[0]}')
 
-if args.gc:
-	for gc_path in zip(glob.glob(f'{args.gc[0]}*'), 
-						glob.glob(f'{args.gc[1]}*')):
+if args.gcc:
+	for gc_path in zip(glob.glob(f'{args.gcc[0]}*'), 
+						glob.glob(f'{args.gcc[1]}*')):
 		gid = '.'.join(gc_path[0].split('/')[-1].split('.')[:-2])
 		gene_files[gid].append(gc_path[0])
 		gene_files[gid].append(gc_path[1])
 	
-def build_cmd(prog, apc_gff, rna_gff, out_name, gc=None):
+def build_cmd(prog, apc_gff, rna_gff, out_name, gcc=None):
 	
-	if gc:
+	if gcc:
 		cmd = (
 			f'python3 {prog} {apc_gff} {rna_gff} --out_name {out_name} '
-			f'--gcc {gc[0]} {gc[1]}'
+			f'--gcc {gcc[0]} {gcc[1]}'
 		)		
 	else:
 		cmd = (
@@ -76,15 +76,17 @@ def build_cmd(prog, apc_gff, rna_gff, out_name, gc=None):
 	return cmd.split(' ')
 	
 for gpaths in gene_files.items():
+	print(gpaths[0])
 	if len(gpaths[1]) == 4:
 		gc_paths = [gpaths[1][2], gpaths[1][3]]
 	else:
 		gc_paths = None
+		
 	cmd = build_cmd(
 			args.program, gpaths[1][0], gpaths[1][1], 
-			f'{args.out_dir}{gpaths[0]}.svg', gc=gc_paths
+			f'{args.out_dir}{gpaths[0]}.svg', gcc=gc_paths
 		)
-	#print(' '.join(cmd))	
+	
 	subprocess.run(cmd)
 
 

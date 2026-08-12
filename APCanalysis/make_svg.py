@@ -163,6 +163,7 @@ with open(arg.out_name, 'w') as onfp:
 		last_end = cdss[-1][0] - 1
 		if [last_beg, last_end] not in intron_coors:
 			intron_coors.append([last_beg, last_end])
+		print(cdss)
 		for cds in cdss:
 			height = 20
 			width = cds[1] - cds[0] + 1
@@ -170,6 +171,7 @@ with open(arg.out_name, 'w') as onfp:
 			onfp.write(rect)
 			
 			if arg.gcc:
+				print(cds)
 				cds_mid = int(round((cds[0] + cds[1])/2, 0))
 				cds_key = ','.join(map(str, map(lambda x: x-1, cds)))
 				gc_val = rna_gc_cds[cds_key]

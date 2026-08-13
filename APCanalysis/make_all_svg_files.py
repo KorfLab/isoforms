@@ -76,7 +76,6 @@ def build_cmd(prog, apc_gff, rna_gff, out_name, gcc=None):
 	return cmd.split(' ')
 	
 for gpaths in gene_files.items():
-	print(gpaths[0])
 	if len(gpaths[1]) == 4:
 		gc_paths = [gpaths[1][2], gpaths[1][3]]
 	else:

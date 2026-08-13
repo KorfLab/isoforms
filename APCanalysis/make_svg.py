@@ -203,7 +203,7 @@ with open(arg.out_name, 'w') as onfp:
 					wb_gc_vals['intron'] = [gc_val]
 				else:
 					wb_gc_vals['intron'].append(gc_val)
-				gc_text = draw_text(gc_val, int_mid-10, y+25)
+				gc_text = draw_text(gc_val, int_mid-10, y+32)
 				onfp.write(gc_text)
 		
 		int_string = '|'.join([f'{x[0]},{x[1]}' for x in intron_coors])

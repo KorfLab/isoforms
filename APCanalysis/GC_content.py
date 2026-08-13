@@ -62,26 +62,20 @@ def get_wb_cds(gff):
 			
 	# ce.1.436 has CDS without the parent mRNA
 	# get txids from CDS instead of mRNAs
-			
-	# get transcript IDs
-	mrna_cds = {}
-	for line in gff_lines:	
-		if line[2] == 'mRNA':
-			m_tid = line[8].split(';')[0].split(':')[1]
-			m_tid = '.'.join(m_tid.split('.')[:-1])
-			print(m_tid)
-			mrna_cds[m_tid] = []
-	
 	
 	# match CDS to transcript IDs
+	tx_cds = {}
 	for line in gff_lines:
 		if line[2] == 'CDS':
-			c_tid = line[8].split(';')[0].split(':')[1]
-			if c_tid in mrna_cds:
-				cds_coor = (int(line[3]), int(line[4]))
-				mrna_cds[c_tid].append(cds_coor)
+			tx_id = line[8].split(';')[0].split(':')[1]
+			cds_coor = (int(line[3]), int(line[4]))
+			if tx_id not in tx_cds:
+				tx_cds[tx_id] = []
+				tx_cds[tx_id].append(cds_coor)
+			else:
+				tx_cds[tx_id].append(cds_coor)
 			
-	return mrna_cds
+	return tx_cds
 	
 # get matching cds and isoforms from apc gff results
 def get_apc_cds(gff):
@@ -173,7 +167,6 @@ for gene in gene_file_paths.items():
 	apc_files = gene[1][2:]
 	
 	wb_cds = get_wb_cds(wormbase)
-	print(wb_cds)
 	wb_gc = gc_content(fasta, wb_cds)
 	
 	wb_data = {}

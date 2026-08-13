@@ -125,6 +125,10 @@ with open(arg.out_name, 'w') as onfp:
 	# draw WormBase gene
 	for cdss in sorted_cdss:
 		
+		# gc value text overlaps if cds is too short
+		# attempt to build a single string for all gc value data
+		wb_gc_vals = {}
+		
 		# condition if there are no introns
 		if len(cdss) == 1:
 			height = 20
@@ -136,6 +140,10 @@ with open(arg.out_name, 'w') as onfp:
 				cds_mid = int(round((cds[0] + cds[1])/2, 0))
 				cds_key = ','.join(map(str, map(lambda x: x-1, cds)))
 				gc_val = rna_gc_cds[cds_key]
+				if 'cds' not in wb_gc_vals:
+					wb_gc_vals['cds'] = [gc_val]
+				else:
+					wb_gc_vals['cds'].append(gc_val)
 				gc_text = draw_text(gc_val, cds_mid-10, y-5)
 				onfp.write(gc_text)
 
@@ -163,7 +171,7 @@ with open(arg.out_name, 'w') as onfp:
 		last_end = cdss[-1][0] - 1
 		if [last_beg, last_end] not in intron_coors:
 			intron_coors.append([last_beg, last_end])
-		print(cdss)
+
 		for cds in cdss:
 			height = 20
 			width = cds[1] - cds[0] + 1
@@ -171,10 +179,13 @@ with open(arg.out_name, 'w') as onfp:
 			onfp.write(rect)
 			
 			if arg.gcc:
-				print(cds)
 				cds_mid = int(round((cds[0] + cds[1])/2, 0))
 				cds_key = ','.join(map(str, map(lambda x: x-1, cds)))
 				gc_val = rna_gc_cds[cds_key]
+				if 'cds' not in wb_gc_vals:
+					wb_gc_vals['cds'] = [gc_val]
+				else:
+					wb_gc_vals['cds'].append(gc_val)
 				gc_text = draw_text(gc_val, cds_mid-10, y-5)
 				onfp.write(gc_text)
 				
@@ -188,7 +199,11 @@ with open(arg.out_name, 'w') as onfp:
 				int_mid = int(round((int_c[0] + int_c[1])/2, 0))
 				intron_key = ','.join(map(str, map(lambda x: x-1, int_c)))
 				gc_val = rna_gc_introns[intron_key]
-				gc_text = draw_text(gc_val, int_mid-10, y-5)
+				if 'intron' not in wb_gc_vals:
+					wb_gc_vals['intron'] = [gc_val]
+				else:
+					wb_gc_vals['intron'].append(gc_val)
+				gc_text = draw_text(gc_val, int_mid-10, y+25)
 				onfp.write(gc_text)
 		
 		int_string = '|'.join([f'{x[0]},{x[1]}' for x in intron_coors])

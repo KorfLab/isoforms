@@ -39,7 +39,6 @@ for file in glob.glob(f'{args.gcc_res}*'):
 			else:
 				cds_avg = round(cds_gc/cds_n, 2)
 				int_avg = round(int_gc/int_n, 2)
-			print(gid, cds_avg, int_avg)
 			if gid not in avg_gc:
 				avg_gc[gid] = {'cds': [cds_avg], 'int': [int_avg]}
 			else:
@@ -61,7 +60,9 @@ for item1 in avg_gc.items():
 		else:
 			avg_gc2[item1[0]][item2[0]] = round(sum(vals)/item_len, 2)
 		
+print(f'gene_id,cds_gc_avg,int_gc_avg')
 for item in avg_gc2.items():
-	print(item)
-
+	print(f'{item[0]},{item[1]['cds']},{item[1]['int']}')
+	
+	
 

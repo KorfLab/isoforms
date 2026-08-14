@@ -189,7 +189,7 @@ for gene in gene_file_paths.items():
 			else:
 				apc_data[apcf][iso_n] = gc
 			iso_n += 1
-	
+
 	data[gene[0]] = {'wb_data': wb_data, 'apc_data': apc_data}
 
 if not args.out_dir.endswith('/'):
@@ -202,13 +202,12 @@ if not os.path.isdir(args.out_dir):
 for d in data.items():
 	for d2 in d[1].items():
 		for d3 in d2[1].items():
-			
 			if d2[0] == 'wb_data':
 				if not os.path.isdir(f'{args.out_dir}rnaseq_gcc/'):
 					os.mkdir(f'{args.out_dir}rnaseq_gcc/')
 				with open(f'{args.out_dir}rnaseq_gcc/{d[0]}.gcc.json', 'w') as jfile:
 					json.dump(d3[1], jfile, indent=4)
-			
+		
 			if d2[0] == 'apc_data':
 				apc_type = d3[0].split('/')[-1].split('.')[-2]
 				if not os.path.isdir(f'{args.out_dir}{apc_type}_gcc/'):

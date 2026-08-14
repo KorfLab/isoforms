@@ -1,0 +1,780 @@
+# name: ce.1.542
+# length: 1016
+# donors: 32
+# acceptors: 52
+# isoforms: 100
+# rejected: 9289135
+# maxprob: 0.1103
+# minprob 0.002298
+# complexity: 5.739
+# model: worm
+ce.1.542	apc	gene	100	917	.	+	.	ID=Gene-ce.1.542
+
+ce.1.542	apc	mRNA	100	917	0.1103	+	.	ID=tx-ce.1.542-1;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.1103	+	.	Parent=tx-ce.1.542-1
+ce.1.542	apc	exon	326	632	0.1103	+	.	Parent=tx-ce.1.542-1
+ce.1.542	apc	exon	700	917	0.1103	+	.	Parent=tx-ce.1.542-1
+ce.1.542	apc	intron	261	325	0.1103	+	.	Parent=tx-ce.1.542-1
+ce.1.542	apc	intron	633	699	0.1103	+	.	Parent=tx-ce.1.542-1
+
+ce.1.542	apc	mRNA	100	917	0.07989	+	.	ID=tx-ce.1.542-2;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.07989	+	.	Parent=tx-ce.1.542-2
+ce.1.542	apc	exon	311	632	0.07989	+	.	Parent=tx-ce.1.542-2
+ce.1.542	apc	exon	700	917	0.07989	+	.	Parent=tx-ce.1.542-2
+ce.1.542	apc	intron	261	310	0.07989	+	.	Parent=tx-ce.1.542-2
+ce.1.542	apc	intron	633	699	0.07989	+	.	Parent=tx-ce.1.542-2
+
+ce.1.542	apc	mRNA	100	917	0.06456	+	.	ID=tx-ce.1.542-3;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	632	0.06456	+	.	Parent=tx-ce.1.542-3
+ce.1.542	apc	exon	700	917	0.06456	+	.	Parent=tx-ce.1.542-3
+ce.1.542	apc	intron	633	699	0.06456	+	.	Parent=tx-ce.1.542-3
+
+ce.1.542	apc	mRNA	100	917	0.04969	+	.	ID=tx-ce.1.542-4;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.04969	+	.	Parent=tx-ce.1.542-4
+ce.1.542	apc	exon	326	565	0.04969	+	.	Parent=tx-ce.1.542-4
+ce.1.542	apc	exon	634	917	0.04969	+	.	Parent=tx-ce.1.542-4
+ce.1.542	apc	intron	261	325	0.04969	+	.	Parent=tx-ce.1.542-4
+ce.1.542	apc	intron	566	633	0.04969	+	.	Parent=tx-ce.1.542-4
+
+ce.1.542	apc	mRNA	100	917	0.03598	+	.	ID=tx-ce.1.542-5;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.03598	+	.	Parent=tx-ce.1.542-5
+ce.1.542	apc	exon	311	565	0.03598	+	.	Parent=tx-ce.1.542-5
+ce.1.542	apc	exon	634	917	0.03598	+	.	Parent=tx-ce.1.542-5
+ce.1.542	apc	intron	261	310	0.03598	+	.	Parent=tx-ce.1.542-5
+ce.1.542	apc	intron	566	633	0.03598	+	.	Parent=tx-ce.1.542-5
+
+ce.1.542	apc	mRNA	100	917	0.03008	+	.	ID=tx-ce.1.542-6;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.03008	+	.	Parent=tx-ce.1.542-6
+ce.1.542	apc	exon	326	632	0.03008	+	.	Parent=tx-ce.1.542-6
+ce.1.542	apc	exon	700	917	0.03008	+	.	Parent=tx-ce.1.542-6
+ce.1.542	apc	intron	245	325	0.03008	+	.	Parent=tx-ce.1.542-6
+ce.1.542	apc	intron	633	699	0.03008	+	.	Parent=tx-ce.1.542-6
+
+ce.1.542	apc	mRNA	100	917	0.0282	+	.	ID=tx-ce.1.542-7;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	565	0.0282	+	.	Parent=tx-ce.1.542-7
+ce.1.542	apc	exon	634	917	0.0282	+	.	Parent=tx-ce.1.542-7
+ce.1.542	apc	intron	566	633	0.0282	+	.	Parent=tx-ce.1.542-7
+
+ce.1.542	apc	mRNA	100	917	0.02564	+	.	ID=tx-ce.1.542-8;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.02564	+	.	Parent=tx-ce.1.542-8
+ce.1.542	apc	exon	326	565	0.02564	+	.	Parent=tx-ce.1.542-8
+ce.1.542	apc	exon	634	681	0.02564	+	.	Parent=tx-ce.1.542-8
+ce.1.542	apc	exon	733	917	0.02564	+	.	Parent=tx-ce.1.542-8
+ce.1.542	apc	intron	261	325	0.02564	+	.	Parent=tx-ce.1.542-8
+ce.1.542	apc	intron	566	633	0.02564	+	.	Parent=tx-ce.1.542-8
+ce.1.542	apc	intron	682	732	0.02564	+	.	Parent=tx-ce.1.542-8
+
+ce.1.542	apc	mRNA	100	917	0.02477	+	.	ID=tx-ce.1.542-9;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.02477	+	.	Parent=tx-ce.1.542-9
+ce.1.542	apc	exon	326	632	0.02477	+	.	Parent=tx-ce.1.542-9
+ce.1.542	apc	exon	700	917	0.02477	+	.	Parent=tx-ce.1.542-9
+ce.1.542	apc	intron	265	325	0.02477	+	.	Parent=tx-ce.1.542-9
+ce.1.542	apc	intron	633	699	0.02477	+	.	Parent=tx-ce.1.542-9
+
+ce.1.542	apc	mRNA	100	917	0.02383	+	.	ID=tx-ce.1.542-10;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	231	0.02383	+	.	Parent=tx-ce.1.542-10
+ce.1.542	apc	exon	326	632	0.02383	+	.	Parent=tx-ce.1.542-10
+ce.1.542	apc	exon	700	917	0.02383	+	.	Parent=tx-ce.1.542-10
+ce.1.542	apc	intron	232	325	0.02383	+	.	Parent=tx-ce.1.542-10
+ce.1.542	apc	intron	633	699	0.02383	+	.	Parent=tx-ce.1.542-10
+
+ce.1.542	apc	mRNA	100	917	0.02069	+	.	ID=tx-ce.1.542-11;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.02069	+	.	Parent=tx-ce.1.542-11
+ce.1.542	apc	exon	326	467	0.02069	+	.	Parent=tx-ce.1.542-11
+ce.1.542	apc	exon	513	632	0.02069	+	.	Parent=tx-ce.1.542-11
+ce.1.542	apc	exon	700	917	0.02069	+	.	Parent=tx-ce.1.542-11
+ce.1.542	apc	intron	261	325	0.02069	+	.	Parent=tx-ce.1.542-11
+ce.1.542	apc	intron	468	512	0.02069	+	.	Parent=tx-ce.1.542-11
+ce.1.542	apc	intron	633	699	0.02069	+	.	Parent=tx-ce.1.542-11
+
+ce.1.542	apc	mRNA	100	917	0.01856	+	.	ID=tx-ce.1.542-12;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.01856	+	.	Parent=tx-ce.1.542-12
+ce.1.542	apc	exon	311	565	0.01856	+	.	Parent=tx-ce.1.542-12
+ce.1.542	apc	exon	634	681	0.01856	+	.	Parent=tx-ce.1.542-12
+ce.1.542	apc	exon	733	917	0.01856	+	.	Parent=tx-ce.1.542-12
+ce.1.542	apc	intron	261	310	0.01856	+	.	Parent=tx-ce.1.542-12
+ce.1.542	apc	intron	566	633	0.01856	+	.	Parent=tx-ce.1.542-12
+ce.1.542	apc	intron	682	732	0.01856	+	.	Parent=tx-ce.1.542-12
+
+ce.1.542	apc	mRNA	100	917	0.01756	+	.	ID=tx-ce.1.542-13;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.01756	+	.	Parent=tx-ce.1.542-13
+ce.1.542	apc	exon	311	632	0.01756	+	.	Parent=tx-ce.1.542-13
+ce.1.542	apc	exon	700	917	0.01756	+	.	Parent=tx-ce.1.542-13
+ce.1.542	apc	intron	265	310	0.01756	+	.	Parent=tx-ce.1.542-13
+ce.1.542	apc	intron	633	699	0.01756	+	.	Parent=tx-ce.1.542-13
+
+ce.1.542	apc	mRNA	100	917	0.01707	+	.	ID=tx-ce.1.542-14;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.01707	+	.	Parent=tx-ce.1.542-14
+ce.1.542	apc	exon	311	632	0.01707	+	.	Parent=tx-ce.1.542-14
+ce.1.542	apc	exon	700	917	0.01707	+	.	Parent=tx-ce.1.542-14
+ce.1.542	apc	intron	245	310	0.01707	+	.	Parent=tx-ce.1.542-14
+ce.1.542	apc	intron	633	699	0.01707	+	.	Parent=tx-ce.1.542-14
+
+ce.1.542	apc	mRNA	100	917	0.01526	+	.	ID=tx-ce.1.542-15;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.01526	+	.	Parent=tx-ce.1.542-15
+ce.1.542	apc	exon	311	467	0.01526	+	.	Parent=tx-ce.1.542-15
+ce.1.542	apc	exon	513	632	0.01526	+	.	Parent=tx-ce.1.542-15
+ce.1.542	apc	exon	700	917	0.01526	+	.	Parent=tx-ce.1.542-15
+ce.1.542	apc	intron	261	310	0.01526	+	.	Parent=tx-ce.1.542-15
+ce.1.542	apc	intron	468	512	0.01526	+	.	Parent=tx-ce.1.542-15
+ce.1.542	apc	intron	633	699	0.01526	+	.	Parent=tx-ce.1.542-15
+
+ce.1.542	apc	mRNA	100	917	0.01455	+	.	ID=tx-ce.1.542-16;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	565	0.01455	+	.	Parent=tx-ce.1.542-16
+ce.1.542	apc	exon	634	681	0.01455	+	.	Parent=tx-ce.1.542-16
+ce.1.542	apc	exon	733	917	0.01455	+	.	Parent=tx-ce.1.542-16
+ce.1.542	apc	intron	566	633	0.01455	+	.	Parent=tx-ce.1.542-16
+ce.1.542	apc	intron	682	732	0.01455	+	.	Parent=tx-ce.1.542-16
+
+ce.1.542	apc	mRNA	100	917	0.01355	+	.	ID=tx-ce.1.542-17;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.01355	+	.	Parent=tx-ce.1.542-17
+ce.1.542	apc	exon	326	565	0.01355	+	.	Parent=tx-ce.1.542-17
+ce.1.542	apc	exon	634	917	0.01355	+	.	Parent=tx-ce.1.542-17
+ce.1.542	apc	intron	245	325	0.01355	+	.	Parent=tx-ce.1.542-17
+ce.1.542	apc	intron	566	633	0.01355	+	.	Parent=tx-ce.1.542-17
+
+ce.1.542	apc	mRNA	100	917	0.01305	+	.	ID=tx-ce.1.542-18;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.01305	+	.	Parent=tx-ce.1.542-18
+ce.1.542	apc	exon	326	552	0.01305	+	.	Parent=tx-ce.1.542-18
+ce.1.542	apc	exon	634	917	0.01305	+	.	Parent=tx-ce.1.542-18
+ce.1.542	apc	intron	261	325	0.01305	+	.	Parent=tx-ce.1.542-18
+ce.1.542	apc	intron	553	633	0.01305	+	.	Parent=tx-ce.1.542-18
+
+ce.1.542	apc	mRNA	100	917	0.01204	+	.	ID=tx-ce.1.542-19;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.01204	+	.	Parent=tx-ce.1.542-19
+ce.1.542	apc	exon	326	917	0.01204	+	.	Parent=tx-ce.1.542-19
+ce.1.542	apc	intron	261	325	0.01204	+	.	Parent=tx-ce.1.542-19
+
+ce.1.542	apc	mRNA	100	917	0.01201	+	.	ID=tx-ce.1.542-20;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	467	0.01201	+	.	Parent=tx-ce.1.542-20
+ce.1.542	apc	exon	513	632	0.01201	+	.	Parent=tx-ce.1.542-20
+ce.1.542	apc	exon	700	917	0.01201	+	.	Parent=tx-ce.1.542-20
+ce.1.542	apc	intron	468	512	0.01201	+	.	Parent=tx-ce.1.542-20
+ce.1.542	apc	intron	633	699	0.01201	+	.	Parent=tx-ce.1.542-20
+
+ce.1.542	apc	mRNA	100	917	0.01181	+	.	ID=tx-ce.1.542-21;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	231	0.01181	+	.	Parent=tx-ce.1.542-21
+ce.1.542	apc	exon	311	632	0.01181	+	.	Parent=tx-ce.1.542-21
+ce.1.542	apc	exon	700	917	0.01181	+	.	Parent=tx-ce.1.542-21
+ce.1.542	apc	intron	232	310	0.01181	+	.	Parent=tx-ce.1.542-21
+ce.1.542	apc	intron	633	699	0.01181	+	.	Parent=tx-ce.1.542-21
+
+ce.1.542	apc	mRNA	100	917	0.01116	+	.	ID=tx-ce.1.542-22;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.01116	+	.	Parent=tx-ce.1.542-22
+ce.1.542	apc	exon	326	565	0.01116	+	.	Parent=tx-ce.1.542-22
+ce.1.542	apc	exon	634	917	0.01116	+	.	Parent=tx-ce.1.542-22
+ce.1.542	apc	intron	265	325	0.01116	+	.	Parent=tx-ce.1.542-22
+ce.1.542	apc	intron	566	633	0.01116	+	.	Parent=tx-ce.1.542-22
+
+ce.1.542	apc	mRNA	100	917	0.01073	+	.	ID=tx-ce.1.542-23;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	231	0.01073	+	.	Parent=tx-ce.1.542-23
+ce.1.542	apc	exon	326	565	0.01073	+	.	Parent=tx-ce.1.542-23
+ce.1.542	apc	exon	634	917	0.01073	+	.	Parent=tx-ce.1.542-23
+ce.1.542	apc	intron	232	325	0.01073	+	.	Parent=tx-ce.1.542-23
+ce.1.542	apc	intron	566	633	0.01073	+	.	Parent=tx-ce.1.542-23
+
+ce.1.542	apc	mRNA	100	917	0.01024	+	.	ID=tx-ce.1.542-24;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.01024	+	.	Parent=tx-ce.1.542-24
+ce.1.542	apc	exon	326	681	0.01024	+	.	Parent=tx-ce.1.542-24
+ce.1.542	apc	exon	733	917	0.01024	+	.	Parent=tx-ce.1.542-24
+ce.1.542	apc	intron	261	325	0.01024	+	.	Parent=tx-ce.1.542-24
+ce.1.542	apc	intron	682	732	0.01024	+	.	Parent=tx-ce.1.542-24
+
+ce.1.542	apc	mRNA	100	917	0.009454	+	.	ID=tx-ce.1.542-25;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.009454	+	.	Parent=tx-ce.1.542-25
+ce.1.542	apc	exon	311	552	0.009454	+	.	Parent=tx-ce.1.542-25
+ce.1.542	apc	exon	634	917	0.009454	+	.	Parent=tx-ce.1.542-25
+ce.1.542	apc	intron	261	310	0.009454	+	.	Parent=tx-ce.1.542-25
+ce.1.542	apc	intron	553	633	0.009454	+	.	Parent=tx-ce.1.542-25
+
+ce.1.542	apc	mRNA	100	917	0.008821	+	.	ID=tx-ce.1.542-26;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.008821	+	.	Parent=tx-ce.1.542-26
+ce.1.542	apc	exon	311	917	0.008821	+	.	Parent=tx-ce.1.542-26
+ce.1.542	apc	intron	261	310	0.008821	+	.	Parent=tx-ce.1.542-26
+
+ce.1.542	apc	mRNA	100	917	0.007909	+	.	ID=tx-ce.1.542-27;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.007909	+	.	Parent=tx-ce.1.542-27
+ce.1.542	apc	exon	311	565	0.007909	+	.	Parent=tx-ce.1.542-27
+ce.1.542	apc	exon	634	917	0.007909	+	.	Parent=tx-ce.1.542-27
+ce.1.542	apc	intron	265	310	0.007909	+	.	Parent=tx-ce.1.542-27
+ce.1.542	apc	intron	566	633	0.007909	+	.	Parent=tx-ce.1.542-27
+
+ce.1.542	apc	mRNA	100	917	0.007689	+	.	ID=tx-ce.1.542-28;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.007689	+	.	Parent=tx-ce.1.542-28
+ce.1.542	apc	exon	311	565	0.007689	+	.	Parent=tx-ce.1.542-28
+ce.1.542	apc	exon	634	917	0.007689	+	.	Parent=tx-ce.1.542-28
+ce.1.542	apc	intron	245	310	0.007689	+	.	Parent=tx-ce.1.542-28
+ce.1.542	apc	intron	566	633	0.007689	+	.	Parent=tx-ce.1.542-28
+
+ce.1.542	apc	mRNA	100	917	0.007424	+	.	ID=tx-ce.1.542-29;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.007424	+	.	Parent=tx-ce.1.542-29
+ce.1.542	apc	exon	311	681	0.007424	+	.	Parent=tx-ce.1.542-29
+ce.1.542	apc	exon	733	917	0.007424	+	.	Parent=tx-ce.1.542-29
+ce.1.542	apc	intron	261	310	0.007424	+	.	Parent=tx-ce.1.542-29
+ce.1.542	apc	intron	682	732	0.007424	+	.	Parent=tx-ce.1.542-29
+
+ce.1.542	apc	mRNA	100	917	0.007372	+	.	ID=tx-ce.1.542-30;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	552	0.007372	+	.	Parent=tx-ce.1.542-30
+ce.1.542	apc	exon	634	917	0.007372	+	.	Parent=tx-ce.1.542-30
+ce.1.542	apc	intron	553	633	0.007372	+	.	Parent=tx-ce.1.542-30
+
+ce.1.542	apc	mRNA	100	917	0.006989	+	.	ID=tx-ce.1.542-31;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.006989	+	.	Parent=tx-ce.1.542-31
+ce.1.542	apc	exon	326	565	0.006989	+	.	Parent=tx-ce.1.542-31
+ce.1.542	apc	exon	634	681	0.006989	+	.	Parent=tx-ce.1.542-31
+ce.1.542	apc	exon	733	917	0.006989	+	.	Parent=tx-ce.1.542-31
+ce.1.542	apc	intron	245	325	0.006989	+	.	Parent=tx-ce.1.542-31
+ce.1.542	apc	intron	566	633	0.006989	+	.	Parent=tx-ce.1.542-31
+ce.1.542	apc	intron	682	732	0.006989	+	.	Parent=tx-ce.1.542-31
+
+ce.1.542	apc	mRNA	100	917	0.006945	+	.	ID=tx-ce.1.542-32;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.006945	+	.	Parent=tx-ce.1.542-32
+ce.1.542	apc	exon	326	632	0.006945	+	.	Parent=tx-ce.1.542-32
+ce.1.542	apc	exon	678	917	0.006945	+	.	Parent=tx-ce.1.542-32
+ce.1.542	apc	intron	261	325	0.006945	+	.	Parent=tx-ce.1.542-32
+ce.1.542	apc	intron	633	677	0.006945	+	.	Parent=tx-ce.1.542-32
+
+ce.1.542	apc	mRNA	100	917	0.006842	+	.	ID=tx-ce.1.542-33;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.006842	+	.	Parent=tx-ce.1.542-33
+ce.1.542	apc	exon	326	525	0.006842	+	.	Parent=tx-ce.1.542-33
+ce.1.542	apc	exon	634	917	0.006842	+	.	Parent=tx-ce.1.542-33
+ce.1.542	apc	intron	261	325	0.006842	+	.	Parent=tx-ce.1.542-33
+ce.1.542	apc	intron	526	633	0.006842	+	.	Parent=tx-ce.1.542-33
+
+ce.1.542	apc	mRNA	100	917	0.006732	+	.	ID=tx-ce.1.542-34;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.006732	+	.	Parent=tx-ce.1.542-34
+ce.1.542	apc	exon	326	552	0.006732	+	.	Parent=tx-ce.1.542-34
+ce.1.542	apc	exon	634	681	0.006732	+	.	Parent=tx-ce.1.542-34
+ce.1.542	apc	exon	733	917	0.006732	+	.	Parent=tx-ce.1.542-34
+ce.1.542	apc	intron	261	325	0.006732	+	.	Parent=tx-ce.1.542-34
+ce.1.542	apc	intron	553	633	0.006732	+	.	Parent=tx-ce.1.542-34
+ce.1.542	apc	intron	682	732	0.006732	+	.	Parent=tx-ce.1.542-34
+
+ce.1.542	apc	mRNA	100	917	0.006629	+	.	ID=tx-ce.1.542-35;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.006629	+	.	Parent=tx-ce.1.542-35
+ce.1.542	apc	exon	326	543	0.006629	+	.	Parent=tx-ce.1.542-35
+ce.1.542	apc	exon	634	917	0.006629	+	.	Parent=tx-ce.1.542-35
+ce.1.542	apc	intron	261	325	0.006629	+	.	Parent=tx-ce.1.542-35
+ce.1.542	apc	intron	544	633	0.006629	+	.	Parent=tx-ce.1.542-35
+
+ce.1.542	apc	mRNA	100	917	0.006357	+	.	ID=tx-ce.1.542-36;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.006357	+	.	Parent=tx-ce.1.542-36
+ce.1.542	apc	exon	326	457	0.006357	+	.	Parent=tx-ce.1.542-36
+ce.1.542	apc	exon	513	632	0.006357	+	.	Parent=tx-ce.1.542-36
+ce.1.542	apc	exon	700	917	0.006357	+	.	Parent=tx-ce.1.542-36
+ce.1.542	apc	intron	261	325	0.006357	+	.	Parent=tx-ce.1.542-36
+ce.1.542	apc	intron	458	512	0.006357	+	.	Parent=tx-ce.1.542-36
+ce.1.542	apc	intron	633	699	0.006357	+	.	Parent=tx-ce.1.542-36
+
+ce.1.542	apc	mRNA	100	917	0.00615	+	.	ID=tx-ce.1.542-37;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	681	0.00615	+	.	Parent=tx-ce.1.542-37
+ce.1.542	apc	exon	733	917	0.00615	+	.	Parent=tx-ce.1.542-37
+ce.1.542	apc	intron	682	732	0.00615	+	.	Parent=tx-ce.1.542-37
+
+ce.1.542	apc	mRNA	100	917	0.006058	+	.	ID=tx-ce.1.542-38;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.006058	+	.	Parent=tx-ce.1.542-38
+ce.1.542	apc	exon	326	467	0.006058	+	.	Parent=tx-ce.1.542-38
+ce.1.542	apc	exon	513	565	0.006058	+	.	Parent=tx-ce.1.542-38
+ce.1.542	apc	exon	634	917	0.006058	+	.	Parent=tx-ce.1.542-38
+ce.1.542	apc	intron	261	325	0.006058	+	.	Parent=tx-ce.1.542-38
+ce.1.542	apc	intron	468	512	0.006058	+	.	Parent=tx-ce.1.542-38
+ce.1.542	apc	intron	566	633	0.006058	+	.	Parent=tx-ce.1.542-38
+
+ce.1.542	apc	mRNA	100	917	0.005756	+	.	ID=tx-ce.1.542-39;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.005756	+	.	Parent=tx-ce.1.542-39
+ce.1.542	apc	exon	326	565	0.005756	+	.	Parent=tx-ce.1.542-39
+ce.1.542	apc	exon	634	681	0.005756	+	.	Parent=tx-ce.1.542-39
+ce.1.542	apc	exon	733	917	0.005756	+	.	Parent=tx-ce.1.542-39
+ce.1.542	apc	intron	265	325	0.005756	+	.	Parent=tx-ce.1.542-39
+ce.1.542	apc	intron	566	633	0.005756	+	.	Parent=tx-ce.1.542-39
+ce.1.542	apc	intron	682	732	0.005756	+	.	Parent=tx-ce.1.542-39
+
+ce.1.542	apc	mRNA	100	917	0.00564	+	.	ID=tx-ce.1.542-40;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.00564	+	.	Parent=tx-ce.1.542-40
+ce.1.542	apc	exon	326	467	0.00564	+	.	Parent=tx-ce.1.542-40
+ce.1.542	apc	exon	513	632	0.00564	+	.	Parent=tx-ce.1.542-40
+ce.1.542	apc	exon	700	917	0.00564	+	.	Parent=tx-ce.1.542-40
+ce.1.542	apc	intron	245	325	0.00564	+	.	Parent=tx-ce.1.542-40
+ce.1.542	apc	intron	468	512	0.00564	+	.	Parent=tx-ce.1.542-40
+ce.1.542	apc	intron	633	699	0.00564	+	.	Parent=tx-ce.1.542-40
+
+ce.1.542	apc	mRNA	100	917	0.005537	+	.	ID=tx-ce.1.542-41;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	231	0.005537	+	.	Parent=tx-ce.1.542-41
+ce.1.542	apc	exon	326	565	0.005537	+	.	Parent=tx-ce.1.542-41
+ce.1.542	apc	exon	634	681	0.005537	+	.	Parent=tx-ce.1.542-41
+ce.1.542	apc	exon	733	917	0.005537	+	.	Parent=tx-ce.1.542-41
+ce.1.542	apc	intron	232	325	0.005537	+	.	Parent=tx-ce.1.542-41
+ce.1.542	apc	intron	566	633	0.005537	+	.	Parent=tx-ce.1.542-41
+ce.1.542	apc	intron	682	732	0.005537	+	.	Parent=tx-ce.1.542-41
+
+ce.1.542	apc	mRNA	100	917	0.005395	+	.	ID=tx-ce.1.542-42;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.005395	+	.	Parent=tx-ce.1.542-42
+ce.1.542	apc	exon	326	632	0.005395	+	.	Parent=tx-ce.1.542-42
+ce.1.542	apc	exon	700	763	0.005395	+	.	Parent=tx-ce.1.542-42
+ce.1.542	apc	exon	807	917	0.005395	+	.	Parent=tx-ce.1.542-42
+ce.1.542	apc	intron	261	325	0.005395	+	.	Parent=tx-ce.1.542-42
+ce.1.542	apc	intron	633	699	0.005395	+	.	Parent=tx-ce.1.542-42
+ce.1.542	apc	intron	764	806	0.005395	+	.	Parent=tx-ce.1.542-42
+
+ce.1.542	apc	mRNA	100	917	0.00532	+	.	ID=tx-ce.1.542-43;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	231	0.00532	+	.	Parent=tx-ce.1.542-43
+ce.1.542	apc	exon	311	565	0.00532	+	.	Parent=tx-ce.1.542-43
+ce.1.542	apc	exon	634	917	0.00532	+	.	Parent=tx-ce.1.542-43
+ce.1.542	apc	intron	232	310	0.00532	+	.	Parent=tx-ce.1.542-43
+ce.1.542	apc	intron	566	633	0.00532	+	.	Parent=tx-ce.1.542-43
+
+ce.1.542	apc	mRNA	100	917	0.005029	+	.	ID=tx-ce.1.542-44;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.005029	+	.	Parent=tx-ce.1.542-44
+ce.1.542	apc	exon	311	632	0.005029	+	.	Parent=tx-ce.1.542-44
+ce.1.542	apc	exon	678	917	0.005029	+	.	Parent=tx-ce.1.542-44
+ce.1.542	apc	intron	261	310	0.005029	+	.	Parent=tx-ce.1.542-44
+ce.1.542	apc	intron	633	677	0.005029	+	.	Parent=tx-ce.1.542-44
+
+ce.1.542	apc	mRNA	100	917	0.005007	+	.	ID=tx-ce.1.542-45;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.005007	+	.	Parent=tx-ce.1.542-45
+ce.1.542	apc	exon	326	543	0.005007	+	.	Parent=tx-ce.1.542-45
+ce.1.542	apc	exon	594	632	0.005007	+	.	Parent=tx-ce.1.542-45
+ce.1.542	apc	exon	700	917	0.005007	+	.	Parent=tx-ce.1.542-45
+ce.1.542	apc	intron	261	325	0.005007	+	.	Parent=tx-ce.1.542-45
+ce.1.542	apc	intron	544	593	0.005007	+	.	Parent=tx-ce.1.542-45
+ce.1.542	apc	intron	633	699	0.005007	+	.	Parent=tx-ce.1.542-45
+
+ce.1.542	apc	mRNA	100	917	0.004968	+	.	ID=tx-ce.1.542-46;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.004968	+	.	Parent=tx-ce.1.542-46
+ce.1.542	apc	exon	311	525	0.004968	+	.	Parent=tx-ce.1.542-46
+ce.1.542	apc	exon	634	917	0.004968	+	.	Parent=tx-ce.1.542-46
+ce.1.542	apc	intron	261	310	0.004968	+	.	Parent=tx-ce.1.542-46
+ce.1.542	apc	intron	526	633	0.004968	+	.	Parent=tx-ce.1.542-46
+
+ce.1.542	apc	mRNA	100	917	0.004877	+	.	ID=tx-ce.1.542-47;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.004877	+	.	Parent=tx-ce.1.542-47
+ce.1.542	apc	exon	311	552	0.004877	+	.	Parent=tx-ce.1.542-47
+ce.1.542	apc	exon	634	681	0.004877	+	.	Parent=tx-ce.1.542-47
+ce.1.542	apc	exon	733	917	0.004877	+	.	Parent=tx-ce.1.542-47
+ce.1.542	apc	intron	261	310	0.004877	+	.	Parent=tx-ce.1.542-47
+ce.1.542	apc	intron	553	633	0.004877	+	.	Parent=tx-ce.1.542-47
+ce.1.542	apc	intron	682	732	0.004877	+	.	Parent=tx-ce.1.542-47
+
+ce.1.542	apc	mRNA	100	917	0.004805	+	.	ID=tx-ce.1.542-48;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.004805	+	.	Parent=tx-ce.1.542-48
+ce.1.542	apc	exon	311	543	0.004805	+	.	Parent=tx-ce.1.542-48
+ce.1.542	apc	exon	634	917	0.004805	+	.	Parent=tx-ce.1.542-48
+ce.1.542	apc	intron	261	310	0.004805	+	.	Parent=tx-ce.1.542-48
+ce.1.542	apc	intron	544	633	0.004805	+	.	Parent=tx-ce.1.542-48
+
+ce.1.542	apc	mRNA	100	917	0.004714	+	.	ID=tx-ce.1.542-49;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.004714	+	.	Parent=tx-ce.1.542-49
+ce.1.542	apc	exon	311	457	0.004714	+	.	Parent=tx-ce.1.542-49
+ce.1.542	apc	exon	513	632	0.004714	+	.	Parent=tx-ce.1.542-49
+ce.1.542	apc	exon	700	917	0.004714	+	.	Parent=tx-ce.1.542-49
+ce.1.542	apc	intron	261	310	0.004714	+	.	Parent=tx-ce.1.542-49
+ce.1.542	apc	intron	458	512	0.004714	+	.	Parent=tx-ce.1.542-49
+ce.1.542	apc	intron	633	699	0.004714	+	.	Parent=tx-ce.1.542-49
+
+ce.1.542	apc	mRNA	100	917	0.004645	+	.	ID=tx-ce.1.542-50;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.004645	+	.	Parent=tx-ce.1.542-50
+ce.1.542	apc	exon	326	467	0.004645	+	.	Parent=tx-ce.1.542-50
+ce.1.542	apc	exon	513	632	0.004645	+	.	Parent=tx-ce.1.542-50
+ce.1.542	apc	exon	700	917	0.004645	+	.	Parent=tx-ce.1.542-50
+ce.1.542	apc	intron	265	325	0.004645	+	.	Parent=tx-ce.1.542-50
+ce.1.542	apc	intron	468	512	0.004645	+	.	Parent=tx-ce.1.542-50
+ce.1.542	apc	intron	633	699	0.004645	+	.	Parent=tx-ce.1.542-50
+
+ce.1.542	apc	mRNA	100	917	0.004581	+	.	ID=tx-ce.1.542-51;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.004581	+	.	Parent=tx-ce.1.542-51
+ce.1.542	apc	exon	326	503	0.004581	+	.	Parent=tx-ce.1.542-51
+ce.1.542	apc	exon	554	632	0.004581	+	.	Parent=tx-ce.1.542-51
+ce.1.542	apc	exon	700	917	0.004581	+	.	Parent=tx-ce.1.542-51
+ce.1.542	apc	intron	261	325	0.004581	+	.	Parent=tx-ce.1.542-51
+ce.1.542	apc	intron	504	553	0.004581	+	.	Parent=tx-ce.1.542-51
+ce.1.542	apc	intron	633	699	0.004581	+	.	Parent=tx-ce.1.542-51
+
+ce.1.542	apc	mRNA	100	917	0.004483	+	.	ID=tx-ce.1.542-52;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.004483	+	.	Parent=tx-ce.1.542-52
+ce.1.542	apc	exon	326	489	0.004483	+	.	Parent=tx-ce.1.542-52
+ce.1.542	apc	exon	531	632	0.004483	+	.	Parent=tx-ce.1.542-52
+ce.1.542	apc	exon	700	917	0.004483	+	.	Parent=tx-ce.1.542-52
+ce.1.542	apc	intron	261	325	0.004483	+	.	Parent=tx-ce.1.542-52
+ce.1.542	apc	intron	490	530	0.004483	+	.	Parent=tx-ce.1.542-52
+ce.1.542	apc	intron	633	699	0.004483	+	.	Parent=tx-ce.1.542-52
+
+ce.1.542	apc	mRNA	100	917	0.004469	+	.	ID=tx-ce.1.542-53;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	231	0.004469	+	.	Parent=tx-ce.1.542-53
+ce.1.542	apc	exon	326	467	0.004469	+	.	Parent=tx-ce.1.542-53
+ce.1.542	apc	exon	513	632	0.004469	+	.	Parent=tx-ce.1.542-53
+ce.1.542	apc	exon	700	917	0.004469	+	.	Parent=tx-ce.1.542-53
+ce.1.542	apc	intron	232	325	0.004469	+	.	Parent=tx-ce.1.542-53
+ce.1.542	apc	intron	468	512	0.004469	+	.	Parent=tx-ce.1.542-53
+ce.1.542	apc	intron	633	699	0.004469	+	.	Parent=tx-ce.1.542-53
+
+ce.1.542	apc	mRNA	100	917	0.004468	+	.	ID=tx-ce.1.542-54;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.004468	+	.	Parent=tx-ce.1.542-54
+ce.1.542	apc	exon	311	467	0.004468	+	.	Parent=tx-ce.1.542-54
+ce.1.542	apc	exon	513	565	0.004468	+	.	Parent=tx-ce.1.542-54
+ce.1.542	apc	exon	634	917	0.004468	+	.	Parent=tx-ce.1.542-54
+ce.1.542	apc	intron	261	310	0.004468	+	.	Parent=tx-ce.1.542-54
+ce.1.542	apc	intron	468	512	0.004468	+	.	Parent=tx-ce.1.542-54
+ce.1.542	apc	intron	566	633	0.004468	+	.	Parent=tx-ce.1.542-54
+
+ce.1.542	apc	mRNA	100	917	0.004212	+	.	ID=tx-ce.1.542-55;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.004212	+	.	Parent=tx-ce.1.542-55
+ce.1.542	apc	exon	326	552	0.004212	+	.	Parent=tx-ce.1.542-55
+ce.1.542	apc	exon	594	632	0.004212	+	.	Parent=tx-ce.1.542-55
+ce.1.542	apc	exon	700	917	0.004212	+	.	Parent=tx-ce.1.542-55
+ce.1.542	apc	intron	261	325	0.004212	+	.	Parent=tx-ce.1.542-55
+ce.1.542	apc	intron	553	593	0.004212	+	.	Parent=tx-ce.1.542-55
+ce.1.542	apc	intron	633	699	0.004212	+	.	Parent=tx-ce.1.542-55
+
+ce.1.542	apc	mRNA	100	917	0.00408	+	.	ID=tx-ce.1.542-56;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.00408	+	.	Parent=tx-ce.1.542-56
+ce.1.542	apc	exon	311	565	0.00408	+	.	Parent=tx-ce.1.542-56
+ce.1.542	apc	exon	634	681	0.00408	+	.	Parent=tx-ce.1.542-56
+ce.1.542	apc	exon	733	917	0.00408	+	.	Parent=tx-ce.1.542-56
+ce.1.542	apc	intron	265	310	0.00408	+	.	Parent=tx-ce.1.542-56
+ce.1.542	apc	intron	566	633	0.00408	+	.	Parent=tx-ce.1.542-56
+ce.1.542	apc	intron	682	732	0.00408	+	.	Parent=tx-ce.1.542-56
+
+ce.1.542	apc	mRNA	100	917	0.004064	+	.	ID=tx-ce.1.542-57;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	632	0.004064	+	.	Parent=tx-ce.1.542-57
+ce.1.542	apc	exon	678	917	0.004064	+	.	Parent=tx-ce.1.542-57
+ce.1.542	apc	intron	633	677	0.004064	+	.	Parent=tx-ce.1.542-57
+
+ce.1.542	apc	mRNA	100	917	0.003967	+	.	ID=tx-ce.1.542-58;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.003967	+	.	Parent=tx-ce.1.542-58
+ce.1.542	apc	exon	311	565	0.003967	+	.	Parent=tx-ce.1.542-58
+ce.1.542	apc	exon	634	681	0.003967	+	.	Parent=tx-ce.1.542-58
+ce.1.542	apc	exon	733	917	0.003967	+	.	Parent=tx-ce.1.542-58
+ce.1.542	apc	intron	245	310	0.003967	+	.	Parent=tx-ce.1.542-58
+ce.1.542	apc	intron	566	633	0.003967	+	.	Parent=tx-ce.1.542-58
+ce.1.542	apc	intron	682	732	0.003967	+	.	Parent=tx-ce.1.542-58
+
+ce.1.542	apc	mRNA	100	917	0.003908	+	.	ID=tx-ce.1.542-59;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	367	0.003908	+	.	Parent=tx-ce.1.542-59
+ce.1.542	apc	exon	428	632	0.003908	+	.	Parent=tx-ce.1.542-59
+ce.1.542	apc	exon	700	917	0.003908	+	.	Parent=tx-ce.1.542-59
+ce.1.542	apc	intron	368	427	0.003908	+	.	Parent=tx-ce.1.542-59
+ce.1.542	apc	intron	633	699	0.003908	+	.	Parent=tx-ce.1.542-59
+
+ce.1.542	apc	mRNA	100	917	0.003907	+	.	ID=tx-ce.1.542-60;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003907	+	.	Parent=tx-ce.1.542-60
+ce.1.542	apc	exon	311	632	0.003907	+	.	Parent=tx-ce.1.542-60
+ce.1.542	apc	exon	700	763	0.003907	+	.	Parent=tx-ce.1.542-60
+ce.1.542	apc	exon	807	917	0.003907	+	.	Parent=tx-ce.1.542-60
+ce.1.542	apc	intron	261	310	0.003907	+	.	Parent=tx-ce.1.542-60
+ce.1.542	apc	intron	633	699	0.003907	+	.	Parent=tx-ce.1.542-60
+ce.1.542	apc	intron	764	806	0.003907	+	.	Parent=tx-ce.1.542-60
+
+ce.1.542	apc	mRNA	100	917	0.003894	+	.	ID=tx-ce.1.542-61;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003894	+	.	Parent=tx-ce.1.542-61
+ce.1.542	apc	exon	335	632	0.003894	+	.	Parent=tx-ce.1.542-61
+ce.1.542	apc	exon	700	917	0.003894	+	.	Parent=tx-ce.1.542-61
+ce.1.542	apc	intron	261	334	0.003894	+	.	Parent=tx-ce.1.542-61
+ce.1.542	apc	intron	633	699	0.003894	+	.	Parent=tx-ce.1.542-61
+
+ce.1.542	apc	mRNA	100	917	0.00385	+	.	ID=tx-ce.1.542-62;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	525	0.00385	+	.	Parent=tx-ce.1.542-62
+ce.1.542	apc	exon	634	917	0.00385	+	.	Parent=tx-ce.1.542-62
+ce.1.542	apc	intron	526	633	0.00385	+	.	Parent=tx-ce.1.542-62
+
+ce.1.542	apc	mRNA	100	917	0.003804	+	.	ID=tx-ce.1.542-63;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	552	0.003804	+	.	Parent=tx-ce.1.542-63
+ce.1.542	apc	exon	634	681	0.003804	+	.	Parent=tx-ce.1.542-63
+ce.1.542	apc	exon	733	917	0.003804	+	.	Parent=tx-ce.1.542-63
+ce.1.542	apc	intron	553	633	0.003804	+	.	Parent=tx-ce.1.542-63
+ce.1.542	apc	intron	682	732	0.003804	+	.	Parent=tx-ce.1.542-63
+
+ce.1.542	apc	mRNA	100	917	0.003748	+	.	ID=tx-ce.1.542-64;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	457	0.003748	+	.	Parent=tx-ce.1.542-64
+ce.1.542	apc	exon	513	632	0.003748	+	.	Parent=tx-ce.1.542-64
+ce.1.542	apc	exon	700	917	0.003748	+	.	Parent=tx-ce.1.542-64
+ce.1.542	apc	intron	458	512	0.003748	+	.	Parent=tx-ce.1.542-64
+ce.1.542	apc	intron	633	699	0.003748	+	.	Parent=tx-ce.1.542-64
+
+ce.1.542	apc	mRNA	100	917	0.003739	+	.	ID=tx-ce.1.542-65;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	543	0.003739	+	.	Parent=tx-ce.1.542-65
+ce.1.542	apc	exon	634	917	0.003739	+	.	Parent=tx-ce.1.542-65
+ce.1.542	apc	intron	544	633	0.003739	+	.	Parent=tx-ce.1.542-65
+
+ce.1.542	apc	mRNA	100	917	0.00363	+	.	ID=tx-ce.1.542-66;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.00363	+	.	Parent=tx-ce.1.542-66
+ce.1.542	apc	exon	311	543	0.00363	+	.	Parent=tx-ce.1.542-66
+ce.1.542	apc	exon	594	632	0.00363	+	.	Parent=tx-ce.1.542-66
+ce.1.542	apc	exon	700	917	0.00363	+	.	Parent=tx-ce.1.542-66
+ce.1.542	apc	intron	261	310	0.00363	+	.	Parent=tx-ce.1.542-66
+ce.1.542	apc	intron	544	593	0.00363	+	.	Parent=tx-ce.1.542-66
+ce.1.542	apc	intron	633	699	0.00363	+	.	Parent=tx-ce.1.542-66
+
+ce.1.542	apc	mRNA	100	917	0.003573	+	.	ID=tx-ce.1.542-67;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003573	+	.	Parent=tx-ce.1.542-67
+ce.1.542	apc	exon	326	367	0.003573	+	.	Parent=tx-ce.1.542-67
+ce.1.542	apc	exon	428	632	0.003573	+	.	Parent=tx-ce.1.542-67
+ce.1.542	apc	exon	700	917	0.003573	+	.	Parent=tx-ce.1.542-67
+ce.1.542	apc	intron	261	325	0.003573	+	.	Parent=tx-ce.1.542-67
+ce.1.542	apc	intron	368	427	0.003573	+	.	Parent=tx-ce.1.542-67
+ce.1.542	apc	intron	633	699	0.003573	+	.	Parent=tx-ce.1.542-67
+
+ce.1.542	apc	mRNA	100	917	0.003557	+	.	ID=tx-ce.1.542-68;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.003557	+	.	Parent=tx-ce.1.542-68
+ce.1.542	apc	exon	326	552	0.003557	+	.	Parent=tx-ce.1.542-68
+ce.1.542	apc	exon	634	917	0.003557	+	.	Parent=tx-ce.1.542-68
+ce.1.542	apc	intron	245	325	0.003557	+	.	Parent=tx-ce.1.542-68
+ce.1.542	apc	intron	553	633	0.003557	+	.	Parent=tx-ce.1.542-68
+
+ce.1.542	apc	mRNA	100	917	0.00353	+	.	ID=tx-ce.1.542-69;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.00353	+	.	Parent=tx-ce.1.542-69
+ce.1.542	apc	exon	326	525	0.00353	+	.	Parent=tx-ce.1.542-69
+ce.1.542	apc	exon	634	681	0.00353	+	.	Parent=tx-ce.1.542-69
+ce.1.542	apc	exon	733	917	0.00353	+	.	Parent=tx-ce.1.542-69
+ce.1.542	apc	intron	261	325	0.00353	+	.	Parent=tx-ce.1.542-69
+ce.1.542	apc	intron	526	633	0.00353	+	.	Parent=tx-ce.1.542-69
+ce.1.542	apc	intron	682	732	0.00353	+	.	Parent=tx-ce.1.542-69
+
+ce.1.542	apc	mRNA	100	917	0.003515	+	.	ID=tx-ce.1.542-70;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	467	0.003515	+	.	Parent=tx-ce.1.542-70
+ce.1.542	apc	exon	513	565	0.003515	+	.	Parent=tx-ce.1.542-70
+ce.1.542	apc	exon	634	917	0.003515	+	.	Parent=tx-ce.1.542-70
+ce.1.542	apc	intron	468	512	0.003515	+	.	Parent=tx-ce.1.542-70
+ce.1.542	apc	intron	566	633	0.003515	+	.	Parent=tx-ce.1.542-70
+
+ce.1.542	apc	mRNA	100	917	0.00342	+	.	ID=tx-ce.1.542-71;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.00342	+	.	Parent=tx-ce.1.542-71
+ce.1.542	apc	exon	326	543	0.00342	+	.	Parent=tx-ce.1.542-71
+ce.1.542	apc	exon	634	681	0.00342	+	.	Parent=tx-ce.1.542-71
+ce.1.542	apc	exon	733	917	0.00342	+	.	Parent=tx-ce.1.542-71
+ce.1.542	apc	intron	261	325	0.00342	+	.	Parent=tx-ce.1.542-71
+ce.1.542	apc	intron	544	633	0.00342	+	.	Parent=tx-ce.1.542-71
+ce.1.542	apc	intron	682	732	0.00342	+	.	Parent=tx-ce.1.542-71
+
+ce.1.542	apc	mRNA	100	917	0.00337	+	.	ID=tx-ce.1.542-72;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.00337	+	.	Parent=tx-ce.1.542-72
+ce.1.542	apc	exon	326	565	0.00337	+	.	Parent=tx-ce.1.542-72
+ce.1.542	apc	exon	634	763	0.00337	+	.	Parent=tx-ce.1.542-72
+ce.1.542	apc	exon	807	917	0.00337	+	.	Parent=tx-ce.1.542-72
+ce.1.542	apc	intron	261	325	0.00337	+	.	Parent=tx-ce.1.542-72
+ce.1.542	apc	intron	566	633	0.00337	+	.	Parent=tx-ce.1.542-72
+ce.1.542	apc	intron	764	806	0.00337	+	.	Parent=tx-ce.1.542-72
+
+ce.1.542	apc	mRNA	100	917	0.003354	+	.	ID=tx-ce.1.542-73;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.003354	+	.	Parent=tx-ce.1.542-73
+ce.1.542	apc	exon	311	467	0.003354	+	.	Parent=tx-ce.1.542-73
+ce.1.542	apc	exon	513	632	0.003354	+	.	Parent=tx-ce.1.542-73
+ce.1.542	apc	exon	700	917	0.003354	+	.	Parent=tx-ce.1.542-73
+ce.1.542	apc	intron	265	310	0.003354	+	.	Parent=tx-ce.1.542-73
+ce.1.542	apc	intron	468	512	0.003354	+	.	Parent=tx-ce.1.542-73
+ce.1.542	apc	intron	633	699	0.003354	+	.	Parent=tx-ce.1.542-73
+
+ce.1.542	apc	mRNA	100	917	0.00334	+	.	ID=tx-ce.1.542-74;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.00334	+	.	Parent=tx-ce.1.542-74
+ce.1.542	apc	exon	326	565	0.00334	+	.	Parent=tx-ce.1.542-74
+ce.1.542	apc	exon	607	632	0.00334	+	.	Parent=tx-ce.1.542-74
+ce.1.542	apc	exon	700	917	0.00334	+	.	Parent=tx-ce.1.542-74
+ce.1.542	apc	intron	261	325	0.00334	+	.	Parent=tx-ce.1.542-74
+ce.1.542	apc	intron	566	606	0.00334	+	.	Parent=tx-ce.1.542-74
+ce.1.542	apc	intron	633	699	0.00334	+	.	Parent=tx-ce.1.542-74
+
+ce.1.542	apc	mRNA	100	917	0.003338	+	.	ID=tx-ce.1.542-75;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003338	+	.	Parent=tx-ce.1.542-75
+ce.1.542	apc	exon	311	503	0.003338	+	.	Parent=tx-ce.1.542-75
+ce.1.542	apc	exon	554	632	0.003338	+	.	Parent=tx-ce.1.542-75
+ce.1.542	apc	exon	700	917	0.003338	+	.	Parent=tx-ce.1.542-75
+ce.1.542	apc	intron	261	310	0.003338	+	.	Parent=tx-ce.1.542-75
+ce.1.542	apc	intron	504	553	0.003338	+	.	Parent=tx-ce.1.542-75
+ce.1.542	apc	intron	633	699	0.003338	+	.	Parent=tx-ce.1.542-75
+
+ce.1.542	apc	mRNA	100	917	0.003282	+	.	ID=tx-ce.1.542-76;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.003282	+	.	Parent=tx-ce.1.542-76
+ce.1.542	apc	exon	326	917	0.003282	+	.	Parent=tx-ce.1.542-76
+ce.1.542	apc	intron	245	325	0.003282	+	.	Parent=tx-ce.1.542-76
+
+ce.1.542	apc	mRNA	100	917	0.003279	+	.	ID=tx-ce.1.542-77;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003279	+	.	Parent=tx-ce.1.542-77
+ce.1.542	apc	exon	311	489	0.003279	+	.	Parent=tx-ce.1.542-77
+ce.1.542	apc	exon	531	632	0.003279	+	.	Parent=tx-ce.1.542-77
+ce.1.542	apc	exon	700	917	0.003279	+	.	Parent=tx-ce.1.542-77
+ce.1.542	apc	intron	261	310	0.003279	+	.	Parent=tx-ce.1.542-77
+ce.1.542	apc	intron	490	530	0.003279	+	.	Parent=tx-ce.1.542-77
+ce.1.542	apc	intron	633	699	0.003279	+	.	Parent=tx-ce.1.542-77
+
+ce.1.542	apc	mRNA	100	917	0.00326	+	.	ID=tx-ce.1.542-78;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.00326	+	.	Parent=tx-ce.1.542-78
+ce.1.542	apc	exon	311	467	0.00326	+	.	Parent=tx-ce.1.542-78
+ce.1.542	apc	exon	513	632	0.00326	+	.	Parent=tx-ce.1.542-78
+ce.1.542	apc	exon	700	917	0.00326	+	.	Parent=tx-ce.1.542-78
+ce.1.542	apc	intron	245	310	0.00326	+	.	Parent=tx-ce.1.542-78
+ce.1.542	apc	intron	468	512	0.00326	+	.	Parent=tx-ce.1.542-78
+ce.1.542	apc	intron	633	699	0.00326	+	.	Parent=tx-ce.1.542-78
+
+ce.1.542	apc	mRNA	100	917	0.003199	+	.	ID=tx-ce.1.542-79;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003199	+	.	Parent=tx-ce.1.542-79
+ce.1.542	apc	exon	311	367	0.003199	+	.	Parent=tx-ce.1.542-79
+ce.1.542	apc	exon	428	632	0.003199	+	.	Parent=tx-ce.1.542-79
+ce.1.542	apc	exon	700	917	0.003199	+	.	Parent=tx-ce.1.542-79
+ce.1.542	apc	intron	261	310	0.003199	+	.	Parent=tx-ce.1.542-79
+ce.1.542	apc	intron	368	427	0.003199	+	.	Parent=tx-ce.1.542-79
+ce.1.542	apc	intron	633	699	0.003199	+	.	Parent=tx-ce.1.542-79
+
+ce.1.542	apc	mRNA	100	917	0.003157	+	.	ID=tx-ce.1.542-80;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	632	0.003157	+	.	Parent=tx-ce.1.542-80
+ce.1.542	apc	exon	700	763	0.003157	+	.	Parent=tx-ce.1.542-80
+ce.1.542	apc	exon	807	917	0.003157	+	.	Parent=tx-ce.1.542-80
+ce.1.542	apc	intron	633	699	0.003157	+	.	Parent=tx-ce.1.542-80
+ce.1.542	apc	intron	764	806	0.003157	+	.	Parent=tx-ce.1.542-80
+
+ce.1.542	apc	mRNA	100	917	0.003125	+	.	ID=tx-ce.1.542-81;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003125	+	.	Parent=tx-ce.1.542-81
+ce.1.542	apc	exon	326	467	0.003125	+	.	Parent=tx-ce.1.542-81
+ce.1.542	apc	exon	513	565	0.003125	+	.	Parent=tx-ce.1.542-81
+ce.1.542	apc	exon	634	681	0.003125	+	.	Parent=tx-ce.1.542-81
+ce.1.542	apc	exon	733	917	0.003125	+	.	Parent=tx-ce.1.542-81
+ce.1.542	apc	intron	261	325	0.003125	+	.	Parent=tx-ce.1.542-81
+ce.1.542	apc	intron	468	512	0.003125	+	.	Parent=tx-ce.1.542-81
+ce.1.542	apc	intron	566	633	0.003125	+	.	Parent=tx-ce.1.542-81
+ce.1.542	apc	intron	682	732	0.003125	+	.	Parent=tx-ce.1.542-81
+
+ce.1.542	apc	mRNA	100	917	0.003091	+	.	ID=tx-ce.1.542-82;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003091	+	.	Parent=tx-ce.1.542-82
+ce.1.542	apc	exon	326	531	0.003091	+	.	Parent=tx-ce.1.542-82
+ce.1.542	apc	exon	634	917	0.003091	+	.	Parent=tx-ce.1.542-82
+ce.1.542	apc	intron	261	325	0.003091	+	.	Parent=tx-ce.1.542-82
+ce.1.542	apc	intron	532	633	0.003091	+	.	Parent=tx-ce.1.542-82
+
+ce.1.542	apc	mRNA	100	917	0.003052	+	.	ID=tx-ce.1.542-83;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003052	+	.	Parent=tx-ce.1.542-83
+ce.1.542	apc	exon	311	552	0.003052	+	.	Parent=tx-ce.1.542-83
+ce.1.542	apc	exon	594	632	0.003052	+	.	Parent=tx-ce.1.542-83
+ce.1.542	apc	exon	700	917	0.003052	+	.	Parent=tx-ce.1.542-83
+ce.1.542	apc	intron	261	310	0.003052	+	.	Parent=tx-ce.1.542-83
+ce.1.542	apc	intron	553	593	0.003052	+	.	Parent=tx-ce.1.542-83
+ce.1.542	apc	intron	633	699	0.003052	+	.	Parent=tx-ce.1.542-83
+
+ce.1.542	apc	mRNA	100	917	0.003049	+	.	ID=tx-ce.1.542-84;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.003049	+	.	Parent=tx-ce.1.542-84
+ce.1.542	apc	exon	326	525	0.003049	+	.	Parent=tx-ce.1.542-84
+ce.1.542	apc	exon	594	632	0.003049	+	.	Parent=tx-ce.1.542-84
+ce.1.542	apc	exon	700	917	0.003049	+	.	Parent=tx-ce.1.542-84
+ce.1.542	apc	intron	261	325	0.003049	+	.	Parent=tx-ce.1.542-84
+ce.1.542	apc	intron	526	593	0.003049	+	.	Parent=tx-ce.1.542-84
+ce.1.542	apc	intron	633	699	0.003049	+	.	Parent=tx-ce.1.542-84
+
+ce.1.542	apc	mRNA	100	917	0.002929	+	.	ID=tx-ce.1.542-85;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.002929	+	.	Parent=tx-ce.1.542-85
+ce.1.542	apc	exon	326	552	0.002929	+	.	Parent=tx-ce.1.542-85
+ce.1.542	apc	exon	634	917	0.002929	+	.	Parent=tx-ce.1.542-85
+ce.1.542	apc	intron	265	325	0.002929	+	.	Parent=tx-ce.1.542-85
+ce.1.542	apc	intron	553	633	0.002929	+	.	Parent=tx-ce.1.542-85
+
+ce.1.542	apc	mRNA	100	917	0.002824	+	.	ID=tx-ce.1.542-86;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	543	0.002824	+	.	Parent=tx-ce.1.542-86
+ce.1.542	apc	exon	594	632	0.002824	+	.	Parent=tx-ce.1.542-86
+ce.1.542	apc	exon	700	917	0.002824	+	.	Parent=tx-ce.1.542-86
+ce.1.542	apc	intron	544	593	0.002824	+	.	Parent=tx-ce.1.542-86
+ce.1.542	apc	intron	633	699	0.002824	+	.	Parent=tx-ce.1.542-86
+
+ce.1.542	apc	mRNA	100	917	0.002818	+	.	ID=tx-ce.1.542-87;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	231	0.002818	+	.	Parent=tx-ce.1.542-87
+ce.1.542	apc	exon	326	552	0.002818	+	.	Parent=tx-ce.1.542-87
+ce.1.542	apc	exon	634	917	0.002818	+	.	Parent=tx-ce.1.542-87
+ce.1.542	apc	intron	232	325	0.002818	+	.	Parent=tx-ce.1.542-87
+ce.1.542	apc	intron	553	633	0.002818	+	.	Parent=tx-ce.1.542-87
+
+ce.1.542	apc	mRNA	100	917	0.00279	+	.	ID=tx-ce.1.542-88;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	244	0.00279	+	.	Parent=tx-ce.1.542-88
+ce.1.542	apc	exon	326	681	0.00279	+	.	Parent=tx-ce.1.542-88
+ce.1.542	apc	exon	733	917	0.00279	+	.	Parent=tx-ce.1.542-88
+ce.1.542	apc	intron	245	325	0.00279	+	.	Parent=tx-ce.1.542-88
+ce.1.542	apc	intron	682	732	0.00279	+	.	Parent=tx-ce.1.542-88
+
+ce.1.542	apc	mRNA	100	917	0.002744	+	.	ID=tx-ce.1.542-89;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	231	0.002744	+	.	Parent=tx-ce.1.542-89
+ce.1.542	apc	exon	311	565	0.002744	+	.	Parent=tx-ce.1.542-89
+ce.1.542	apc	exon	634	681	0.002744	+	.	Parent=tx-ce.1.542-89
+ce.1.542	apc	exon	733	917	0.002744	+	.	Parent=tx-ce.1.542-89
+ce.1.542	apc	intron	232	310	0.002744	+	.	Parent=tx-ce.1.542-89
+ce.1.542	apc	intron	566	633	0.002744	+	.	Parent=tx-ce.1.542-89
+ce.1.542	apc	intron	682	732	0.002744	+	.	Parent=tx-ce.1.542-89
+
+ce.1.542	apc	mRNA	100	917	0.002703	+	.	ID=tx-ce.1.542-90;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.002703	+	.	Parent=tx-ce.1.542-90
+ce.1.542	apc	exon	326	917	0.002703	+	.	Parent=tx-ce.1.542-90
+ce.1.542	apc	intron	265	325	0.002703	+	.	Parent=tx-ce.1.542-90
+
+ce.1.542	apc	mRNA	100	917	0.0026	+	.	ID=tx-ce.1.542-91;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	231	0.0026	+	.	Parent=tx-ce.1.542-91
+ce.1.542	apc	exon	326	917	0.0026	+	.	Parent=tx-ce.1.542-91
+ce.1.542	apc	intron	232	325	0.0026	+	.	Parent=tx-ce.1.542-91
+
+ce.1.542	apc	mRNA	100	917	0.002586	+	.	ID=tx-ce.1.542-92;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	503	0.002586	+	.	Parent=tx-ce.1.542-92
+ce.1.542	apc	exon	554	632	0.002586	+	.	Parent=tx-ce.1.542-92
+ce.1.542	apc	exon	700	917	0.002586	+	.	Parent=tx-ce.1.542-92
+ce.1.542	apc	intron	504	553	0.002586	+	.	Parent=tx-ce.1.542-92
+ce.1.542	apc	intron	633	699	0.002586	+	.	Parent=tx-ce.1.542-92
+
+ce.1.542	apc	mRNA	100	917	0.002563	+	.	ID=tx-ce.1.542-93;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.002563	+	.	Parent=tx-ce.1.542-93
+ce.1.542	apc	exon	311	525	0.002563	+	.	Parent=tx-ce.1.542-93
+ce.1.542	apc	exon	634	681	0.002563	+	.	Parent=tx-ce.1.542-93
+ce.1.542	apc	exon	733	917	0.002563	+	.	Parent=tx-ce.1.542-93
+ce.1.542	apc	intron	261	310	0.002563	+	.	Parent=tx-ce.1.542-93
+ce.1.542	apc	intron	526	633	0.002563	+	.	Parent=tx-ce.1.542-93
+ce.1.542	apc	intron	682	732	0.002563	+	.	Parent=tx-ce.1.542-93
+
+ce.1.542	apc	mRNA	100	917	0.002547	+	.	ID=tx-ce.1.542-94;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	489	0.002547	+	.	Parent=tx-ce.1.542-94
+ce.1.542	apc	exon	531	632	0.002547	+	.	Parent=tx-ce.1.542-94
+ce.1.542	apc	exon	700	917	0.002547	+	.	Parent=tx-ce.1.542-94
+ce.1.542	apc	intron	490	530	0.002547	+	.	Parent=tx-ce.1.542-94
+ce.1.542	apc	intron	633	699	0.002547	+	.	Parent=tx-ce.1.542-94
+
+ce.1.542	apc	mRNA	100	917	0.002479	+	.	ID=tx-ce.1.542-95;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.002479	+	.	Parent=tx-ce.1.542-95
+ce.1.542	apc	exon	311	543	0.002479	+	.	Parent=tx-ce.1.542-95
+ce.1.542	apc	exon	634	681	0.002479	+	.	Parent=tx-ce.1.542-95
+ce.1.542	apc	exon	733	917	0.002479	+	.	Parent=tx-ce.1.542-95
+ce.1.542	apc	intron	261	310	0.002479	+	.	Parent=tx-ce.1.542-95
+ce.1.542	apc	intron	544	633	0.002479	+	.	Parent=tx-ce.1.542-95
+ce.1.542	apc	intron	682	732	0.002479	+	.	Parent=tx-ce.1.542-95
+
+ce.1.542	apc	mRNA	100	917	0.00244	+	.	ID=tx-ce.1.542-96;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.00244	+	.	Parent=tx-ce.1.542-96
+ce.1.542	apc	exon	311	565	0.00244	+	.	Parent=tx-ce.1.542-96
+ce.1.542	apc	exon	634	763	0.00244	+	.	Parent=tx-ce.1.542-96
+ce.1.542	apc	exon	807	917	0.00244	+	.	Parent=tx-ce.1.542-96
+ce.1.542	apc	intron	261	310	0.00244	+	.	Parent=tx-ce.1.542-96
+ce.1.542	apc	intron	566	633	0.00244	+	.	Parent=tx-ce.1.542-96
+ce.1.542	apc	intron	764	806	0.00244	+	.	Parent=tx-ce.1.542-96
+
+ce.1.542	apc	mRNA	100	917	0.002419	+	.	ID=tx-ce.1.542-97;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.002419	+	.	Parent=tx-ce.1.542-97
+ce.1.542	apc	exon	311	565	0.002419	+	.	Parent=tx-ce.1.542-97
+ce.1.542	apc	exon	607	632	0.002419	+	.	Parent=tx-ce.1.542-97
+ce.1.542	apc	exon	700	917	0.002419	+	.	Parent=tx-ce.1.542-97
+ce.1.542	apc	intron	261	310	0.002419	+	.	Parent=tx-ce.1.542-97
+ce.1.542	apc	intron	566	606	0.002419	+	.	Parent=tx-ce.1.542-97
+ce.1.542	apc	intron	633	699	0.002419	+	.	Parent=tx-ce.1.542-97
+
+ce.1.542	apc	mRNA	100	917	0.00238	+	.	ID=tx-ce.1.542-98;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	552	0.00238	+	.	Parent=tx-ce.1.542-98
+ce.1.542	apc	exon	594	632	0.00238	+	.	Parent=tx-ce.1.542-98
+ce.1.542	apc	exon	700	917	0.00238	+	.	Parent=tx-ce.1.542-98
+ce.1.542	apc	intron	553	593	0.00238	+	.	Parent=tx-ce.1.542-98
+ce.1.542	apc	intron	633	699	0.00238	+	.	Parent=tx-ce.1.542-98
+
+ce.1.542	apc	mRNA	100	917	0.002305	+	.	ID=tx-ce.1.542-99;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	260	0.002305	+	.	Parent=tx-ce.1.542-99
+ce.1.542	apc	exon	311	467	0.002305	+	.	Parent=tx-ce.1.542-99
+ce.1.542	apc	exon	513	565	0.002305	+	.	Parent=tx-ce.1.542-99
+ce.1.542	apc	exon	634	681	0.002305	+	.	Parent=tx-ce.1.542-99
+ce.1.542	apc	exon	733	917	0.002305	+	.	Parent=tx-ce.1.542-99
+ce.1.542	apc	intron	261	310	0.002305	+	.	Parent=tx-ce.1.542-99
+ce.1.542	apc	intron	468	512	0.002305	+	.	Parent=tx-ce.1.542-99
+ce.1.542	apc	intron	566	633	0.002305	+	.	Parent=tx-ce.1.542-99
+ce.1.542	apc	intron	682	732	0.002305	+	.	Parent=tx-ce.1.542-99
+
+ce.1.542	apc	mRNA	100	917	0.002298	+	.	ID=tx-ce.1.542-100;Parent=Gene-ce.1.542
+ce.1.542	apc	exon	100	264	0.002298	+	.	Parent=tx-ce.1.542-100
+ce.1.542	apc	exon	326	681	0.002298	+	.	Parent=tx-ce.1.542-100
+ce.1.542	apc	exon	733	917	0.002298	+	.	Parent=tx-ce.1.542-100
+ce.1.542	apc	intron	265	325	0.002298	+	.	Parent=tx-ce.1.542-100
+ce.1.542	apc	intron	682	732	0.002298	+	.	Parent=tx-ce.1.542-100
+

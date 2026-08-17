@@ -1,7 +1,9 @@
 import subprocess
 
+prog_loc1 = 'gc_content/'
+
 cmd1 = (
-		f'python3 GC_content.py ../data/smallgenes/ --apc_results '
+		f'python3 {prog_loc1}GC_content.py ../data/smallgenes/ --apc_results '
 		f'../data/APCisos_base/ ../data/APCisos_optiso/ '
 		f'../data/APCisos_nmd/ ../data/APCisos_optiso_nmd/'
 	).split(' ')

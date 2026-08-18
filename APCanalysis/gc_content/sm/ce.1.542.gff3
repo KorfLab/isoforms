@@ -1,0 +1,14 @@
+ce.1.542	WormBase	five_prime_UTR	100	181	.	+	.	Parent=Transcript:C55A1.6.1
+ce.1.542	WormBase	exon	100	260	.	+	.	Parent=Transcript:C55A1.6.1
+ce.1.542	WormBase	gene	100	917	.	+	.	ID=Gene:WBGene00008323
+ce.1.542	WormBase	mRNA	100	917	.	+	.	ID=Transcript:C55A1.6.1;Parent=Gene:WBGene00008323
+ce.1.542	WormBase	CDS	182	260	.	+	.	ID=CDS:C55A1.6;Parent=Transcript:C55A1.6.1
+ce.1.542	WormBase	intron	261	633	.	+	.	Parent=Transcript:C55A1.6.1
+ce.1.542	RNASeq_splice	intron	261	633	36440.0	+	.	
+ce.1.542	RNASeq_splice	intron	261	636	22.0	+	.	
+ce.1.542	RNASeq_splice	intron	261	699	783.0	+	.	
+ce.1.542	RNASeq_splice	intron	265	636	365.0	+	.	
+ce.1.542	RNASeq_splice	intron	265	639	5.0	+	.	
+ce.1.542	WormBase	CDS	634	869	.	+	.	ID=CDS:C55A1.6;Parent=Transcript:C55A1.6.1
+ce.1.542	WormBase	exon	634	917	.	+	.	Parent=Transcript:C55A1.6.1
+ce.1.542	WormBase	three_prime_UTR	870	917	.	+	.	Parent=Transcript:C55A1.6.1

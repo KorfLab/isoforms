@@ -73,12 +73,12 @@ for i in range(len(l_int_seq)):
 	else:
 		l_rm_seq.append(l_int_seq[i])
 			
-print(l_int_seq)
+#print(l_int_seq)
 
-print(l_rm_seq)
+#print(l_rm_seq)
 			
-print(gc_calc(l_int_seq), 'l_int_seq')
-print(gc_calc(l_rm_seq), 'l_rm_seq')
+#print(gc_calc(l_int_seq), 'l_int_seq')
+#print(gc_calc(l_rm_seq), 'l_rm_seq')
 
 # find intron-based splice site coordinates in high gc intron
 gt_sites = []
@@ -89,7 +89,7 @@ for i in range(len(h_int_seq)):
 	if ''.join(h_int_seq[i:i+2]) == 'AG':
 		ag_sites.append(i) #+h_int_coor[0])
 
-print(gt_sites, ag_sites)		
+#print(gt_sites, ag_sites)		
 
 # create replacement intron
 rep_int_seq = []
@@ -102,9 +102,9 @@ for i in range(len(h_int_seq)):
 		rep_int_seq.append(l_rm_seq[len_ct])
 	len_ct += 1
 	
-print(rep_int_seq, 'rep_int_seq')
+#print(rep_int_seq, 'rep_int_seq')
 		
-print(gt_sites, ag_sites)
+#print(gt_sites, ag_sites)
 		
 # restore splice sites
 new_int_seq = []
@@ -126,10 +126,10 @@ for i in range(len(rep_int_seq)):
 	else:
 		new_int_seq.append(rep_int_seq[i])
 		
-print(new_int_seq, 'new_int_seq')
+#print(new_int_seq, 'new_int_seq')
 
-print(gc_calc(rep_int_seq), gc_calc(l_int_seq))
-print(gc_calc(new_int_seq), gc_calc(h_int_seq))
+#print(gc_calc(rep_int_seq), gc_calc(l_int_seq))
+#print(gc_calc(new_int_seq), gc_calc(h_int_seq))
 
 # replace high gc intron with low gc intron in the gene seq
 new_seq = []
@@ -141,54 +141,29 @@ for i in range(len(h_seq)):
 	else:
 		new_seq.append(h_seq[i])
 		
-print(h_seq)
-print(new_seq)
+#print(h_seq, 'h_seq')
+#print(new_seq, 'new_seq')
 	
-'''		
-
-# create new fasta with replaced intron
-replacement = []
-rep_idx = 0
-for i in range(len(high_seq)):
-	if i >= low_coor[0]-1 and i <= low_coor[1]-1:
-		print(i, rep_idx, low_coor[0]-1)
-		replacement.append(rep_int[rep_idx])
-		rep_idx += 1
-	else:
-		replacement.append(high_seq[i])
-		
-print('######')
-
-print(replacement, len(replacement), len(high_seq))
-print(gc_calc(replacement), gc_calc(high_seq))
-
+line_len = 80
+	
 # print in fasta format
 fa_lines = {}
 n_ct = 0
 ln_ct = 0
-for i in range(len(replacement)):
-	if n_ct <= 80:
+for i in range(len(new_seq)):
+	if n_ct <= line_len:
 		if ln_ct not in fa_lines:
-			fa_lines[ln_ct] = [replacement[i]]
+			fa_lines[ln_ct] = [new_seq[i]]
 		else:
-			fa_lines[ln_ct].append(replacement[i])
+			fa_lines[ln_ct].append(new_seq[i])
 		n_ct += 1
-	if n_ct == 80:
+	if n_ct == line_len:
 		n_ct = 0
 		ln_ct += 1
 		
-print(len(fa_lines[11]))
-
-print(header)
+print(h_header)
 for item in fa_lines.items():
 	print(''.join(item[1]))
-	
-print('########')
-print(''.join(replacement[261:633]))
-
-print(''.join(high_seq[261:633]))
-		
-'''
 	
 	
 	

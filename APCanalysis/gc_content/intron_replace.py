@@ -101,7 +101,9 @@ for i in range(len(h_int_seq)):
 	else:
 		rep_int_seq.append(l_rm_seq[len_ct])
 	len_ct += 1
-	
+
+# there are no GTs or AGs in rep_int_seq for ce.1.542
+#print(''.join(rep_int_seq))
 #print(rep_int_seq, 'rep_int_seq')
 		
 #print(gt_sites, ag_sites)
@@ -109,16 +111,23 @@ for i in range(len(h_int_seq)):
 # restore splice sites
 new_int_seq = []
 skip = False
+skip2 = False
 for i in range(len(rep_int_seq)):
+	if skip2 == True:
+		skip2 == False
+		continue
 	if skip == True:
 		skip = False
+		skip2 = True
 		continue
 	if i in gt_sites:
+		new_int_seq.append('C')
 		new_int_seq.append('G')
 		new_int_seq.append('T')
 		skip = True
 		continue
 	if i in ag_sites:
+		new_int_seq.append('A')
 		new_int_seq.append('A')
 		new_int_seq.append('G')
 		skip = True

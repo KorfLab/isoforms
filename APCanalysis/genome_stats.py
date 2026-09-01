@@ -55,7 +55,7 @@ print(exls)
 print(inls)
 
 # WBGene00022221
-# 5000bp intron in the 5' utr??
+# 5000bp intron in the 3' utr??
 
 for item in inls.items():
 	print(item)

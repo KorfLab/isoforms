@@ -29,7 +29,7 @@ with open(args.annotation, 'rt') as fp:
 		if line[1] == 'WormBase' and line[2] == 'gene':
 			info = {x.split('=')[0]: x.split('=')[1] for x in line[8].split(';')}
 			wbg = info['Name']
-			sym = info['sequence_name']
+			sym = info['Alias'].split(',')[0]
 			symbols[wbg] = sym
 
 sg_syms = {}

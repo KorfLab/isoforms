@@ -1,7 +1,7 @@
 import argparse
 
 parser = argparse.ArgumentParser(description='get genomic intron and '
-	'exon length stats')
+	'exon length stats in csv format')
 parser.add_argument('genome')
 parser.add_argument('annotation')
 
@@ -51,14 +51,14 @@ with open(args.annotation, 'rt') as fp:
 				else:
 					inls[tx_ids[tx_id]][inl] += 1
 			
-print(exls)
-print(inls)
+#print(exls)
+#print(inls)
 
 # WBGene00022221
 # 5000bp intron in the 3' utr??
 
-for item in inls.items():
-	print(item)
+#for item in inls.items():
+#	print(item)
 
 #print(dict(sorted(exls.items())))
 
@@ -69,10 +69,27 @@ for item in inls.items():
 #for ln in sorted(inls.items()):
 #	print(f'intron,{ln[0]},{ln[1]}')
 
+elen_hist = {}
+for elens in exls.items():
+	for elen in elens[1]:
+		if elen not in elen_hist:
+			elen_hist[elen] = elens[1][elen]
+		else:
+			elen_hist[elen] += elens[1][elen]
+			
+ilen_hist = {}
+for ilens in inls.items():
+	for ilen in ilens[1]:
+		if ilen not in ilen_hist:
+			ilen_hist[ilen] = ilens[1][ilen]
+		else:
+			ilen_hist[ilen] += ilens[1][ilen]
+			
+for length in sorted(elen_hist):
+	print(f'exon,{length},{elen_hist[length]}')
 
-
-
-
+for length in sorted(ilen_hist):
+	print(f'intron,{length},{ilen_hist[length]}')
 
 
 

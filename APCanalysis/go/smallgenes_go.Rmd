@@ -58,10 +58,15 @@ clusterprofiler does some filtering automatically
 ```{r}
 as.data.frame(GO_results)
 ```
-
-
+dev.off issue fix:
+https://www.reddit.com/r/RStudio/comments/1hsd1w7/frustrating_issue_with_saving_pngs_of_plots_in_r/
 ```{r}
 fit <- plot(barplot(GO_results, showCategory = 20))
+
+png('/home/carl/Code/isoforms/APCanalysis/go/go_out.png', 
+    res = 250, width = 1200, height = 2000)
+#dev.off()
+dev.off(dev.list()["png"])
 
 fit
 ```

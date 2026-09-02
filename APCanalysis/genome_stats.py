@@ -12,6 +12,7 @@ with open(args.annotation, 'rt') as fp:
 	for line in fp:
 		line = line.rstrip()
 		line = line.split('\t')
+		if len(line) < 9: continue
 		if line[1] == 'WormBase' and line[2] == 'gene':
 			attributes = line[8].split(';')
 			att = dict([x.split('=') for x in attributes])
@@ -26,6 +27,7 @@ with open(args.annotation, 'rt') as fp:
 	for line in fp:
 		line = line.rstrip()
 		line = line.split('\t')
+		if len(line) < 9: continue
 		if line[1] == 'WormBase':
 			type_id = line[8].split(';')[0]
 			if not type_id.split(':')[0].split('=')[1] == 'Transcript': 
@@ -69,6 +71,9 @@ with open(args.annotation, 'rt') as fp:
 #for ln in sorted(inls.items()):
 #	print(f'intron,{ln[0]},{ln[1]}')
 
+
+# make histogram in seaborn instead
+
 elen_hist = {}
 for elens in exls.items():
 	for elen in elens[1]:
@@ -85,11 +90,14 @@ for ilens in inls.items():
 		else:
 			ilen_hist[ilen] += ilens[1][ilen]
 			
+print(f'exin,length,counts')
 for length in sorted(elen_hist):
 	print(f'exon,{length},{elen_hist[length]}')
 
 for length in sorted(ilen_hist):
 	print(f'intron,{length},{ilen_hist[length]}')
+
+
 
 
 

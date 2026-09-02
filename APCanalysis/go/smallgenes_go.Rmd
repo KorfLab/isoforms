@@ -1,0 +1,75 @@
+
+
+
+
+```{r}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("clusterProfiler")
+```
+
+```{r}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("AnnotationDbi", force = TRUE)
+```
+
+```{r}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("org.Ce.eg.db", force = TRUE)
+```
+
+```{r}
+library(clusterProfiler)
+library(org.Ce.eg.db)
+library(AnnotationDbi)
+```
+
+```{r}
+sg_symbols <- read.csv('sg_symbols.csv', header = FALSE)
+
+genes_to_test <- sg_symbols$V2
+```
+
+
+ont can be BP, CC, MF
+biological process, cellular component, molecular function
+```{r}
+GO_results <- enrichGO(gene = genes_to_test, 
+                       OrgDb = 'org.Ce.eg.db', 
+                       keyType = 'SYMBOL',
+                       ont = 'BP')
+```
+BP background is 9826
+CC background is 12602
+MF background is 9895
+
+
+why are there to few genes in the background
+in the python version, got 19983 genes
+but background is different for each type of ont
+something about universe, see:
+if universe is missing, all genes in database will be used as background
+clusterprofiler does some filtering automatically
+```{r}
+as.data.frame(GO_results)
+```
+
+
+```{r}
+fit <- plot(barplot(GO_results, showCategory = 20))
+
+fit
+```
+
+
+
+
+
+
+
+

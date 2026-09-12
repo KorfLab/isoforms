@@ -69,16 +69,17 @@ def draw_rect(width, height, x, y, fill):
 	
 def draw_text(text, x, y):
 	
-	text = f'<text x="{x}" y="{y}" class="sm">{text}</text>\n'
-	
-	return text
+    return (
+        f'<text x="{x}" y="{y}" font-size="16" '
+        f'font-weight="bold">{text}</text>\n'
+    )
 	
 gcy_offset = 0
 
 # read in json data
 if arg.gcc:
 	
-	gcy_offset = 20
+	gcy_offset = 30
 	
 	# smallgenes/rnaseq 
 	with open(arg.gcc[0], 'r') as gc0fp:
@@ -219,7 +220,7 @@ with open(arg.out_name, 'w') as onfp:
 		height = 6
 		width = intron[0][1] - intron[0][0] + 1
 		rect = draw_rect(width, height, intron[0][0]+x_offset, y, 'green')
-		text1 = draw_text(score, start_pt[0][0]-60+x_offset, y+7)
+		text1 = draw_text(score, start_pt[0][0]-80+x_offset, y+7)
 		text2 = draw_text(f'{intron[0][0]},{intron[0][1]}', 
 							intron[0][1]+10+x_offset, y+7)
 		onfp.write(rect)
@@ -260,11 +261,11 @@ with open(arg.out_name, 'w') as onfp:
 					i_mid = int(round((exin[1] + exin[2])/2, 0))
 					i_key = ','.join(map(str, [exin[1]-1, exin[2]-1]))
 					gc_val = apc_gc_introns[i_key]
-					gc_text = draw_text(gc_val, i_mid-10, y-5)
+					gc_text = draw_text(gc_val, i_mid-10, y+35) #y-5)
 					onfp.write(gc_text)
 				
 		int_text = '|'.join([f'{x[0]},{x[1]}' for x in int_def])
-		text1 = draw_text(prob, iso[0][1]+x_offset-75, y+15)
+		text1 = draw_text(prob, iso[0][1]+x_offset-100, y+15)
 		text2 = draw_text(int_text, iso[-1][2]+x_offset+10, y+15)
 		onfp.write(text1)
 		onfp.write(text2)

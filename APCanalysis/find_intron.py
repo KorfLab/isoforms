@@ -15,15 +15,50 @@ with open(args.gff, 'rt') as fp:
 		if line.startswith('#'): continue
 		if line == '': continue
 		line = line.split('\t')
-		print(line)
 		if line[2] == 'mRNA':
 			iso_count += 1
 		if line[2] == 'intron':
 			if iso_count not in isos:
-				isos[iso_count] = [(line[3], line[4])]
+				isos[iso_count] = [[int(line[3]), int(line[4])]]
 			else:
-				isos[iso_count].append((line[3], line[4]))
+				isos[iso_count].append([int(line[3]), int(line[4])])
 
-print(isos[2])			
-		
-		
+	
+
+int_coors = args.int_coors.split(':')
+canon_int = []
+for ic in int_coors:
+	intc = [int(x) for x in ic.split(',')]
+	canon_int.append(intc)
+	
+
+
+for iso in isos:
+	if isos[iso] == canon_int:
+		print('exact match found')
+		print('iso #:', iso)
+		print('introns:', isos[iso])
+
+print('#########')
+
+for iso in canon_int:
+	print(iso)
+	for i in isos:
+		if iso in isos[i]:
+			print(i, isos[i])
+			break
+			
+print(len(isos))
+	
+
+
+
+
+
+
+
+
+
+
+
+

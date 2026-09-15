@@ -5,7 +5,7 @@ parser = argparse.ArgumentParser(
 	description='create svg file from APC isoforms')
 parser.add_argument('apc_gff')
 parser.add_argument('wb_gff')
-parser.add_argument('--limit', type=int, required=False, default=10)
+parser.add_argument('--limit', type=int, required=False, default=5)
 parser.add_argument('--out_name', type=str, required=False, 
 					default='isoforms.svg')
 parser.add_argument('--width', type=int, required=False, default=1000)

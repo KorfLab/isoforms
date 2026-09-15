@@ -4,6 +4,7 @@ parser = argparse.ArgumentParser(description='get splice site '
 	'sequences for each isoform')
 parser.add_argument('gff')
 parser.add_argument('fasta')
+parser.add_argument('--iso')
 
 args = parser.parse_args()
 
@@ -40,7 +41,7 @@ for item in isos.items():
 		aseq = seq[acc-6:acc]
 		ss_seqs[item[0]][intron] = (dseq, aseq)
 
-print(ss_seqs[1])
+print(ss_seqs[int(args.iso)])
 
 
 

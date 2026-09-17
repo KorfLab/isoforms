@@ -754,7 +754,9 @@ class Locus:
 		e = len(self.seq) - self.flank
 		gene = f'Gene-{self.name}'
 		print(f'{cs}gene\t{b}\t{e}\t.\t+\t.\tID={gene}\n', file=fp)
-		for i, tx in enumerate(self.isoforms):
+		# sort again after NMD adjustment
+		prob_sort = sorted(self.isoforms, key=lambda x: x.prob, reverse=True)
+		for i, tx in enumerate(prob_sort):
 			b = tx.beg + 1
 			e = tx.end + 1
 			s = tx.prob

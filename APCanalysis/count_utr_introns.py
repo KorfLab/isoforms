@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser(description='count number of APC '
 parser.add_argument('smallgenes')
 parser.add_argument('--apc_results', type=str, required=False, nargs=4, 
 	help='directories with APC results')
-parser.add_argument('--top_isos', type=int, required=False, default=10,
+parser.add_argument('--top_isos', type=int, required=False, default=1,
 	help='search only the top %(default)s isos')
 	
 args = parser.parse_args()
@@ -45,8 +45,10 @@ def get_isos(apc_gff):
 				
 	return isoforms
 
-int_in_utrs = {}
+by_apc_type = {}
 for res in args.apc_results:
+	apc_type = res.split('/')[-2]
+	int_in_utrs = {}
 	for file in glob.glob(f'{res}*'):
 		isos = get_isos(file)
 		icount = 0
@@ -55,7 +57,6 @@ for res in args.apc_results:
 		for item in isos.items():
 			if icount < args.top_isos:
 				gid = item[0].split('-')[1]
-				#int_in_utrs[gid] = {}
 				int_coors = []
 				for feature in item[1]:
 					if feature[0] == 'intron':
@@ -66,15 +67,43 @@ for res in args.apc_results:
 			cl, cr = longest_cdss[gid][0], longest_cdss[gid][1]
 			il, ir = min(int_coors), max(int_coors)
 			if il < cl or ir > cr:
-				print(gid, icount, 'over utr')
-				int_in_utrs[gid][icount] = 'over_utr'
+				# over utr
+				int_in_utrs[gid][icount] = True
 			else:
-				print(gid, icount, 'not over')
-				int_in_utrs[gid][icount] = 'not_over_utr'
-		break
-	break
+				# not over utr
+				int_in_utrs[gid][icount] = False
+				
+	by_apc_type[apc_type] = int_in_utrs
 	
-print(int_in_utrs)
-	
+# summarize results
+utr_counts = {}
+for apc in by_apc_type.items():
+	for gene in apc[1].items():
+		# just do top isoform, no need for args.top_isos
+		t_or_f = gene[1][1]
+		if apc[0] not in utr_counts:
+			utr_counts[apc[0]] = {True: 0, False: 0}
+			utr_counts[apc[0]][t_or_f] += 1
+		else:
+			utr_counts[apc[0]][t_or_f] += 1
+			
+# print this for summary
+#print(utr_counts)
+
+# csv format with gene ids for pandas
+print(f'gene_id,top_int_utr,apc_type')
+for apc in by_apc_type.items():
+	if apc[0] == 'APCisos_base':
+		atype = 'base'
+	if apc[0] == 'APCisos_nmd':
+		atype = 'nmd'
+	if apc[0] == 'APCisos_optiso':
+		atype = 'optiso'
+	if apc[0] == 'APCisos_optiso_nmd':
+		atype = 'optiso_nmd'
+	for gene in apc[1].items():
+		print(f'{gene[0]},{gene[1][1]},{atype}')
+
+
 
 

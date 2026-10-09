@@ -1,5 +1,7 @@
 import subprocess
 
+# check APCisos/ and smallgenes/ in data/
+
 prog_loc1 = 'gc_content/'
 
 cmd1 = (

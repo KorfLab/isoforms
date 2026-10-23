@@ -15,6 +15,9 @@ parser.add_argument('model', type=str, metavar='<file>',
 	help='splice model file')
 parser.add_argument('--weights', required=False, type=str, metavar='<file>',
 	help='file with model weights, optional')
+parser.add_argument('--bli', action='store_true',
+	help='create only biologically likely isoforms by only using '
+	'observed splice sites from gff')
 parser.add_argument('--outdir', required=False, type=str, default='APCisos/',
 	metavar='<outdir>', help='name of output directory [%(default)s]')
 parser.add_argument('--outname', required=False, type=str, 
@@ -29,6 +32,8 @@ parser.add_argument('--cpu', required=False, type=int, default=1,
 	metavar='<int>', help='number of cpus to use [%(default).i]')
 
 args = parser.parse_args()
+
+print(args.bli)
 
 if not args.apc_dir.endswith('/'):
 	args.apc_dir = f'{args.apc_dir}/'
@@ -50,15 +55,31 @@ if args.weights:
 			weights[line[0]] = [x for x in line[1:]]
 	
 def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl, 
-			winf, limit, gff=False):
+			winf, limit, gff=False, bli=False):
 
 	# --nmd means gff is passed to --translate in geniso
-	if gff:
+	if gff and not bli:
 		cmd = (
 			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
 			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
 			f'--winf {winf} --limit {limit} --translate {gff}'
 		)
+		
+	# gff also needs to be passed to --gff in geniso, which gets splice sites from gff
+	if bli and not gff:
+		cmd = (
+			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
+			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
+			f'--winf {winf} --limit {limit} --gff {gff}'
+		)
+		
+	if bli and gff:
+		cmd = (
+			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
+			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
+			f'--winf {winf} --limit {limit} --translate {gff} --gff {gff}'
+		)
+		
 	else:
 		cmd = (
 			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
@@ -117,7 +138,13 @@ if not os.path.exists(args.outdir):
     os.makedirs(args.outdir)
 
 for res in result:
-	gID = res.split('\n')[0].split(' ')[2]
+	
+	gID = ''
+	for line in res.split('\n'):
+		if line.startswith('# name:'):
+			gID = line.split(' ')[2]
+			break
+
 	if args.outname:
 		f = open(f'{args.outdir}{gID}.{args.outname}.gff', 'w')
 	else:

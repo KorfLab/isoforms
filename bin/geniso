@@ -70,9 +70,11 @@ constraints = {
 if arg.out: fp = open(arg.out, 'w')
 else: fp = sys.stdout
 
+print(arg.gff)
+
 name, seq = next(isoform.read_fasta(arg.fasta))
 locus = Locus(name, seq, model, constraints=constraints, weights=weights,
-	limit=arg.limit)
+	limit=arg.limit, gff=arg.gff)
 
 ##### copy paste from nmd-ish.py #####
 if arg.translate:

@@ -13,6 +13,9 @@ parser.add_argument('apc_dir', type=str, metavar='<directory>',
     help='directory with APC .gff3 and .fa files')
 parser.add_argument('model', type=str, metavar='<file>',
     help='splice model file')
+parser.add_argument('--bli', action='store_true',
+	help='create only biologically likely isoforms by only using '
+	'observed splice sites from gff')
 parser.add_argument('--min_intron', required=False, type=int, default=35,
 	metavar='<int>', help='minimum length of intron [%(default)i]')
 parser.add_argument('--min_exon', required=False, type=int, default=25,
@@ -35,7 +38,6 @@ if args.apc_dir.endswith('/'):
 else:
 	adir = args.apc_dir + '/'
 
-
 fpaths = {}
 for file in os.listdir(adir):
 	gID = '.'.join(file.split('.')[1:3])
@@ -52,6 +54,14 @@ def optimize(prog, fasta, gff, model, limit, flank, minin, minex):
 		f'./{prog} {fasta} {gff} {model} --limit {limit} '
 		f'--flank {flank} --min_intron {minin} --min_exon {minex}'
 	)
+	
+	if args.bli:
+		cmd = (
+			f'./{prog} {fasta} {gff} {model} --limit {limit} '
+			f'--flank {flank} --min_intron {minin} --min_exon {minex} '
+			f'--bli'
+		)
+	
 	cmd = cmd.split(' ')
 	gid = '.'.join(fasta.split('/')[-1:][0].split('.')[1:3])
 	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout.split()
@@ -94,6 +104,5 @@ with open(out_name, 'w') as file:
     writer = csv.writer(file)
     writer.writerow(['gid', 'fitness', 'wacc', 'wdon', 'wexs', 'wins', 'wexl', 'winl', 'winf'])
     writer.writerows(ref)
-
 
 

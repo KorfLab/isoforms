@@ -69,6 +69,9 @@ parser = argparse.ArgumentParser(
 parser.add_argument('fasta')
 parser.add_argument('gff')
 parser.add_argument('model', help='splice model file')
+parser.add_argument('--bli', action='store_true',
+	help='create only biologically likely isoforms by only using '
+	'observed splice sites from gff')
 parser.add_argument('--limit', type=int, help='limit number of isoforms')
 parser.add_argument('--min_intron', required=False, type=int, default=35,
 	metavar='<int>', help='minimum length of intron [%(default)i]')
@@ -98,12 +101,18 @@ constraints = {
 }
 
 # Initialize
+
+if arg.bli:
+	bli_gff = arg.gff
+else:
+	bli_gff = False
+
 if arg.seed: random.seed(arg.seed)
 name, seq = next(isoform.read_fasta(arg.fasta))
 model = isoform.read_splicemodel(arg.model)
 if arg.verbose: print('computing isoforms...', end='', flush=True)
 gene = Locus(name, seq, model, constraints=constraints, weights=None, 
-	limit=arg.limit, memoize=True)
+	limit=arg.limit, memoize=True, gff=bli_gff)
 if arg.verbose: print(f'found {len(gene.isoforms)} isoforms', flush=True)
 
 # RNA-Seq from GFF

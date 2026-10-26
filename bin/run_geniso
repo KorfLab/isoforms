@@ -52,30 +52,31 @@ if args.weights:
 			line = line.split(',')
 			weights[line[0]] = [x for x in line[1:]]
 	
+# nmd and bli are both the gff
 def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl, 
-			winf, limit, gff=False, bli=False):
-
+			winf, limit, nmd=False, bli=False):
+				
 	# --nmd means gff is passed to --translate in geniso
-	if gff and not bli:
+	if nmd and not bli:
 		cmd = (
 			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
 			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
-			f'--winf {winf} --limit {limit} --translate {gff}'
+			f'--winf {winf} --limit {limit} --translate {nmd}'
 		)
 		
 	# gff also needs to be passed to --gff in geniso, which gets splice sites from gff
-	if bli and not gff:
+	if bli and not nmd:
 		cmd = (
 			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
 			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
-			f'--winf {winf} --limit {limit} --gff {gff}'
+			f'--winf {winf} --limit {limit} --gff {bli}'
 		)
 		
-	if bli and gff:
+	if bli and nmd:
 		cmd = (
 			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
 			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
-			f'--winf {winf} --limit {limit} --translate {gff} --gff {gff}'
+			f'--winf {winf} --limit {limit} --gff {bli} --translate {nmd}'
 		)
 		
 	else:
@@ -84,6 +85,7 @@ def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl,
 			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
 			f'--winf {winf} --limit {limit}'
 		)
+		
 	cmd = cmd.split(' ')
 	gid = '.'.join(cmd[1].split('.')[-3:-1])
 	print(f'working on {gid}', flush=True)
@@ -91,13 +93,14 @@ def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl,
 	print(f'{gid} is done', flush=True)
 	return output.rstrip()
 
-def worker(input):
+def worker(in_put):
 
-    return generate(
-        input[0], input[1], input[2], input[3], input[4], input[5], 
-        input[6], input[7], input[8], input[9], input[10], input[11]
-    )
-    
+	return generate(
+		in_put[0], in_put[1], in_put[2], in_put[3], in_put[4], 
+		in_put[5], in_put[6], in_put[7], in_put[8], in_put[9], 
+		in_put[10], in_put[11], in_put[12]
+		)
+     
 inputs = []
 for gID in fpaths:
 	if args.weights:
@@ -116,15 +119,25 @@ for gID in fpaths:
 		wexl = 1.0
 		winl = 1.0
 		winf = 1.0
-	if args.nmd:
+	if args.nmd and not args.bli:
 		input = [
 			args.program, fpaths[gID][0], args.model, wacc, wdon, wexs, 
-			wins, wexl, winl, winf, args.limit, fpaths[gID][1]
+			wins, wexl, winl, winf, args.limit, fpaths[gID][1], False
+		]
+	if args.bli and not args.nmd:
+		input = [
+			args.program, fpaths[gID][0], args.model, wacc, wdon, wexs, 
+			wins, wexl, winl, winf, args.limit, False, fpaths[gID][1]
+		]
+	if args.bli and args.nmd:
+		input = [
+			args.program, fpaths[gID][0], args.model, wacc, wdon, wexs, 
+			wins, wexl, winl, winf, args.limit, fpaths[gID][1], fpaths[gID][1]
 		]
 	else:
 		input = [
 			args.program, fpaths[gID][0], args.model, wacc, wdon, wexs, 
-			wins, wexl, winl, winf, args.limit, False
+			wins, wexl, winl, winf, args.limit, False, False
 		]
 	inputs.append(input)
 

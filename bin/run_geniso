@@ -65,14 +65,14 @@ def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl,
 		)
 		
 	# gff also needs to be passed to --gff in geniso, which gets splice sites from gff
-	if bli and not nmd:
+	elif bli and not nmd:
 		cmd = (
 			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
 			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
 			f'--winf {winf} --limit {limit} --gff {bli}'
 		)
 		
-	if bli and nmd:
+	elif bli and nmd:
 		cmd = (
 			f'./{prog} {fasta} {model} --wacc {wacc} --wdon {wdon} '
 			f'--wexs {wexs} --wins {wins} --wexl {wexl} --winl {winl} '
@@ -124,12 +124,12 @@ for gID in fpaths:
 			args.program, fpaths[gID][0], args.model, wacc, wdon, wexs, 
 			wins, wexl, winl, winf, args.limit, fpaths[gID][1], False
 		]
-	if args.bli and not args.nmd:
+	elif args.bli and not args.nmd:
 		input = [
 			args.program, fpaths[gID][0], args.model, wacc, wdon, wexs, 
 			wins, wexl, winl, winf, args.limit, False, fpaths[gID][1]
 		]
-	if args.bli and args.nmd:
+	elif args.bli and args.nmd:
 		input = [
 			args.program, fpaths[gID][0], args.model, wacc, wdon, wexs, 
 			wins, wexl, winl, winf, args.limit, fpaths[gID][1], fpaths[gID][1]

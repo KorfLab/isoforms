@@ -174,13 +174,14 @@ for item in gen_seqs_80.items():
 # adjust gff coors to 0
 # only keep CDS and introns
 # for difalt, CDS = exon
+# keep .gff3 ext to it works with geniso
 for item in genes.items():
 	coors = item[0].split(' ')[1].split(':')[1].split('-')
 	start = int(coors[0])
 	end = int(coors[1])
 	gname = item[0].split(' ')[0].split('>')[1]
 	fname = '.'.join(gname.split('_'))
-	with open(f'{out}{fname}.gff', 'wt') as fp:
+	with open(f'{out}{fname}.gff3', 'wt') as fp:
 		for line in item[1]:
 			if line[2] in ['CDS', 'intron']:
 				new_line = line.copy()

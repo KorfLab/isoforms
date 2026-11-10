@@ -55,7 +55,7 @@ def generate(prog, fasta, model, wacc, wdon, wexs, wins, wexl, winl,
 	print(f'working on {gid}', flush=True)
 	output = subprocess.run(cmd, stdout=subprocess.PIPE, text=True).stdout
 	print(f'{gid} is done', flush=True)
-	return output.rstrip()ls
+	return output.rstrip()
 
 if __name__ == '__main__':
 		

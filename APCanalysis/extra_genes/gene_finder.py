@@ -163,7 +163,8 @@ if not os.path.exists(out):
 for item in gen_seqs_80.items():
 	info = item[0].split(' ')
 	seq_desc = f'{info[0]} {info[1]} {info[2]} {info[3]}'
-	fname = info[0].split('>')[1]
+	gname = info[0].split('>')[1]
+	fname = '.'.join(gname.split('_'))
 	with open(f'{out}{fname}.fa', 'wt') as fp:
 		fp.write(f'{seq_desc}\n')
 		s_count = 0
@@ -177,7 +178,8 @@ for item in genes.items():
 	coors = item[0].split(' ')[1].split(':')[1].split('-')
 	start = int(coors[0])
 	end = int(coors[1])
-	fname = item[0].split(' ')[0].split('>')[1]
+	gname = item[0].split(' ')[0].split('>')[1]
+	fname = '.'.join(gname.split('_'))
 	with open(f'{out}{fname}.gff', 'wt') as fp:
 		for line in item[1]:
 			if line[2] in ['CDS', 'intron']:

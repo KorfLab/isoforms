@@ -1,8 +1,0 @@
-III	WormBase	CDS	100	276	.	+	2	ID=CDS:ZK1098.10a;Parent=Transcript:ZK1098.10a.1,Transcript:ZK1098.10a.2;Name=ZK1098.10a;prediction_status=Confirmed;wormpep=CE00363;protein_id=CAA80140.1;locus=unc-16;uniprot_id=P34609
-III	WormBase	CDS	324	404	.	+	1	ID=CDS:ZK1098.10a;Parent=Transcript:ZK1098.10a.1,Transcript:ZK1098.10a.2;Name=ZK1098.10a;prediction_status=Confirmed;wormpep=CE00363;protein_id=CAA80140.1;locus=unc-16;uniprot_id=P34609
-III	WormBase	CDS	455	553	.	+	1	ID=CDS:ZK1098.10a;Parent=Transcript:ZK1098.10a.1,Transcript:ZK1098.10a.2;Name=ZK1098.10a;prediction_status=Confirmed;wormpep=CE00363;protein_id=CAA80140.1;locus=unc-16;uniprot_id=P34609
-III	RNASeq_splice	intron	277	310	6	+	.	Name=RNASeq intron
-III	RNASeq_splice	intron	277	323	145138	+	.	Name=RNASeq intron
-III	RNASeq_splice	intron	398	454	4	+	.	Name=RNASeq intron
-III	RNASeq_splice	intron	403	454	13	+	.	Name=RNASeq intron
-III	RNASeq_splice	intron	405	454	204544	+	.	Name=RNASeq intron

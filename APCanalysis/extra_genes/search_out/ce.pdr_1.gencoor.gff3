@@ -1,5 +1,5 @@
 III	WormBase	gene	13771513	13773345	.	+	.	ID=Gene:WBGene00003967;Name=WBGene00003967;locus=pdr-1;sequence_name=K08E3.7;biotype=protein_coding;so_term_name=protein_coding_gene;curie=WB:WBGene00003967;Alias=pdr-1,K08E3.7
-III	WormBase	mRNA	13771519	13773344	.	+	.	ID=Transcript:K08E3.7a.1;Parent=Gene:WBGene00003967;Name=K08E3.7a.1;wormpep=CE31713;locus=pdr-1;uniprot_id=Q9XUS3
+III	WormBase	mRNA	13771519	13773343	.	+	.	ID=Transcript:K08E3.7a.1;Parent=Gene:WBGene00003967;Name=K08E3.7a.1;wormpep=CE31713;locus=pdr-1;uniprot_id=Q9XUS3
 III	WormBase	CDS	13772284	13772313	.	+	1	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1;Name=K08E3.7a;prediction_status=Confirmed;wormpep=CE31713;protein_id=CAB04599.2;locus=pdr-1;uniprot_id=Q9XUS3
 III	WormBase	CDS	13772360	13772450	.	+	0	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1;Name=K08E3.7a;prediction_status=Confirmed;wormpep=CE31713;protein_id=CAB04599.2;locus=pdr-1;uniprot_id=Q9XUS3
 III	WormBase	CDS	13772730	13772761	.	+	2	ID=CDS:K08E3.7a;Parent=Transcript:K08E3.7a.1;Name=K08E3.7a;prediction_status=Confirmed;wormpep=CE31713;protein_id=CAB04599.2;locus=pdr-1;uniprot_id=Q9XUS3

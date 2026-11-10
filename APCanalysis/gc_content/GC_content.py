@@ -34,6 +34,8 @@ for apc_dir in args.apc_results:
 	for fpath in glob.glob(f'{apc_dir}*'):
 		gid = fpath.split('/')[-1]
 		gid = '.'.join(gid.split('.')[:-2])
+		if '_' in gid:
+			gid = '.'.join(gid.split('_'))	
 		gene_file_paths[gid].append(fpath)
 
 def gc_calc(seq):

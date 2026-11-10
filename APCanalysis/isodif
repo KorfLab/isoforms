@@ -26,8 +26,10 @@ if not args.smallgenes.endswith('/'):
 gff_paths = {}
 for fname in os.listdir(args.apc):
 	gid = '.'.join(fname.split('.')[:3])
+	if '_' in gid:
+		gid = '.'.join('.'.join(gid.split('_')).split('.')[:3])
 	gff_paths[gid] = [f'{args.apc}{fname}']
-	
+
 for fname in os.listdir(args.smallgenes):
 	if fname.endswith('.gff3'):
 		gid = '.'.join(fname.split('.')[:3])

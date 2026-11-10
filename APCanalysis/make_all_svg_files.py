@@ -32,7 +32,7 @@ if not args.out_dir.endswith('/'):
 	args.out_dir = f'{args.out_dir}/'
 	
 if not os.path.isdir(args.out_dir):
-	os.mkdir(args.out_dir)
+	os.makedirs(args.out_dir, exist_ok=True)
 	
 if args.gcc:
 	if not args.gcc[0].endswith('/'):
@@ -44,6 +44,8 @@ if args.gcc:
 gene_files = {}
 for apc_path in glob.glob(f'{args.apc_results}*'):
 	gid = '.'.join(apc_path.split('/')[-1].split('.')[:-2])
+	if '_' in gid:
+		gid = '.'.join(gid.split('_'))
 	gene_files[gid] = [apc_path]
 
 for rna_path in glob.glob(f'{args.smallgenes}*.gff3'):

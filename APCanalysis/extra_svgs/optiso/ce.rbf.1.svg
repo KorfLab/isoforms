@@ -1,0 +1,93 @@
+<svg width="1000" height="1000">
+<rect width="30" height="20" x="100" y="100" fill="blue" />
+<text x="104" y="95" font-size="16" font-weight="bold">23.33</text>
+<rect width="70" height="20" x="179" y="100" fill="blue" />
+<text x="204" y="95" font-size="16" font-weight="bold">45.71</text>
+<rect width="32" height="20" x="761" y="100" fill="blue" />
+<text x="766" y="95" font-size="16" font-weight="bold">46.88</text>
+<rect width="49" height="6" x="130" y="107" fill="black" />
+<text x="144" y="132" font-size="16" font-weight="bold">30.61</text>
+<rect width="512" height="6" x="249" y="107" fill="black" />
+<text x="494" y="132" font-size="16" font-weight="bold">32.81</text>
+<text x="802" y="114" font-size="16" font-weight="bold">130,178|249,760</text>
+<rect width="49" height="6" x="130" y="160" fill="green" />
+<text x="50" y="167" font-size="16" font-weight="bold">33746</text>
+<text x="188" y="167" font-size="16" font-weight="bold">130,178</text>
+<rect width="631" height="6" x="130" y="180" fill="green" />
+<text x="50" y="187" font-size="16" font-weight="bold">152</text>
+<text x="770" y="187" font-size="16" font-weight="bold">130,760</text>
+<rect width="512" height="6" x="249" y="200" fill="green" />
+<text x="50" y="207" font-size="16" font-weight="bold">27198</text>
+<text x="770" y="207" font-size="16" font-weight="bold">249,760</text>
+<rect width="514" height="6" x="249" y="220" fill="green" />
+<text x="50" y="227" font-size="16" font-weight="bold">11</text>
+<text x="772" y="227" font-size="16" font-weight="bold">249,762</text>
+<rect width="30" height="20" x="100" y="250" fill="blue" />
+<text x="104" y="245" font-size="16" font-weight="bold">23.33</text>
+<rect width="530" height="6" x="130" y="257" fill="black" />
+<text x="384" y="285" font-size="16" font-weight="bold">34.15</text>
+<rect width="27" height="20" x="660" y="250" fill="blue" />
+<text x="663" y="245" font-size="16" font-weight="bold">44.44</text>
+<rect width="76" height="6" x="687" y="257" fill="black" />
+<text x="714" y="285" font-size="16" font-weight="bold">30.26</text>
+<rect width="30" height="20" x="763" y="250" fill="blue" />
+<text x="768" y="245" font-size="16" font-weight="bold">46.67</text>
+<text x="0" y="265" font-size="16" font-weight="bold">0.111</text>
+<text x="802" y="265" font-size="16" font-weight="bold">130,659|687,762</text>
+<rect width="30" height="20" x="100" y="310" fill="blue" />
+<text x="104" y="305" font-size="16" font-weight="bold">23.33</text>
+<rect width="49" height="6" x="130" y="317" fill="black" />
+<text x="144" y="345" font-size="16" font-weight="bold">30.61</text>
+<rect width="70" height="20" x="179" y="310" fill="blue" />
+<text x="204" y="305" font-size="16" font-weight="bold">45.71</text>
+<rect width="411" height="6" x="249" y="317" fill="black" />
+<text x="444" y="345" font-size="16" font-weight="bold">32.6</text>
+<rect width="27" height="20" x="660" y="310" fill="blue" />
+<text x="663" y="305" font-size="16" font-weight="bold">44.44</text>
+<rect width="76" height="6" x="687" y="317" fill="black" />
+<text x="714" y="345" font-size="16" font-weight="bold">30.26</text>
+<rect width="30" height="20" x="763" y="310" fill="blue" />
+<text x="768" y="305" font-size="16" font-weight="bold">46.67</text>
+<text x="0" y="325" font-size="16" font-weight="bold">0.05838</text>
+<text x="802" y="325" font-size="16" font-weight="bold">130,178|249,659|687,762</text>
+<rect width="30" height="20" x="100" y="370" fill="blue" />
+<text x="104" y="365" font-size="16" font-weight="bold">23.33</text>
+<rect width="530" height="6" x="130" y="377" fill="black" />
+<text x="384" y="405" font-size="16" font-weight="bold">34.15</text>
+<rect width="27" height="20" x="660" y="370" fill="blue" />
+<text x="663" y="365" font-size="16" font-weight="bold">44.44</text>
+<rect width="74" height="6" x="687" y="377" fill="black" />
+<text x="714" y="405" font-size="16" font-weight="bold">29.73</text>
+<rect width="32" height="20" x="761" y="370" fill="blue" />
+<text x="766" y="365" font-size="16" font-weight="bold">46.88</text>
+<text x="0" y="385" font-size="16" font-weight="bold">0.05227</text>
+<text x="802" y="385" font-size="16" font-weight="bold">130,659|687,760</text>
+<rect width="34" height="20" x="100" y="430" fill="blue" />
+<text x="106" y="425" font-size="16" font-weight="bold">26.47</text>
+<rect width="526" height="6" x="134" y="437" fill="black" />
+<text x="386" y="465" font-size="16" font-weight="bold">34.03</text>
+<rect width="27" height="20" x="660" y="430" fill="blue" />
+<text x="663" y="425" font-size="16" font-weight="bold">44.44</text>
+<rect width="76" height="6" x="687" y="437" fill="black" />
+<text x="714" y="465" font-size="16" font-weight="bold">30.26</text>
+<rect width="30" height="20" x="763" y="430" fill="blue" />
+<text x="768" y="425" font-size="16" font-weight="bold">46.67</text>
+<text x="0" y="445" font-size="16" font-weight="bold">0.05045</text>
+<text x="802" y="445" font-size="16" font-weight="bold">134,659|687,762</text>
+<rect width="30" height="20" x="100" y="490" fill="blue" />
+<text x="104" y="485" font-size="16" font-weight="bold">23.33</text>
+<rect width="62" height="6" x="130" y="497" fill="black" />
+<text x="150" y="525" font-size="16" font-weight="bold">35.48</text>
+<rect width="57" height="20" x="192" y="490" fill="blue" />
+<text x="210" y="485" font-size="16" font-weight="bold">43.86</text>
+<rect width="411" height="6" x="249" y="497" fill="black" />
+<text x="444" y="525" font-size="16" font-weight="bold">32.6</text>
+<rect width="27" height="20" x="660" y="490" fill="blue" />
+<text x="663" y="485" font-size="16" font-weight="bold">44.44</text>
+<rect width="76" height="6" x="687" y="497" fill="black" />
+<text x="714" y="525" font-size="16" font-weight="bold">30.26</text>
+<rect width="30" height="20" x="763" y="490" fill="blue" />
+<text x="768" y="485" font-size="16" font-weight="bold">46.67</text>
+<text x="0" y="505" font-size="16" font-weight="bold">0.04479</text>
+<text x="802" y="505" font-size="16" font-weight="bold">130,191|249,659|687,762</text>
+</svg>

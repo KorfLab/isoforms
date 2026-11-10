@@ -2,6 +2,7 @@ import argparse
 import gzip
 import os
 import glob
+import copy
 
 parser = argparse.ArgumentParser(
 	description='find gene sequences in the C. elegans genome')
@@ -96,13 +97,6 @@ for info_seq in gen_seqs.items():
 		comps = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
 		for n in info_seq[1]:
 			comp_seq.append(comps[n])
-		'''
-		rev_seq = []
-		for i in range(len(comp_seq)):
-			i = i+1
-			rev_seq.append(comp_seq[-i])
-		gen_seqs[info_seq[0]] = rev_seq
-		'''
 		gen_seqs[info_seq[0]] = comp_seq
 	
 # insert start and stop codons	
@@ -123,13 +117,30 @@ for gen_seq in gen_seqs.items():
 		(gen_seq[1][-(f+3)],
 		gen_seq[1][-(f+2)],
 		gen_seq[1][-(f+1)]) = ('G', 'T', 'A')
+	
+def rev_seq(seq):
+		
+	rseq = []
+	for i in range(len(seq)):
+		i = i+1
+		rseq.append(seq[-i])
+		
+	return rseq
 		
 # organize sequences into 80 nt lines
 gen_seqs_80 = {}
 for gen_seq in gen_seqs.items():
+	
+	# reverse sequence so CDS at 100 bp in fasta is atg
+	st = gen_seq[0].split(' ')[2]
+	if st == '+':
+		final_seq = copy.deepcopy(gen_seq[1])
+	if st == '-':
+		final_seq = rev_seq(gen_seq[1])
+		
 	seq_line = []
 	seq_lines = []
-	for n in gen_seq[1]:
+	for n in final_seq:
 		if len(seq_line) < 80:
 			seq_line.append(n)
 		else:

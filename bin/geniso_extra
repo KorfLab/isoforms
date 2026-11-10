@@ -77,53 +77,11 @@ else: fp = sys.stdout
 name, seq = next(isoform.read_fasta(arg.fasta))
 locus = Locus(name, seq, model, constraints=constraints, weights=weights,
 	limit=arg.limit, gff=arg.gff)
-	
-def find_atg(fasta, gff):
-	
-	with open(fasta, 'rt') as fp:
-		seq = []
-		for line in fp:
-			line = line.rstrip()
-			if line.startswith('>'): continue
-			print(line)
-			for n in line:
-				seq.append(n)
-	
-	with open(gff, 'rt') as fp:
-		for line in fp:
-			line = line.rstrip()
-			line = line.split('\t')
-			if line[2] == 'CDS':
-				print(line)
-			if line[2] == 'CDS':
-				cds_beg = int(line[3])
-				break
-				
-	print(cds_beg, '#####')
-	print(seq[cds_beg-1:cds_beg+5])
-	if seq[cds_beg-1:cds_beg+2] == ['A', 'T', 'G']:
-		print(cds_beg, 'RETURN')
-		return cds_beg
-		
-	else:
-		print('WOWOW')
-		for i in range(cds_beg, len(seq), 1):
-			if seq[i:i+3] == ['A', 'T', 'G']:
-				print(seq[i:i+3], i)
-				cds_beg = i
-				break
-	
-	
-find_atg(arg.fasta, arg.translate)
-			
-	
 
 ##### copy paste from nmd-ish.py #####
 if arg.translate:
 	
-	
-	
-	
+	'''
 	reader = Reader(fasta=arg.fasta, gff=arg.translate)
 	region = next(reader)
 
@@ -135,7 +93,12 @@ if arg.translate:
 		cdss = sorted(tx.cdss, key=lambda x: x.beg)
 		atgs.add(cdss[0].beg -1)
 	cds_beg = sorted(list(atgs))[0]
-	print(cds_beg, 'beg')
+	'''
+
+	# should be the same for all extra genes
+	# too lazy to code better rn
+	# see gene_finder.py for where ATG is inserted
+	cds_beg = 100
 	
 	# examine the isoforms to determine if they are NMD targets
 	prevs = [iso.prob for iso in locus.isoforms]
@@ -147,8 +110,6 @@ if arg.translate:
 		elif iso.rnatype == 'nmd-target': iso.prob *= arg.nmd
 		posts.append(iso.prob)
 		rtypes.append(iso.rnatype)
-		
-	print(iso.start_codon, 'CODON HERE')
 
 	# recompute probabilities
 	total = sum([iso.prob for iso in locus.isoforms])

@@ -1,0 +1,10 @@
+X	WormBase	CDS	100	129	.	-	2	ID=CDS:F15A2.6a;Parent=Transcript:F15A2.6a.1;Name=F15A2.6a;prediction_status=Confirmed;wormpep=CE28218;protein_id=CAA94127.2;locus=sad-1;uniprot_id=Q19469
+X	WormBase	CDS	782	811	.	-	0	ID=CDS:F15A2.6a;Parent=Transcript:F15A2.6a.1;Name=F15A2.6a;prediction_status=Confirmed;wormpep=CE28218;protein_id=CAA94127.2;locus=sad-1;uniprot_id=Q19469
+X	RNASeq_splice	intron	125	588	11	+	.	Name=RNASeq intron
+X	RNASeq_splice	intron	130	182	4	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	130	437	3	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	130	559	84	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	130	593	18981	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	130	781	47251	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	253	781	3	-	.	Name=RNASeq intron
+X	RNASeq_splice	intron	627	781	16440	-	.	Name=RNASeq intron

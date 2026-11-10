@@ -1,0 +1,7 @@
+III	WormBase	CDS	100	129	.	+	2	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3;Name=F37A4.7a;prediction_status=Confirmed;wormpep=CE29961;protein_id=CCD70705.1;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	179	248	.	+	0	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3;Name=F37A4.7a;prediction_status=Confirmed;wormpep=CE29961;protein_id=CCD70705.1;locus=rbf-1;uniprot_id=P41885
+III	WormBase	CDS	761	792	.	+	2	ID=CDS:F37A4.7a;Parent=Transcript:F37A4.7a.1,Transcript:F37A4.7a.2,Transcript:F37A4.7a.3;Name=F37A4.7a;prediction_status=Confirmed;wormpep=CE29961;protein_id=CCD70705.1;locus=rbf-1;uniprot_id=P41885
+III	RNASeq_splice	intron	130	178	33746	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	130	760	152	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	249	760	27198	+	.	Name=RNASeq intron
+III	RNASeq_splice	intron	249	762	11	+	.	Name=RNASeq intron
